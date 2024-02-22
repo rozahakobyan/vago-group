@@ -45,6 +45,7 @@ function Footer() {
                         </ul>
                     </div>
                 </div>
+                <br />
                 <p style={{color:'#999999', textAlign: "center"}}>Programmers | rhakobyan751@gmail.com  petrosyanartur064@gmail.com  mariampogosyan34@gmail.com</p>
             </div>
         </footer>
