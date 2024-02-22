@@ -1,0 +1,325 @@
+:root{
+    --color1: #1cd5b5;
+    --color2: #3b444b;
+    --color3: #999999;
+    --color4: #eeeeee;
+}
+
+@font-face {
+    font-family: 'ArchitectsDaughter-Regular';
+    src: url('../fonts/ArchitectsDaughter-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+a{
+    text-decoration: none !important;
+}
+
+body{
+    margin:0;
+    padding: 0;
+    
+}
+body {
+    background-color: white;
+}
+
+.logo-panel{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo, .mail, .phone{
+    width: 402px;
+    text-align: center;
+    
+}
+.logo{
+    font-size: 50px;
+    line-height: 100px;
+    color: var(--color2);
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    
+}
+
+.mail .mail-title{
+    display: flex;
+    color: var(--color1);
+    font-size: 25px;
+    font-style: italic;
+    justify-content: center;
+    transform: translate(0,-20px);
+}
+
+.mail .email {
+    display: flex;
+    color: var(--color2);
+    transition: color 0.5s;
+    transform: translate(0,-20px);
+    justify-content: center;
+    font-size: 25px;
+}
+
+.mail .email:hover{
+    color: var(--color1);
+    cursor: pointer;
+}
+
+.phone-title{
+    display: flex;
+    color: var(--color1);
+    font-size: 25px;
+    font-style: italic;
+    justify-content: center;
+    transform: translate(0,-20px);
+}
+
+.number{
+    display: flex;
+    color: var(--color2);
+    transition: color 0.5s;
+    transform: translate(0,-20px);
+    justify-content: center;
+    font-size: 25px;
+}
+
+.number:hover{
+    color: var(--color1);
+    cursor: pointer;
+}
+
+/* --------------------------------- */
+.buttons{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    background-color: var(--color1);
+    
+}
+
+.button{
+    background-color: var(--color1);
+    float: left;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    color: white;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    transition: background-color 0.5s ;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+.button:hover{
+    
+    background-color: black;
+}
+
+/* ------------------------------------- */
+
+/* banner panel */
+
+
+.banner-panel{
+    background-image: url("../../../../public/img/gortsiq.jpg");
+    width: 100%;
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -24px;
+}
+.shade{
+    width: 100%;
+    height: 100%;
+    background-color:rgba(89, 227, 121, 0.2)
+}
+
+.motto-title{
+    color: black;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+}
+
+
+.motto{
+    width: 350px;
+    color: white;
+    transform: translate(20%, 50%);
+    font-size: 20px;
+}
+
+/* ----------------------------------- */
+
+.welcome-title{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+}
+.welcome-text{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+/* -------------------<<<<>>>>--------------------- */
+
+.details-area{
+    width: 600px;
+    margin: 25px auto;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+
+
+.horizontal-line{
+    height: 2px;
+    width: 150px;
+    background-color: var(--color1);
+}
+
+
+
+.detales-number{
+    color: var(--color1);
+    font-size: 50px;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+}
+.details-info{
+    font-size: 25px;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+}
+
+.states{
+    
+    margin: 0 auto;
+    float: left;
+    margin: 25px;
+    text-align: center;
+}
+.detales-number, .details-info p{
+    text-align: center;
+}
+/* --------------------------------------- */
+
+.partners-area{
+   
+    background-color:var(--color4) ;
+}
+.partners-info{
+    margin: 0 auto;
+    width: 200px;
+}
+.partners-title{
+    font-size: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    text-align: center;
+}
+.partners-blocks{
+
+    width: 100%;
+    margin: 25px auto;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.partners-blocks .block{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    float: left;
+    margin: 25px;
+    text-align: center;
+}
+.partners-blocks .block img{
+    width: 300px;
+    height: 300px;
+}
+
+
+
+/* -------------------------------------- */
+footer{
+    width: 100%;
+    height: 340px;
+    background-color: var(--color2);
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.footer-address, 
+.footer-phone, 
+.footer-email{
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 250px;
+    text-align: center;
+    list-style: none;
+}
+
+
+.footer-info{
+    width: 1200px;
+    background-color: var(--color2);
+    padding: 50px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    
+    
+}
+
+.address-title{
+    color: var(--color1);
+    font-size: 40px;
+    font-family: "ArchitectsDaughter-Regular",sans-serif;
+
+}
+.address-text{
+    width: 200px;
+    color: var(--color3);
+    margin: 0 auto;
+}
+
+.footer-phone-title{
+    color: var(--color1);
+    font-size: 40px;
+    font-family: "ArchitectsDaughter-Regular",sans-serif;
+}
+.footer-phone-text{
+    width: 200px;
+    color: var(--color3);
+    margin: 0 auto;
+    
+    transform: translate(-20px,0);
+}
+.footer-email-title{
+    color: var(--color1);
+    font-size: 40px;
+    font-family: "ArchitectsDaughter-Regular",sans-serif;
+}
+.footer-email-text{
+    width: 300px;
+    color: var(--color3);
+    margin: 0 auto;
+}

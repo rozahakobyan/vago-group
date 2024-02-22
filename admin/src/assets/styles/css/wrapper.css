@@ -1,0 +1,21 @@
+#root{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 100%;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.8s;
+    padding-top: 20px;
+}
