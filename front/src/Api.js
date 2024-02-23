@@ -49,4 +49,8 @@ export class Api {
     static updateForgotPassword(password) {
         return api.post('/users/password-update', password);
     }
+
+    static activateUser(params) {
+        return api.post('/users/activate', params);
+    }
 }

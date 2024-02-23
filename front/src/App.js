@@ -6,6 +6,7 @@ import EmploymentAgency from './pages/EmploymentAgency';
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Registration from "./pages/Registration";
+import ActivateUser from "./pages/ActivateUser";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path={"/construction"} element={<Construction />} />
       <Route path={'/employment-agency'} element={<EmploymentAgency/>}/>
       <Route path={'/registration'} element={<Registration/>}/>
+      <Route path={'/activate-user/:email'} element={<ActivateUser/>}/>
     </Routes>
   )
 }

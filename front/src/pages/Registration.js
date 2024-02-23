@@ -1,16 +1,19 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import LogoutWrapper from "../component/LogoutWrapper";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-import {userLoginRequired, userRegisterRequired} from "../store/actions/users";
+import {userRegisterRequired} from "../store/actions/users";
 import IsLoading from "../component/IsLoading";
 
 const Registration = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
+        confirmPassword: "",
     });
 
     const [errors, setErrors] = useState({});
@@ -22,8 +25,8 @@ const Registration = () => {
         if (payload.errors) {
             setErrors(payload.errors)
         }
-        if (payload.token) {
-            navigate('/home')
+        if (payload.status === "ok") {
+            await navigate(`/activate-user/${formData.email}`)
         }
     }, [formData]);
 
@@ -40,15 +43,14 @@ const Registration = () => {
                 <form onSubmit={handleSubmit}>
                     <h1>Registration</h1>
                     {errors.exsist && <p className={"error"}>{errors.exsist}</p>}
-                    {errors.activateError && <p className={"error"}>{errors.activateError}</p>}
 
                     <div className={"input-box"}>
-                        <input type="text" placeholder="First Name" onChange={handleChange("email")}/>
+                        <input type="text" placeholder="First Name" onChange={handleChange("firstName")}/>
                         {errors.firstName ? <p className={"error"}>{errors.firstName.replaceAll('"', "")}</p> : null}
                     </div>
 
                     <div className={"input-box"}>
-                        <input type="text" placeholder="Last Name" onChange={handleChange("email")}/>
+                        <input type="text" placeholder="Last Name" onChange={handleChange("lastName")}/>
                         {errors.lastName ? <p className={"error"}>{errors.lastName.replaceAll('"', "")}</p> : null}
                     </div>
                     
@@ -63,11 +65,9 @@ const Registration = () => {
                     </div>
 
                     <div className={"input-box"}>
-                        <input type="password" placeholder="Reset Password" onChange={handleChange("password")}/>
-                        {errors.password ? <p className={"error"}>{errors.password.replaceAll('"', "")}</p> : null}
+                        <input type="password" placeholder="Confirm Password" onChange={handleChange("confirmPassword")}/>
+                        {errors.confirmPassword ? <p className={"error"}>{errors.confirmPassword.replaceAll('"', "")}</p> : null}
                     </div>
-
-                   
 
                     <button type="submit" className={"btn"}>{
                         loading ? <IsLoading color={'blue'} size={16}/>

@@ -18,8 +18,6 @@ router.post('/login', validate(usersSchema.login), UsersController.login);
 
 router.post('/admin-login', validate(usersSchema.adminLogin), UsersController.adminLogin);
 
-router.post('/oauth', UsersController.oauth);
-
 router.post('/send-password-recovery-code', UsersController.sendPasswordRecoveryCode);
 
 router.post('/validate-password-recovery-code', UsersController.validatePasswordRecoveryCode);

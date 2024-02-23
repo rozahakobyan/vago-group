@@ -41,6 +41,7 @@ export const users = createReducer(initialState, (builder) => {
         .addCase(userRegisterRequired.rejected, (state, action) => {
             const {errors} = action.payload;
             state.errors = errors;
+            console.log(action.payload)
             state.loading = false;
         })
         .addCase(userProfileRequired.pending, (state) => {

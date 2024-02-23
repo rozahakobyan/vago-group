@@ -1,0 +1,126 @@
+:root{
+  --color1: #1cd5b5;
+  --color2: #3b444b;
+  --color3: #999999;
+  --color4: #eeeeee;
+}
+
+.activate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("../../images/login.jpg") no-repeat;
+  background-size: cover;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.activate * {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.activate form {
+  width: 420px;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.activate form .error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.activate form h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.activate form .row_input {
+  min-height: 160px;
+}
+
+.activate form .input_item_box {
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  animation: slide-in-blurred-left 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  flex-wrap: wrap;
+}
+
+.activate form .input-box p {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.activate form .input-box {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.activate form .input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 20px 45px 20px 20px;
+}
+
+.activate form .input-box input::placeholder {
+  color: #ffffff;
+}
+
+
+.activate form .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: 20px 0;
+}
+
+.activate form .remember-forgot label {}
+
+.activate form .remember-forgot label input {
+  accent-color: #ffffff;
+  margin-right: 3px;
+}
+
+
+.activate form .remember-forgot a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.activate form .remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+
+.activate form .btn {
+  width: 100%;
+  height: 45px;
+  background: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 45px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  margin-top: 30px ;
+}
