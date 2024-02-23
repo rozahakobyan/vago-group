@@ -271,11 +271,15 @@ footer{
     width: 100%;
     background-color: var(--color2);
     overflow: auto;
+    
+    box-sizing: border-box;
+}
+.footer{
+    overflow: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 
 .footer-address, 
@@ -336,4 +340,5 @@ footer{
     width: 300px;
     color: var(--color3);
     margin: 0 auto;
+    transform: translate(-40px, 0);
 }

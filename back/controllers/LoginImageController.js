@@ -3,7 +3,7 @@ import sharp from "sharp";
 import path from "path";
 import HttpError from "http-errors";
 import fs from "fs/promises";
-import sequelize from "../services/sequelize";
+import sequelize from "../services/sequelize.js";
 
 class LoginImageController {
     static async add (req, res, next){
