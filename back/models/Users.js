@@ -17,10 +17,10 @@ class Users extends Model {
       },
       defaults: {
         id: 1,
-        firstName: 'Roza',
-        lastName: 'Hakobyan',
-        email: 'rhakobyan751@gmail.com',
-        password: '123456789',
+        firstName: 'Vago',
+        lastName: 'Group',
+        email: 'vagogroup.arm@gmail.com',
+        password: '12345678',
         role: 'admin',
         status:'active'
       }
@@ -34,8 +34,8 @@ class Users extends Model {
         id: 2,
         firstName: 'Roza',
         lastName: 'Hakobyan',
-        email: 'rhakobyan752@gmail.com',
-        password: '123456789',
+        email: 'rhakobyan751@gmail.com',
+        password: '12345678',
         role: 'user',
         status:'active'
       }
