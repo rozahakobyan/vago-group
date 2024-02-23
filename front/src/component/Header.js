@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Account from "../helpers/Account";
 import {createUserData} from "../store/actions/users";
 
@@ -8,10 +8,12 @@ function Header() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const token = useSelector(state => state.users.token);
+
     const handleLogOut = useCallback(() => {
         Account.deleteStrong()
         dispatch(createUserData())
-        navigate('/')
+        navigate('/login')
     }, [])
 
     return (
@@ -30,9 +32,11 @@ function Header() {
                     <p className="phone-title">Phone:</p>
                     <div className="number">+374 77-777-777</div>
                 </div>
-                <div className={"log-out"} onClick={handleLogOut}>
+                {token ? <div className={"log-out"} onClick={handleLogOut}>
                     <p>Log Out</p>
-                </div>
+                </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
+                    <p>Login</p>
+                </div>}
             </div>
             <div className="buttons">
                 <NavLink to={'/'}>

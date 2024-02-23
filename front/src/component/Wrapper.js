@@ -1,22 +1,16 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Helmet} from "react-helmet";
 import Header from "./Header";
 import Footer from "./Footer";
-import {useDispatch, useSelector} from "react-redux";
-import {userProfileRequired} from "../store/actions/users";
-import {Navigate} from "react-router-dom";
+// import {useSelector} from "react-redux";
+// import {userProfileRequired} from "../store/actions/users";
 
 function Wrapper({children, helmetTitle}) {
-    const token = useSelector(state => state.users.token);
-    const dispatch = useDispatch()
+    // const token = useSelector(state => state.users.token);
 
-    useEffect(()=>{
-        dispatch(userProfileRequired())
-    },[])
-
-    if (!token) {
-        return <Navigate to={'/'} replace/>
-    }
+    // if (!token) {
+    //     return <Navigate to={'/'} replace/>
+    // }
 
     return (
         <div className={'wrapper'}>
