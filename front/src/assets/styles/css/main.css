@@ -104,6 +104,17 @@ body {
     font-family: 'ArchitectsDaughter-Regular', sans-serif;
 }
 
+.log-in{
+    width: 80px;
+    height: 75px;
+    background-color: var(--color1);
+    text-align: center;
+    border-radius: 50px;
+    color: white;
+    line-height: 40px;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+}
+
 /* --------------------------------- */
 .buttons{
     display: flex;
