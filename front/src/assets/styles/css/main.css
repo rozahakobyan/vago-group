@@ -313,7 +313,7 @@ footer{
 .address-text{
     width: 200px;
     color: var(--color3);
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 
 .footer-phone-title{
