@@ -14,6 +14,7 @@ const EXCLUDES = [
   'POST:/home-info/list',
   'POST:/login-image/list',
   'POST:/welcome/list',
+  'POST:/products/list',
 ];
 
 export default function authorization(req, res, next) {

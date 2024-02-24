@@ -11,43 +11,6 @@ import _ from "lodash";
 const { JWT_SECRET, FRONT_URL } = process.env;
 
 class UsersController {
-
-    static async list(req, res, next) {
-        try {
-            const {
-                s,
-                limit = 20,
-                page = 1,
-            } = req.query;
-            const where = {};
-            if (s) {
-                where[Op.or] = [
-                    { firstName: { [Op.substring]: s } },
-                    { lastName: { [Op.substring]: s } },
-                    { email: { [Op.substring]: s } },
-                ];
-            }
-            const users = await Users.findAll({
-                where,
-                limit,
-                offset: (page - 1) * limit,
-            });
-
-            const total = await Users.count({
-                where,
-            });
-
-            res.json({
-                status: 'ok',
-                users,
-                total,
-                totalPages: Math.ceil(total / limit),
-            });
-        } catch (e) {
-            next(e);
-        }
-    }
-
     static async register(req, res, next) {
         try {
 
