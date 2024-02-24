@@ -13,7 +13,6 @@ function Header() {
     const handleLogOut = useCallback(() => {
         Account.deleteStrong()
         dispatch(createUserData())
-        navigate('/login')
     }, [])
 
     return (
