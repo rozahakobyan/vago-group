@@ -11,7 +11,6 @@ import _ from "lodash";
 const { JWT_SECRET, FRONT_URL } = process.env;
 
 class UsersController {
-
     static async register(req, res, next) {
         try {
 
