@@ -239,6 +239,7 @@ body {
 .partners-area{
    
     background-color:var(--color4) ;
+    padding-bottom: 50px;
 }
 .partners-info{
     margin: 0 auto;

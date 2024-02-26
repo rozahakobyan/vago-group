@@ -264,6 +264,7 @@
     height: 300px;
     padding:10px;
     font-size: 15px;
+    resize: none;
 }
 
 .offersArea form button{
@@ -429,6 +430,7 @@
    width: 1122px;
    height: 300px;
    padding: 25px;
+   resize: none;
 }
 .contacts-Area form{
     width: 100%;

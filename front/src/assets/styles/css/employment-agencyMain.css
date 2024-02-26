@@ -1,4 +1,4 @@
-:root{
+:root {
     --color1: #1cd5b5;
     --color2: #3b444b;
     --color3: #999999;
@@ -82,4 +82,374 @@
     background-color: black;
 }
 
+/* ----------------- */
 
+.EmploymentAgency-contactsArea {
+    width: 100%;
+    background-color: var(--color4);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.EmploymentAgency-contactsTitle {
+    text-align: center;
+    font-size: 30px;
+    font-family: "ArchitectsDaughter-Regular", sans-serif;
+}
+
+.EmploymentAgency-contactsMap {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.EmploymentAgency-contactsMap iframe {
+    width: 1170px;
+    height: 300px;
+    margin: 0 auto;
+    border: none;
+}
+
+
+.EmploymentAgency-contactsFormArea {
+    background-color: var(--color4);
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.EmploymentAgency-contacts-Area {
+    margin: 0 auto;
+    width: 1200px;
+    text-align: center;
+}
+
+.EmploymentAgency-contacts-Area form input {
+    margin: 10px;
+    width: 324px;
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    outline: none;
+}
+
+.EmploymentAgency-contacts-Area form textarea {
+    width: 1122px;
+    height: 300px;
+    padding: 25px;
+    resize: none;
+}
+
+.EmploymentAgency-contacts-Area form {
+    width: 100%;
+    text-align: center;
+}
+
+.EmploymentAgency-contacts-Area form button {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: background-color 0.4s;
+    transform: translate(-547px, 0px);
+    text-align: center !important;
+    padding: 0;
+}
+
+.EmploymentAgency-contacts-Area form button:hover {
+    background-color: var(--color1);
+}
+
+/* ------------------------ */
+
+
+.application-contactsArea {
+    width: 100%;
+    background-color: var(--color4);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.application-contactsTitle {
+    text-align: center;
+    font-size: 30px;
+    font-family: "ArchitectsDaughter-Regular", sans-serif;
+}
+
+.application-contactsMap {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.application-contactsMap iframe {
+    width: 1170px;
+    height: 300px;
+    margin: 0 auto;
+    border: none;
+}
+
+
+.application-contactsFormArea {
+    background-color: var(--color4);
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.application-contacts-Area {
+    margin: 0 auto;
+    width: 1200px;
+    text-align: center;
+}
+
+.application-contacts-Area form input {
+    margin: 10px;
+    width: 324px;
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    outline: none;
+}
+
+.application-contacts-Area form textarea {
+    width: 1122px;
+    height: 300px;
+    padding: 25px;
+    resize: none;
+}
+
+.application-contacts-Area form {
+    width: 100%;
+    text-align: center;
+}
+
+.application-contacts-Area form button {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: background-color 0.4s;
+    transform: translate(-547px, 0px);
+    text-align: center !important;
+    padding: 0;
+}
+
+.application-contacts-Area form button:hover {
+    background-color: var(--color1);
+}
+
+/* ------Gallery------- */
+
+.employmentAgency-galleryArea {
+    background-color: white;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 50px;
+}
+
+.employmentAgency-gallery-title {
+    margin: 0 auto;
+    width: 500px;
+    font-size: 30px;
+    text-align: center;
+    font-family: "ArchitectsDaughter-Regular", sans-serif;
+    padding: 25px;
+}
+
+.employmentAgency-gallery-blocks {
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+.employmentAgency-gallery-blocks img {
+    height: 200px;
+    margin: 5px;
+}
+
+.employmentAgency-fullscreen-img-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Прозрачный черный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.employmentAgency-fullscreen-img-container {
+    position: relative;
+}
+
+.employmentAgency-fullscreen-img-container img {
+    max-width: 800px;
+    /* Максимальная ширина изображения */
+    max-height: 600px;
+    /* Максимальная высота изображения */
+}
+
+.employmentAgency-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.employmentAgency-close-btn:hover {
+    color: #999;
+}
+
+.employmentAgency-gallery-type {
+    text-align: center;
+    font-size: 30px;
+    font-family: "ArchitectsDaughter-Regular", sans-serif;
+}
+
+.employmentAgency-gallery-blocks iframe {
+    margin: 5px;
+}
+
+
+
+/* history */
+
+.history-title {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+}
+
+.history-text {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+
+/* ------partners------- */
+
+.EmploymentAgency-partners-area {
+
+    background-color: var(--color4);
+    padding-bottom: 50px;
+}
+
+.EmploymentAgency-partners-info {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.EmploymentAgency-partners-title {
+    font-size: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    text-align: center;
+}
+
+.EmploymentAgency-partners-blocks {
+
+    width: 100%;
+    margin: 25px auto;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.EmploymentAgency-partners-blocks .EmploymentAgency-block {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    float: left;
+    margin: 25px;
+    text-align: center;
+}
+
+.EmploymentAgency-partners-blocks .EmploymentAgency-block img {
+    width: 300px;
+    height: 300px;
+}
+
+/* --------------- */
+
+.pages-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pages-list .item {
+    align-items: center;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+}
+
+.pages-list .disabled-page {
+    color: #808e9b;
+}
+
+.pages-list .active {
+    border: solid 1px #E88716;
+    border-radius: 40px;
+    color: #E88716;
+}
+
+.pages-list .next {
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    width: 150px;
+}
+
+.pages-list .pagination {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    position: relative;
+}
+
+.pages-list .pagination-page {
+    font-weight: 700;
+}
+
+.pages-list .previous {
+    font-size: 16px;
+    left: 0;
+    position: absolute;
+    width: 150px;
+}
