@@ -180,6 +180,33 @@ class UsersController {
         }
     }
 
+    static async profile(req, res, next) {
+        try {
+
+            const userId = req.userId;
+            const userProfile = await Users.findByPk(userId, {
+                attributes: ['firstName', 'lastName', 'email', 'isOauth', 'status', 'photo'],
+            });
+
+            if (userProfile.photo.search('https') === -1) {
+                if (fss.existsSync(`public/users/user_${userId}`)) {
+                    userProfile.photo = `users/user_${req.userId}/${userProfile.photo}`
+                }
+            }
+
+            const profile = {
+                ...userProfile.toJSON(),
+            }
+
+            res.json({
+                status: 'ok',
+                profile
+            })
+        } catch (e) {
+            next(e)
+        }
+    }
+
     static async profileUpdate(req, res, next) {
         try {
 
