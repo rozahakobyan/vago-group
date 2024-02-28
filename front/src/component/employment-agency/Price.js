@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 
+
+
 function Price() {
     const [product, setProduct] = useState([])
     const [pageNumber, setPageNumber] = useState(1)
@@ -15,6 +17,8 @@ function Price() {
             setPageCount(data.total_pages)
         })()
     }, [pageNumber])
+
+
 
     return(
         <div className="priceList">
