@@ -4,7 +4,7 @@ export default {
     register: Joi.object({
         firstName: Joi.string().max(255).required(),
         lastName: Joi.string().max(255).required(),
-        email: Joi.string().required().email(),
+        email: Joi.string().email().required(),
         password: Joi.string().required().min(8),
         confirmPassword: Joi.string().valid(Joi.ref('password')).required().label('Confirm password')
             .messages({ 'any.only': '{{#label}} does not match the password' })

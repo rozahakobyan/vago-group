@@ -1,5 +1,5 @@
 import {Router} from "express";
-import welcome from "../schema/welcome.js";
+import welcome from "../schema/welcomeSchema.js";
 import WelcomeController from "../controllers/WelcomeController.js";
 import validate from "../middelwares/validate.js";
 

@@ -1,5 +1,4 @@
 import HttpError from "http-errors";
-import HomeInfo from "../models/HomeInfo.js";
 import Welcome from "../models/Welcome.js";
 
 class WelcomeController {

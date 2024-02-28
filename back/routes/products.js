@@ -1,6 +1,6 @@
 import {Router} from "express";
 import validate from "../middelwares/validate.js";
-import products from "../schema/products.js";
+import products from "../schema/productsSchema.js";
 import ProductsController from "../controllers/ProductsController.js";
 import uploader from "../middelwares/uploader.js";
 
