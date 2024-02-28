@@ -10,36 +10,26 @@ import {NavLink, useNavigate} from "react-router-dom";
 
 
 const NavbarItems = ({item}) => {
-    const [active, setActive] = useState(false);
     const [activeBorder, setActiveBorder] = useState(false);
     const activeNavbar = useSelector(state => state.users.activeNavbar)
     const dispatch = useDispatch()
     const navigation = useNavigate()
-    const {controllersNavStets} = useContext(NavbarCreateContext)
+    const {controllersNavStets, setActiveIndex, activeIndex} = useContext(NavbarCreateContext)
 
     useEffect(() => {
-        if (active) {
+        if (item.id === activeIndex) {
             setTimeout(() => {
                 setActiveBorder(true)
             }, 530)
         } else {
             setActiveBorder(false)
         }
-        if (controllersNavStets) {
-            setActive(false)
-        }
-    }, [active, activeNavbar, controllersNavStets]);
+    }, [activeIndex, activeNavbar, controllersNavStets]);
 
-    const handleItem = useCallback((evn,item) => {
-        if (activeNavbar) {
-            dispatch(activeNavbarToggle())
-            setTimeout(() => {
-                setActive(true)
-            }, 600)
-        } else {
-            setActive(!active)
-        }
-        if(!item.subMenu) {
+
+    const handleItem = useCallback((evn, item) => {
+        setActiveIndex(item.id)
+        if (!item.subMenu) {
             navigation(item.path);
         }
         if (item.title === "logout") {
@@ -47,15 +37,15 @@ const NavbarItems = ({item}) => {
             dispatch(createUserData())
             navigation('/')
         }
-    }, [active, activeNavbar]);
+    }, [activeNavbar]);
 
 
     return (
         <li className={classNames('nav_item', {
-            active_nav_item: active
-        })} onClick={(evn) => handleItem(evn,item)}>
+            active_nav_item: activeIndex === item.id
+        })} onClick={(evn) => handleItem(evn, item)}>
             <div className={'nav_items_sub'}>
-                <span>{<item.Icon fill={active ? '#red' :'#fff'}/>}</span>
+                <span>{<item.Icon fill={item.id === activeIndex ? '#red' : '#fff'}/>}</span>
                 <p className={'text_navbar'}>{item.name}</p>
                 {item.openIcon ? <span className={'icon_nav_left'}><GoChevronDown/></span> : null}
             </div>

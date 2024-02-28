@@ -13,6 +13,7 @@ const { REACT_APP_API_URL } = process.env;
 
 const Navbar = () => {
     const [controllersNavStets, setControllersNavStets] = useState(false)
+    const [activeIndex, setActiveIndex] = useState(1)
     const activeNavbar = useSelector(state => state.users.activeNavbar)
     const profile = useSelector(state => state.users.profile);
 
@@ -20,9 +21,11 @@ const Navbar = () => {
         <NavbarCreateContext.Provider value={{
             controllersNavStets,
             setControllersNavStets,
+            setActiveIndex,
+            activeIndex
         }}>
             <nav className={classNames('left_navbar', {
-                 activeNavbar
+                activeNavbar
             })}>
                 <ActiveButton/>
                 <Logo/>
@@ -31,13 +34,13 @@ const Navbar = () => {
                         {
                             navbarData.map((item,index) => <NavbarItems item={item} index={index} key={index.toString()}/>)
                         }
-                       <li className={'nav_item'}>
-                         <div className={'nav_items_sub'}>
-                             <img className={'user_photo'} src={`${REACT_APP_API_URL}/${profile.photo}`}/>
-                             <p className={'user_name'}>{profile.firstName} {profile.lastName}</p>
-                             <span className={'icon_nav_left'}><SettingsIcon/></span>
-                         </div>
-                       </li>
+                        <li className={'nav_item'}>
+                            <div className={'nav_items_sub'}>
+                                <img className={'user_photo'} src={`${REACT_APP_API_URL}/${profile.photo}`}/>
+                                <p className={'user_name'}>{profile.firstName} {profile.lastName}</p>
+                                <span className={'icon_nav_left'}><SettingsIcon/></span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </nav>

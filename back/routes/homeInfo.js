@@ -1,6 +1,6 @@
 import {Router} from "express";
 import validate from "../middelwares/validate.js";
-import homeInfo from "../schema/homeInfo.js";
+import homeInfo from "../schema/homeInfoSchema.js";
 import HomeInfoController from "../controllers/HomeInfoController.js";
 import uploader from "../middelwares/uploader.js";
 

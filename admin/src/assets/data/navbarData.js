@@ -122,7 +122,7 @@ export default [
         Icon: UsersIcon,
         title: "users",
         active: false,
-        path: "/all-users/1",
+        path: "/all-users",
     },
     {
         id: 9,

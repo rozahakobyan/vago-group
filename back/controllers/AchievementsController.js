@@ -1,24 +1,24 @@
 import HttpError from "http-errors";
-import Welcome from "../models/Welcome.js";
+import Achievements from "../models/Achievements.js";
 
-class WelcomeController {
+class AchievementsController {
     static async add (req, res, next){
         try{
-            const {title, description} = req.body;
+            const {name, number} = req.body;
 
-            if(!title || !description){
+            if(!name || !number){
                 throw HttpError(404, {
                     errors: {
-                        exists: "Title or Description Not found"
+                        exists: "Name or Number Not found"
                     }
                 })
             }
 
-            const info = await Welcome.create({title, description})
+            const achievement = await Achievements.create({name, number})
 
             res.json({
                 status: "ok",
-                info
+                achievement
             })
         }catch (e) {
             next(e)
@@ -27,14 +27,14 @@ class WelcomeController {
 
     static async update (req, res, next){
         try{
-            const {title, description} = req.body;
+            const {name, number} = req.body;
             const { id } = req.params;
 
-            const info = await Welcome.findOne({
+            const achievement = await Achievements.findOne({
                 where: {id}
             })
 
-            if (!info) {
+            if (!achievement) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -42,11 +42,11 @@ class WelcomeController {
                 })
             }
 
-            await info.update({title, description})
+            await achievement.update({name, number})
 
             res.json({
                 status: "ok",
-                info
+                achievement
             })
         }catch (e) {
             next(e)
@@ -57,9 +57,9 @@ class WelcomeController {
         try{
             const { id } = req.params;
 
-            const info = await Welcome.findByPk(id)
+            const achievement = await Achievements.findByPk(id)
 
-            if (!info) {
+            if (!achievement) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -67,7 +67,7 @@ class WelcomeController {
                 })
             }
 
-            await info.destroy()
+            await achievement.destroy()
 
             res.json({
                 status: "ok"
@@ -79,13 +79,11 @@ class WelcomeController {
 
     static async list (req, res, next){
         try{
-            const { id } = req.params;
-
-            const info = await Welcome.findAll()
+            const achievements = await Achievements.findAll()
 
             res.json({
                 status: "ok",
-                info
+                achievements
             })
         }catch (e) {
             next(e)
@@ -93,4 +91,4 @@ class WelcomeController {
     }
 }
 
-export default WelcomeController;
+export default AchievementsController;
