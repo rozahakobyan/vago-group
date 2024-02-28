@@ -1,8 +1,4 @@
 import HttpError from "http-errors";
-import Contacts from "../models/Contacts.js";
-import {Massagers} from "../models/index.js";
-import ContactsMassager from "../models/ContactsMassager.js";
-import sequelize from "../services/sequelize.js";
 import Works from "../models/Works.js";
 import WorksSchedules from "../models/WorksSchedules.js";
 import {Op} from "sequelize";
@@ -25,7 +21,7 @@ class WorksController {
             if(schedule.length){
                 await WorksSchedules.bulkCreate(schedule.map(d => ({
                     workId: work.id,
-                    date: new Date(d)
+                    date: d
                 })))
             }
 
@@ -73,7 +69,7 @@ class WorksController {
             if(schedule){
                 await WorksSchedules.bulkCreate(schedule.map(d => ({
                     workId: work.id,
-                    date: new Date(d)
+                    date: d
                 })))
             }
 

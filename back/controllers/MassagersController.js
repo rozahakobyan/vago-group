@@ -1,4 +1,3 @@
-import massagers from "../models/massagers.js";
 import HttpError from "http-errors";
 import path from "path";
 import sharp from "sharp";
