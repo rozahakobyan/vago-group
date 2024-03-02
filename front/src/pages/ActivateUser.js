@@ -33,7 +33,7 @@ const ActivateUser = () => {
                 setErrors(payload.errors)
             } else if(payload.status === "ok") {
                 setErrors({})
-                await navigate("/login")
+                navigate("/login")
             }
         }else {
             setErrors({code:"Please write activate code"})
