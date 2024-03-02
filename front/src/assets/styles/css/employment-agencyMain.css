@@ -408,7 +408,7 @@
 
 .pages-list .item {
     align-items: center;
-    color: #FFF;
+    color: var(--color1);
     cursor: pointer;
     display: flex;
     font-size: 16px;
@@ -418,13 +418,13 @@
 }
 
 .pages-list .disabled-page {
-    color: #808e9b;
+    color: var(--color1);
 }
 
 .pages-list .active {
-    border: solid 1px #E88716;
+    border: solid 1px var(--color1);
     border-radius: 40px;
-    color: #E88716;
+    color: var(--color1);
 }
 
 .pages-list .next {
@@ -452,4 +452,30 @@
     left: 0;
     position: absolute;
     width: 150px;
+}
+
+.Price-table{
+    margin: 0 auto;
+}
+.Price-table td{
+    text-align: center;
+    width: 250px;
+    padding: 10px;
+}
+
+
+.priceList{
+    width: 900px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: var(--color4);
+}
+.priceList-area{
+    margin: 0 50px 50px ;
+}
+
+.priceList-title{
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    text-align: center;
+    font-size: 30px;
 }
