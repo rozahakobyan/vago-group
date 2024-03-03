@@ -1,0 +1,25 @@
+.logistic-Price-table{
+    margin: 0 auto;
+}
+.logistic-Price-table td{
+    text-align: center;
+    width: 250px;
+    padding: 10px;
+}
+
+
+.logistic-priceList{
+    width: 900px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: var(--color4);
+}
+.logistic-priceList-area{
+    margin: 0 50px 50px ;
+}
+
+.logistic-priceList-title{
+    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    text-align: center;
+    font-size: 30px;
+}

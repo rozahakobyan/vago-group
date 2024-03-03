@@ -1,13 +1,13 @@
 import React from "react";
+import Price from "../component/logistic/Price";
 import Wrapper from "../component/Wrapper";
-import Header from "../component/Header";
-import Footer from "../component/Footer";
+
 
 
 function Logistic(){
     return(
         <Wrapper>
-            
+            <Price/>            
         </Wrapper>
     )
 }

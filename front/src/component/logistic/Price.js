@@ -19,10 +19,10 @@ function Price() {
 
 
     return (
-        <div className="priceList">
-            <h2 className="priceList-title">Price List</h2>
-            <div className="priceList-area">
-                <table className="Price-table">
+        <div className="logistic-priceList">
+            <h2 className="logistic-priceList-title">Price List</h2>
+            <div className="logistic-priceList-area">
+                <table className="logistic-Price-table">
                     <thead>
                         <tr>
                             <th>first name</th>
