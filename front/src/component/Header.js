@@ -1,8 +1,8 @@
-import React, {useCallback} from 'react';
-import {NavLink, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import React, { useCallback } from 'react';
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Account from "../helpers/Account";
-import {createUserData} from "../store/actions/users";
+import { createUserData } from "../store/actions/users";
 
 function Header() {
     const navigate = useNavigate();
@@ -17,25 +17,34 @@ function Header() {
 
     return (
         <header>
-            <div className="logo-panel">
+            <div className="header-blocks">
                 <NavLink to={"/home"}>
                     <div className="logo"><strong>VAGO-GROUP</strong></div>
                 </NavLink>
-                <div className="mail">
+                <div className="header-block">
                     <p className="mail-title">Email:</p>
                     <NavLink>
                         <div className="email">inchvorban@mail.ru</div>
                     </NavLink>
                 </div>
-                <div className="phone">
+                <div className="header-block">
                     <p className="phone-title">Phone:</p>
                     <div className="number">+374 77-777-777</div>
                 </div>
-                {token ? <div className={"log-out"} onClick={handleLogOut}>
-                    <p>Log Out</p>
-                </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
-                    <p>Login</p>
-                </div>}
+                <div className={'header-block'}>
+                    <div className={'header-block-buttonArea'}>
+                        <div className={'header-block-login'}>
+                            {token ? <div className={"log-out"} onClick={handleLogOut}>
+                                <p>Log Out</p>
+                            </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
+                                <p>Login</p>
+                            </div>}
+                        </div>
+                        <div className={'header-block-language'}>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className="buttons">
                 <NavLink to={'/'}>
