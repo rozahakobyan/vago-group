@@ -1,6 +1,8 @@
 @import url("login.css");
 @import url("forgotPassword.css");
+@import url("navbar.css");
 @import url("wrapper.css");
+@import url("homeInfo.css");
 
 * {
   margin: 0;

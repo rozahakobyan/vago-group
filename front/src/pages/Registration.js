@@ -26,7 +26,7 @@ const Registration = () => {
             setErrors(payload.errors)
         }
         if (payload.status === "ok") {
-            await navigate(`/activate-user/${formData.email}`)
+            navigate(`/activate-user/${formData.email}`)
         }
     }, [formData]);
 
