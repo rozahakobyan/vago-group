@@ -22,6 +22,6 @@ app.use((req, res, next) => {
 
 app.use(errorHandler)
 
-app.listen(3000, () => {
+app.listen(4001, () => {
     console.log('Server started...');
 })

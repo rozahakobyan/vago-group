@@ -33,6 +33,7 @@ function Header() {
                 </div>
                 <div className={'header-block'}>
                     <div className={'header-block-buttonArea'}>
+                        
                         <div className={'header-block-login'}>
                             {token ? <div className={"log-out"} onClick={handleLogOut}>
                                 <p>Log Out</p>
@@ -40,6 +41,7 @@ function Header() {
                                 <p>Login</p>
                             </div>}
                         </div>
+
                         <div className={'header-block-language'}>
                             
                         </div>
