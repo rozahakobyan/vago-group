@@ -106,7 +106,8 @@ class UsersController {
             const user = await Users.findOne({
                 where: {
                     email,
-                    password: Users.passwordHash(password)
+                    password: Users.passwordHash(password),
+                    role: "user"
                 },
                 attributes: {
                     exclude: ['verification', 'createdAt', 'updatedAt'],
@@ -146,7 +147,8 @@ class UsersController {
             const user = await Users.findOne({
                 where: {
                     email,
-                    password: Users.passwordHash(password)
+                    password: Users.passwordHash(password),
+                    role: "admin"
                 },
                 attributes: {
                     exclude: ['verification', 'createdAt', 'updatedAt'],

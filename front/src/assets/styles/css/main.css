@@ -28,26 +28,31 @@ body {
     background-color: white;
 }
 
-.logo-panel{
-    height: 100px;
+.header-blocks{
+    width: 100%;
+    margin: 10px auto;
+    overflow: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
-.logo, .mail, .phone{
-    width: 402px;
+
+.logo, .header-block{
+    width: 300px;
     text-align: center;
     
 }
 .logo{
-    font-size: 50px;
+    font-size: 40px;
     line-height: 100px;
     color: var(--color2);
     font-family: 'ArchitectsDaughter-Regular', sans-serif;
-    
+    padding: 0;
 }
 
-.mail .mail-title{
+.header-block .mail-title{
     display: flex;
     color: var(--color1);
     font-size: 25px;
@@ -56,7 +61,7 @@ body {
     transform: translate(0,-20px);
 }
 
-.mail .email {
+.header-block .email {
     display: flex;
     color: var(--color2);
     transition: color 0.5s;
@@ -65,7 +70,7 @@ body {
     font-size: 25px;
 }
 
-.mail .email:hover{
+.header-block .email:hover{
     color: var(--color1);
     cursor: pointer;
 }
@@ -93,27 +98,66 @@ body {
     cursor: pointer;
 }
 
+.header-block-login{
+    display: flex;
+    justify-content: center;
+}
+
+.header-block-buttonArea{
+    width: 100%;
+    margin: 10px auto;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+
 .log-out{
-    width: 80px;
-    height: 75px;
+    width: 150px;
+    height: 50px;
     background-color: var(--color1);
     text-align: center;
-    border-radius: 50px;
     color: white;
-    line-height: 40px;
     font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    margin: 5px 0 0 5px;
+    transition: background-color 0.5s;
+}
+
+.log-out:hover{
+    background-color: black;
 }
 
 .log-in{
-    width: 80px;
-    height: 75px;
+    width: 150px;
+    height: 50px;
     background-color: var(--color1);
     text-align: center;
-    border-radius: 50px;
     color: white;
-    line-height: 40px;
     font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    margin: 5px 0 0 5px;
+    transition: background-color 0.5s;
 }
+
+.log-in:hover{
+    background-color: black;
+}
+
+.header-block-language{
+    width: 150px;
+    height: 50px;
+    background-color: var(--color1);
+    text-align: center;
+    margin: 5px 0 0 5px;
+    transition: background-color 0.5s;
+}
+.header-block-language:hover{
+    background-color: black;
+}
+
+
 
 /* --------------------------------- */
 .buttons{
