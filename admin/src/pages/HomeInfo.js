@@ -6,10 +6,16 @@ function HomeInfo() {
         <Wrapper helmetTitle={"Home Info"}>
             <section className={"homeInfo"}>
                 <form>
-                    <input type={"text"} placeholder={"title"}/>
-                    <input type={"text"} placeholder={"description"}/>
-                    <input type={"file"} />
-                    <button type={"submit"}></button>
+                    <h3>Add new info</h3> <br/>
+                    <input type={"text"} placeholder={"title"}/> <br/>
+                    <input type={"textarea"} placeholder={"description"}/> <br/>
+
+                    <label className="input-file">
+                        <input type="file"/>
+                        <span>Choose file</span>
+                    </label>
+                    <input type={"submit"} value={"Save"}/>
+
                 </form>
             </section>
         </Wrapper>

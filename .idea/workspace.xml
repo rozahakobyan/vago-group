@@ -5,95 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca45480c-c8d2-40ea-b94b-b9199c8f15ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/data/navbarData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/5968517.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/Hello.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/arrowOpen.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/cars.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/close.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/dashboard.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/destination.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/destination.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/edit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/food.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/help.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/home.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/hotels.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/imageError.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/lock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/logOut.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/messages.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/navbarLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/service.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/settings.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/settings2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/tour.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/tourLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/travel.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/user.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/users.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/icon/view.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/homeInfo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/navbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/component/Navbar/ActiveButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/component/Navbar/Logo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/component/Navbar/Navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/component/Navbar/NavbarItems.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/HomeInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/controllers/AchievementsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/controllers/ContactsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/controllers/MassagersController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/controllers/PartnersController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/controllers/WorksController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/Achievements.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/Contacts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/ContactsMassager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/Massagers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/Partners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/Works.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/WorksSchedules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/public/massagersIcon/fb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/public/massagersIcon/ins.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/public/massagersIcon/tg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/public/massagersIcon/wp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/public/users/user_1/avatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/public/users/user_2/avatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/routes/achievements.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/routes/contacts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/routes/massagers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/routes/partners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/routes/works.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/schema/achievementsSchema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/schema/contactsSchema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/schema/massagersSchema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/schema/partnersSchema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/schema/worksSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/infoall.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/pages/InfoAll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/assets/styles/css/logistic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/component/logistic/Price.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/pages/Logistic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/data/navbarData.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/data/navbarData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/css/forgotPassword.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/forgotPassword.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/css/homeInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/homeInfo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/UsersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/UsersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/WelcomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/WelcomeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/middelwares/cors.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/middelwares/cors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/migrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/migrate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/homeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/homeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/loginImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/loginImage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/welcome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/schema/homeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/homeInfoSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/schema/loginImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/loginImageSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/schema/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/productsSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/schema/usersSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/usersSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/schema/welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/welcomeSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/ActivateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/ActivateUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/css/wrapper.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/css/wrapper.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/component/Wrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/component/Wrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/HomeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/HomeInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/assets/styles/css/employment-agencyMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/styles/css/employment-agencyMain.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/assets/styles/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/styles/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Price.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Price.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,21 +61,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging dev&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging dev",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "settings.qodana",
+    "ts.external.directory.path": "D:\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\Desktop\vago-group\admin\src\pages" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -158,7 +95,12 @@
       <workItem from="1709485082804" duration="610000" />
       <workItem from="1709486714231" duration="257000" />
       <workItem from="1709490023137" duration="5771000" />
-      <workItem from="1709541059747" duration="354000" />
+      <workItem from="1709541059747" duration="1107000" />
+      <workItem from="1709550897190" duration="199000" />
+      <workItem from="1709656591320" duration="1713000" />
+      <workItem from="1709646449100" duration="8738000" />
+      <workItem from="1709834939819" duration="1342000" />
+      <workItem from="1710085401522" duration="13269000" />
     </task>
     <servers />
   </component>

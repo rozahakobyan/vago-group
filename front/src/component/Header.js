@@ -47,7 +47,7 @@ function Header() {
                 <NavLink to={'/employment-agency'}>
                     <div className="button"><strong>Employment agency</strong></div>
                 </NavLink>
-                <NavLink to={'#'}>
+                <NavLink to={'/logistic'}>
                     <div className="button"><strong>Logistics</strong></div>
                 </NavLink>
             </div>

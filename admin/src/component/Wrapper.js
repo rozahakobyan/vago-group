@@ -22,6 +22,7 @@ function Wrapper({children, helmetTitle}) {
             <div className={"container"}>{children}</div>
         </div>
     );
+
 }
 
 export default Wrapper;

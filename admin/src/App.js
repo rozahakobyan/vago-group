@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./component/Navbar/Navbar";
 import HomeInfo from "./pages/HomeInfo";
+import InfoAll from "./pages/InfoAll";
+
 
 const EXCLUDES = ['/admin-login', '/forgot-password']
 
@@ -22,6 +24,7 @@ function App() {
               <Route path={'/forgot-password'} element={<ForgotPassword />}/>
               <Route path={"/admin/home"} element={<Home />} />
               <Route path={"/admin/home-info-add"} element={<HomeInfo />} />
+              <Route path={"/admin/all-info"} element={<InfoAll />} />
           </Routes>
       </div>
   )

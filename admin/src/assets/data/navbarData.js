@@ -30,7 +30,7 @@ export default [
             {
                 id: 2_1,
                 title: "All Info",
-                path: "/all-info",
+                path: "/admin/all-info",
                 active: false,
             },
             {

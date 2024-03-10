@@ -3,6 +3,7 @@
 @import url("navbar.css");
 @import url("wrapper.css");
 @import url("homeInfo.css");
+@import url("infoall.css");
 
 * {
   margin: 0;
