@@ -49,4 +49,16 @@ export class Api {
     static updateForgotPassword(password) {
         return api.post('/users/password-update', password);
     }
+
+    static addHomeInfo(data = {}) {
+        return api.post('/home-info/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static homeInfoList() {
+        return api.get('/home-info/list');
+    }
 }

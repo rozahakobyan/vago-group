@@ -81,7 +81,7 @@
     border: none;
     padding: 10px;
 }
-input[type=submit] {
+.homeInfo button {
     width: 100%;
     height: 45px;
     background: #ffffff;

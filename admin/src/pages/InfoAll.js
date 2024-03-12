@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Wrapper from "../component/Wrapper";
+import {useDispatch, useSelector} from "react-redux";
+import {homeInfoListRequest} from "../store/actions/homeInfo";
+import Info from "../component/home/Info";
 
 function InfoAll() {
+    const dispatch = useDispatch();
+
+    const infoList = useSelector(state => state.homeInfo.infoList);
+
+    useEffect(() => {
+        dispatch(homeInfoListRequest())
+    }, [infoList]);
+
     return (
         <Wrapper helmetTitle={"All Info"}>
             <h2>Responsive Table</h2>
@@ -16,21 +27,9 @@ function InfoAll() {
                     </thead>
 
                     <tbody>
-                    <tr>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                        <td>Content 1</td>
-                    </tr>
-                    <tr>
-                        <td>Content 2</td>
-                        <td>Content 2</td>
-                        <td>Content 2</td>
-                    </tr>
-                    <tr>
-                        <td>Content 3</td>
-                        <td>Content 3</td>
-                        <td>Content 3</td>
-                    </tr>
+                        {infoList.map(info => (
+                            <Info info={info} key={info.id}/>
+                        )) }
                     </tbody>
                 </table>
             </div>
