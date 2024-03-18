@@ -16,11 +16,7 @@ HomeInfo.init({
         type: DataTypes.STRING(255),
         allowNull: false,
     },
-    description: {
-        type: DataTypes.STRING(255),
-        allowNull: false,
-    },
-    image: {
+    video: {
         type:DataTypes.STRING(255),
         allowNull: false,
     },

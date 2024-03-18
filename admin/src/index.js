@@ -6,8 +6,12 @@ import './assets/styles/css/index.css';
 import App from './App';
 import {Provider} from "react-redux";
 import {store} from "./store";
+import Modal from "react-modal";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+Modal.setAppElement("#root");
+
 root.render(
     <BrowserRouter>
         <Provider store={store}>

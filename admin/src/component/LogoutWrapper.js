@@ -7,7 +7,7 @@ const LogoutWrapper = ({children,helmetTitle}) => {
     const token = useSelector(state => state.users.token);
 
     if(token){
-        return <Navigate to={'/admin/home'}/>
+        return <Navigate to={'/admin/homeInformation'}/>
     }
 
     return (

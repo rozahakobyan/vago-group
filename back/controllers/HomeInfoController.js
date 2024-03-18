@@ -8,13 +8,13 @@ import sequelize from "../services/sequelize.js";
 class HomeInfoController {
     static async add (req, res, next){
         try{
-            const {title, description} = req.body;
+            const {title} = req.body;
             const {file} = req;
 
-            if(!title || !description){
+            if(!title){
                 throw HttpError(404, {
                     errors: {
-                        exists: "Title or Description Not found"
+                        exists: "Title Not found"
                     }
                 })
             }
@@ -27,22 +27,11 @@ class HomeInfoController {
                 })
             }
 
-            const root = path.resolve('public/homeImage')
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .toFile(path.join(root, file.filename));
+            const root = path.resolve('public/homeVideo')
 
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .webp({
-                    quality: 80,
-                })
-                .toFile(path.join(root, file.filename + '.webp'))
+            // await fs.writeFile(path.join(root, file.filename), file)
 
-
-            const info = await HomeInfo.create({title, description, image: file.filename})
+            const info = await HomeInfo.create({title})
 
             res.json({
                 status: "ok",
@@ -55,7 +44,7 @@ class HomeInfoController {
 
     static async update (req, res, next){
         try{
-            const {title, description} = req.body;
+            const {title} = req.body;
             const { id } = req.params;
             const {file} = req;
 
@@ -69,27 +58,35 @@ class HomeInfoController {
                 })
             }
 
-            const root = path.resolve('public/homeImage');
+            if(file){
+                const root = path.resolve('public/homeVideo');
 
-            if (info.image) {
-                await fs.unlink(path.join(root, info.image));
-                await fs.unlink(path.join(root, info.image + '.webp'));
+                if (info.image) {
+                    if(!path.join(root, info.image)){
+                        await fs.unlink(path.join(root, info.image));
+                    }
+                    if(!path.join(root, info.image + '.webp')){
+                        await fs.unlink(path.join(root, info.image + '.webp'));
+                    }
+                }
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 1024, height: 500 })
+                    .toFile(path.join(root, file.filename));
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 1024, height: 500 })
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, file.filename + '.webp'))
+
+                await info.update({title, image: file.filename})
+            }else{
+                await info.update({title})
             }
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .toFile(path.join(root, file.filename));
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .webp({
-                    quality: 80,
-                })
-                .toFile(path.join(root, file.filename + '.webp'))
-
-            await info.update({title, description, image: file.filename})
 
             res.json({
                 status: "ok",
@@ -114,10 +111,14 @@ class HomeInfoController {
                 })
             }
 
-            const root = path.resolve('public/homeImage');
+            const root = path.resolve('public/homeVideo');
             if (info.image) {
-                await fs.unlink(path.join(root, info.image));
-                await fs.unlink(path.join(root, info.image + '.webp'));
+                if(!path.join(root, info.image)){
+                    await fs.unlink(path.join(root, info.image));
+                }
+                if(!path.join(root, info.image + '.webp')){
+                    await fs.unlink(path.join(root, info.image + '.webp'));
+                }
             }
 
             await info.destroy()
@@ -133,8 +134,8 @@ class HomeInfoController {
     static async list (req, res, next){
         try{
             const info = await HomeInfo.findAll({
-                attributes: [ 'id', 'title', 'description',
-                    [sequelize.literal(`CONCAT('homeImage/', image)`), 'image']
+                attributes: [ 'id', 'title',
+                    [sequelize.literal(`CONCAT('homeVideo/', video)`), 'video']
                 ]
             })
 

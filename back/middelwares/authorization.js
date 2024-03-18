@@ -11,10 +11,14 @@ const EXCLUDES = [
   'POST:/users/send-password-recovery-code',
   'POST:/users/validate-password-recovery-code',
   'POST:/users/password-update',
-  'POST:/home-info/list',
-  'POST:/login-image/list',
-  'POST:/welcome/list',
-  'POST:/products/list',
+  'GET:/home-info/list',
+  'POST:/home-info/add',
+  'GET:/login-image/list',
+  'POST:/login-image/add',
+  'GET:/welcome/list',
+  'POST:/welcome/add',
+  'GET:/products/list',
+  'POST:/products/add',
 ];
 
 export default function authorization(req, res, next) {

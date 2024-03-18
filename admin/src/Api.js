@@ -61,4 +61,40 @@ export class Api {
     static homeInfoList() {
         return api.get('/home-info/list');
     }
+
+    static deleteHomeInfo(id) {
+        return api.delete(`/home-info/delete/${id}`);
+    }
+
+    static updateHomeInfo(id, data = {}) {
+        return api.put(`/home-info/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static loginImageAdd(data = {}) {
+        return api.post('/login-image/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static loginImageList() {
+        return api.get('/login-image/list');
+    }
+
+    static loginImageDelete(id) {
+        return api.delete(`/login-image/delete/${id}`);
+    }
+
+    static loginImageUpdate(id, data = {}) {
+        return api.put(`/login-image/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
 }

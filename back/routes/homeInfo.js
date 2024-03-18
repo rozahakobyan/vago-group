@@ -7,12 +7,12 @@ import uploader from "../middelwares/uploader.js";
 const router = Router();
 
 router.post('/add',
-    uploader.image.single("image"),
+    uploader.image.single("video"),
     validate(homeInfo.add),
     HomeInfoController.add);
 
 router.put('/update/:id',
-    uploader.image.single("image"),
+    uploader.image.single("video"),
     validate(homeInfo.update),
     HomeInfoController.update);
 

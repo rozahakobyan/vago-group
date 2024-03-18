@@ -69,27 +69,29 @@ class MassagersController {
                 })
             }
 
-            const root = path.resolve('public/massagersIcon');
+            if(file){
+                const root = path.resolve('public/massagersIcon');
 
-            if (massager.icon) {
-                await fs.unlink(path.join(root, massager.icon));
-                await fs.unlink(path.join(root, massager.icon + '.webp'));
+                if (massager.icon) {
+                    await fs.unlink(path.join(root, massager.icon));
+                    await fs.unlink(path.join(root, massager.icon + '.webp'));
+                }
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 40 })
+                    .toFile(path.join(root, file.filename));
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 40 })
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, file.filename + '.webp'))
+
+                await massager.update({name, icon: file.filename})
             }
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .toFile(path.join(root, file.filename));
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .webp({
-                    quality: 80,
-                })
-                .toFile(path.join(root, file.filename + '.webp'))
-
-            await massager.update({name, icon: file.filename})
 
             res.json({
                 status: "ok",

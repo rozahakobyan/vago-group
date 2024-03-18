@@ -1,0 +1,144 @@
+import React, {useCallback, useEffect, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {addHomeInfoRequest, deleteHomeInfoRequest, updateHomeInfoRequest} from "../../store/actions/homeInfo";
+import {createPortal} from "react-dom";
+import Modal from "react-modal";
+import IsLoading from "../IsLoading";
+
+import { ReactComponent as EditIcon} from "../../assets/icon/edit.svg";
+import { ReactComponent as DeleteIcon} from "../../assets/icon/delete.svg";
+import { ReactComponent as CloseIcon} from "../../assets/icon/close.svg";
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        background: "#bebebe",
+        borderRadius: "35px 10px 35px 10px",
+    },
+};
+
+const { REACT_APP_API_URL } = process.env;
+
+function Info ({info}) {
+    const dispatch = useDispatch();
+
+    const [updateInfo, setUpdateInfo] = useState({
+        title: info.title,
+        video: {}
+    })
+    const [file, setFile] = useState("");
+    const [open, setOpen] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
+    const [errors, setErrors] = useState({});
+
+    const loading = useSelector(state => state.homeInfo.loading);
+
+    const handleFileSelect = useCallback((ev) => {
+        [...ev.target.files].forEach((file) => {
+            setUpdateInfo({...updateInfo, video: file});
+            const createUrl = URL.createObjectURL(file);
+            setFile(createUrl);
+        });
+
+        ev.target.value = '';
+    }, [updateInfo]);
+
+    const handleDeleteImage = useCallback(() => {
+        setUpdateInfo({...updateInfo, video: {}})
+        setFile("")
+    }, [updateInfo])
+
+    const submit = useCallback(async (ev) => {
+        ev.preventDefault();
+        try{
+            const {payload} = await dispatch(updateHomeInfoRequest({id: info.id, updateInfo}));
+            if(payload.status === "ok"){
+                setErrors({})
+                setFile("")
+                setIsEdit(false)
+            }
+            if(payload.errors){
+                setErrors(payload.errors)
+            }
+        }catch (e) {
+            console.log(e)
+        }
+    }, [updateInfo])
+
+    const handleDelete = useCallback(() => {
+        dispatch(deleteHomeInfoRequest({id: info.id}))
+    }, [info])
+
+    return (
+        <>
+            <tr>
+                <td>{info.id}</td>
+                <td>{info.title}</td>
+                <td><video src={`${REACT_APP_API_URL}/${info.video}`} onClick={() => setOpen(true)} width={100} height={40}/></td>
+                <td>
+                    <EditIcon onClick={() => setIsEdit(true)} />
+                    <DeleteIcon onClick={handleDelete} />
+                </td>
+            </tr>
+            {isEdit ? createPortal(<>
+                <Modal
+                    isOpen={isEdit}
+                    onRequestClose={() => setIsEdit(false)}
+                    style={customStyles}>
+                    <div className="update">
+                        <CloseIcon  onClick={() => setIsEdit(false)} className="close"/>
+                        <form onSubmit={submit}>
+                            <h3>Update info</h3> <br/>
+                            <input type={"text"} placeholder={"title"} value={updateInfo.title}
+                                   onChange={(ev) => setUpdateInfo({...updateInfo, title: ev.target.value})}
+                            /> <br/>
+                            {errors.title && <p>{errors.title}</p>}
+
+                            <div>
+                                <label className="input-file">
+                                    <input type="file" onChange={handleFileSelect} accept="video/*"/>
+                                    <span>Choose file</span>
+                                    {errors.video && <p>{errors.video}</p>}
+                                </label>
+
+                                {file !== "" ? <div className={'photo'}>
+                                    <DeleteIcon onClick={handleDeleteImage}/>
+                                    <img src={file} alt={""} onClick={() => setOpen(true)} width={100} height={100}/>
+                                </div> : <div className={'photo'}>
+                                    <img src={`${REACT_APP_API_URL}/${info.video}`} alt={""} onClick={() => setOpen(true)} width={100} height={100}/>
+                                </div>}
+                            </div>
+
+                            <button type="submit" className={"save"}>{
+                                loading ? <IsLoading color={'#E88716'} size={14}/>
+                                    : "Save"
+                            }</button>
+                        </form>
+                    </div>
+                </Modal>
+            </>, document.getElementById("root")) : null}
+
+            {open ? createPortal(<>
+                <Modal
+                    isOpen={open}
+                    onRequestClose={() => setOpen(false)}
+                    style={customStyles}>
+                    <div className="image">
+                        <CloseIcon  onClick={() => setOpen(false)} className="close"/>
+                        {file !== "" ?
+                            <video src={file} onClick={() => setOpen(true)} width={100} height={100}/>
+                            : <video src={`${REACT_APP_API_URL}/${info.video}`} onClick={() => setOpen(true)} width={100} height={100}/>}
+                    </div>
+                </Modal>
+            </>, document.getElementById("root")) : null}
+
+        </>
+    );
+}
+
+export default Info;

@@ -1,11 +1,11 @@
 import React from 'react';
-import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 import {Route, Routes, Navigate, useLocation} from 'react-router-dom';
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./component/Navbar/Navbar";
-import HomeInfo from "./pages/HomeInfo";
-import InfoAll from "./pages/InfoAll";
+import HomeInfo from "./pages/homeInformation/HomeInfo";
+import LoginImage from "./pages/homeInformation/LoginImage";
 
 
 const EXCLUDES = ['/admin-login', '/forgot-password']
@@ -22,9 +22,9 @@ function App() {
               <Route path={'/'} element={<Navigate to={"/admin-login"} />} />
               <Route path={'/admin-login'} element={<Login />} />
               <Route path={'/forgot-password'} element={<ForgotPassword />}/>
-              <Route path={"/admin/home"} element={<Home />} />
-              <Route path={"/admin/home-info-add"} element={<HomeInfo />} />
-              <Route path={"/admin/all-info"} element={<InfoAll />} />
+              <Route path={"/admin/dashboard"} element={<Dashboard />} />
+              <Route path={"/admin/all-info"} element={<HomeInfo />} />
+              <Route path={"/admin/login-image"} element={<LoginImage />} />
           </Routes>
       </div>
   )

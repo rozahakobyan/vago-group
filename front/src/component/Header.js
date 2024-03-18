@@ -18,7 +18,7 @@ function Header() {
     return (
         <header>
             <div className="header-blocks">
-                <NavLink to={"/home"}>
+                <NavLink to={"/homeInformation"}>
                     <div className="logo"><strong>VAGO-GROUP</strong></div>
                 </NavLink>
                 <div className="header-block">

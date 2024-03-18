@@ -24,7 +24,7 @@ const Login = () => {
             setErrors(payload.errors)
         }
         if (payload.token) {
-            navigate('/admin/home')
+            navigate('/admin/homeInformation')
         }
     }, [formData]);
 

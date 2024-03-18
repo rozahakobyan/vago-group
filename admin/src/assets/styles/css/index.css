@@ -2,8 +2,10 @@
 @import url("forgotPassword.css");
 @import url("navbar.css");
 @import url("wrapper.css");
-@import url("homeInfo.css");
-@import url("infoall.css");
+@import url("add.css");
+@import url("table.css");
+@import url("image.css");
+@import url("update.css");
 
 * {
   margin: 0;

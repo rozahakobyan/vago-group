@@ -7,7 +7,6 @@ export default function uploader(fileTypes=[]) {
   return multer({
     storage: multer.diskStorage({
       filename: function (req, file, cb) {
-       
         const filePath = `${uuidV4()}-${file.originalname}`;
         cb(null, filePath)
       }
@@ -21,16 +20,16 @@ export default function uploader(fileTypes=[]) {
         return;
       }      
 
-      if (!fileTypes.length || fileTypes.includes(file.mimetype)) { 
-        
+      if (!fileTypes.length || fileTypes.includes(file.mimetype)) {
         cb(null, true);
         return
       }      
 
       cb(new HttpError(422), false);
-      
     }
   })
 }
 
-uploader.image = uploader(['image/png', 'image/jpeg','image/jpg','image/svg+xml','image/webp']);
+uploader.image = uploader(['image/png', 'image/jpeg','image/jpg','image/svg+xml',
+  'image/webp', 'video/gif', 'video/mp4', 'video/ogg', 'video/wmv', 'video/x-flv', 'video/avi',
+  'video/webm', 'video/mkv', 'video/avchd', 'video/mov']);

@@ -21,12 +21,12 @@ class LoginImageController {
             const root = path.resolve('public/loginImage')
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 40 })
+                .resize({width: 1024})
                 .toFile(path.join(root, file.filename));
 
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 40 })
+                .resize({width: 1024})
                 .webp({
                     quality: 80,
                 })
@@ -60,27 +60,33 @@ class LoginImageController {
                 })
             }
 
-            const root = path.resolve('public/loginImage');
+            if(file){
+                const root = path.resolve('public/loginImage');
 
-            if (loginImage.image) {
-                await fs.unlink(path.join(root, loginImage.image));
-                await fs.unlink(path.join(root, loginImage.image + '.webp'));
+                if (loginImage.image) {
+                    if(!path.join(root, loginImage.image)){
+                        await fs.unlink(path.join(root, loginImage.image));
+                    }
+                    if(!path.join(root, loginImage.image + '.webp')){
+                        await fs.unlink(path.join(root, loginImage.image + '.webp'));
+                    }
+                }
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 1024 })
+                    .toFile(path.join(root, file.filename));
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 1024 })
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, file.filename + '.webp'))
+
+                await loginImage.update({image: file.filename})
             }
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .toFile(path.join(root, file.filename));
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .webp({
-                    quality: 80,
-                })
-                .toFile(path.join(root, file.filename + '.webp'))
-
-            await loginImage.update({ image: file.filename });
 
             res.json({
                 status: 'ok',
@@ -105,9 +111,14 @@ class LoginImageController {
                 })
             }
             const root = path.resolve('public/loginImage');
+
             if (loginImage.image) {
-                await fs.unlink(path.join(root, loginImage.image));
-                await fs.unlink(path.join(root, loginImage.image + '.webp'));
+                if(!path.join(root, loginImage.image)){
+                    await fs.unlink(path.join(root, loginImage.image));
+                }
+                if(!path.join(root, loginImage.image + '.webp')){
+                    await fs.unlink(path.join(root, loginImage.image + '.webp'));
+                }
             }
 
             await loginImage.destroy();
@@ -126,14 +137,6 @@ class LoginImageController {
                 attributes: [ 'id',
                     [sequelize.literal(`CONCAT('loginImage/', image)`), 'image']
                 ]});
-
-            if (!loginImage) {
-                throw HttpError(422, {
-                    errors: {
-                        error: 'there are no images found'
-                    }
-                })
-            }
 
             res.json({
                 status:'ok',

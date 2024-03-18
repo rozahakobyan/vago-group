@@ -14,7 +14,7 @@ const router = Router();
 
 router.use('/login-image', loginImage);
 router.use('/users', users);
-router.use('/home-info', homeInfo);
+router.use('/homeInformation-info', homeInfo);
 router.use('/welcome', welcome);
 router.use('/products', products);
 router.use('/partners', partners);

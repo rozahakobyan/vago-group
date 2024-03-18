@@ -18,25 +18,25 @@ export default [
         title: "dashboard",
         Icon: DashboardIcon,
         active: true,
-        path: "/admin/home",
+        path: "/admin/dashboard",
     },
     {
         id: 2,
-        name: 'HomeInfo',
+        name: 'Information',
         Icon: DestinationIcon,
         openIcon: true,
         active: false,
         subMenu: [
             {
                 id: 2_1,
-                title: "All Info",
+                title: "All Home Info",
                 path: "/admin/all-info",
                 active: false,
             },
             {
                 id: 2_2,
-                title: "Add new Info",
-                path: "/admin/home-info-add",
+                title: "Login Image",
+                path: "/admin/login-image",
                 active: false,
             }
         ]
