@@ -1,5 +1,6 @@
 import React from 'react';
-import States from "./States";
+import { NavLink } from 'react-router-dom';
+
 
 function Main() {
     return (
@@ -17,27 +18,40 @@ function Main() {
             </section>
 
             <section>
-                <div className="welcome-area">
-                    <div className="welcome-title">
-                        <h1><strong>Welcome</strong></h1>
+                <div className='services'>
+                <div className='service-title'>OUR SERVICES</div>
+                    <div className='services-buttons'>
+                        <div className='bigBlock'>
+                            <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
+                            <NavLink to={'/construction'}>
+                                <div className='services-button'>
+                                    <img src={'./img/construction.jpg'} />
+                                </div>
+                            </NavLink>
+                        </div>
+
+                        <div className='bigBlock'>
+                            <p style={{ textAlign: 'center' }}>EMPLOYMENT-AGENCY</p>
+                            <NavLink to={'/employment-agency'}>
+                                <div className='services-button'>
+                                    <img src={'./img/recruitment.jpg'} />
+                                </div>
+                            </NavLink>
+                        </div>
+
+                        <div className='bigBlock'>
+                            <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
+                            <NavLink to={'/logistic'}>
+                                <div className='services-button'>
+                                    <img src={'./img/logistic.jpg'} />
+                                </div>
+                            </NavLink>
+                        </div>
+
                     </div>
-                    <div className="welcome-text">
-                        <p style={{color:'#999999'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deserunt
-                            dolore beatae porro adipisci hic esse perferendis impedit incidunt exercitationem qui, similique
-                            commodi quidem aperiam odio? Dolorum dicta corrupti rerum? Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Dolorem hic cum facere obcaecati beatae fugiat iure magni. Deserunt voluptatem
-                            quisquam similique nostrum! Vero nesciunt harum optio aliquid repudiandae esse blanditiis? Lorem
-                            ipsum dolor sit amet consectetur, adipisicing elit. Molestiae quasi perferendis vel necessitatibus,
-                            expedita quaerat, sit, debitis repudiandae dolor ea accusantium dolore! Ipsam, obcaecati
-                            voluptatibus? Temporibus debitis aspernatur dolorem incidunt? Lorem ipsum dolor, sit amet
-                            consectetur adipisicing elit. Harum atque delectus necessitatibus pariatur reprehenderit veniam
-                            quibusdam voluptates, ducimus veritatis nisi id beatae, eveniet, consequatur ut reiciendis neque
-                            earum similique consectetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex
-                            commodi nisi ullam dignissimos consequatur odio, possimus autem distinctio voluptas atque quas
-                            soluta aut facilis cumque doloribus sequi inventore a!</p>
-                    </div>
+
                 </div>
-                <States/>
+
             </section>
         </>
     );
