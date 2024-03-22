@@ -7,10 +7,12 @@ import Application from "../component/employment-agency/Application";
 import Gallery from "../component/employment-agency/Gallery";
 import Partners from "../component/employment-agency/Partners";
 import History from "../component/employment-agency/History";
+import EA_banner from "../component/employment-agency/emplomentAgency-banner";
 
 function EmploymentAgency(){
     return(
         <Wrapper helmetTitle={"employment-agency"}>
+            <EA_banner/>
             <Vacancies/>
             <Price />
             <Application/>
