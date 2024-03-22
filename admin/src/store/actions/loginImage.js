@@ -1,7 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {Api} from "../../Api";
 
-export const loginImageAddRequest = createAsyncThunk('info/loginImageAddRequest', async (arg = {}, thunkAPI) => {
+export const loginImageAddRequest = createAsyncThunk('login/loginImageAddRequest', async (arg = {}, thunkAPI) => {
     try {
         const {data} = await Api.loginImageAdd(arg);
         thunkAPI.dispatch(loginImageListRequest())

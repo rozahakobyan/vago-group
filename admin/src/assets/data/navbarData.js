@@ -38,6 +38,12 @@ export default [
                 title: "Login Image",
                 path: "/admin/login-image",
                 active: false,
+            },
+            {
+                id: 3_3,
+                title: "Massagers",
+                path: "/admin/massagers",
+                active: false,
             }
         ]
     },
