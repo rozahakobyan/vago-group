@@ -25,7 +25,7 @@ function Main() {
                             <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
                             <NavLink to={'/construction'}>
                                 <div className='services-button'>
-                                    <img src={'./img/construction.jpg'} />
+                                    <img src={'./img/construction.jpg'} alt={""}/>
                                 </div>
                             </NavLink>
                         </div>
@@ -34,7 +34,7 @@ function Main() {
                             <p style={{ textAlign: 'center' }}>EMPLOYMENT-AGENCY</p>
                             <NavLink to={'/employment-agency'}>
                                 <div className='services-button'>
-                                    <img src={'./img/recruitment.jpg'} />
+                                    <img src={'./img/recruitment.jpg'} alt={""}/>
                                 </div>
                             </NavLink>
                         </div>
@@ -43,7 +43,7 @@ function Main() {
                             <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
                             <NavLink to={'/logistic'}>
                                 <div className='services-button'>
-                                    <img src={'./img/logistic.jpg'} />
+                                    <img src={'./img/logistic.jpg'} alt={""}/>
                                 </div>
                             </NavLink>
                         </div>
