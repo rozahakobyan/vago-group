@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Account from "./helpers/Account";
+import {massagerAddRequest} from "./store/actions/massagers";
 
 const { REACT_APP_API_URL } = process.env;
 
@@ -92,6 +93,30 @@ export class Api {
 
     static loginImageUpdate(id, data = {}) {
         return api.put(`/login-image/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static massagerAdd(data = {}) {
+        return api.post('/massagers/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static massagerList() {
+        return api.get('/massagers/list');
+    }
+
+    static massagerDelete(id) {
+        return api.delete(`/massagers/delete/${id}`);
+    }
+
+    static massagerUpdate(id, data = {}) {
+        return api.put(`/massagers/update/${id}`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

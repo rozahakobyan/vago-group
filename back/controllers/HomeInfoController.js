@@ -11,6 +11,8 @@ class HomeInfoController {
             const {title} = req.body;
             const {file} = req;
 
+            console.log(req)
+
             if(!title){
                 throw HttpError(404, {
                     errors: {

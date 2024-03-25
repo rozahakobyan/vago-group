@@ -79,7 +79,7 @@ function HomeInfo() {
     }, [info])
 
     return (
-        <Wrapper helmetTitle={"All Home Info"}>
+        <Wrapper helmetTitle={"Info"}>
             <div className="table-wrapper">
                 <table className="fl-table">
                     <thead>
@@ -148,8 +148,7 @@ function HomeInfo() {
                 </Modal>
             </>, document.getElementById("root")) : null}
         </Wrapper>
-);
+    );
 }
 
 export default HomeInfo;
-

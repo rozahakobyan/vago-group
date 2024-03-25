@@ -6,6 +6,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./component/Navbar/Navbar";
 import HomeInfo from "./pages/homeInformation/HomeInfo";
 import LoginImage from "./pages/homeInformation/LoginImage";
+import Massagers from "./pages/homeInformation/Massagers";
 
 
 const EXCLUDES = ['/admin-login', '/forgot-password']
@@ -25,6 +26,7 @@ function App() {
               <Route path={"/admin/dashboard"} element={<Dashboard />} />
               <Route path={"/admin/all-info"} element={<HomeInfo />} />
               <Route path={"/admin/login-image"} element={<LoginImage />} />
+              <Route path={"/admin/massagers"} element={<Massagers />} />
           </Routes>
       </div>
   )
