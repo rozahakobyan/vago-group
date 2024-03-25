@@ -37,3 +37,83 @@
     text-align: center;
     font-size: 30px;
 }
+
+
+
+/* ------------------------ */
+
+.logistic-contactsArea{
+    width: 100%;
+    background-color: var(--color4);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.logistic-contactsTitle{
+    text-align: center;
+    font-size: 30px;
+    font-family: "ArchitectsDaughter-Regular", sans-serif;
+}
+.logistic-contactsMap{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.logistic-contactsMap iframe{
+    width: 1170px;
+    height: 300px;
+    margin: 0 auto;
+    border: none;
+}
+
+
+/* --------------------- */
+
+.logistic-contactsFormArea{
+    background-color: var(--color4);
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.logistic-contacts-Area{
+    margin: 0 auto;
+    width: 1200px;
+    text-align: center;
+}
+
+.logistic-contacts-Area form input{
+    margin: 10px;
+    width: 324px;
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    outline: none;
+}
+
+.logistic-contacts-Area form textarea{
+   width: 1122px;
+   height: 300px;
+   padding: 25px;
+   resize: none;
+}
+.logistic-contacts-Area form{
+    width: 100%;
+    text-align: center;
+}
+
+.logistic-contacts-Area form button{
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: background-color 0.4s;
+    transform: translate(-547px,0px);
+    text-align: center !important;
+    padding: 0;
+}
+.logistic-contacts-Area form button:hover{
+    background-color: var(--color1);
+}
