@@ -51,6 +51,9 @@ body {
     font-family: 'ArchitectsDaughter-Regular', sans-serif;
     padding: 0;
 }
+.logo img{
+    width: 300px;
+}
 
 .header-block .mail-title{
     display: flex;

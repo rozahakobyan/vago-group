@@ -19,7 +19,7 @@ function Header() {
         <header>
             <div className="header-blocks">
                 <NavLink to={"/homeInformation"}>
-                    <div className="logo"><strong>VAGO-GROUP</strong></div>
+                    <div className="logo"><img src='./img/logo.png'/></div>
                 </NavLink>
                 <div className="header-block">
                     <p className="mail-title">Email:</p>
