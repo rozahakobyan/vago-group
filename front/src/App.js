@@ -8,6 +8,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Registration from "./pages/Registration";
 import ActivateUser from "./pages/ActivateUser";
 import Logistic from './pages/Logistic';
+import VacanciesDetales from './pages/Vacanciec-detales';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path={"/construction"} element={<Construction />} />
       <Route path={'/employment-agency'} element={<EmploymentAgency/>}/>
       <Route path={'/logistic'} element={<Logistic/>}/>
+      <Route path={'/vacancies-detales'} elemenet={<VacanciesDetales/>}/>
     </Routes>
   )
 }
