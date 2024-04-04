@@ -34,31 +34,33 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+.header-block-msg{
+    width: 30px;
+    text-align: center;
+    transform: translate(0,-7px);
+    
+}
 
 .logo,
 .header-block {
-    width: 300px;
+    width: 280px;
     text-align: center;
+    
 
 }
 
-.logo {
-    font-size: 40px;
-    line-height: 100px;
-    color: var(--color2);
-
-    padding: 0;
+.header-block-msg .msg-box img{
+    width: 28px;
 }
 
 .logo img {
-    width: 300px;
+    width: 280px;
 }
 
 .header-block .mail-title {
     display: flex;
     color: var(--color1);
-    font-size: 25px;
+    font-size: 24px;
     font-style: italic;
     justify-content: center;
     transform: translate(0, -20px);

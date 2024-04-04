@@ -19,7 +19,7 @@ function Header() {
         <header>
             <div className="header-blocks">
                 <NavLink to={"/homeInformation"}>
-                    <div className="logo"><img src='./img/logo.png'/></div>
+                    <div className="logo"><img src='./img/logo.png' /></div>
                 </NavLink>
                 <div className="header-block">
                     <p className="mail-title">Email:</p>
@@ -33,7 +33,7 @@ function Header() {
                 </div>
                 <div className={'header-block'}>
                     <div className={'header-block-buttonArea'}>
-                        
+
                         <div className={'header-block-login'}>
                             {token ? <div className={"log-out"} onClick={handleLogOut}>
                                 <p>Log Out</p>
@@ -43,11 +43,19 @@ function Header() {
                         </div>
 
                         <div className={'header-block-language'}>
-                            
+
                         </div>
                     </div>
                 </div>
+                <div className={'header-block-msg'}>
+                    <NavLink><div className='msg-box'><img src='./img/icon/fb-h.png'/></div></NavLink>
+                    <NavLink><div className='msg-box'><img src='./img/icon/ins-h.png'/></div></NavLink>
+                    <NavLink><div className='msg-box'><img src='./img/icon/wp-h.png'/></div></NavLink>
+                    <NavLink><div className='msg-box'><img src='./img/icon/tg-h.png'/></div></NavLink>
+
+                </div>
             </div>
+                            {/* ----------------------------- */}
             <div className="buttons">
                 <NavLink to={'/'}>
                     <div className="button"><strong>Home</strong></div>
