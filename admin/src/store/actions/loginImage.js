@@ -1,4 +1,4 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import {createAction, createAsyncThunk} from "@reduxjs/toolkit";
 import {Api} from "../../Api";
 
 export const loginImageAddRequest = createAsyncThunk('login/loginImageAddRequest', async (arg = {}, thunkAPI) => {
@@ -32,10 +32,19 @@ export const loginImageDeleteRequest = createAsyncThunk('login/loginImageDeleteR
 
 export const loginImageUpdateRequest = createAsyncThunk('login/loginImageUpdateRequest', async (arg = {}, thunkAPI) => {
     try {
-        const {data} = await Api.loginImageUpdate(arg.id, arg.updateLoginImage);
+        const {data} = await Api.loginImageUpdate(arg);
         thunkAPI.dispatch(loginImageListRequest())
         return data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);
     }
 });
+
+
+export const isLoading = createAction('is/loading', (arg = '') => {
+    return {
+        payload: {
+            arg
+        }
+    }
+})

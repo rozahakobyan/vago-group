@@ -1,5 +1,6 @@
 import {createReducer} from "@reduxjs/toolkit";
 import {
+    isLoading,
     massagerAddRequest,
     massagerDeleteRequest,
     massagerListRequest,
@@ -16,6 +17,9 @@ const initialState = {
 
 export const massagers = createReducer(initialState, (builder) => {
     builder
+        .addCase(isLoading, (state, action) => {
+            state.massager.isLoading = action.payload.arg
+        })
         .addCase(massagerAddRequest.fulfilled, (state, action) => {
             const {massager} = action.payload;
             state.massager = massager;

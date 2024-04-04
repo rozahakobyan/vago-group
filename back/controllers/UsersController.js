@@ -426,5 +426,65 @@ class UsersController {
         }
 
     }
+
+    static async getUsers(req, res, next) {
+        try {
+
+            const { page = 1 } = req.query;
+            const limit = 3;
+            const offset = (page - 1) * limit;
+            const totalCount = await Users.count();
+            const users = await Users.findAll(
+                {
+                    limit,
+                    offset
+                })
+
+            res.json({
+                status: 'ok',
+                users,
+                total: totalCount,
+                pages: Math.ceil(totalCount / limit)
+            })
+
+        }
+        catch (e) {
+            next(e)
+        }
+
+    }
+
+    static async removeUser(req, res, next) {
+        try {
+
+            const {id} = req.params;
+            const user = await Users.findByPk(id);
+
+            if (!user) {
+                throw HttpError(422, {
+                    errors: {
+                        error: 'No User found'
+                    }
+                })
+            }
+
+
+            if (user.photo !== 'avatar.png') {
+                const photo = path.resolve(`public/users/user_${id}`);
+                await fs.rm(photo, { recursive: true, force: true })
+            }
+
+            await user.destroy();
+
+            res.json({
+                status:'ok',
+                user,
+            })
+
+        }
+        catch (e) {
+            next(e)
+        }
+    }
 }
 export default UsersController

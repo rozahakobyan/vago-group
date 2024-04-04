@@ -1,17 +1,12 @@
-import axios from 'axios';
-import Account from "./helpers/Account";
-import {massagerAddRequest} from "./store/actions/massagers";
+import axios from "axios";
+import {Account} from "./helpers/account";
 
-const { REACT_APP_API_URL } = process.env;
-
+export const API_URL = 'http://localhost:4001/'
 const api = axios.create({
-    baseURL: REACT_APP_API_URL,
-    headers: {
-        "Content-Type": "application/json"
-    }
-});
+    baseURL: 'http://127.0.0.1:4001'
+})
 api.interceptors.request.use((config) => {
-    const token = Account.getToken()
+    const token = Account.getTokenStrong()
     if (token) {
         config.headers.authorization = `Bearer ${token}`;
     }
@@ -20,35 +15,51 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use((response) => response, (error) => {
     if (error.response.status === 401) {
-        Account.deleteStrong()
-        window.location.href = '/'
+        Account.removeStrong()
     }
     return Promise.reject(error);
 });
 
-export class Api {
-    static login(arg) {
-        return api.post('/users/admin-login', arg);
-    }
 
-    static register(arg) {
-        return api.post('/users/register', arg);
+export class Api {
+    static login(payload) {
+        return api.post("/users/admin-login", payload)
     }
 
     static profile() {
-        return api.get('/users/profile');
+        return api.get("/users/profile")
     }
 
-    static sendEmailForgotPassword(email) {
-        return api.post('/users/send-password-recovery-code', email);
+    static forgetSendEmail(payload) {
+        return api.post("/users/send-password-recovery-code", payload)
     }
 
-    static sendCodeForgotPassword(code) {
-        return api.post('/users/validate-password-recovery-code', code);
+    static verificationEmailCode(payload) {
+        return api.post("/users/validate-password-recovery-code", payload)
     }
 
-    static updateForgotPassword(password) {
-        return api.post('/users/password-update', password);
+    static forgetPassword(payload) {
+        return api.post("/users/password-update", payload)
+    }
+
+    static updateProfile(payload) {
+        return api.put("/users/profile-update", payload, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        })
+    }
+
+    static forgetPasswordProfile(payload) {
+        return api.put("/users/update-password", payload)
+    }
+
+    static usersList(params) {
+        return api.get('/users/get-users', {params});
+    }
+
+    static usersDelete(id) {
+        return api.delete(`/users/delete/${id}`);
     }
 
     static addHomeInfo(data = {}) {
@@ -91,7 +102,9 @@ export class Api {
         return api.delete(`/login-image/delete/${id}`);
     }
 
-    static loginImageUpdate(id, data = {}) {
+    static loginImageUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
         return api.put(`/login-image/update/${id}`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -115,7 +128,9 @@ export class Api {
         return api.delete(`/massagers/delete/${id}`);
     }
 
-    static massagerUpdate(id, data = {}) {
+    static massagerUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
         return api.put(`/massagers/update/${id}`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -123,3 +138,5 @@ export class Api {
         });
     }
 }
+
+

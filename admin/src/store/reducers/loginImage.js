@@ -5,6 +5,7 @@ import {
     loginImageListRequest,
     loginImageUpdateRequest
 } from "../actions/loginImage";
+import {isLoading} from "../actions/massagers";
 
 const initialState = {
     loginImage: {},
@@ -16,6 +17,9 @@ const initialState = {
 
 export const loginImage = createReducer(initialState, (builder) => {
     builder
+        .addCase(isLoading, (state, action) => {
+            state.loginImage.isLoading = action.payload.arg
+        })
         .addCase(loginImageAddRequest.fulfilled, (state, action) => {
             const {loginImage} = action.payload;
             state.loginImage = loginImage;
