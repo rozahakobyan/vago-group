@@ -9,7 +9,7 @@ function WorksPerformed() {
             <div className="worksPerformed-blocks">
                 <div className="worksPerformed">
                     <div className="worksPerformedImg">
-                        <img src="./img/gortsiq.jpg" />
+                        <img src="./img/gortsiq.jpg" alt={""} />
                     </div>
                     <div className="workPerformed-title">
                         <h2>Project</h2>
