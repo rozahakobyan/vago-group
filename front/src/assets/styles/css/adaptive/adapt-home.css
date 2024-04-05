@@ -715,3 +715,154 @@
     /* ------------------------------------- */
 
 }
+
+
+
+@media screen and (max-width: 480px) {
+    .header-blocks {
+        width: 100%;
+        margin: 10px auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-block-msg{
+        width: 100%;
+        text-align: center;
+        transform: translate(0,-7px);
+        overflow:auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header-block-msg *{
+        float: left;
+        margin: 5px;
+    }
+    
+    .logo,
+    .header-block {
+        width: 280px;
+        text-align: center;
+        
+    
+    }
+    
+    .header-block-msg .msg-box img{
+        width: 28px;
+    }
+    
+    .logo img {
+        width: 280px;
+    }
+    
+    .header-block .mail-title {
+        display: flex;
+        color: var(--color1);
+        font-size: 24px;
+        font-style: italic;
+        justify-content: center;
+        transform: translate(0, -20px);
+    }
+    
+    .header-block .email {
+        display: flex;
+        color: var(--color2);
+        transition: color 0.5s;
+        transform: translate(0, -20px);
+        justify-content: center;
+        font-size: 25px;
+    }
+    
+    .header-block .email:hover {
+        color: var(--color1);
+        cursor: pointer;
+    }
+    
+    .phone-title {
+        display: flex;
+        color: var(--color1);
+        font-size: 25px;
+        font-style: italic;
+        justify-content: center;
+        transform: translate(0, -20px);
+    }
+    
+    .number {
+        display: flex;
+        color: var(--color2);
+        transition: color 0.5s;
+        transform: translate(0, -20px);
+        justify-content: center;
+        font-size: 25px;
+    }
+    
+    .number:hover {
+        color: var(--color1);
+        cursor: pointer;
+    }
+    
+    .header-block-login {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .header-block-buttonArea {
+        width: 100%;
+        margin: 10px auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 25px;
+    }
+    
+    
+    .log-out {
+        width: 150px;
+        height: 50px;
+        background-color: var(--color1);
+        text-align: center;
+        color: white;
+    
+        margin: 5px 0 0 5px;
+        transition: background-color 0.5s;
+    }
+    
+    .log-out:hover {
+        background-color: black;
+    }
+    
+    .log-in {
+        width: 150px;
+        height: 50px;
+        background-color: var(--color1);
+        text-align: center;
+        color: white;
+    
+        margin: 5px 0 0 5px;
+        transition: background-color 0.5s;
+    }
+    
+    .log-in:hover {
+        background-color: black;
+    }
+    
+    .header-block-language {
+        width: 150px;
+        height: 50px;
+        background-color: var(--color1);
+        text-align: center;
+        margin: 5px 0 0 5px;
+        transition: background-color 0.5s;
+    }
+    
+    .header-block-language:hover {
+        background-color: black;
+    }
+}

@@ -29,7 +29,31 @@ function Vacancieces() {
                         </p>
 
                         <NavLink to={'/vacancies-detales'}>
-                            <button className="vacancie-join"><strong>Join</strong></button>
+                            <button className="vacancie-join"><strong>More</strong></button>
+                        </NavLink>
+                    </div>
+                </div>
+
+                <div className="vacancie">
+                    <div className="vacancie-img">
+                        <img src="./img/vacancie.png" />
+                    </div>
+                    <div className="vacancie-name">
+                        <h2>Vacancie</h2>
+                    </div>
+                    <div className="vacancieText-area">
+                        <p>
+                            <strong>Price</strong> - ???$ <br />
+                            <strong>Hours a Week</strong> - ??h
+                        </p>
+                        <h2 className="vacancie-name">Work Schedule</h2>
+                        <p>
+                            ??:?? - ??:??<br />
+                            ??:?? - ??:??
+                        </p>
+
+                        <NavLink to={'/vacancies-detales'}>
+                            <button className="vacancie-join"><strong>More</strong></button>
                         </NavLink>
                     </div>
                 </div>

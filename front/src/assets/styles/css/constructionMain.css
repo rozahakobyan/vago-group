@@ -88,7 +88,7 @@
     background-color: black;
 }
 
-
+/* ---------------------------------------------------- */
 
 
 .currentProjects-area {
@@ -230,18 +230,29 @@
 .offersArea{
     background-color: var(--color4);
     width: 100%;
-    padding: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
 }
 .offers-title{
-    text-align: center;
     font-size: 30px;
-    
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .formArea{
-    margin: 0 auto;
+    
     width: 1000px;
     text-align: center;
+    
 }
 
 .offersArea form input{
@@ -251,6 +262,7 @@
     padding-left: 10px;
     padding-right: 10px;
     outline: none;
+    
 }
 
 .offersArea form textarea{

@@ -24,7 +24,7 @@ function Offer() {
                     <input type={"text"} placeholder={"Name"} />
                     <input type={"email"} placeholder={"Email"} />
                     <input type={"text"} placeholder={"Phone"} />
-                    <textarea placeholder={"Massage"} />
+                    <textarea placeholder={"Massage"} /><br />
                     <button type={"submit"} onClick={handleSend}>Send</button>
                 </form>
             </div>
