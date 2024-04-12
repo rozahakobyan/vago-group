@@ -299,11 +299,9 @@
 }
 
 .gallery-title{
-    margin: 0 auto;
-    width: 500px;
-    font-size: 30px;
     text-align: center;
-    padding: 25px;
+    font-size: 30px;
+   
 }
 
 .gallery-blocks{
