@@ -12,23 +12,23 @@ function Gallery() {
     }, [])
 
     return (
-        <div className="employmentAgency-galleryArea">
-            <div className="employmentAgency-gallery-title">
+        <div className="galleryArea">
+            <div className="gallery-title">
                 <h2>Gallery</h2>
             </div>
-            <div className="employmentAgency-gallery-type">
+            <div className="gallery-type">
                 <h3>Photo</h3>
             </div>
-            <div className="employmentAgency-gallery-blocks">
+            <div className="gallery-blocks">
                 <img src={"./img/logo.jpg"} onClick={() => openFullscreenImg("./img/logo.jpg")} />
                 <img src={"./img/gortsiq.jpg"} onClick={() => openFullscreenImg("./img/gortsiq.jpg")} />
                 <img src={"./img/logo.jpg"} onClick={() => openFullscreenImg("./img/logo.jpg")} />
             </div>
             {fullscreenImg && (
-                <div className="employmentAgency-fullscreen-img-overlay" onClick={closeFullscreenImg}>
-                    <div className="employmentAgency-fullscreen-img-container">
+                <div className="fullscreen-img-overlay" onClick={closeFullscreenImg}>
+                    <div className="fullscreen-img-container">
                         <img src={fullscreenImg} alt="Fullscreen" />
-                        <button className="employmentAgency-close-btn" onClick={closeFullscreenImg}>✕</button>
+                        <button className="close-btn" onClick={closeFullscreenImg}>✕</button>
                     </div>
                 </div>
             )}

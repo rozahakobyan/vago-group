@@ -1,0 +1,126 @@
+@media screen and (max-width: 1200px) {
+    .history-text {
+        width: 1100px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .history-text {
+        width: 1000px;
+    }
+
+    .Price-table {
+        width: 900px;
+
+        margin: 0 auto;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 1000px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .history-text {
+        width: 900px;
+    }
+
+    .Price-table {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 900px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 500px;
+        font-size: 17px;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .history-text {
+        width: 700px;
+    }
+
+    .Price-table {
+        width: 600px;
+        margin: 0 auto;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 700px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .history-text {
+        width: 440px;
+    }
+
+    .Price-table {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 450px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}

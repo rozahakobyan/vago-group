@@ -1,4 +1,4 @@
-:root{
+:root {
     --color1: #0e5287;
     --color2: #3b444b;
     --color3: #999999;
@@ -11,20 +11,21 @@
 
 
 
-a{
+a {
     text-decoration: none !important;
 }
 
-body{
-    margin:0;
+body {
+    margin: 0;
     padding: 0;
-    
+
 }
+
 body {
     background-color: white;
 }
 
-.header-blocks{
+.header-blocks {
     width: 100%;
     margin: 10px auto;
     overflow: auto;
@@ -33,76 +34,81 @@ body {
     justify-content: center;
     align-items: center;
 }
+.header-block-msg{
+    width: 30px;
+    text-align: center;
+    transform: translate(0,-7px);
+    
+}
 
-
-.logo, .header-block{
-    width: 300px;
+.logo,
+.header-block {
+    width: 280px;
     text-align: center;
     
-}
-.logo{
-    font-size: 40px;
-    line-height: 100px;
-    color: var(--color2);
-    
-    padding: 0;
-}
-.logo img{
-    width: 300px;
+
 }
 
-.header-block .mail-title{
+.header-block-msg .msg-box img{
+    width: 28px;
+}
+
+.logo img {
+    width: 280px;
+}
+
+.header-block .mail-title {
     display: flex;
     color: var(--color1);
-    font-size: 25px;
+    font-size: 24px;
     font-style: italic;
     justify-content: center;
-    transform: translate(0,-20px);
+    transform: translate(0, -20px);
 }
 
 .header-block .email {
     display: flex;
     color: var(--color2);
     transition: color 0.5s;
-    transform: translate(0,-20px);
+    transform: translate(0, -20px);
     justify-content: center;
     font-size: 25px;
 }
 
-.header-block .email:hover{
+.header-block .email:hover {
     color: var(--color1);
     cursor: pointer;
 }
 
-.phone-title{
+.phone-title {
     display: flex;
     color: var(--color1);
     font-size: 25px;
     font-style: italic;
     justify-content: center;
-    transform: translate(0,-20px);
+    transform: translate(0, -20px);
 }
 
-.number{
+.number {
     display: flex;
     color: var(--color2);
     transition: color 0.5s;
-    transform: translate(0,-20px);
+    transform: translate(0, -20px);
     justify-content: center;
     font-size: 25px;
 }
 
-.number:hover{
+.number:hover {
     color: var(--color1);
     cursor: pointer;
 }
 
-.header-block-login{
+.header-block-login {
     display: flex;
     justify-content: center;
 }
 
-.header-block-buttonArea{
+.header-block-buttonArea {
     width: 100%;
     margin: 10px auto;
     overflow: auto;
@@ -114,37 +120,37 @@ body {
 }
 
 
-.log-out{
+.log-out {
     width: 150px;
     height: 50px;
     background-color: var(--color1);
     text-align: center;
     color: white;
-    
+
     margin: 5px 0 0 5px;
     transition: background-color 0.5s;
 }
 
-.log-out:hover{
+.log-out:hover {
     background-color: black;
 }
 
-.log-in{
+.log-in {
     width: 150px;
     height: 50px;
     background-color: var(--color1);
     text-align: center;
     color: white;
-    
+
     margin: 5px 0 0 5px;
     transition: background-color 0.5s;
 }
 
-.log-in:hover{
+.log-in:hover {
     background-color: black;
 }
 
-.header-block-language{
+.header-block-language {
     width: 150px;
     height: 50px;
     background-color: var(--color1);
@@ -152,22 +158,23 @@ body {
     margin: 5px 0 0 5px;
     transition: background-color 0.5s;
 }
-.header-block-language:hover{
+
+.header-block-language:hover {
     background-color: black;
 }
 
 
 
 /* --------------------------------- */
-.buttons{
+.buttons {
     display: flex;
     height: 50px;
     justify-content: center;
     background-color: var(--color1);
-    
+
 }
 
-.button{
+.button {
     background-color: var(--color1);
     float: left;
     border-left: 1px solid white;
@@ -177,13 +184,14 @@ body {
     height: 50px;
     text-align: center;
     line-height: 50px;
-    transition: background-color 0.5s ;
+    transition: background-color 0.5s;
     font-size: 20px;
     box-sizing: border-box;
-    
+
 }
-.button:hover{
-    
+
+.button:hover {
+
     background-color: black;
 }
 
@@ -192,7 +200,7 @@ body {
 /* banner panel */
 
 
-.banner-panel{
+.banner-panel {
     background-image: url("../../../../public/img/gortsiq.jpg");
     width: 100%;
     height: 600px;
@@ -201,19 +209,20 @@ body {
     background-size: cover;
     margin-top: -24px;
 }
-.shade{
+
+.shade {
     width: 100%;
     height: 100%;
-    background-color:rgba(14, 82, 135, 0.2)
+    background-color: rgba(14, 82, 135, 0.2)
 }
 
-.motto-title{
+.motto-title {
     color: black;
-    
+
 }
 
 
-.motto{
+.motto {
     width: 350px;
     color: white;
     transform: translate(20%, 50%);
@@ -222,30 +231,32 @@ body {
 
 /* ----------------------------------- */
 
-.welcome-title{
+.welcome-title {
     text-align: center;
     font-size: 30px;
-    
+
 }
-.welcome-text{
+
+.welcome-text {
     width: 1100px;
     margin: 0 auto;
 }
 
 /* -------------------<<<<>>>>--------------------- */
 
-.service-title{
+.service-title {
     text-align: center;
     font-size: 30px;
-    
+
 }
 
-.services{
+.services {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.services-buttons{
+
+.services-buttons {
     width: 100%;
     margin: 25px auto;
     overflow: auto;
@@ -255,32 +266,35 @@ body {
     align-items: center;
 }
 
-.services-button{
+.services-button {
     width: 300px;
     height: 250px;
     border-radius: 25px;
     margin: 25px;
 }
-.services-button img{
-   width: 300px;
-   height: 250px;
-   border-radius: 25px;
-   transition: transform 0.1s ease;
+
+.services-button img {
+    width: 300px;
+    height: 250px;
+    border-radius: 25px;
+    transition: transform 0.1s ease;
 }
-.services-button img:hover{
+
+.services-button img:hover {
     transform: scale(1.1);
 }
 
 
 /* -------------------------------------- */
-footer{
+footer {
     width: 100%;
     background-color: var(--color2);
     overflow: auto;
-    
+
     box-sizing: border-box;
 }
-.footer{
+
+.footer {
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
@@ -288,9 +302,9 @@ footer{
     align-items: center;
 }
 
-.footer-address, 
-.footer-phone, 
-.footer-email{
+.footer-address,
+.footer-phone,
+.footer-email {
     float: left;
     margin-left: 10px;
     margin-right: 10px;
@@ -300,48 +314,81 @@ footer{
 }
 
 
-.footer-info{
+.footer-info {
     width: 1200px;
     background-color: var(--color2);
     padding: 50px;
     padding-bottom: 100px;
     box-sizing: border-box;
-    
-    
+
+
 }
 
-.address-title{
+.address-title {
     color: var(--color5);
     font-size: 40px;
-    
+
 
 }
-.address-text{
-    width: 200px;
-    color: var(--color3);
-    margin: 0 auto; 
-}
 
-.footer-phone-title{
-    color: var(--color5);
-    font-size: 40px;
-    
-}
-.footer-phone-text{
+.address-text {
     width: 200px;
     color: var(--color3);
     margin: 0 auto;
-    
-    transform: translate(-20px,0);
 }
-.footer-email-title{
+
+.footer-phone-title {
     color: var(--color5);
     font-size: 40px;
-    
+
 }
-.footer-email-text{
+
+.footer-phone-text {
+    width: 200px;
+    color: var(--color3);
+    margin: 0 auto;
+
+    transform: translate(-20px, 0);
+}
+
+.footer-email-title {
+    color: var(--color5);
+    font-size: 40px;
+
+}
+
+.footer-email-text {
     width: 300px;
     color: var(--color3);
     margin: 0 auto;
     transform: translate(-40px, 0);
+}
+
+
+
+
+/* --------whatsapp--------- */
+
+
+.fixed-button-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+
+.fixed-block {
+    width: 80px;
+    height: 80px;
+    background-image: url('../../../../public/img/icon/WhatsApp-Logo-fixed.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 50px;
 }

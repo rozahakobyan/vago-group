@@ -1,20 +1,19 @@
 import React from 'react'
 
 
-function Application(){
-    return(
-        <div className="application-contactsArea">
-            <div className="application-contactsTitle">
+function Application() {
+    return (
+        <div className="contactsArea">
+            <div className="contactsTitle">
                 <h2>Application</h2>
             </div>
-
-            <div className="application-contactsFormArea">
-                <div className="application-contacts-Area">
+            <div className="contactsFormArea">
+                <div className="contacts-Area">
                     <form>
                         <input type={"text"} placeholder={"Name"} />
                         <input type={"email"} placeholder={"Email"} />
                         <input type={"text"} placeholder={"Phone"} />
-                        <textarea placeholder={"Massage"} /><br/>
+                        <textarea placeholder={"Massage"} /><br />
                         <button type={"submit"}>Send</button>
                     </form>
                 </div>
@@ -25,3 +24,5 @@ function Application(){
 
 
 export default Application
+
+

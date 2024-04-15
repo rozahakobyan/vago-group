@@ -26,7 +26,7 @@
 .employmentAgency-vacanciesTitle {
     text-align: center;
     font-size: 30px;
-    
+
 }
 
 .employmentAgency-vacancies-blocks {
@@ -63,7 +63,7 @@
 .employmentAgency-vacancie-name {
     text-align: center;
     font-size: 20px;
-    
+
 }
 
 .employmentAgency-vacancieText-area {
@@ -99,7 +99,7 @@
 .EmploymentAgency-contactsTitle {
     text-align: center;
     font-size: 30px;
-    
+
 }
 
 .EmploymentAgency-contactsMap {
@@ -180,7 +180,7 @@
 .application-contactsTitle {
     text-align: center;
     font-size: 30px;
-    
+
 }
 
 .application-contactsMap {
@@ -250,90 +250,6 @@
 
 /* ------Gallery------- */
 
-.employmentAgency-galleryArea {
-    background-color: white;
-    width: 100%;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 50px;
-}
-
-.employmentAgency-gallery-title {
-    margin: 0 auto;
-    width: 500px;
-    font-size: 30px;
-    text-align: center;
-    
-    padding: 25px;
-}
-
-.employmentAgency-gallery-blocks {
-    width: 100%;
-    margin: 0 auto;
-    overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-
-}
-
-.employmentAgency-gallery-blocks img {
-    height: 200px;
-    margin: 5px;
-}
-
-.employmentAgency-fullscreen-img-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Прозрачный черный фон */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.employmentAgency-fullscreen-img-container {
-    position: relative;
-}
-
-.employmentAgency-fullscreen-img-container img {
-    max-width: 800px;
-    /* Максимальная ширина изображения */
-    max-height: 600px;
-    /* Максимальная высота изображения */
-}
-
-.employmentAgency-close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px;
-    font-size: 20px;
-    color: white;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.employmentAgency-close-btn:hover {
-    color: #999;
-}
-
-.employmentAgency-gallery-type {
-    text-align: center;
-    font-size: 30px;
-    
-}
-
-.employmentAgency-gallery-blocks iframe {
-    margin: 5px;
-}
 
 
 
@@ -342,13 +258,15 @@
 .history-title {
     text-align: center;
     font-size: 30px;
-    
+
 }
 
 .history-text {
     width: 1100px;
     margin: 0 auto;
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
 }
 
 
@@ -400,86 +318,38 @@
 
 /* --------------- */
 
-.pages-list {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
+.Price-table {
+    width: 1000px;
 
-.pages-list .item {
-    align-items: center;
-    color: var(--color1);
-    cursor: pointer;
-    display: flex;
-    font-size: 16px;
-    height: 40px;
-    justify-content: center;
-    width: 40px;
-}
-
-.pages-list .disabled-page {
-    color: var(--color1);
-}
-
-.pages-list .active {
-    border: solid 1px var(--color1);
-    border-radius: 40px;
-    color: var(--color1);
-}
-
-.pages-list .next {
-    font-size: 16px;
-    position: absolute;
-    right: 0;
-    width: 150px;
-}
-
-.pages-list .pagination {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    list-style-type: none;
-    position: relative;
-}
-
-.pages-list .pagination-page {
-    font-weight: 700;
-}
-
-.pages-list .previous {
-    font-size: 16px;
-    left: 0;
-    position: absolute;
-    width: 150px;
-}
-
-.Price-table{
     margin: 0 auto;
 }
-.Price-table td{
-    text-align: center;
-    width: 250px;
-    padding: 10px;
+
+.priceList {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
-
-.priceList{
-    width: 900px;
-    margin: 0 auto;
-    border-radius: 15px;
+.priceList-area {
     background-color: var(--color4);
-}
-.priceList-area{
-    margin: 0 50px 50px ;
+    width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 25px;
+    border-radius: 10px;
 }
 
-.priceList-title{
-    
+.Price-table td {
+    border-bottom: 1px solid black;
+    height: 30px;
+    text-align: center;
+}
+
+.service-name {
+    width: 700px;
+}
+
+
+.priceList-title {
+
     text-align: center;
     font-size: 30px;
 }

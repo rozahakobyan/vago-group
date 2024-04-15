@@ -88,7 +88,7 @@
     background-color: black;
 }
 
-
+/* ---------------------------------------------------- */
 
 
 .currentProjects-area {
@@ -230,18 +230,29 @@
 .offersArea{
     background-color: var(--color4);
     width: 100%;
-    padding: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
 }
 .offers-title{
-    text-align: center;
     font-size: 30px;
-    
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .formArea{
-    margin: 0 auto;
+    
     width: 1000px;
     text-align: center;
+    
 }
 
 .offersArea form input{
@@ -251,6 +262,7 @@
     padding-left: 10px;
     padding-right: 10px;
     outline: none;
+    
 }
 
 .offersArea form textarea{
@@ -281,18 +293,15 @@
 .galleryArea{
     background-color: white;
     width: 100%;
-    padding-left: 25px;
-    padding-right: 25px;
+    
+    
     padding-bottom: 50px;
 }
 
 .gallery-title{
-    margin: 0 auto;
-    width: 500px;
-    font-size: 30px;
     text-align: center;
-    
-    padding: 25px;
+    font-size: 30px;
+   
 }
 
 .gallery-blocks{
@@ -338,7 +347,7 @@
 
 .fullscreen-img-container img {
     max-width: 800px; /* Максимальная ширина изображения */
-    max-height: 600px; /* Максимальная высота изображения */
+    max-height: 600px; 
 }
 
 .close-btn {
@@ -366,6 +375,12 @@
     margin: 5px;
 }
 
+
+
+/* -------------------------------------------- */
+
+
+
 .contactsArea{
     width: 100%;
     background-color: var(--color4);
@@ -384,7 +399,7 @@
 }
 
 .contactsMap iframe{
-    width: 1170px;
+    width: 965px;
     height: 300px;
     margin: 0 auto;
     border: none;
@@ -409,11 +424,12 @@
     margin: 0 auto;
     width: 1200px;
     text-align: center;
+    
 }
 
 .contacts-Area form input{
     margin: 10px;
-    width: 324px;
+    width: 255px;
     height: 40px;
     padding-left: 25px;
     padding-right: 25px;
@@ -421,7 +437,7 @@
 }
 
 .contacts-Area form textarea{
-   width: 1122px;
+   width: 915px;
    height: 300px;
    padding: 25px;
    resize: none;
@@ -439,7 +455,7 @@
     color: white;
     border: none;
     transition: background-color 0.4s;
-    transform: translate(-547px,0px);
+    transform: translate(-443px,0px);
     text-align: center !important;
     padding: 0;
 }
