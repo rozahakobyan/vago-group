@@ -1,13 +1,11 @@
 import React, {useCallback, useState} from 'react';
-import {isLoading, massagerUpdateRequest} from "../../store/actions/massagers";
 import {useDispatch} from "react-redux";
 import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import classNames from "classnames";
-import {API_URL} from "../../Api";
 import Button from "../Button";
 import {AiFillDelete} from "react-icons/ai";
+import {isLoading, schedulesDeleteRequest, worksUpdateRequest } from '../../store/actions/works';
 
 function UpdateItemWork({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
@@ -23,10 +21,33 @@ function UpdateItemWork({updateItem, setUpdateItem}) {
         setUpdateItem({...updateItem, [path]: text});
     }, [updateItem]);
 
+    const handleDeleteSchedule = useCallback((e, index) => {
+        e.preventDefault();
+        updateItem.schedule.splice(index, 1);
+        setUpdateItem({...updateItem, schedule: [...updateItem.schedule]})
+    }, [updateItem])
+
+    const handleDeleteSchedules = useCallback(async(e, item) => {
+        e.preventDefault();
+        const filterDate = updateItem.schedules.filter(i => {
+            if (i.id !== item.id) {
+                return item
+            }
+        });
+        const {payload} = await dispatch(schedulesDeleteRequest(item.id))
+        if(payload.status === "ok"){
+            setUpdateItem({...updateItem, schedules: filterDate})
+        }
+    }, [updateItem])
+
     const handleSchedule = useCallback((e) => {
         e.preventDefault()
         if(text.trim().match(/^\d{2}:\d{2}(\s?)-\1\d{2}:\d{2}$/gm)){
-            // setUpdateItem({...updateItem, schedule: [...updateItem?.schedule, text]})
+            if(updateItem.schedule){
+                setUpdateItem({...updateItem, schedule: [...updateItem.schedule, text]})
+            }else{
+                setUpdateItem({...updateItem, schedule: [text]})
+            }
             setText("")
             setTextError("")
         }else{
@@ -37,7 +58,7 @@ function UpdateItemWork({updateItem, setUpdateItem}) {
     const handleSave = useCallback(async (e) => {
         e.preventDefault()
         dispatch(isLoading('of'))
-        const {payload} = await dispatch(massagerUpdateRequest(updateItem))
+        const {payload} = await dispatch(worksUpdateRequest(updateItem))
         if (!payload.errors) {
             setUpdateItem({...updateItem, isActive: true})
         }
@@ -94,18 +115,18 @@ function UpdateItemWork({updateItem, setUpdateItem}) {
                                 {textError ? <small className={'errors_message'}>{textError}</small> : null}
                                 {updateItem?.schedules && <div className={"list"}>
                                     {updateItem?.schedules.map(d => (
-                                        <div>
-                                            <p key={d.id}>{d.date}</p>
-                                            <AiFillDelete />
+                                        <div key={d.id}>
+                                            <p>{d.date}</p>
+                                            <AiFillDelete onClick={(e) => handleDeleteSchedules(e, d)}/>
                                         </div>
                                     ))}
                                 </div>}
 
                                 {updateItem.schedule && <div className={"list"}>
                                     {updateItem.schedule.map((text, i) => (
-                                        <div>
-                                            <p key={i}>{text}</p>
-                                            <AiFillDelete />
+                                        <div key={i}>
+                                            <p>{text}</p>
+                                            <AiFillDelete onClick={(e) => handleDeleteSchedule(e, i)}/>
                                         </div>
                                     ))}
                                 </div>}

@@ -186,7 +186,23 @@
             }
           }
           .list{
-
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            div{
+              display: flex;
+              flex-direction: row;
+              svg{
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                padding-top: 5px;
+              }
+              p{
+                margin-right: 10px;
+                font-weight: $robotoFont;
+              }
+            }
           }
         }
 

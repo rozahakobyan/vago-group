@@ -1,10 +1,10 @@
 import React, {useCallback, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {massagerAddRequest} from "../../../../store/actions/massagers";
 import {Account} from "../../../../helpers/account";
 import {Helmet} from "react-helmet";
 import Button from "../../../../components/Button";
+import {AiFillDelete} from "react-icons/ai";
 import {worksAddRequest} from "../../../../store/actions/works";
 
 function AddNewWork() {
@@ -37,6 +37,12 @@ function AddNewWork() {
             setTextError("Invalid format !!")
         }
     }, [work, text]);
+
+    const handleDeleteSchedule = useCallback((e, index) => {
+        e.preventDefault();
+        work.schedule.splice(index, 1);
+        setWork({...work, schedule: [...work.schedule]});
+    }, [work])
 
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
@@ -93,9 +99,11 @@ function AddNewWork() {
                                 <Button title={"Add"} onClick={handleSchedule}/>
                             </div>
                             {textError ? <small className={'errors_message'}>{textError}</small> : null}
-                            {work.schedule !== [] && <div className={"list"}>
-                                {work.schedule.map((text, i) => (
-                                    <p key={i}>{text}</p>
+                            {work.schedule && <div className={"list"}>
+                                {work.schedule.map((text, i) => (<div key={i}>
+                                        <p key={i}>{text}</p>
+                                        <AiFillDelete onClick={(e) => handleDeleteSchedule(e, i)}/>
+                                    </div>
                                 ))}
                             </div>}
                         </div>

@@ -5,7 +5,6 @@ import Work from "../../../../components/works/Work";
 import {Helmet} from "react-helmet";
 import {worksListRequest} from "../../../../store/actions/works";
 import ReactPaginate from "react-paginate";
-import {useNavigate, useParams} from "react-router-dom";
 
 function Works() {
     const dispatch = useDispatch();

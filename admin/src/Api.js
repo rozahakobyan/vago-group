@@ -142,18 +142,22 @@ export class Api {
         return api.post('/works/add', data);
     }
 
-    static worksList() {
-        return api.get('/works/list');
+    static worksList(data) {
+        return api.get('/works/list', data);
     }
 
     static worksDelete(id) {
         return api.delete(`/works/delete/${id}`);
     }
 
-    static worksUpdate(arg) {
-        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+    static schedulesDelete(id) {
+        return api.delete(`/works/delete-schedule/${id}`);
+    }
 
-        return api.put(`/login-image/update/${id}`, data);
+    static worksUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, schedules, ...data} = arg;
+
+        return api.put(`/works/update/${id}`, data);
     }
 }
 
