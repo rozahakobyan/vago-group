@@ -4,6 +4,7 @@ export default {
     add: Joi.object({
         name: Joi.string().max(255).required(),
         department: Joi.string().max(255).required(),
+        description: Joi.string().max(255).required(),
         price: Joi.number().min(0).required(),
         hoursWeek: Joi.number().min(0).required(),
         schedule:Joi.array().items(Joi.string().required()),
@@ -11,6 +12,7 @@ export default {
     update: Joi.object({
         name: Joi.string().max(255),
         department: Joi.string().max(255),
+        description: Joi.string().max(255),
         price: Joi.number().min(0),
         hoursWeek: Joi.number().min(0),
         schedule:Joi.array().items(Joi.string().allow(null,'')),

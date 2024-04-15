@@ -9,7 +9,7 @@ import {AiFillDelete} from "react-icons/ai";
 import {IoClose} from "react-icons/io5";
 import {API_URL} from "../../Api";
 import {RiDeleteBin6Line} from "react-icons/ri";
-import UpdateItemMassager from "./UpdateItemMassager";
+import UpdateItemMassager from "../massagers/UpdateItemMassager";
 import UpdateItemLoginImage from "./UpdateItemLoginImage";
 
 const customStyles = {

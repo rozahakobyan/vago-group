@@ -8,9 +8,11 @@ import EditProfile from "./EditProfile";
 import EditAccountPassword from "./EditAccountPassword";
 import HomeInfo from "./profiles/homeInformation/HomeInfo";
 import LoginImage from "./profiles/homeInformation/LoginImage";
-import Massagers from "./profiles/homeInformation/Massagers";
+import Massagers from "./profiles/massagers/Massagers";
 import AddNewLoginImage from "./profiles/homeInformation/AddNewLoginImage";
-import AddNewMassagers from "./profiles/homeInformation/AddNewMassagers";
+import AddNewMassagers from "./profiles/massagers/AddNewMassagers";
+import Works from "./profiles/works/Works";
+import AddNewWork from "./profiles/works/AddNewWork";
 
 const ProfileNavigate = () => {
     return (
@@ -20,8 +22,10 @@ const ProfileNavigate = () => {
                 <Route path={'/information'} element={<HomeInfo/>}/>
                 <Route path={'/information/login-image'} element={<LoginImage/>}/>
                 <Route path={'/information/add-new-login-image'} element={<AddNewLoginImage/>}/>
-                <Route path={'/information/massagers'} element={<Massagers/>}/>
-                <Route path={'/information/add-new-massagers'} element={<AddNewMassagers/>}/>
+                <Route path={'/massagers'} element={<Massagers/>}/>
+                <Route path={'/massagers/add-new-massagers'} element={<AddNewMassagers/>}/>
+                <Route path={'/works'} element={<Works/>}/>
+                <Route path={'/works/add-new-works'} element={<AddNewWork/>}/>
                 <Route path={'/users/:page'} element={<Users/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Route>

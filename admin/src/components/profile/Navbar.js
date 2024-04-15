@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from "react";
 import classNames from "classnames";
 import NavbarItem from "./NavbarItem";
-import {MdDashboard} from "react-icons/md";
-import {FaRegRegistered, FaUsers} from "react-icons/fa";
+import {MdAssessment, MdDashboard} from "react-icons/md";
+import {FaCarBattery, FaFacebookMessenger, FaRegRegistered, FaShapes, FaUsers} from "react-icons/fa";
 import {MdMedicalServices} from "react-icons/md";
 import {AiOutlineMessage} from "react-icons/ai";
 import {IoIosHelpCircle, IoIosSettings} from "react-icons/io";
 import {useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {Account} from "../../helpers/account";
+import {BiBuilding} from "react-icons/bi";
 
 const navItem = [
     {
@@ -36,31 +37,35 @@ const navItem = [
                 title: "Login Image",
                 path: "login-image",
             },
+        ]
+    },
+    {
+        id: 3,
+        name: 'Massagers',
+        Icon: FaFacebookMessenger,
+        openIcon: true,
+        renderItem: true,
+        path: 'massagers',
+        subMenu: [
             {
-                id: 2_3,
+                id: 3_1,
                 title: "Add New Massagers",
                 path: "add-new-massagers",
-            },
-            {
-                id: 2_4,
-                title: "Massagers",
-                path: "massagers",
-            },
+            }
         ]
     },
     {
         id: 4,
-        name: 'Services',
-        path: 'services',
-        Icon: MdMedicalServices,
+        name: 'Works',
+        path: 'works',
+        Icon: BiBuilding,
         openIcon: true,
         renderItem: true,
         subMenu: [
             {
                 id: 44,
-                title: "Message",
-                Icon: AiOutlineMessage,
-                path: "message",
+                title: "Add New Works",
+                path: "add-new-works",
             },
         ]
     },

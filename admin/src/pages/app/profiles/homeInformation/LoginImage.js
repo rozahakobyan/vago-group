@@ -11,7 +11,7 @@ import {loginImageAddRequest, loginImageListRequest} from "../../../../store/act
 import LogImage from "../../../../components/homeInformation/LogImage";
 import {Helmet} from "react-helmet";
 import LoadingPage from "../../../../components/LoadingPage";
-import Massager from "../../../../components/homeInformation/Massager";
+import Massager from "../../../../components/massagers/Massager";
 
 const customStyles = {
     content: {

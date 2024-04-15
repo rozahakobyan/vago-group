@@ -20,6 +20,10 @@ Works.init({
             type: DataTypes.STRING,
             allowNull: false,
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         price: {
             type: DataTypes.BIGINT,
             allowNull: false,

@@ -137,6 +137,24 @@ export class Api {
             },
         });
     }
+
+    static worksAdd(data = {}) {
+        return api.post('/works/add', data);
+    }
+
+    static worksList() {
+        return api.get('/works/list');
+    }
+
+    static worksDelete(id) {
+        return api.delete(`/works/delete/${id}`);
+    }
+
+    static worksUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/login-image/update/${id}`, data);
+    }
 }
 
 

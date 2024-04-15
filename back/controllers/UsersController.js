@@ -148,11 +148,10 @@ class UsersController {
                 where: {
                     email,
                     password: Users.passwordHash(password),
-                    role: "admin"
+                    role: ["admin", "super-admin"]
                 },
                 attributes: {
                     exclude: ['verification', 'createdAt', 'updatedAt'],
-                    role: "admin",
                 },
             });
 

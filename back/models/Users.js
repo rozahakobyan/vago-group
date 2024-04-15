@@ -21,7 +21,7 @@ class Users extends Model {
         lastName: 'Group',
         email: 'vagogroup.arm@gmail.com',
         password: '12345678',
-        role: 'admin',
+        role: 'super-admin',
         status:'active'
       }
     })
@@ -35,6 +35,21 @@ class Users extends Model {
         firstName: 'Roza',
         lastName: 'Hakobyan',
         email: 'rhakobyan751@gmail.com',
+        password: '12345678',
+        role: 'admin',
+        status:'active'
+      }
+    })
+
+    await Users.findOrCreate({
+      where: {
+        id: 3
+      },
+      defaults: {
+        id: 3,
+        firstName: 'Roza',
+        lastName: 'Hakobyan',
+        email: 'rhakobyan290@gmail.com',
         password: '12345678',
         role: 'user',
         status:'active'
@@ -94,7 +109,7 @@ Users.init({
     }
   },
   role: {
-    type: DataTypes.ENUM('admin', 'user'),
+    type: DataTypes.ENUM('super-admin', 'admin', 'user'),
     defaultValue: 'user',
     allowNull: false,
   },

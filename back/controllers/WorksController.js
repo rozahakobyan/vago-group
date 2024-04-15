@@ -6,9 +6,9 @@ import {Op} from "sequelize";
 class WorksController {
     static async add (req, res, next){
         try{
-            const {name, department, price, hoursWeek, schedule = []} = req.body;
+            const {name, department, price, hoursWeek, description, schedule = []} = req.body;
 
-            if(!name || !department || !price || !hoursWeek){
+            if(!name || !department || !price || !hoursWeek || !description){
                 throw HttpError(404, {
                     errors: {
                         exists: "Not found"
@@ -16,7 +16,7 @@ class WorksController {
                 })
             }
 
-            const work = await Works.create({name, department, price, hoursWeek})
+            const work = await Works.create({name, department, price, hoursWeek, description})
 
             if(schedule.length){
                 await WorksSchedules.bulkCreate(schedule.map(d => ({
@@ -35,7 +35,7 @@ class WorksController {
                         attributes: ["id", "date"],
                     },
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek"]
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description"]
             })
 
             res.json({
@@ -49,7 +49,7 @@ class WorksController {
 
     static async update (req, res, next){
         try{
-            const {name, department, price, hoursWeek, schedule = []} = req.body;
+            const {name, department, price, hoursWeek, description, schedule = []} = req.body;
             const { id } = req.params;
 
             const work = await Works.findOne({
@@ -64,7 +64,7 @@ class WorksController {
                 })
             }
 
-            await work.update({name, department, price, hoursWeek})
+            await work.update({name, department, price, hoursWeek, description})
 
             if(schedule){
                 await WorksSchedules.bulkCreate(schedule.map(d => ({
@@ -83,7 +83,7 @@ class WorksController {
                         attributes: ["id", "date"],
                     },
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek"]
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description"]
             })
 
             res.json({
@@ -195,7 +195,7 @@ class WorksController {
                         attributes: ["id", "date"],
                     },
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek"],
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description"],
                 limit,
                 offset
             })

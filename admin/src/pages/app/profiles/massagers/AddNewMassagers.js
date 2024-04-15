@@ -29,7 +29,7 @@ const AddNewMassagers = () => {
         e.preventDefault()
         const {payload} = await dispatch(massagerAddRequest(massager));
         if (payload?.status === 'ok') {
-            navigate('/information/massagers')
+            navigate('/massagers')
             Account.setNavbarUrlPathSub('massagers')
         }
     }, [massager]);
