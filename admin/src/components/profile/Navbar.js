@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import classNames from "classnames";
 import NavbarItem from "./NavbarItem";
-import {MdAssessment, MdDashboard} from "react-icons/md";
+import {MdAssessment, MdConstruction, MdDashboard} from "react-icons/md";
 import {FaCarBattery, FaFacebookMessenger, FaRegRegistered, FaShapes, FaUsers} from "react-icons/fa";
 import {MdMedicalServices} from "react-icons/md";
 import {AiOutlineMessage} from "react-icons/ai";
@@ -63,9 +63,24 @@ const navItem = [
         renderItem: true,
         subMenu: [
             {
-                id: 44,
+                id: 4_1,
                 title: "Add New Works",
                 path: "add-new-works",
+            },
+        ]
+    },
+    {
+        id: 5,
+        name: 'Products',
+        path: 'products',
+        Icon: MdConstruction,
+        openIcon: true,
+        renderItem: true,
+        subMenu: [
+            {
+                id: 5_1,
+                title: "Add New Products",
+                path: "add-new-products",
             },
         ]
     },

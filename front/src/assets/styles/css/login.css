@@ -10,7 +10,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("../../images/login.jpg") no-repeat;
   background-size: cover;
   padding: 0;
   box-sizing: border-box;
@@ -73,8 +72,6 @@
   font-size: 14.5px;
   margin: 20px 0;
 }
-
-.login form .remember-forgot label {}
 
 .login form .remember-forgot label input {
   accent-color: #ffffff;

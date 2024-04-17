@@ -142,7 +142,7 @@ export class Api {
         return api.post('/works/add', data);
     }
 
-    static worksList(data) {
+    static worksList(data = {}) {
         return api.get('/works/list', data);
     }
 
@@ -158,6 +158,32 @@ export class Api {
         const {id, isActive, createdAt, updatedAt, schedules, ...data} = arg;
 
         return api.put(`/works/update/${id}`, data);
+    }
+    
+    static productsAdd(data = {}) {
+        return api.post('/products/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static productsList() {
+        return api.get('/products/list');
+    }
+
+    static productsDelete(id) {
+        return api.delete(`/products/delete/${id}`);
+    }
+
+    static productsUpdate(arg) {
+        const {id, isActive, createdAt, products, updatedAt, ...data} = arg;
+
+        return api.put(`/products/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
     }
 }
 

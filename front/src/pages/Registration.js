@@ -39,7 +39,9 @@ const Registration = () => {
 
     return (
         <LogoutWrapper helmetTitle={"Login"}>
-            <section className={"login"}>
+            <section className={"login"} style={{
+                background: "url(../assets/images/login.jpg)"
+            }}>
                 <form onSubmit={handleSubmit}>
                     <h1>Registration</h1>
                     {errors.exsist && <p className={"error"}>{errors.exsist}</p>}

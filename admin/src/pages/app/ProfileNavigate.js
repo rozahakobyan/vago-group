@@ -13,6 +13,8 @@ import AddNewLoginImage from "./profiles/homeInformation/AddNewLoginImage";
 import AddNewMassagers from "./profiles/massagers/AddNewMassagers";
 import Works from "./profiles/works/Works";
 import AddNewWork from "./profiles/works/AddNewWork";
+import AddNewProducts from './profiles/products/AddNewProducts';
+import Products from './profiles/products/Products';
 
 const ProfileNavigate = () => {
     return (
@@ -26,6 +28,8 @@ const ProfileNavigate = () => {
                 <Route path={'/massagers/add-new-massagers'} element={<AddNewMassagers/>}/>
                 <Route path={'/works'} element={<Works/>}/>
                 <Route path={'/works/add-new-works'} element={<AddNewWork/>}/>
+                <Route path={'/products'} element={<Products/>}/>
+                <Route path={'/products/add-new-products'} element={<AddNewProducts/>}/>
                 <Route path={'/users/:page'} element={<Users/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Route>

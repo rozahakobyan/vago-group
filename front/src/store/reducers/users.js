@@ -3,7 +3,7 @@ import {
     activeNavbarToggle, createUserData,
     userLoginRequired, userProfileRequired, userRegisterRequired,
 } from '../actions/users';
-import Account from "../../helpers/Account";
+import {Account} from "../../helpers/Account";
 
 const initialState = {
     profile: Account.getUser(),

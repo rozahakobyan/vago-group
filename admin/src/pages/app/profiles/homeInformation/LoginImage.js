@@ -29,13 +29,6 @@ const customStyles = {
 function LoginImage() {
     const dispatch = useDispatch();
 
-    const [loginImage, setLoginImage] = useState({
-        image: {},
-    })
-    const [file, setFile] = useState("");
-    const [open, setOpen] = useState(false);
-    const [isAdd, setIsAdd] = useState(false);
-    const [errors, setErrors] = useState({});
     const [updateItem, setUpdateItem] = useState(null);
 
     const loading = useSelector(state => state.loginImage.loading);
@@ -52,41 +45,6 @@ function LoginImage() {
             }, 650)
         }
     }, [updateItem]);
-
-    const handleFileSelect = useCallback((ev) => {
-        [...ev.target.files].forEach((file) => {
-            setLoginImage({image: file});
-            const createUrl = URL.createObjectURL(file);
-            setFile(createUrl);
-        });
-
-        ev.target.value = '';
-    }, []);
-
-    const handleDeleteImage = useCallback(() => {
-        setLoginImage({image: {}})
-        setFile("")
-    }, [])
-
-    const submit = useCallback(async (ev) => {
-        ev.preventDefault();
-        try{
-            const {payload} = await dispatch(loginImageAddRequest(loginImage));
-            if(payload.status === "ok"){
-                setLoginImage({
-                    image: {},
-                })
-                setErrors({})
-                setFile("")
-                setIsAdd(false)
-            }
-            if(payload.errors){
-                setErrors(payload.errors)
-            }
-        }catch (e) {
-            console.log(e)
-        }
-    }, [loginImage])
 
     return (
         <div className={'login-image childrenWidth'}>

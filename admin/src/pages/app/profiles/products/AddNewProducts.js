@@ -6,49 +6,60 @@ import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
 import {massagerAddRequest} from "../../../../store/actions/massagers";
+import { productsAddRequest } from '../../../../store/actions/products';
 
-const AddNewMassagers = () => {
-    const [massager, setMassager] = useState({name: "", icon: null});
-    const errors = useSelector(state => state.massagers.errors);
-    const loading = useSelector(state => state.massagers.loading);
+const AddNewProducts = () => {
+    const [product, setProduct] = useState({name: "", price: null, image: null});
+    const errors = useSelector(state => state.products.errors);
+    const loading = useSelector(state => state.products.loading);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleChangeText = useCallback((e) => {
+    const handleChangeText = useCallback((e, path) => {
         const text = e.target.value
-        setMassager({...massager, name: text});
-    }, [massager]);
+        setProduct({...product, [path]: text});
+    }, [product]);
 
     const handleChangeFile = useCallback((e) => {
         const file = e.target.files[0]
-        setMassager({...massager, icon: file})
-    }, [massager]);
+        setProduct({...product, image: file})
+    }, [product]);
 
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
-        const {payload} = await dispatch(massagerAddRequest(massager));
+        const {payload} = await dispatch(productsAddRequest(product));
         if (payload?.status === 'ok') {
-            navigate('/massagers')
-            Account.setNavbarUrlPathSub('massagers')
+            navigate('/products')
+            Account.setNavbarUrlPathSub('products')
         }
-    }, [massager]);
+    }, [product]);
 
     return (
-        <div className={'add-new-massagers childrenWidth'}>
+        <div className={'add-new-products childrenWidth'}>
             <Helmet>
-                <title>add new massagers</title>
+                <title>add new products</title>
             </Helmet>
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
                         <div className={'input_item'}>
                             <input
-                                value={massager.name}
-                                onChange={handleChangeText}
+                                value={product.name}
+                                onChange={(e) => handleChangeText(e, "name")}
                                 placeholder={'name...'}
                                 type="text"/>
                         </div>
                         {errors.name ? <small>{errors.name}</small> : null}
+
+                        <div className={'input_item'}>
+                            <input
+                                value={product.price}
+                                onChange={(e) => handleChangeText(e, "price")}
+                                placeholder={'price...'}
+                                type="number"/>
+                        </div>
+                        {errors.number ? <small>{errors.number}</small> : null}
+
                         <div className={'item_file_cat'}>
                             <label
                                 htmlFor="file-upload"
@@ -68,9 +79,9 @@ const AddNewMassagers = () => {
                         <Button title={'Save'} loading={loading}/>
                     </div>
                     {
-                        massager.icon ?
+                        product.image ?
                             <figure className={'icon_file_img'}>
-                                <img src={URL.createObjectURL(massager?.icon)} alt={""}/>
+                                <img src={URL.createObjectURL(product?.image)} alt={""}/>
                             </figure>
                             : null
                     }
@@ -80,4 +91,4 @@ const AddNewMassagers = () => {
     );
 };
 
-export default AddNewMassagers;
+export default AddNewProducts;

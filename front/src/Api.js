@@ -1,16 +1,12 @@
 import axios from 'axios';
-import Account from "./helpers/Account";
+import {Account} from "./helpers/Account";
 
-const { REACT_APP_API_URL } = process.env;
-
+export const API_URL = 'http://localhost:4001/'
 const api = axios.create({
-    baseURL: REACT_APP_API_URL,
-    headers: {
-        "Content-Type": "application/json"
-    }
-});
+    baseURL: 'http://127.0.0.1:4001'
+})
 api.interceptors.request.use((config) => {
-    const token = Account.getToken()
+    const token = Account.getTokenStrong()
     if (token) {
         config.headers.authorization = `Bearer ${token}`;
     }
@@ -19,8 +15,7 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use((response) => response, (error) => {
     if (error.response.status === 401) {
-        Account.deleteStrong()
-        window.location.href = '/'
+        Account.removeStrong()
     }
     return Promise.reject(error);
 });
@@ -52,5 +47,25 @@ export class Api {
 
     static activateUser(params) {
         return api.post('/users/activate', params);
+    }
+    
+    static homeInfoList() {
+        return api.get('/home-info/list');
+    }
+
+    static loginImageList() {
+        return api.get('/login-image/list');
+    }
+
+    static massagerList() {
+        return api.get('/massagers/list');
+    }
+
+    static worksList(data = {}) {
+        return api.get('/works/list', data);
+    }
+
+    static productsList() {
+        return api.get('/products/list');
     }
 }
