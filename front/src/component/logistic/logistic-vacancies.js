@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Vacancieces(){
     return(
@@ -26,7 +27,9 @@ function Vacancieces(){
                             ??:?? - ??:??
                         </p>
 
-                        <button className="logistic-vacancie-join"><strong>Join</strong></button>
+                        <NavLink to={'/vacancies-detales'}>
+                            <button className="vacancie-join"><strong>More</strong></button>
+                        </NavLink>
                     </div>
                 </div>
 

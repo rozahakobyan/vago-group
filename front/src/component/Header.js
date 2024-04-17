@@ -17,7 +17,7 @@ function Header() {
 
     return (
         <header>
-            <div className="header-blocks">
+            <div className="header-blocks" id='verev'>
                 <NavLink to={"/homeInformation"}>
                     <div className="logo"><img src='./img/logo.png' /></div>
                 </NavLink>

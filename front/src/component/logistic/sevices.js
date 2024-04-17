@@ -19,49 +19,40 @@ function Services() {
 
 
     return (
-        <div className="logistic-priceList">
-            <h2 className="logistic-priceList-title">Services</h2>
-            <div className="logistic-priceList-area">
-                <table className="logistic-Price-table">
+        <div className="priceList">
+        <div className="priceList-area">
+            <h2 className="priceList-title">Services</h2>
+            <div className="priceList-area">
+                <table className="Price-table">
                     <thead>
                         <tr>
-                            <th>first name</th>
-                            <th>second name</th>
-                            <th>image</th>
+                            <th>Service Name</th>
+                            <th>Price</th>
+                           
                         </tr>
                     </thead>
                     <tbody>
-                        {product.map(p => (
-                            <tr key={p.id}>
-                                <td>{p.first_name}</td>
-                                <td>{p.last_name}</td>
-                                <td><img src={p.avatar} alt={""} width={50} height={50} /></td>
-                            </tr>
-                        ))}
+                        {/* product.map(p => (
+                        <tr key={p.id}>
+                            <td>{p.first_name}</td>
+                            <td>{p.last_name}</td>
+                            <td><img src={p.avatar} alt={""} width={50} height={50} /></td>
+                        </tr>
+                    )) */}
+                        <tr>
+                            <td className="service-name">esim inch</td>
+                            
+                            <td>650 EUR</td>
+                        </tr>
+                        
                     </tbody>
 
                 </table>
 
-                <div className={"pages-list"}>
-                    <ReactPaginate
-                        pageRangeDisplayed={2}
-                        activeClassName={'item active '}
-                        breakClassName={'item break-me '}
-                        breakLabel={'...'}
-                        containerClassName={'pagination'}
-                        disabledClassName={'disabled-page'}
-                        marginPagesDisplayed={2}
-                        nextClassName={"item next "}
-                        nextLabel={">"}
-                        initialPage={pageNumber - 1}
-                        onPageChange={(ev) => setPageNumber(ev.selected + 1)}
-                        pageCount={pageCount}
-                        pageClassName={'item pagination-page '}
-                        previousClassName={"item previous"}
-                        previousLabel={"<"} />
-                </div>
+
             </div>
         </div>
+    </div>
     )
 }
 
