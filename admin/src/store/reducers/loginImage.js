@@ -3,9 +3,9 @@ import {
     loginImageAddRequest,
     loginImageDeleteRequest,
     loginImageListRequest,
-    loginImageUpdateRequest
+    loginImageUpdateRequest,
+    isLoading
 } from "../actions/loginImage";
-import {isLoading} from "../actions/massagers";
 
 const initialState = {
     loginImage: {},

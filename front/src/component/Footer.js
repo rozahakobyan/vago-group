@@ -1,6 +1,17 @@
 import React from 'react';
+import { useEffect } from 'react';
+import {useSelector, useDispatch} from "react-redux";
+import { massagerListRequest } from "../store/actions/massagers";
 
 function Footer() {
+    const dispatch = useDispatch();
+
+    const massagersList = useSelector(state => state.massagers.massagersList);
+
+    useEffect(() => {
+        dispatch(massagerListRequest())
+    }, [])
+
     return (
         <footer>
             <div className='footer'>

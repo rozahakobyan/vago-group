@@ -41,7 +41,7 @@ class ProductsController {
 
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 400 })
+                .resize({ width: 200 })
                 .toFile(path.join(root, file.filename));
 
             await resizeImages(file.path, root, file.filename, 2);
@@ -78,14 +78,14 @@ class ProductsController {
                 if (!fss.existsSync(destFolder)) {
                     fss.mkdirSync(destFolder)
                 }
-                if (products.image) {
+                if (product.image) {
                     await fs.unlink(path.join(destFolder, product.image));
                     await fs.unlink(path.join(destFolder, product.image + '@2x' + ext));
                     await fs.unlink(path.join(destFolder, product.image + '@3x' + ext));
                 }
                 await sharp(file.path)
                     .rotate()
-                    .resize({ width: 400 })
+                    .resize({ width: 200 })
                     .toFile(path.join(destFolder, file.filename));
 
                 await resizeImages(file.path, destFolder, file.filename, 2);

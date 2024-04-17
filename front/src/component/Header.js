@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Account from "../helpers/Account";
+import {Account} from "../helpers/Account";
 import { createUserData } from "../store/actions/users";
 
 function Header() {

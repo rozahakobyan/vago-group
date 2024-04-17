@@ -1,23 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import LoadingPage from "../../../../components/LoadingPage";
-import Work from "../../../../components/works/Work";
+import Product from "../../../../components/products/Product";
 import {Helmet} from "react-helmet";
-import {worksListRequest} from "../../../../store/actions/works";
+import LoadingPage from "../../../../components/LoadingPage";
+import { productsListRequest } from '../../../../store/actions/products';
 import ReactPaginate from "react-paginate";
 
-function Works() {
+function Products() {
     const dispatch = useDispatch();
 
     const [updateItem, setUpdateItem] = useState(null);
     const [page, setPage] = useState(1);
 
-    const loading = useSelector(state => state.works.loading);
-    const worksList = useSelector(state => state.works.worksList);
-    const pages = useSelector(state => state.works.pages);
+    const loading = useSelector(state => state.products.loading);
+    const productsList = useSelector(state => state.products.productsList);
+    const pages = useSelector(state => state.products.pages);
 
     useEffect(() => {
-        dispatch(worksListRequest({page}))
+        dispatch(productsListRequest({page}))
     }, [page]);
 
     useEffect(() => {
@@ -29,20 +29,20 @@ function Works() {
     }, [updateItem]);
 
     return (
-        <div className={'works childrenWidth'}>
+        <div className={'products childrenWidth'}>
             <Helmet>
-                <title>all works</title>
+                <title>all products</title>
             </Helmet>
-
+            
             <div className={'cont_cat'}>
                 {
                     loading ? <LoadingPage/>
-                        : worksList.map(item =>
-                            <Work
+                        : productsList.map(item =>
+                            <Product
                                 updateItem={updateItem}
                                 setUpdateItem={setUpdateItem}
                                 key={item.id}
-                                work={item}/>)
+                                product={item}/>)
                 }
                 {pages !== 1 && <div className={"pages-list"}>
                     <ReactPaginate
@@ -64,7 +64,8 @@ function Works() {
                 </div>}
             </div>
         </div>
-    );
+);
 }
 
-export default Works;
+export default Products;
+

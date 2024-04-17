@@ -11,13 +11,9 @@ const EXCLUDES = [
   'POST:/users/send-password-recovery-code',
   'POST:/users/validate-password-recovery-code',
   'POST:/users/password-update',
-  'GET:/home-info/list',
   'POST:/home-info/add',
-  'GET:/login-image/list',
   'POST:/login-image/add',
-  'GET:/welcome/list',
   'POST:/welcome/add',
-  'GET:/products/list',
   'POST:/products/add',
 ];
 

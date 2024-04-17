@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
+import {useDispatch, useSelector} from "react-redux";
+import { worksListRequest } from "../../store/actions/works";
 
 function Vacancieces() {
+    const dispatch = useDispatch();
+
+    const worksList = useSelector(state => state.works.worksList)
+
+    useEffect(() => {
+        dispatch(worksListRequest())
+    }, [])
+
     return (
         <div className="vacanciesArea">
             <div className="vacanciesTitle">

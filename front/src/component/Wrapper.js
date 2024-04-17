@@ -19,7 +19,6 @@ function Wrapper({children, helmetTitle}) {
             <div className={"container"}>
                 <Header />
                 {children}
-                
                 <Footer />
                 <Whatsapp/>
             </div>
