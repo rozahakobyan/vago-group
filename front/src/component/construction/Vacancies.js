@@ -12,6 +12,10 @@ function Vacancieces() {
         dispatch(worksListRequest())
     }, [])
 
+    console.log(worksList)
+
+
+    
     return (
         <div className="vacanciesArea">
             <div className="vacanciesTitle">

@@ -52,6 +52,14 @@ function Price() {
                                 <td>🗸</td>
                                 <td>🗸</td>
                             </tr>
+
+
+                            <tr className="order-button">
+                                <td className="service-name"></td>
+                                <td><button>ORDER</button></td>
+                                <td><button>ORDER</button></td>
+                                <td><button>ORDER</button></td>
+                            </tr>
                         </tbody>
 
                     </table>
