@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/partners.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/partners/Partner.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/partners/Partner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/partners/UpdateItemPartner.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/partners/UpdateItemPartner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/works/UpdateItemWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/works/UpdateItemWork.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/partners/AddNewPartners.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/partners/AddNewPartners.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/PartnersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/PartnersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/ProductsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/ProductsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/whatsapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/whatsapp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +94,7 @@
       <workItem from="1713353266776" duration="4025000" />
       <workItem from="1713368045028" duration="4206000" />
       <workItem from="1713424171704" duration="2921000" />
-      <workItem from="1713445152010" duration="2369000" />
+      <workItem from="1713445152010" duration="3037000" />
     </task>
     <servers />
   </component>
