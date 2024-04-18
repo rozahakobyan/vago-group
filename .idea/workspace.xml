@@ -5,32 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/works.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/works/UpdateItemWork.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/works/Work.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/Works.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/store/actions/works.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/store/reducers/works.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/addPartners.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/partners/Partner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/partners/UpdateItemPartner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/partners/AddNewPartners.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/partners/Partners.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/store/actions/partners.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/store/reducers/partners.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addDestination.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addWork.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/Them.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/Them.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addWork.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addWork.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/homeInformation/LogImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/homeInformation/LogImage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/homeInformation/Massager.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/massagers/Massager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/homeInformation/UpdateItemMassager.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/massagers/UpdateItemMassager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/works.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/works.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/components/profile/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/profile/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/works/UpdateItemWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/works/UpdateItemWork.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/AddNewMassagers.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/massagers/AddNewMassagers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/LoginImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/LoginImage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/Massagers.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/massagers/Massagers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/UsersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/UsersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/WorksController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/WorksController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/Works.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Works.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/WorksSchedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/WorksSchedules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/schema/worksSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/worksSchema.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +57,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group/admin/src/components/works&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,16 +69,23 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\works" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\assets\styles" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\reducers" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\actions" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\adminn\src\pages\app\profiles\homeInformation" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\pages\app\profiles" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\works" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\massagers" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\pages\app\profiles\massagers" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -107,6 +106,10 @@
       <workItem from="1712249006968" duration="13016000" />
       <workItem from="1713187206230" duration="364000" />
       <workItem from="1713190261418" duration="404000" />
+      <workItem from="1713349674614" duration="1664000" />
+      <workItem from="1713353266776" duration="4025000" />
+      <workItem from="1713368045028" duration="4206000" />
+      <workItem from="1713424171704" duration="214000" />
     </task>
     <servers />
   </component>

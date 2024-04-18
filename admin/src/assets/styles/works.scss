@@ -149,6 +149,22 @@
       align-items: flex-start;
 
       .cont {
+        .react-select-containers{
+          width: 350px;
+          height: 38px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          border: none;
+          border-radius: 8px;
+          background: #FFF;
+          color: #828282;
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+
         .work_schedule{
           width: 350px;
           .schedule{

@@ -191,59 +191,6 @@
     }
   }
 
-  .destination {
-    background: $dark;
-
-    .desc_cont {
-      form {
-        background: $dark;
-        box-shadow: $shadowLight;
-
-        small {
-          color: $light;
-        }
-      }
-    }
-  }
-
-  .result_destination {
-    .res_cont {
-      background: none;
-      box-shadow: $shadowLight;
-    }
-  }
-
-  .destination-about {
-    .cont_dec_about {
-      .item {
-        box-shadow: $shadowLight;
-
-        .about_text {
-          p {
-            color: $light;
-
-            span {
-              color: $light;
-              border-bottom: 1px solid $light;
-            }
-          }
-        }
-
-        button {
-          background: $light;
-        }
-      }
-    }
-  }
-
-  .categories {
-    .cont_cat {
-      .item {
-        background: $light;
-      }
-    }
-  }
-
   .users {
     .cont_cat {
       .item {
@@ -276,11 +223,10 @@
     }
   }
 
-  .tour_categories {
-    .tour_con {
-      form {
-        background: none;
-        box-shadow: $shadowLight;
+  .products {
+    .cont_cat {
+      .item {
+        background: $light;
       }
     }
   }

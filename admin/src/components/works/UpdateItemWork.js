@@ -6,12 +6,23 @@ import classNames from "classnames";
 import Button from "../Button";
 import {AiFillDelete} from "react-icons/ai";
 import {isLoading, schedulesDeleteRequest, worksUpdateRequest } from '../../store/actions/works';
+import Select from "react-select";
+
+const departments = [
+    {value: "Construction", label: "Construction"},
+    {value: "EmploymentAgency", label: "EmploymentAgency"},
+    {value: "Logistic", label: "Logistic"}
+]
 
 function UpdateItemWork({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
 
     const [text, setText] = useState("");
     const [textError, setTextError] = useState("");
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setUpdateItem({...updateItem, department: selectedOption.label})
+    }, [updateItem])
 
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
@@ -80,13 +91,13 @@ function UpdateItemWork({updateItem, setUpdateItem}) {
                                     type="text"
                                 />
                             </div>
-                            <div className={'input_item'}>
-                                <input
-                                    onChange={(e) => handleChange(e.target.value, "department")}
-                                    value={updateItem.department || ''}
-                                    type="text"
-                                />
-                            </div>
+                            <Select defaultValue={{value: updateItem.department, label: updateItem.department}}
+                                    options={departments}
+                                    onChange={handleSelectChange}
+                                    placeholder={<div>Departments...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                            />
                             <div className={'input_item'}>
                                 <input
                                     onChange={(e) => handleChange(e.target.value, "price")}

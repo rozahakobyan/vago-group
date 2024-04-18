@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import classNames from "classnames";
 import NavbarItem from "./NavbarItem";
-import {MdAssessment, MdConstruction, MdDashboard} from "react-icons/md";
-import {FaCarBattery, FaFacebookMessenger, FaRegRegistered, FaShapes, FaUsers} from "react-icons/fa";
-import {MdMedicalServices} from "react-icons/md";
-import {AiOutlineMessage} from "react-icons/ai";
+import {MdConstruction, MdDashboard} from "react-icons/md";
+import {FaFacebookMessenger, FaRegRegistered, FaUsers} from "react-icons/fa";
+import {AiOutlineTeam} from "react-icons/ai";
 import {IoIosHelpCircle, IoIosSettings} from "react-icons/io";
 import {useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
@@ -81,6 +80,21 @@ const navItem = [
                 id: 5_1,
                 title: "Add New Products",
                 path: "add-new-products",
+            },
+        ]
+    },
+    {
+        id: 6,
+        name: 'Partners',
+        path: 'partners',
+        Icon: AiOutlineTeam,
+        openIcon: true,
+        renderItem: true,
+        subMenu: [
+            {
+                id: 6_1,
+                title: "Add New Partners",
+                path: "add-new-partners",
             },
         ]
     },

@@ -5,6 +5,7 @@ import {loginImage} from "./reducers/loginImage";
 import {massagers} from "./reducers/massagers";
 import {works} from "./reducers/works";
 import {products} from "./reducers/products";
+import {partners} from "./reducers/partners";
 
 const root = {
     users,
@@ -12,7 +13,8 @@ const root = {
     loginImage,
     massagers,
     works, 
-    products
+    products,
+    partners
 }
 
 export const store = configureStore({reducer: root})

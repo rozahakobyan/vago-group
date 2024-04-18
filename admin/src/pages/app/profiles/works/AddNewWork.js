@@ -6,6 +6,13 @@ import {Helmet} from "react-helmet";
 import Button from "../../../../components/Button";
 import {AiFillDelete} from "react-icons/ai";
 import {worksAddRequest} from "../../../../store/actions/works";
+import Select from "react-select";
+
+const departments = [
+    {value: "Construction", label: "Construction"},
+    {value: "EmploymentAgency", label: "EmploymentAgency"},
+    {value: "Logistic", label: "Logistic"}
+]
 
 function AddNewWork() {
     const [work, setWork] = useState({
@@ -16,6 +23,7 @@ function AddNewWork() {
         hoursWeek: null,
         schedule: [],
     });
+    const [selected, setSelected] = useState(null);
     const [text, setText] = useState("");
     const [textError, setTextError] = useState("");
     const errors = useSelector(state => state.works.errors);
@@ -26,6 +34,11 @@ function AddNewWork() {
     const handleChangeText = useCallback((text, path) => {
         setWork({...work, [path]: text});
     }, [work]);
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setSelected(selectedOption)
+        setWork({...work, department: selectedOption.label})
+    }, [work])
 
     const handleSchedule = useCallback((e) => {
         e.preventDefault()
@@ -69,14 +82,13 @@ function AddNewWork() {
                                 type="text"/>
                         </div>
                         {errors.name ? <small className={'errors_message'}>{errors.name}</small> : null}
-                        <div className={'input_item'}>
-                            <input
-                                value={work.department}
-                                onChange={(e) => handleChangeText(e.target.value, "department")}
-                                placeholder={'department...'}
-                                type="text"/>
-                        </div>
-                        {errors.department ? <small className={'errors_message'}>{errors.department}</small> : null}
+                        <Select value={selected}
+                                options={departments}
+                                onChange={handleSelectChange}
+                                placeholder={<div>Departments...</div>}
+                                className="react-select-containers"
+                                classNamePrefix="react-selects"
+                        />
                         <div className={'input_item'}>
                             <input
                                 value={work.hoursWeek}

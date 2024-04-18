@@ -185,6 +185,32 @@ export class Api {
             },
         });
     }
+
+    static partnersAdd(data = {}) {
+        return api.post('/partners/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static partnersList() {
+        return api.get('/partners/list');
+    }
+
+    static partnersDelete(id) {
+        return api.delete(`/partners/delete/${id}`);
+    }
+
+    static partnersUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/partners/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
 }
 
 
