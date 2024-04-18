@@ -19,9 +19,7 @@ function Partner({partner, updateItem, setUpdateItem}) {
 
     return (
         <div className={'item'}>
-            <img src={`${API_URL}/${partner.image}`} alt={partner.name}/>
-            <h3>partner - {partner.name}</h3>
-            <h3>Price - {partner.price}</h3>
+            <img src={`${API_URL}/${partner.image}`} alt={""}/>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(partner)}

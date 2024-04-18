@@ -1,44 +1,43 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {Helmet} from "react-helmet";
 import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
-import { partnersAddRequest } from '../../../../store/actions/partners';
+import {massagerAddRequest} from "../../../../store/actions/massagers";
+import { productsAddRequest } from '../../../../store/actions/products';
+import {partnersAddRequest} from "../../../../store/actions/partners";
 
 const AddNewPartners = () => {
+    const [product, setProduct] = useState({pathPartners: "", image: null});
+    const [text, setText] = useState("");
+    const errors = useSelector(state => state.products.errors);
+    const loading = useSelector(state => state.products.loading);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
-    const [partner, setPartner] = useState({pathPartners: "", image: null});
-    const [text, setText] = useState("");
-    
-    const errors = useSelector(state => state.partners.errors);
-    const loading = useSelector(state => state.partners.loading);
 
-    const handleChangeText = useCallback((e) => {
-        const text = e.target.value;
-        setText(text);
-        if(text.match(/^https?:\/\/w{3}.\w+.\w{1,5}(\/\w+)?/gm)){
-            setPartner({...partner, pathPartners: text});
+    const handleChangeText = useCallback((e, path) => {
+        const text = e.target.value
+        setText(text)
+        if(text.trim().match(/^https?:\/\/w{3}.\w+.\w{1,5}(\/\.+)?/gm)){
+            setProduct({...product, [path]: text});
         }
-        console.log(partner)
-    }, [partner]);
+    }, [product]);
 
     const handleChangeFile = useCallback((e) => {
         const file = e.target.files[0]
-        setPartner({...partner, image: file})
-    }, [partner]);
+        setProduct({...product, image: file})
+    }, [product]);
 
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
-        const {payload} = await dispatch(partnersAddRequest(partner));
+        const {payload} = await dispatch(partnersAddRequest(product));
         if (payload?.status === 'ok') {
             navigate('/partners')
             Account.setNavbarUrlPathSub('partners')
         }
-    }, [partner]);
+    }, [product]);
 
     return (
         <div className={'add-new-partners childrenWidth'}>
@@ -51,11 +50,11 @@ const AddNewPartners = () => {
                         <div className={'input_item'}>
                             <input
                                 value={text}
-                                onChange={handleChangeText}
-                                placeholder={'path partner...'}
+                                onChange={(e) => handleChangeText(e, "pathPartners")}
+                                placeholder={'path partners...'}
                                 type="text"/>
                         </div>
-                        {errors.pathPartners ? <small>Path partners{errors.pathPartners}</small> : null}
+                        {errors.pathPartners ? <small>{errors.pathPartners}</small> : null}
 
                         <div className={'item_file_cat'}>
                             <label
@@ -76,9 +75,9 @@ const AddNewPartners = () => {
                         <Button title={'Save'} loading={loading}/>
                     </div>
                     {
-                        partner.image ?
+                        product.image ?
                             <figure className={'icon_file_img'}>
-                                <img src={URL.createObjectURL(partner?.image)} alt={""}/>
+                                <img src={URL.createObjectURL(product?.image)} alt={""}/>
                             </figure>
                             : null
                     }

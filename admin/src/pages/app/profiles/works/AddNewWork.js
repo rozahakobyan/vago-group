@@ -10,7 +10,7 @@ import Select from "react-select";
 
 const departments = [
     {value: "Construction", label: "Construction"},
-    {value: "EmploymentAgency", label: "EmploymentAgency"},
+    {value: "EmploymentAgency", label: "Employment Agency"},
     {value: "Logistic", label: "Logistic"}
 ]
 

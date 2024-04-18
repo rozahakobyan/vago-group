@@ -191,39 +191,8 @@
     }
   }
 
-  .users {
-    .cont_cat {
-      .item {
-        background: $light;
-      }
-    }
-  }
-
-  .login-image {
-    .cont_cat {
-      .item {
-        background: $light;
-      }
-    }
-  }
-
-  .massagers {
-    .cont_cat {
-      .item {
-        background: $light;
-      }
-    }
-  }
-
-  .works {
-    .cont_cat {
-      .item {
-        background: $light;
-      }
-    }
-  }
-
-  .products {
+  .users, .login-image, .massagers, .works,
+  .products, .partners{
     .cont_cat {
       .item {
         background: $light;

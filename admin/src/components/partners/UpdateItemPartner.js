@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
@@ -6,16 +6,19 @@ import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import classNames from "classnames";
 import {API_URL} from "../../Api";
 import { isLoading, partnersUpdateRequest } from '../../store/actions/partners';
+import {NavLink} from "react-router-dom";
 
 function UpdateItemPartner({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
+    const [text, setText] = useState(updateItem?.pathPartners ? updateItem?.pathPartners : "");
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
     }, [updateItem]);
 
     const handleChange = useCallback((e, path) => {
-        const text = e.target.value
-        if(text.trim().match(/^https?:\/\/w{3}.\w+.\w{1,5}\/\w+/gm)){
+        const text = e.target.value;
+        setText(text)
+        if(text.trim().match(/^https?:\/\/w{3}.\w+.\w{1,5}(\/\.+)?/gm)){
             setUpdateItem({...updateItem, [path]: text});
         }
     }, [updateItem]);
@@ -43,10 +46,17 @@ function UpdateItemPartner({updateItem, setUpdateItem}) {
                     <FaWindowClose onClick={handleClose} className={'close'}/>
                     <form>
                         <div className={'cont'}>
+                            <div className={"input_item"}>
+                                <NavLink to={updateItem.pathPartners}>
+                                    {updateItem.pathPartners}
+                                </NavLink>
+                            </div>
+
                             <div className={'input_item'}>
                                 <input
                                     onChange={(e) => handleChange(e, "pathPartners")}
-                                    value={updateItem.pathPartners || ''}
+                                    value={text}
+                                    placeholder={"path partners..."}
                                     type="text"
                                 />
                             </div>

@@ -79,9 +79,15 @@ class ProductsController {
                     fss.mkdirSync(destFolder)
                 }
                 if (product.image) {
-                    await fs.unlink(path.join(destFolder, product.image));
-                    await fs.unlink(path.join(destFolder, product.image + '@2x' + ext));
-                    await fs.unlink(path.join(destFolder, product.image + '@3x' + ext));
+                    if(!path.join(destFolder, product.image)){
+                        await fs.unlink(path.join(destFolder, product.image));
+                    }
+                    if(!path.join(destFolder, product.image + '@2x' + ext)){
+                        await fs.unlink(path.join(destFolder, product.image + '@2x' + ext));
+                    }
+                    if(!path.join(destFolder, product.image + '@3x' + ext)){
+                        await fs.unlink(path.join(destFolder, product.image + '@3x' + ext));
+                    }
                 }
                 await sharp(file.path)
                     .rotate()

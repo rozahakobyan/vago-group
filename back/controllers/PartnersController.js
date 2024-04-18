@@ -28,14 +28,15 @@ class PartnersController {
             }
 
             const root = path.resolve('public/partners')
+            
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 40 })
+                .resize({ width: 200 })
                 .toFile(path.join(root, file.filename));
 
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 40 })
+                .resize({ width: 200 })
                 .webp({
                     quality: 80,
                 })
@@ -69,27 +70,35 @@ class PartnersController {
                 })
             }
 
-            const root = path.resolve('public/partners');
+            if(file){
+                const root = path.resolve('public/partners');
 
-            if (partner.image) {
-                await fs.unlink(path.join(root, partner.image));
-                await fs.unlink(path.join(root, partner.image + '.webp'));
+                if (partner.image) {
+                    if(!path.join(root, partner.image)){
+                        await fs.unlink(path.join(root, partner.image));
+                    }
+                    if(!path.join(root, partner.image + '.webp')){
+                        await fs.unlink(path.join(root, partner.image + '.webp'));
+                    }
+                }
+    
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 200 })
+                    .toFile(path.join(root, file.filename));
+    
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 200 })
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, file.filename + '.webp'))
+    
+                await partner.update({pathPartners, image: file.filename})
+            }else{
+                await partner.update({pathPartners})
             }
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .toFile(path.join(root, file.filename));
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .webp({
-                    quality: 80,
-                })
-                .toFile(path.join(root, file.filename + '.webp'))
-
-            await partner.update({pathPartners, image: file.filename})
 
             res.json({
                 status: "ok",
@@ -116,8 +125,12 @@ class PartnersController {
 
             const root = path.resolve('public/partners');
             if (partner.image) {
-                await fs.unlink(path.join(root, partner.image));
-                await fs.unlink(path.join(root, partner.image + '.webp'));
+                if(!path.join(root, partner.image)){
+                    await fs.unlink(path.join(root, partner.image));
+                }
+                if(!path.join(root, partner.image + '.webp')){
+                    await fs.unlink(path.join(root, partner.image + '.webp'));
+                }
             }
 
             await partner.destroy()
