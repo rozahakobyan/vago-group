@@ -1,7 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {partnersListRequest} from "../../store/actions/partners";
+import {API_URL} from "../../Api";
 
 function Partners() {
+    const dispatch = useDispatch();
+
+    const partnersList = useSelector(state => state.partners.partnersList);
+
+    useEffect(() => {
+        dispatch(partnersListRequest())
+    }, []);
+
     return (
         <section>
             <div className="EmploymentAgency-partners-area">
@@ -10,9 +21,13 @@ function Partners() {
                         <h1>Partners</h1>
                     </div>
                     <div className="EmploymentAgency-partners-blocks">
-                        <Link to={'#'}>
-                            <div className="EmploymentAgency-block"><img src={"./img/logo.jpg"} /></div>
-                        </Link>
+                        {partnersList && partnersList.map(p => (
+                            <>
+                                <Link to={p.pathPartners}>
+                                    <div className="EmploymentAgency-block"><img src={`${API_URL}/${p.image}`} alt={""}/></div>
+                                </Link>
+                            </>
+                        ))}
                     </div>
                 </div>
             </div>

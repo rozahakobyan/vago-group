@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/front/src/store/actions/partners.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/store/reducers/partners.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/whatsapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/whatsapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Partners.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Partners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/store/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/Roza/Desktop/vago-group/admin/src/assets/styles",
+    "last_opened_file_path": "C:/Users/Roza/Desktop/vago-group/front/src/store/reducers",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -53,11 +57,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Roza\Desktop\vago-group\front\src\store\reducers" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\front\src\store\actions" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\assets\styles" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\reducers" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\actions" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\pages\app\profiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\massagers" />
@@ -94,7 +98,7 @@
       <workItem from="1713353266776" duration="4025000" />
       <workItem from="1713368045028" duration="4206000" />
       <workItem from="1713424171704" duration="2921000" />
-      <workItem from="1713445152010" duration="3037000" />
+      <workItem from="1713445152010" duration="4051000" />
     </task>
     <servers />
   </component>

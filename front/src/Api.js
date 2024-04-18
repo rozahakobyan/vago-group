@@ -68,4 +68,8 @@ export class Api {
     static productsList() {
         return api.get('/products/list');
     }
+
+    static partnersList() {
+        return api.get('/partners/list');
+    }
 }
