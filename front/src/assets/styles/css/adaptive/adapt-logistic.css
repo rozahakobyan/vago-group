@@ -1,0 +1,92 @@
+@media screen and (max-width: 900px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 700px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 600px;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form .label-area {
+        float: left;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+
+    .calculator-form form input {
+        width: 200px;
+        height: 25px;
+        border-radius: 25px;
+
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 450px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 400px;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form .label-area {
+        float: left;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+
+    .calculator-form form input {
+        width: 150px;
+        height: 25px;
+        border-radius: 25px;
+
+    }
+}
+

@@ -389,3 +389,38 @@ footer {
     margin-right: 20px;
     margin-bottom: 50px;
 }
+
+.fixed-block {
+    width: 80px;
+    height: 80px;
+    background-image: url('../../../../public/img/icon/WhatsApp-Logo-fixed.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.fixed-block-1 {
+    width: 80px;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 180px;
+    background: none;
+    border: none;
+    font-size: 50px;
+    color: white;
+}
+
+.fixed-block-1 path{
+    fill: var(--color1);
+}
+
+
+/* -------- Up Button --------- */
