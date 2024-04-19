@@ -7,12 +7,7 @@ import Button from "../Button";
 import {AiFillDelete} from "react-icons/ai";
 import {isLoading, schedulesDeleteRequest, worksUpdateRequest } from '../../store/actions/works';
 import Select from "react-select";
-
-const departments = [
-    {value: "Construction", label: "Construction"},
-    {value: "EmploymentAgency", label: "Employment Agency"},
-    {value: "Logistic", label: "Logistic"}
-]
+import departments from "../../assets/data/departments";
 
 function UpdateItemWork({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
@@ -102,7 +97,7 @@ function UpdateItemWork({updateItem, setUpdateItem}) {
                                 <input
                                     onChange={(e) => handleChange(e.target.value, "price")}
                                     value={updateItem.price || ''}
-                                    type="number"
+                                    type="text"
                                 />
                             </div>
                             <div className={'input_item'}>

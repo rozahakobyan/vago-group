@@ -10,17 +10,13 @@ import {NavLink} from "react-router-dom";
 
 function UpdateItemPartner({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
-    const [text, setText] = useState(updateItem?.pathPartners ? updateItem?.pathPartners : "");
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
     }, [updateItem]);
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
-        setText(text)
-        if(text.trim().match(/^https?:\/\/w{3}.\w+.\w{1,5}(\/\.+)?/gm)){
-            setUpdateItem({...updateItem, [path]: text});
-        }
+        setUpdateItem({...updateItem, [path]: text});
     }, [updateItem]);
 
     const handleChangeFile = useCallback((e) => {
@@ -46,17 +42,11 @@ function UpdateItemPartner({updateItem, setUpdateItem}) {
                     <FaWindowClose onClick={handleClose} className={'close'}/>
                     <form>
                         <div className={'cont'}>
-                            <div className={"input_item"}>
-                                <NavLink to={updateItem.pathPartners}>
-                                    {updateItem.pathPartners}
-                                </NavLink>
-                            </div>
-
                             <div className={'input_item'}>
                                 <input
-                                    onChange={(e) => handleChange(e, "pathPartners")}
-                                    value={text}
-                                    placeholder={"path partners..."}
+                                    onChange={(e) => handleChange(e, "name")}
+                                    value={updateItem.name}
+                                    placeholder={"name partners..."}
                                     type="text"
                                 />
                             </div>

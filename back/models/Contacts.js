@@ -24,6 +24,10 @@ Contacts.init({
             type: DataTypes.STRING,
             allowNull: false,
         },
+        activeContact: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        }
     },
     {
         sequelize,

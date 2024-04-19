@@ -1,16 +1,18 @@
 import React from 'react';
 import { useEffect } from 'react';
 import {useSelector, useDispatch} from "react-redux";
-import { massagerListRequest } from "../store/actions/massagers";
+import {contactsListRequest} from "../store/actions/contacts";
 
 function Footer() {
     const dispatch = useDispatch();
 
-    const massagersList = useSelector(state => state.massagers.massagersList);
+    const contactsList = useSelector(state => state.contacts.contactsList);
 
     useEffect(() => {
-        dispatch(massagerListRequest())
+        dispatch(contactsListRequest({activeContact: true}))
     }, [])
+
+    console.log(contactsList)
 
     return (
         <footer>

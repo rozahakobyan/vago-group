@@ -6,6 +6,7 @@ import {massagers} from "./reducers/massagers";
 import {works} from "./reducers/works";
 import {products} from "./reducers/products";
 import {partners} from "./reducers/partners";
+import {contacts} from "./reducers/contacts";
 
 const root = {
     users,
@@ -14,7 +15,8 @@ const root = {
     massagers,
     works, 
     products,
-    partners
+    partners,
+    contacts
 }
 
 export const store = configureStore({reducer: root})

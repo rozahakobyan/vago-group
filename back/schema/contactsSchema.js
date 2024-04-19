@@ -5,13 +5,15 @@ export default {
         address: Joi.string().max(255).required(),
         email: Joi.string().email().required(),
         phone: Joi.string().required(),
-        pathList: Joi.array().items(Joi.object().required())
+        pathList: Joi.array().items(Joi.object().required()),
+        activeContact: Joi.boolean().required()
     }),
     update: Joi.object({
         address: Joi.string().max(255),
         email: Joi.string().email(),
         phone: Joi.string(),
-        pathList: Joi.array().items(Joi.object().allow(null,''))
+        pathList: Joi.array().items(Joi.object().allow(null,'')),
+        activeContact: Joi.boolean()
     }),
     updatePath: Joi.object({
         path: Joi.string().max(255),

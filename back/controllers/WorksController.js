@@ -178,7 +178,7 @@ class WorksController {
             const {page = 1, limit = 5, department} = req.query;
             const offset = (page - 1) * limit;
 
-            const where = {}
+            const where = {};
             if(department){
                 where[Op.or] = [
                     { department: { [Op.substring]: department } },

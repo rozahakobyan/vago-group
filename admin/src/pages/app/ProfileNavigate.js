@@ -17,6 +17,8 @@ import AddNewProducts from './profiles/products/AddNewProducts';
 import Products from './profiles/products/Products';
 import Partners from "./profiles/partners/Partners";
 import AddNewPartners from "./profiles/partners/AddNewPartners";
+import Contacts from "./profiles/contacts/Contacts";
+import AddNewContact from "./profiles/contacts/AddNewContact";
 
 const ProfileNavigate = () => {
     return (
@@ -34,6 +36,8 @@ const ProfileNavigate = () => {
                 <Route path={'/products/add-new-products'} element={<AddNewProducts/>}/>
                 <Route path={'/partners'} element={<Partners/>}/>
                 <Route path={'/partners/add-new-partners'} element={<AddNewPartners/>}/>
+                <Route path={'/contacts'} element={<Contacts/>}/>
+                <Route path={'/contacts/add-new-contacts'} element={<AddNewContact/>}/>
                 <Route path={'/users/:page'} element={<Users/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Route>

@@ -5,11 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front/src/store/actions/partners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/store/reducers/partners.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/data/departments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/addContacts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/contacts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/contacts/Contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/contacts/Path.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/contacts/UpdateItemContact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/contacts/AddNewContact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/contacts/Contacts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/store/actions/contacts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/store/reducers/contacts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/store/actions/contacts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/store/reducers/contacts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/partners/Partner.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/partners/Partner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/partners/UpdateItemPartner.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/partners/UpdateItemPartner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/profile/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/profile/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/works/UpdateItemWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/works/UpdateItemWork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/partners/AddNewPartners.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/partners/AddNewPartners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/ContactsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/ContactsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/PartnersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/PartnersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/WorksController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/WorksController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/models/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/models/Partners.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Partners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/models/Works.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Works.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/schema/contactsSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/contactsSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/schema/partnersSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/partnersSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/schema/worksSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/worksSchema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Partners.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Partners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/store/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,29 +69,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/Roza/Desktop/vago-group/front/src/store/reducers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "ts.external.directory.path": "D:\\WebStorm 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group/front/src/store/reducers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Roza\Desktop\vago-group\front\src\store\reducers" />
       <recent name="C:\Users\Roza\Desktop\vago-group\front\src\store\actions" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\assets\styles" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\contacts" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\reducers" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\actions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\massagers" />
@@ -98,7 +128,10 @@
       <workItem from="1713353266776" duration="4025000" />
       <workItem from="1713368045028" duration="4206000" />
       <workItem from="1713424171704" duration="2921000" />
-      <workItem from="1713445152010" duration="4051000" />
+      <workItem from="1713445152010" duration="7066000" />
+      <workItem from="1713528594533" duration="2464000" />
+      <workItem from="1713531891685" duration="2329000" />
+      <workItem from="1713535530719" duration="4987000" />
     </task>
     <servers />
   </component>

@@ -3,11 +3,12 @@ import Contacts from "../models/Contacts.js";
 import {Massagers} from "../models/index.js";
 import ContactsMassager from "../models/ContactsMassager.js";
 import sequelize from "../services/sequelize.js";
+import {Op} from "sequelize";
 
 class ContactsController {
     static async add (req, res, next){
         try{
-            const {address, email, phone, pathList = []} = req.body;
+            const {address, email, phone, activeContact, pathList = []} = req.body;
 
             if(!address || !email || !phone){
                 throw HttpError(404, {
@@ -17,7 +18,7 @@ class ContactsController {
                 })
             }
 
-            const contact = await Contacts.create({address, email, phone})
+            const contact = await Contacts.create({address, email, phone, activeContact})
 
             if(pathList.length){
                 await ContactsMassager.bulkCreate(pathList.map(p => ({
@@ -45,7 +46,7 @@ class ContactsController {
                         ]
                     },
                 ],
-                attributes: ["id", "address", "phone", "email"]
+                attributes: ["id", "address", "phone", "email", "activeContact"]
             })
 
             res.json({
@@ -59,7 +60,7 @@ class ContactsController {
 
     static async update (req, res, next){
         try{
-            const {address, email, phone, pathList = []} = req.body;
+            const {address, email, phone, activeContact, pathList = []} = req.body;
             const { id } = req.params;
 
             const contact = await Contacts.findOne({
@@ -74,7 +75,7 @@ class ContactsController {
                 })
             }
 
-            await contact.update({address, email, phone})
+            await contact.update({address, email, phone, activeContact})
 
             if(pathList){
                 await ContactsMassager.bulkCreate(pathList.map(p => ({
@@ -102,7 +103,7 @@ class ContactsController {
                         ]
                     },
                 ],
-                attributes: ["id", "address", "phone", "email"]
+                attributes: ["id", "address", "phone", "email", "activeContact"]
             })
 
             res.json({
@@ -194,16 +195,23 @@ class ContactsController {
 
     static async list (req, res, next){
         try{
-            const {page = 1, limit = 5} = req.query;
-            const offset = (page - 1) * limit;
+            const {activeContact} = req.query;
+
+            const where = {};
+            if(activeContact){
+                where[Op.or] = [
+                    { activeContact: { [Op.substring]: activeContact } },
+                ];
+            }
 
             const contacts = await Contacts.findAll({
+                where,
                 include: [
                     {
                         model: ContactsMassager,
                         as: "massagersList",
                         required: false,
-                        attributes: ["path"],
+                        attributes: ["path", "id"],
                         include: [
                             {
                                 model: Massagers,
@@ -214,9 +222,7 @@ class ContactsController {
                         ]
                     },
                 ],
-                attributes: ["id", "address", "phone", "email"],
-                limit,
-                offset
+                attributes: ["id", "address", "phone", "email", "activeContact"]
             })
 
             const total = await Contacts.count();
@@ -224,9 +230,6 @@ class ContactsController {
             res.json({
                 status: "ok",
                 contacts,
-                page,
-                total,
-                pages: Math.ceil(total / limit)
             })
         }catch (e) {
             next(e)

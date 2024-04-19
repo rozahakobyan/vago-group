@@ -12,7 +12,7 @@ Partners.init({
         autoIncrement: true,
         allowNull: false,
     },
-    pathPartners: {
+    name: {
         type: DataTypes.STRING(255),
         allowNull: false,
     },

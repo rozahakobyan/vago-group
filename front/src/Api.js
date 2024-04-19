@@ -62,7 +62,7 @@ export class Api {
     }
 
     static worksList(data = {}) {
-        return api.get('/works/list', data);
+        return api.get('/works/list', {params: data});
     }
 
     static productsList() {
@@ -71,5 +71,8 @@ export class Api {
 
     static partnersList() {
         return api.get('/partners/list');
+    }
+    static contactsList(data = {}) {
+        return api.get('/contacts/list', {params: data});
     }
 }

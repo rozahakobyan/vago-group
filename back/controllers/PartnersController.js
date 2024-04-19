@@ -8,10 +8,10 @@ import sequelize from "../services/sequelize.js";
 class PartnersController {
     static async add (req, res, next){
         try{
-            const {pathPartners} = req.body;
+            const {name} = req.body;
             const {file} = req;
 
-            if(!pathPartners){
+            if(!name){
                 throw HttpError(404, {
                     errors: {
                         exists: "Path Not found"
@@ -43,7 +43,7 @@ class PartnersController {
                 .toFile(path.join(root, file.filename + '.webp'))
 
 
-            const partner = await Partners.create({pathPartners, image: file.filename})
+            const partner = await Partners.create({name, image: file.filename})
 
             res.json({
                 status: "ok",
@@ -56,7 +56,7 @@ class PartnersController {
 
     static async update (req, res, next){
         try{
-            const {pathPartners} = req.body;
+            const {name} = req.body;
             const { id } = req.params;
             const {file} = req;
 
@@ -95,9 +95,9 @@ class PartnersController {
                     })
                     .toFile(path.join(root, file.filename + '.webp'))
     
-                await partner.update({pathPartners, image: file.filename})
+                await partner.update({name, image: file.filename})
             }else{
-                await partner.update({pathPartners})
+                await partner.update({name})
             }
 
             res.json({
@@ -146,7 +146,7 @@ class PartnersController {
     static async list (req, res, next){
         try{
             const partners = await Partners.findAll({
-                attributes: [ 'id', 'pathPartners',
+                attributes: [ 'id', 'name',
                     [sequelize.literal(`CONCAT('partners/', image)`), 'image']
                 ]
             })

@@ -4,7 +4,7 @@ import NavbarItem from "./NavbarItem";
 import {MdConstruction, MdDashboard} from "react-icons/md";
 import {FaFacebookMessenger, FaRegRegistered, FaUsers} from "react-icons/fa";
 import {AiOutlineTeam} from "react-icons/ai";
-import {IoIosHelpCircle, IoIosSettings} from "react-icons/io";
+import {IoIosContacts, IoIosHelpCircle, IoIosSettings} from "react-icons/io";
 import {useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {Account} from "../../helpers/account";
@@ -63,7 +63,7 @@ const navItem = [
         subMenu: [
             {
                 id: 4_1,
-                title: "Add New Works",
+                title: "Add New Contacts",
                 path: "add-new-works",
             },
         ]
@@ -95,6 +95,21 @@ const navItem = [
                 id: 6_1,
                 title: "Add New Partners",
                 path: "add-new-partners",
+            },
+        ]
+    },
+    {
+        id: 7,
+        name: 'Contacts',
+        path: 'contacts',
+        Icon: IoIosContacts,
+        openIcon: true,
+        renderItem: true,
+        subMenu: [
+            {
+                id: 7_1,
+                title: "Add New Contacts",
+                path: "add-new-contacts",
             },
         ]
     },

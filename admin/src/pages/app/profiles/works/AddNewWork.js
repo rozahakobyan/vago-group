@@ -7,19 +7,14 @@ import Button from "../../../../components/Button";
 import {AiFillDelete} from "react-icons/ai";
 import {worksAddRequest} from "../../../../store/actions/works";
 import Select from "react-select";
-
-const departments = [
-    {value: "Construction", label: "Construction"},
-    {value: "EmploymentAgency", label: "Employment Agency"},
-    {value: "Logistic", label: "Logistic"}
-]
+import departments from "../../../../assets/data/departments"
 
 function AddNewWork() {
     const [work, setWork] = useState({
         name: "",
         department: "",
         description: "",
-        price: null,
+        price: "",
         hoursWeek: null,
         schedule: [],
     });
@@ -125,7 +120,7 @@ function AddNewWork() {
                                     placeholder={'Price...'}
                                     value={work.price}
                                     onChange={(e) => handleChangeText(e.target.value, "price")}
-                                    type="number"/>
+                                    type="text"/>
                             </div>
                         </div>
                         {errors.price ? <small className={'errors_message'}>{errors.price}</small> : null}

@@ -143,7 +143,7 @@ export class Api {
     }
 
     static worksList(data = {}) {
-        return api.get('/works/list', data);
+        return api.get('/works/list', {params: data});
     }
 
     static worksDelete(id) {
@@ -210,6 +210,27 @@ export class Api {
                 'Content-Type': 'multipart/form-data',
             },
         });
+    }
+
+    static contactsAdd(data = {}) {
+        return api.post('/contacts/add', data);
+    }
+
+    static contactsList(data = {}) {
+        return api.get('/contacts/list', data);
+    }
+
+    static contactsDelete(id) {
+        return api.delete(`/contacts/delete/${id}`);
+    }
+    static contactsPathDelete(id) {
+        return api.delete(`/contacts/delete-path/${id}`);
+    }
+
+    static contactsUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, massagersList, ...data} = arg;
+
+        return api.put(`/contacts/update/${id}`, data);
     }
 }
 

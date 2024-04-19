@@ -5,39 +5,33 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
-import {massagerAddRequest} from "../../../../store/actions/massagers";
-import { productsAddRequest } from '../../../../store/actions/products';
-import {partnersAddRequest} from "../../../../store/actions/partners";
+import { partnersAddRequest, isLoading } from '../../../../store/actions/partners';
 
 const AddNewPartners = () => {
-    const [product, setProduct] = useState({pathPartners: "", image: null});
-    const [text, setText] = useState("");
-    const errors = useSelector(state => state.products.errors);
-    const loading = useSelector(state => state.products.loading);
+    const [partner, setPartner] = useState({name: "", image: null});
+    const errors = useSelector(state => state.partners.errors);
+    const loading = useSelector(state => state.partners.loading);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleChangeText = useCallback((e, path) => {
         const text = e.target.value
-        setText(text)
-        if(text.trim().match(/^https?:\/\/w{3}.\w+.\w{1,5}(\/\.+)?/gm)){
-            setProduct({...product, [path]: text});
-        }
-    }, [product]);
+        setPartner({...partner, [path]: text});
+    }, [partner]);
 
     const handleChangeFile = useCallback((e) => {
         const file = e.target.files[0]
-        setProduct({...product, image: file})
-    }, [product]);
+        setPartner({...partner, image: file})
+    }, [partner]);
 
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
-        const {payload} = await dispatch(partnersAddRequest(product));
+        const {payload} = await dispatch(partnersAddRequest(partner));
         if (payload?.status === 'ok') {
             navigate('/partners')
             Account.setNavbarUrlPathSub('partners')
         }
-    }, [product]);
+    }, [partner]);
 
     return (
         <div className={'add-new-partners childrenWidth'}>
@@ -49,12 +43,12 @@ const AddNewPartners = () => {
                     <div className="left_row">
                         <div className={'input_item'}>
                             <input
-                                value={text}
-                                onChange={(e) => handleChangeText(e, "pathPartners")}
-                                placeholder={'path partners...'}
+                                value={partner.name}
+                                onChange={(e) => handleChangeText(e, "name")}
+                                placeholder={'name partners...'}
                                 type="text"/>
                         </div>
-                        {errors.pathPartners ? <small>{errors.pathPartners}</small> : null}
+                        {errors.name ? <small>{errors.name}</small> : null}
 
                         <div className={'item_file_cat'}>
                             <label
@@ -75,9 +69,9 @@ const AddNewPartners = () => {
                         <Button title={'Save'} loading={loading}/>
                     </div>
                     {
-                        product.image ?
+                        partner.image ?
                             <figure className={'icon_file_img'}>
-                                <img src={URL.createObjectURL(product?.image)} alt={""}/>
+                                <img src={URL.createObjectURL(partner?.image)} alt={""}/>
                             </figure>
                             : null
                     }

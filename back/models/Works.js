@@ -25,7 +25,7 @@ Works.init({
             allowNull: false,
         },
         price: {
-            type: DataTypes.BIGINT,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         hoursWeek:{
