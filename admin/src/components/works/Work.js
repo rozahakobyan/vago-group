@@ -4,6 +4,7 @@ import {BiEdit} from "react-icons/bi";
 import {RiDeleteBin6Line} from "react-icons/ri";
 import {worksDeleteRequest} from "../../store/actions/works";
 import UpdateItemWork from "./UpdateItemWork";
+import {API_URL} from "../../Api";
 
 function Work({work, updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function Work({work, updateItem, setUpdateItem}) {
 
     return (
         <div className={'item'}>
+            <img src={`${API_URL}/${work.image}`} alt={""}/>
             <h3>Work - {work.name}</h3>
             <h3>Department - {work.department}</h3>
             <h3>Price - {work.price}</h3>

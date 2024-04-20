@@ -90,7 +90,7 @@ const Profile = ({settingModal, setSettingModal, scrollDirection}) => {
             <figure
                 onClick={handleOpenSettingModal}
                 className={'profile-user'}>
-                <img src={`${API_URL}${profile.photo}`} alt={'users'}/>
+                <img src={`${API_URL}/${profile.photo}`} alt={'users'}/>
             </figure>
             {
                 settingModal !== null ?
@@ -104,9 +104,8 @@ const Profile = ({settingModal, setSettingModal, scrollDirection}) => {
                         })}
                     >
                         <div className={'user-item'}>
-                            <img src={`${API_URL}${profile?.photo}`} alt={'hello'}/>
-                            <p>{profile.lastName} {profile.firstName}</p>
-                            <div/>
+                            <img src={`${API_URL}/${profile?.photo}`} alt={'hello'}/>
+                            <p>{profile.firstName} {profile.lastName}</p>
                         </div>
                         <ul className={'setting-container'}>
                             {

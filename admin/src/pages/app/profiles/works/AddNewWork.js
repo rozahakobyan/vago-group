@@ -8,6 +8,7 @@ import {AiFillDelete} from "react-icons/ai";
 import {worksAddRequest} from "../../../../store/actions/works";
 import Select from "react-select";
 import departments from "../../../../assets/data/departments"
+import {MdOutlineDriveFolderUpload} from "react-icons/md";
 
 function AddNewWork() {
     const [work, setWork] = useState({
@@ -16,6 +17,7 @@ function AddNewWork() {
         description: "",
         price: "",
         hoursWeek: null,
+        image: null,
         schedule: [],
     });
     const [selected, setSelected] = useState(null);
@@ -34,6 +36,11 @@ function AddNewWork() {
         setSelected(selectedOption)
         setWork({...work, department: selectedOption.label})
     }, [work])
+
+    const handleChangeFile = useCallback((e) => {
+        const file = e.target.files[0]
+        setWork({...work, image: file})
+    }, [work]);
 
     const handleSchedule = useCallback((e) => {
         e.preventDefault()
@@ -92,6 +99,29 @@ function AddNewWork() {
                                 type="number"/>
                         </div>
                         {errors.hoursWeek ? <small className={'errors_message'}>{errors.hoursWeek}</small> : null}
+                        <div className={'item_file_cat'}>
+                            <label
+                                htmlFor="file-upload"
+                                className="custom-file">
+                                <MdOutlineDriveFolderUpload
+                                    className={'icon'}/>
+                                Choose file
+                            </label>
+                            <input
+                                onChange={handleChangeFile}
+                                name={'files'}
+                                accept="image/*"
+                                id="file-upload"
+                                type="file"/>
+                            {errors.file ? <small>{errors.file}</small> : null}
+                        </div>
+                        {
+                            work.image ?
+                                <figure className={'icon_file_img'}>
+                                    <img src={URL.createObjectURL(work?.image)} alt={""}/>
+                                </figure>
+                                : null
+                        }
                     </div>
                     <div className="right_item">
                         <div className={"work_schedule"}>

@@ -63,7 +63,7 @@ const navItem = [
         subMenu: [
             {
                 id: 4_1,
-                title: "Add New Contacts",
+                title: "Add New Works",
                 path: "add-new-works",
             },
         ]
