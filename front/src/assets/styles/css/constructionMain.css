@@ -19,10 +19,7 @@
 
 
 
-.vacanciesArea {
-    width: 100%;
-    background-color: white;
-}
+
 
 .vacanciesTitle {
     text-align: center;
@@ -40,38 +37,8 @@
     align-items: center;
 }
 
-.vacancie {
-    width: 250px;
-    height: 500px;
-    margin: 25px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.vacancie-img {
-    width: 250px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background-color: var(--color1);
-}
-
-.vacancie-img img {
+.vacancie-join-area{
     width: 100%;
-}
-
-.vacancie-name {
-    text-align: center;
-    font-size: 20px;
-    
-}
-
-.vacancieText-area {
-    width: 100%;
-    height: 200px;
-    font-size: 20px;
-    text-align: center;
 }
 
 .vacancie-join {
@@ -82,11 +49,44 @@
     font-size: 30px;
     color: white;
     transition: background-color 0.4s;
+    margin: 0 auto;
 }
 
 .vacancie-join:hover {
     background-color: black;
 }
+.vacancie {
+    width: 250px;
+    margin: 20px;
+    background-color: var(--color4);
+    padding-bottom: 25px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5);
+    
+}
+
+.vacancieImgArea{
+    width: 250px;
+    background-color: var(--color1);
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.vacancie-text{
+    text-align: center;
+}
+.vacancie-title{
+    font-size: 30px;
+}
+.vacancie-price-hours{
+    font-size: 20px;
+}
+
+.vacancie-workSchedule{
+    font-size: 20px;
+}
+
+/* 
+
 
 /* ---------------------------------------------------- */
 
