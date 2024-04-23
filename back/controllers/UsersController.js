@@ -8,6 +8,7 @@ import fss from "fs"
 import fs from "fs/promises";
 import usersSchema from "../schema/usersSchema.js";
 import _ from "lodash";
+import {Op} from "sequelize";
 const { JWT_SECRET, FRONT_URL } = process.env;
 
 class UsersController {
@@ -140,6 +141,7 @@ class UsersController {
             next(e);
         }
     }
+
     static async adminLogin(req, res, next) {
         try {
             const { email, password } = req.body;
@@ -429,15 +431,24 @@ class UsersController {
     static async getUsers(req, res, next) {
         try {
 
-            const { page = 1 } = req.query;
-            const limit = 3;
+            const { page = 1, limit = 10, search } = req.query;
             const offset = (page - 1) * limit;
-            const totalCount = await Users.count();
-            const users = await Users.findAll(
-                {
+
+            const where = {};
+            if(search){
+                where[Op.or] = [
+                    { firstName: { [Op.substring]: search } },
+                    { lastName: { [Op.substring]: search } },
+                    { email: { [Op.substring]: search } },
+                ];
+            }
+            const users = await Users.findAll({
+                    where,
                     limit,
                     offset
                 })
+
+            const totalCount = await Users.count();
 
             res.json({
                 status: 'ok',
@@ -455,7 +466,6 @@ class UsersController {
 
     static async removeUser(req, res, next) {
         try {
-
             const {id} = req.params;
             const user = await Users.findByPk(id);
 
@@ -476,12 +486,63 @@ class UsersController {
             await user.destroy();
 
             res.json({
-                status:'ok',
-                user,
+                status:'ok'
             })
-
         }
         catch (e) {
+            next(e)
+        }
+    }
+
+    static async updateUser(req, res, next){
+        try{
+            const {id} = req.params;
+            const {role} = req.body;
+
+            const user = await Users.findByPk(id);
+
+            if (!user) {
+                throw HttpError(422, {
+                    errors: {
+                        error: 'No User found'
+                    }
+                })
+            }
+
+            await user.update({role})
+
+            res.json({
+                status: "ok",
+                user
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
+
+    static async findUserById(req, res, next){
+        try{
+            const {id} = req.params;
+
+            const user = await Users.findOne({
+                where: {
+                    id
+                }
+            })
+
+            if (!user) {
+                throw HttpError(422, {
+                    errors: {
+                        error: 'No User found'
+                    }
+                })
+            }
+
+            res.json({
+                status: "ok",
+                user
+            })
+        }catch (e) {
             next(e)
         }
     }

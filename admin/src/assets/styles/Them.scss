@@ -102,7 +102,7 @@
   }
 
   .header {
-    background: $dark;
+    background: #23a6d5;
     box-shadow: 0 2px 5px -3px #fff;
 
     .activeScroll {
@@ -192,11 +192,17 @@
   }
 
   .users, .login-image, .massagers, .works,
-  .products, .partners{
+  .products, .partners, .contacts{
     .cont_cat {
       .item {
         background: $light;
       }
+    }
+  }
+
+  .users{
+    input{
+      border: 1px solid $light;
     }
   }
 }

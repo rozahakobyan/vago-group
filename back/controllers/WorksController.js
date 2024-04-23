@@ -2,11 +2,16 @@ import HttpError from "http-errors";
 import Works from "../models/Works.js";
 import WorksSchedules from "../models/WorksSchedules.js";
 import {Op} from "sequelize";
+import path from "path";
+import sharp from "sharp";
+import fs from "fs/promises";
+import sequelize from "../services/sequelize.js";
 
 class WorksController {
     static async add (req, res, next){
         try{
             const {name, department, price, hoursWeek, description, schedule = []} = req.body;
+            const {file} = req;
 
             if(!name || !department || !price || !hoursWeek || !description){
                 throw HttpError(404, {
@@ -16,7 +21,30 @@ class WorksController {
                 })
             }
 
-            const work = await Works.create({name, department, price, hoursWeek, description})
+            if (!file) {
+                throw HttpError(422, {
+                    errors: {
+                        image: 'Invalid file'
+                    }
+                })
+            }
+
+            const root = path.resolve('public/works')
+
+            await sharp(file.path)
+                .rotate()
+                .resize({ width: 200 })
+                .toFile(path.join(root, file.filename));
+
+            await sharp(file.path)
+                .rotate()
+                .resize({ width: 200 })
+                .webp({
+                    quality: 80,
+                })
+                .toFile(path.join(root, file.filename + '.webp'))
+
+            const work = await Works.create({name, department, price, hoursWeek, description, image: file.filename})
 
             if(schedule.length){
                 await WorksSchedules.bulkCreate(schedule.map(d => ({
@@ -35,7 +63,7 @@ class WorksController {
                         attributes: ["id", "date"],
                     },
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek", "description"]
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "image"]
             })
 
             res.json({
@@ -51,6 +79,7 @@ class WorksController {
         try{
             const {name, department, price, hoursWeek, description, schedule = []} = req.body;
             const { id } = req.params;
+            const {file} = req;
 
             const work = await Works.findOne({
                 where: {id}
@@ -64,7 +93,35 @@ class WorksController {
                 })
             }
 
-            await work.update({name, department, price, hoursWeek, description})
+            if(file){
+                const root = path.resolve('public/works');
+
+                if (work.image) {
+                    if(!path.join(root, work.image)){
+                        await fs.unlink(path.join(root, work.image));
+                    }
+                    if(!path.join(root, work.image + '.webp')){
+                        await fs.unlink(path.join(root, work.image + '.webp'));
+                    }
+                }
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 200 })
+                    .toFile(path.join(root, file.filename));
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 200 })
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, file.filename + '.webp'))
+
+                await work.update({name, department, price, hoursWeek, description, image: file.filename})
+            }else{
+                await work.update({name, department, price, hoursWeek, description})
+            }
 
             if(schedule){
                 await WorksSchedules.bulkCreate(schedule.map(d => ({
@@ -83,7 +140,7 @@ class WorksController {
                         attributes: ["id", "date"],
                     },
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek", "description"]
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "image"]
             })
 
             res.json({
@@ -107,6 +164,16 @@ class WorksController {
                         exists: 'Not Found'
                     }
                 })
+            }
+
+            const root = path.resolve('public/works');
+            if (work.image) {
+                if(!path.join(root, work.image)){
+                    await fs.unlink(path.join(root, work.image));
+                }
+                if(!path.join(root, work.image + '.webp')){
+                    await fs.unlink(path.join(root, work.image + '.webp'));
+                }
             }
 
             await work.destroy()
@@ -195,7 +262,8 @@ class WorksController {
                         attributes: ["id", "date"],
                     },
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek", "description"],
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description",
+                    [sequelize.literal(`CONCAT('works/', image)`), 'image']],
                 limit,
                 offset
             })

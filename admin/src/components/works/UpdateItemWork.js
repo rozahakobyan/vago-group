@@ -8,6 +8,8 @@ import {AiFillDelete} from "react-icons/ai";
 import {isLoading, schedulesDeleteRequest, worksUpdateRequest } from '../../store/actions/works';
 import Select from "react-select";
 import departments from "../../assets/data/departments";
+import {MdOutlineDriveFolderUpload} from "react-icons/md";
+import {API_URL} from "../../Api";
 
 function UpdateItemWork({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
@@ -25,6 +27,11 @@ function UpdateItemWork({updateItem, setUpdateItem}) {
 
     const handleChange = useCallback((text, path) => {
         setUpdateItem({...updateItem, [path]: text});
+    }, [updateItem]);
+
+    const handleChangeFile = useCallback((e) => {
+        const file = e.target.files[0]
+        setUpdateItem({...updateItem, image: file})
     }, [updateItem]);
 
     const handleDeleteSchedule = useCallback((e, index) => {
@@ -85,6 +92,32 @@ function UpdateItemWork({updateItem, setUpdateItem}) {
                                     value={updateItem.name || ''}
                                     type="text"
                                 />
+                            </div>
+                            <div className={'row_img'}>
+                                <div>
+                                    <div className={'custom-file'}>
+                                        <label
+                                            htmlFor="file-upload"
+                                            className="custom-file-upload">
+                                            <MdOutlineDriveFolderUpload
+                                                className={'icon'}/>
+                                            Choose file
+                                        </label>
+                                        <input
+                                            onChange={handleChangeFile}
+                                            name={'files'}
+                                            accept="image/*"
+                                            id="file-upload"
+                                            type="file"/>
+                                    </div>
+                                </div>
+                                <div className={'images'}>
+                                    <img src={
+                                        updateItem?.image?.name
+                                            ? URL.createObjectURL(updateItem.image)
+                                            : `${API_URL}/${updateItem.image}`}
+                                         alt={updateItem.name}/>
+                                </div>
                             </div>
                             <Select defaultValue={{value: updateItem.department, label: updateItem.department}}
                                     options={departments}

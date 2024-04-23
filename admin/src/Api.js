@@ -1,10 +1,11 @@
 import axios from "axios";
 import {Account} from "./helpers/account";
 
-export const API_URL = 'http://localhost:4001/'
+export const API_URL = 'http://localhost:4001'
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:4001'
+    baseURL: API_URL,
 })
+
 api.interceptors.request.use((config) => {
     const token = Account.getTokenStrong()
     if (token) {
@@ -19,7 +20,6 @@ api.interceptors.response.use((response) => response, (error) => {
     }
     return Promise.reject(error);
 });
-
 
 export class Api {
     static login(payload) {
@@ -43,7 +43,9 @@ export class Api {
     }
 
     static updateProfile(payload) {
-        return api.put("/users/profile-update", payload, {
+        const {id, role, ...data} = payload;
+        console.log(data)
+        return api.put("/users/profile-update", data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -60,6 +62,15 @@ export class Api {
 
     static usersDelete(id) {
         return api.delete(`/users/delete/${id}`);
+    }
+
+    static usersUpdate(payload) {
+        const {updateItem: {id, ...data}} = payload;
+        return api.put(`/users/update/${id}`, data);
+    }
+
+    static usersFindById(id) {
+        return api.get(`/users/find-user-by-id/${id}`);
     }
 
     static addHomeInfo(data = {}) {
@@ -139,7 +150,11 @@ export class Api {
     }
 
     static worksAdd(data = {}) {
-        return api.post('/works/add', data);
+        return api.post('/works/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
     }
 
     static worksList(data = {}) {
@@ -157,7 +172,11 @@ export class Api {
     static worksUpdate(arg) {
         const {id, isActive, createdAt, updatedAt, schedules, ...data} = arg;
 
-        return api.put(`/works/update/${id}`, data);
+        return api.put(`/works/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
     }
     
     static productsAdd(data = {}) {

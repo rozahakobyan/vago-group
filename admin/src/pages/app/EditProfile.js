@@ -14,11 +14,9 @@ const EditProfile = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-
     const handleChangeFile = useCallback((e) => {
         setProfile({...profile, photo: e.target.files[0]})
     }, [profile]);
-
 
     const handleChange = useCallback((key) => (event) => {
         const {value} = event.target;
@@ -31,6 +29,7 @@ const EditProfile = () => {
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
         const {favorites, status, isOauth, ...data} = profile
+        console.log(data)
         const {payload} = await dispatch(userUpdateProfileRequest(data));
         if (payload.status === 'ok') {
             navigate('/')
@@ -53,7 +52,7 @@ const EditProfile = () => {
                                 profile.photo?.name
                                     ? URL.createObjectURL(profile.photo)
                                     : `${API_URL}/${profile.photo}`
-                            }/>
+                            } alt={""}/>
                         </label>
                         <input
                             onChange={handleChangeFile}

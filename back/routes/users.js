@@ -34,4 +34,8 @@ router.get('/get-users', UsersController.getUsers)
 
 router.delete('/delete/:id', UsersController.removeUser)
 
+router.put('/update/:id', UsersController.updateUser)
+
+router.get('/find-user-by-id/:id', UsersController.findUserById)
+
 export default router;

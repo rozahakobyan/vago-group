@@ -44,8 +44,8 @@ function Works() {
                                 key={item.id}
                                 work={item}/>)
                 }
-                {pages !== 1 && <div className={"pages-list"}>
-                    <ReactPaginate
+                <div className={"pages-list"}>
+                    {pages && pages > 1 ? <ReactPaginate
                         activeClassName={'item active '}
                         breakClassName={'item break-me '}
                         breakLabel={'...'}
@@ -60,8 +60,8 @@ function Works() {
                         pageClassName={'item pagination-page '}
                         pageRangeDisplayed={2}
                         previousClassName={"item previous"}
-                        previousLabel={"<"} />
-                </div>}
+                        previousLabel={"<"}/> : null}
+                </div>
             </div>
         </div>
     );

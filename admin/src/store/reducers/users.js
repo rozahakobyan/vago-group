@@ -5,7 +5,7 @@ import {
     userLoginRequest,
     userProfileRequest, userUpdateProfilePasswordRequest,
     userUpdateProfileRequest,
-    usersListRequest, usersDeleteRequest
+    usersListRequest, usersDeleteRequest, usersUpdateRequest, usersFindByIdRequest
 } from "../actions/users";
 import {Account} from "../../helpers/account";
 
@@ -19,6 +19,7 @@ const initialState = {
     total: 0,
     pages: 1,
     status: "",
+    user: {}
 }
 export const users = createReducer(initialState, (builder) => {
     builder
@@ -47,18 +48,18 @@ export const users = createReducer(initialState, (builder) => {
         .addCase(userProfileRequest.fulfilled, (state, action) => {
             state.profile = action.payload
         })
+        .addCase(usersFindByIdRequest.fulfilled, (state, action) => {
+            const {user} = action.payload
+            state.user = user
+        })
         .addCase(userUpdateProfileRequest.pending, (state) => {
             state.loading = true
             state.errors = {}
-        })
-        .addCase(userUpdateProfileRequest.fulfilled, (state, action) => {
-            state.loading = false
         })
         .addCase(userUpdateProfileRequest.rejected, (state, action) => {
             const {errors} = action.payload
             state.errors = errors
             state.loading = false
-
         })
         .addCase(userUpdateProfilePasswordRequest.pending, (state) => {
             state.loading = true
@@ -90,5 +91,15 @@ export const users = createReducer(initialState, (builder) => {
         .addCase(usersDeleteRequest.rejected, (state, action) => {
             const { errors } = action.payload;
             state.errors = errors;
+        })
+        .addCase(usersUpdateRequest.fulfilled, (state, action) => {
+            const {status, user} = action.payload;
+            state.status = status;
+            state.user = user;
+        })
+        .addCase(usersUpdateRequest.rejected, (state, action) => {
+            console.log(action.payload)
+            // const { errors } = action.payload;
+            // state.errors = errors;
         })
 })
