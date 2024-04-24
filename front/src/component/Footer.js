@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import { useEffect } from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {contactsListRequest} from "../store/actions/contacts";
@@ -9,10 +9,18 @@ function Footer() {
     const contactsList = useSelector(state => state.contacts.contactsList);
 
     useEffect(() => {
-        dispatch(contactsListRequest({activeContact: true}))
+        dispatch(contactsListRequest())
     }, [])
 
-    console.log(contactsList)
+    const list = useMemo(() => {
+        return contactsList.filter(l => {
+            if(l.activeContact === true){
+                return l;
+            }
+        })
+    }, [contactsList])
+
+    console.log(list)
 
     return (
         <footer>

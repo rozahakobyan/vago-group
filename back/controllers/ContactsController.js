@@ -195,17 +195,7 @@ class ContactsController {
 
     static async list (req, res, next){
         try{
-            const {activeContact} = req.query;
-
-            const where = {};
-            if(activeContact){
-                where[Op.or] = [
-                    { activeContact: { [Op.substring]: activeContact } },
-                ];
-            }
-
             const contacts = await Contacts.findAll({
-                where,
                 include: [
                     {
                         model: ContactsMassager,
@@ -224,8 +214,6 @@ class ContactsController {
                 ],
                 attributes: ["id", "address", "phone", "email", "activeContact"]
             })
-
-            const total = await Contacts.count();
 
             res.json({
                 status: "ok",

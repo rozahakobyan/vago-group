@@ -44,8 +44,7 @@ export class Api {
 
     static updateProfile(payload) {
         const {id, role, ...data} = payload;
-        console.log(data)
-        return api.put("/users/profile-update", data, {
+        return api.put(`/users/profile-update/${id}`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
