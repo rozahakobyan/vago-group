@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {partnersListRequest} from "../../store/actions/partners";
-import {API_URL} from "../../Api";
+import { useDispatch, useSelector } from "react-redux";
+import { partnersListRequest } from "../../store/actions/partners";
+import { API_URL } from "../../Api";
 
 function Partners() {
     const dispatch = useDispatch();
@@ -22,11 +22,7 @@ function Partners() {
                     </div>
                     <div className="EmploymentAgency-partners-blocks">
                         {partnersList && partnersList.map(p => (
-                            <>
-                                <Link to={p.pathPartners}>
-                                    <div className="EmploymentAgency-block"><img src={`${API_URL}/${p.image}`} alt={""}/></div>
-                                </Link>
-                            </>
+                            <div className="EmploymentAgency-block"><img src={`${API_URL}/${p.image}`} alt={""} /></div>
                         ))}
                     </div>
                 </div>
