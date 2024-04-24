@@ -22,8 +22,6 @@ function Footer() {
         })
     }, [contactsList])
 
-    console.log(list)
-
     return (
         <footer>
             <div className='footer'>
@@ -42,7 +40,6 @@ function Footer() {
                             <div className="footer-phone-text">
                                 <ul style={{ listStyle: "none" }}>
                                     <li>{l.phone}</li>
-
                                 </ul>
                             </div>
                         </div>
@@ -58,13 +55,11 @@ function Footer() {
                         <div className="footer-phone">
                             <div className="footer-phone-title">Massager</div>
                             <div className="footer-phone-text">
-                                {l.massagerList && l.massagerList.map(lm => (
+                                {l.massagersList && l.massagersList.map(lm => (
                                     <ul style={{ listStyle: "none" }} key={lm.id}>
-                                        <NavLink to={lm.path}><li style={{ height: '25px', display: 'flex', alignItems: 'center' }}><img src={`${API_URL}/${lm.massager.icon}`} style={{ width: '20px', marginRight: '30px' }} />  {lm.massager.name}</li></NavLink>
-                                        
+                                        <NavLink to={lm.path}><li style={{ height: '25px', display: 'flex', alignItems: 'center' }}><img src={`${API_URL}/${lm.massager.icon}`} style={{ width: '20px', marginRight: '30px' }} alt={""}/>  {lm.massager.name}</li></NavLink>
                                     </ul>
                                 ))}
-
                             </div>
                         </div>
                     </div>
