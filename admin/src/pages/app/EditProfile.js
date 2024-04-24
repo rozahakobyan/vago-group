@@ -7,12 +7,16 @@ import {userUpdateProfileRequest} from "../../store/actions/users";
 import {SyncLoader} from "react-spinners";
 
 const EditProfile = () => {
-    const [profile, setProfile] = useState(useSelector(state => state.users.profile));
+    const [profile, setProfile] = useState({});
     const errors = useSelector(state => state.users.errors);
     const loading = useSelector(state => state.users.loading);
-
+    const user = useSelector(state => state.users.profile)
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        setProfile(user)
+    }, [user]);
 
     const handleChangeFile = useCallback((e) => {
         setProfile({...profile, photo: e.target.files[0]})
@@ -29,7 +33,6 @@ const EditProfile = () => {
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
         const {favorites, status, isOauth, ...data} = profile
-        console.log(data)
         const {payload} = await dispatch(userUpdateProfileRequest(data));
         if (payload.status === 'ok') {
             navigate('/')

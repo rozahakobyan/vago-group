@@ -188,12 +188,12 @@ class UsersController {
 
             const userId = req.userId;
             const userProfile = await Users.findByPk(userId, {
-                attributes: ['firstName', 'lastName', 'email', 'isOauth', 'status', 'photo'],
+                attributes: ['id', 'firstName', 'lastName', 'email', 'isOauth', 'status', 'photo'],
             });
 
             if (userProfile.photo.search('https') === -1) {
                 if (fss.existsSync(`public/users/user_${userId}`)) {
-                    userProfile.photo = `users/user_${req.userId}/${userProfile.photo}`
+                    userProfile.photo = `users/user_${req.userId}/${userProfile.photo ? userProfile.photo : "avatar.png"}`
                 }
             }
 
@@ -214,10 +214,10 @@ class UsersController {
         try {
 
             const { firstName, lastName, email } = req.body;
+            const { id} = req.params;
             const { file } = req;
-            const userId = req.userId;
 
-            const user = await Users.findByPk(userId);
+            const user = await Users.findByPk(id);
 
             if (!user) {
                 throw HttpError(422, {
@@ -235,7 +235,7 @@ class UsersController {
                 await user.update({ status: 'pending', verification: verification });
             }
             if (file) {
-                const destFolder = `public/users/user_${userId}`;
+                const destFolder = `public/users/user_${id}`;
 
                 if (user.photo !== 'avatar.png' && user.photo.search('https') !== 0) {
                     console.log(user.photo.search('https'))
@@ -252,9 +252,7 @@ class UsersController {
 
                 await user.update({ firstName, lastName, email, photo: file.filename });
 
-            }
-
-            else {
+            } else {
                 await user.update({ firstName, lastName, email });
             }
 

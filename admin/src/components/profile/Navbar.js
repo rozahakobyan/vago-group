@@ -28,11 +28,16 @@ const navItem = [
         subMenu: [
             {
                 id: 2_1,
+                title: "Add New Information",
+                path: "add-new-information",
+            },
+            {
+                id: 2_2,
                 title: "Add New Login Image",
                 path: "add-new-login-image",
             },
             {
-                id: 2_2,
+                id: 2_3,
                 title: "Login Image",
                 path: "login-image",
             },

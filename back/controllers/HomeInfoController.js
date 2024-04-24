@@ -11,8 +11,6 @@ class HomeInfoController {
             const {title} = req.body;
             const {file} = req;
 
-            console.log(req)
-
             if(!title){
                 throw HttpError(404, {
                     errors: {
@@ -31,9 +29,9 @@ class HomeInfoController {
 
             const root = path.resolve('public/homeVideo')
 
-            // await fs.writeFile(path.join(root, file.filename), file)
+            await fs.appendFile(path.join(root, file.filename), file, "utf-8")
 
-            const info = await HomeInfo.create({title})
+            const info = await HomeInfo.create({title, video: file.filename})
 
             res.json({
                 status: "ok",

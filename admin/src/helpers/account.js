@@ -43,10 +43,8 @@ export class Account {
     }
 
     static removeNavbarUrlPath() {
-
         localStorage.removeItem('nav_url_path_name');
         localStorage.removeItem('nav_sub_menu_url_path_name');
-
     }
 
     static setNavbarUrlPath(path) {
@@ -55,22 +53,5 @@ export class Account {
 
     static setNavbarUrlPathSub(path) {
         localStorage.setItem('nav_sub_menu_url_path_name', path)
-    }
-
-    static setDestination(item) {
-        localStorage.setItem('update_destination_about_item', item)
-    }
-
-    static getDestination() {
-        try {
-            const getAbout = localStorage.getItem('update_destination_about_item');
-            return getAbout
-        } catch (e) {
-            return null
-        }
-    }
-
-    static removeDestination() {
-        localStorage.removeItem('update_destination_about_item')
     }
 }

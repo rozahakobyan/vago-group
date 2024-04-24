@@ -26,7 +26,7 @@ router.post('/validate-password-recovery-code', UsersController.validatePassword
 
 router.post('/password-update', validate(usersSchema.passwordUpdate), UsersController.passwordUpdate);
 
-router.put('/profile-update', uploader.image.single('photo'), validate(usersSchema.profileUpdate), UsersController.profileUpdate);
+router.put('/profile-update/:id', uploader.image.single('photo'), validate(usersSchema.profileUpdate), UsersController.profileUpdate);
 
 router.put('/update-password', UsersController.changeOldPassword)
 

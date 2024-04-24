@@ -7,7 +7,7 @@ function Path({m, contact, setContact}) {
 
     const handlePathList = useCallback((e, id) => {
         e.preventDefault()
-        if(text.trim().match(/^https?:\/\/w{3}.\w+.\w{1,5}(\/\.+)?/gm)){
+        if(text.trim().match(/^https?:\/\/(w{3})?.?\w+.\w{1,5}(\/.+)?/gm)){
             if(contact.pathList){
                 setContact({...contact, pathList: [...contact.pathList, {massagerId: id, path: text}]})
             }else{

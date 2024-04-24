@@ -6,7 +6,7 @@ import Users from "./profiles/Users";
 import Settings from "./profiles/Settings";
 import EditProfile from "./EditProfile";
 import EditAccountPassword from "./EditAccountPassword";
-import HomeInfo from "./profiles/homeInformation/HomeInfo";
+import AddNewHomeInfo from "./profiles/homeInformation/AddNewHomeInfo";
 import LoginImage from "./profiles/homeInformation/LoginImage";
 import Massagers from "./profiles/massagers/Massagers";
 import AddNewLoginImage from "./profiles/homeInformation/AddNewLoginImage";
@@ -19,13 +19,15 @@ import Partners from "./profiles/partners/Partners";
 import AddNewPartners from "./profiles/partners/AddNewPartners";
 import Contacts from "./profiles/contacts/Contacts";
 import AddNewContact from "./profiles/contacts/AddNewContact";
+import Information from "./profiles/homeInformation/Information";
 
 const ProfileNavigate = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Account/>}>
                 <Route path={'/'} element={<Profile/>}/>
-                <Route path={'/information'} element={<HomeInfo/>}/>
+                <Route path={'/information'} element={<Information/>}/>
+                <Route path={'/information/add-new-information'} element={<AddNewHomeInfo/>}/>
                 <Route path={'/information/login-image'} element={<LoginImage/>}/>
                 <Route path={'/information/add-new-login-image'} element={<AddNewLoginImage/>}/>
                 <Route path={'/massagers'} element={<Massagers/>}/>

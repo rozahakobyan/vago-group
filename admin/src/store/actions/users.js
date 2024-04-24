@@ -66,6 +66,7 @@ export const userUpdateProfileRequest = createAsyncThunk('user/update-profile', 
     try {
         const {data} = await Api.updateProfile(payload)
         thunkAPI.dispatch(userProfileRequest())
+        console.log(data)
         return data
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
