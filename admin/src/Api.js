@@ -140,7 +140,6 @@ export class Api {
 
     static massagerUpdate(arg) {
         const {id, isActive, createdAt, updatedAt, ...data} = arg;
-
         return api.put(`/massagers/update/${id}`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',

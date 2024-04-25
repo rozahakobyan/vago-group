@@ -33,7 +33,7 @@ function Products() {
             <Helmet>
                 <title>all products</title>
             </Helmet>
-            
+
             <div className={'cont_cat'}>
                 {
                     loading ? <LoadingPage/>
@@ -44,8 +44,8 @@ function Products() {
                                 key={item.id}
                                 product={item}/>)
                 }
-                {pages !== 1 && <div className={"pages-list"}>
-                    <ReactPaginate
+                <div className={"pages-list"}>
+                    {pages && pages > 1 ? <ReactPaginate
                         activeClassName={'item active '}
                         breakClassName={'item break-me '}
                         breakLabel={'...'}
@@ -60,11 +60,11 @@ function Products() {
                         pageClassName={'item pagination-page '}
                         pageRangeDisplayed={2}
                         previousClassName={"item previous"}
-                        previousLabel={"<"} />
-                </div>}
+                        previousLabel={"<"}/> : null}
+                </div>
             </div>
         </div>
-);
+    );
 }
 
 export default Products;

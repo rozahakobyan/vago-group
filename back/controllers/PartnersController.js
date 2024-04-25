@@ -74,12 +74,8 @@ class PartnersController {
                 const root = path.resolve('public/partners');
 
                 if (partner.image) {
-                    if(!path.join(root, partner.image)){
-                        await fs.unlink(path.join(root, partner.image));
-                    }
-                    if(!path.join(root, partner.image + '.webp')){
-                        await fs.unlink(path.join(root, partner.image + '.webp'));
-                    }
+                    await fs.unlink(path.join(root, partner.image));
+                    await fs.unlink(path.join(root, partner.image + '.webp'));
                 }
     
                 await sharp(file.path)
@@ -125,12 +121,8 @@ class PartnersController {
 
             const root = path.resolve('public/partners');
             if (partner.image) {
-                if(!path.join(root, partner.image)){
-                    await fs.unlink(path.join(root, partner.image));
-                }
-                if(!path.join(root, partner.image + '.webp')){
-                    await fs.unlink(path.join(root, partner.image + '.webp'));
-                }
+                await fs.unlink(path.join(root, partner.image));
+                await fs.unlink(path.join(root, partner.image + '.webp'));
             }
 
             await partner.destroy()

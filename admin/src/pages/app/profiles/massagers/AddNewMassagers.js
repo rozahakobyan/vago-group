@@ -8,7 +8,7 @@ import Button from "../../../../components/Button";
 import {massagerAddRequest} from "../../../../store/actions/massagers";
 
 const AddNewMassagers = () => {
-    const [massager, setMassager] = useState({name: "", icon: null});
+    const [massager, setMassager] = useState({name: "", headerIcon: null, footerIcon: null});
     const errors = useSelector(state => state.massagers.errors);
     const loading = useSelector(state => state.massagers.loading);
     const navigate = useNavigate();
@@ -19,13 +19,14 @@ const AddNewMassagers = () => {
         setMassager({...massager, name: text});
     }, [massager]);
 
-    const handleChangeFile = useCallback((e) => {
+    const handleChangeFile = useCallback((e, path) => {
         const file = e.target.files[0]
-        setMassager({...massager, icon: file})
+        setMassager({...massager, [path]: file})
     }, [massager]);
 
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
+        console.log(massager)
         const {payload} = await dispatch(massagerAddRequest(massager));
         if (payload?.status === 'ok') {
             navigate('/massagers')
@@ -58,22 +59,47 @@ const AddNewMassagers = () => {
                                 Choose file
                             </label>
                             <input
-                                onChange={handleChangeFile}
+                                onChange={(e) => handleChangeFile(e, "headerIcon")}
                                 name={'files'}
                                 accept="image/*"
                                 id="file-upload"
                                 type="file"/>
                             {errors.file ? <small>{errors.file}</small> : null}
                         </div>
+                        <div className={'item_file_cat'}>
+                            <label
+                                htmlFor="file-upload2"
+                                className="custom-file">
+                                <MdOutlineDriveFolderUpload
+                                    className={'icon'}/>
+                                Choose file
+                            </label>
+                            <input
+                                onChange={(e) => handleChangeFile(e, "footerIcon")}
+                                name={'files'}
+                                accept="image/*"
+                                id="file-upload2"
+                                type="file"/>
+                            {errors.file ? <small>{errors.file}</small> : null}
+                        </div>
                         <Button title={'Save'} loading={loading}/>
                     </div>
-                    {
-                        massager.icon ?
-                            <figure className={'icon_file_img'}>
-                                <img src={URL.createObjectURL(massager?.icon)} alt={""}/>
-                            </figure>
-                            : null
-                    }
+                    <div>
+                        {
+                            massager.headerIcon ?
+                                <figure className={'icon_file_img'}>
+                                    <img src={URL.createObjectURL(massager?.headerIcon)} alt={""}/>
+                                </figure>
+                                : null
+                        }
+                        {
+                            massager.footerIcon ?
+                                <figure className={'icon_file_img'}>
+                                    <img src={URL.createObjectURL(massager?.footerIcon)} alt={""}/>
+                                </figure>
+                                : null
+                        }
+                    </div>
                 </form>
             </div>
         </div>

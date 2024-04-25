@@ -7,12 +7,18 @@ import uploader from "../middelwares/uploader.js";
 const router = Router();
 
 router.post('/add',
-    uploader.image.single("icon"),
+    uploader.image.fields([
+        {name: "headerIcon", maxCount: 1},
+        {name: "footerIcon", maxCount: 1}
+    ]),
     validate(massagers.add),
     MassagersController.add);
 
 router.put('/update/:id',
-    uploader.image.single("icon"),
+    uploader([]).fields([
+        {name: "headerIcon", maxCount: 1},
+        {name: "footerIcon", maxCount: 1}
+    ]),
     validate(massagers.update),
     MassagersController.update);
 

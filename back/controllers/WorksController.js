@@ -97,12 +97,8 @@ class WorksController {
                 const root = path.resolve('public/works');
 
                 if (work.image) {
-                    if(!path.join(root, work.image)){
-                        await fs.unlink(path.join(root, work.image));
-                    }
-                    if(!path.join(root, work.image + '.webp')){
-                        await fs.unlink(path.join(root, work.image + '.webp'));
-                    }
+                    await fs.unlink(path.join(root, work.image));
+                    await fs.unlink(path.join(root, work.image + '.webp'));
                 }
 
                 await sharp(file.path)
@@ -168,12 +164,8 @@ class WorksController {
 
             const root = path.resolve('public/works');
             if (work.image) {
-                if(!path.join(root, work.image)){
-                    await fs.unlink(path.join(root, work.image));
-                }
-                if(!path.join(root, work.image + '.webp')){
-                    await fs.unlink(path.join(root, work.image + '.webp'));
-                }
+                await fs.unlink(path.join(root, work.image));
+                await fs.unlink(path.join(root, work.image + '.webp'));
             }
 
             await work.destroy()
