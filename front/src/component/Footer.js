@@ -57,7 +57,8 @@ function Footer() {
                             <div className="footer-phone-text">
                                 {l.massagersList && l.massagersList.map(lm => (
                                     <ul style={{ listStyle: "none" }} key={lm.id}>
-                                        <NavLink to={lm.path}><li style={{ height: '25px', display: 'flex', alignItems: 'center' }}><img src={`${API_URL}/${lm.massager.icon}`} style={{ width: '20px', marginRight: '30px' }} alt={""}/>  {lm.massager.name}</li></NavLink>
+                                        <NavLink to={lm.path} ><li style={{ height: '25px', display: 'flex', alignItems: 'center', color: '#999999', textAlign: "center" }}><img src={`${API_URL}/${lm.massager.icon}`} style={{ width: '20px', marginRight: '30px' }} alt={""}/>  {lm.massager.name}</li></NavLink>
+                                        
                                     </ul>
                                 ))}
                             </div>

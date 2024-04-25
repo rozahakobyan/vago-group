@@ -1,8 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo, useEffect } from 'react';
+import { contactsListRequest } from "../store/actions/contacts";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {Account} from "../helpers/Account";
+import { Account } from "../helpers/Account";
 import { createUserData } from "../store/actions/users";
+import { API_URL } from "../Api"
 
 function Header() {
     const navigate = useNavigate();
@@ -15,47 +17,72 @@ function Header() {
         dispatch(createUserData())
     }, [])
 
+    const contactsList = useSelector(state => state.contacts.contactsList);
+
+    useEffect(() => {
+        dispatch(contactsListRequest())
+    }, [])
+
+    const list = useMemo(() => {
+        return contactsList.filter(l => {
+            if (l.activeContact === true) {
+                return l;
+            }
+        })
+    }, [contactsList])
+
+
+
+
     return (
         <header>
-            <div className="header-blocks" id='verev'>
-                <NavLink to={"/homeInformation"}>
-                    <div className="logo"><img src='./img/logo.png' /></div>
-                </NavLink>
-                <div className="header-block">
-                    <p className="mail-title">Email:</p>
-                    <NavLink>
-                        <div className="email">inchvorban@mail.ru</div>
-                    </NavLink>
-                </div>
-                <div className="header-block">
-                    <p className="phone-title">Phone:</p>
-                    <div className="number">+374 77-777-777</div>
-                </div>
-                <div className={'header-block'}>
-                    <div className={'header-block-buttonArea'}>
+            <div id='verev'>
+                {list && list.map(l => (
+                    <div className="header-blocks" key={l.id}>
+                        <NavLink to={"/homeInformation"}>
+                            <div className="logo"><img src='./img/logo.png' /></div>
+                        </NavLink>
+                        <div className="header-block">
+                            <p className="mail-title">Email:</p>
 
-                        <div className={'header-block-login'}>
-                            {token ? <div className={"log-out"} onClick={handleLogOut}>
-                                <p>Log Out</p>
-                            </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
-                                <p>Login</p>
-                            </div>}
-                        </div>
-
-                        <div className={'header-block-language'}>
+                            <div className="email">{l.email}</div>
 
                         </div>
+                        <div className="header-block">
+                            <p className="phone-title">Phone:</p>
+                            <div className="number">{l.phone}</div>
+                        </div>
+                        <div className={'header-block'}>
+                            <div className={'header-block-buttonArea'}>
+
+                                <div className={'header-block-login'}>
+                                    {token ? <div className={"log-out"} onClick={handleLogOut}>
+                                        <p>Log Out</p>
+                                    </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
+                                        <p>Login</p>
+                                    </div>}
+                                </div>
+
+                                <div className={'header-block-language'}>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={'header-block-msg'} >
+                            {l.massagersList && l.massagersList.map(lm => (
+                                <NavLink to={lm.path}><div className='msg-box'><img src={`${API_URL}/${lm.massager.icon}`} alt={""} /></div></NavLink>
+                            ))}
+
+
+
+                        </div>
+
+
                     </div>
-                </div>
-                <div className={'header-block-msg'}>
-                    <NavLink><div className='msg-box'><img src='./img/icon/fb-h.png'/></div></NavLink>
-                    <NavLink><div className='msg-box'><img src='./img/icon/ins-h.png'/></div></NavLink>
-                    <NavLink><div className='msg-box'><img src='./img/icon/wp-h.png'/></div></NavLink>
-                    <NavLink><div className='msg-box'><img src='./img/icon/tg-h.png'/></div></NavLink>
-
-                </div>
+                ))}
             </div>
-                            {/* ----------------------------- */}
+            {/* ----------------------------- */}
             <div className="buttons">
                 <NavLink to={'/'}>
                     <div className="button"><strong>Home</strong></div>

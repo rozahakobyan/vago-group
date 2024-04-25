@@ -57,6 +57,10 @@ body {
     width: 280px;
 }
 
+.header-block-msg svg{
+    fill: var(--color1);
+}
+
 .header-block .mail-title {
     display: flex;
     color: var(--color1);
@@ -72,13 +76,10 @@ body {
     transition: color 0.5s;
     transform: translate(0, -20px);
     justify-content: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 
-.header-block .email:hover {
-    color: var(--color1);
-    cursor: pointer;
-}
+
 
 .phone-title {
     display: flex;
@@ -95,13 +96,9 @@ body {
     transition: color 0.5s;
     transform: translate(0, -20px);
     justify-content: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 
-.number:hover {
-    color: var(--color1);
-    cursor: pointer;
-}
 
 .header-block-login {
     display: flex;
@@ -300,6 +297,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    align-items: flex-start;
 }
 
 .footer-address,
@@ -311,6 +309,7 @@ footer {
     width: 250px;
     text-align: center;
     list-style: none;
+    
 }
 
 
