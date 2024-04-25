@@ -18,9 +18,9 @@ function UpdateItemMassager({updateItem, setUpdateItem}) {
         setUpdateItem({...updateItem, name: text})
     }, [updateItem]);
 
-    const handleChangeFile = useCallback((e) => {
+    const handleChangeFile = useCallback((e, path) => {
         const file = e.target.files[0]
-        setUpdateItem({...updateItem, icon: file})
+        setUpdateItem({...updateItem, [path]: file})
     }, [updateItem]);
 
     const handleSave = useCallback(async (e) => {
@@ -59,22 +59,46 @@ function UpdateItemMassager({updateItem, setUpdateItem}) {
                                             Choose file
                                         </label>
                                         <input
-                                            onChange={handleChangeFile}
+                                            onChange={(e) => handleChangeFile(e, "headerIcon")}
                                             name={'files'}
                                             accept="image/*"
                                             id="file-upload"
+                                            type="file"/>
+                                    </div>
+                                    <div className={'custom-file'}>
+                                        <label
+                                            htmlFor="file-upload2"
+                                            className="custom-file-upload">
+                                            <MdOutlineDriveFolderUpload
+                                                className={'icon'}/>
+                                            Choose file
+                                        </label>
+                                        <input
+                                            onChange={(e) => handleChangeFile(e, "footerIcon")}
+                                            name={'files'}
+                                            accept="image/*"
+                                            id="file-upload2"
                                             type="file"/>
                                     </div>
                                     <button onClick={handleSave}>
                                         Save
                                     </button>
                                 </div>
-                                <div className={'images'}>
-                                    <img src={
-                                        updateItem?.icon?.name
-                                            ? URL.createObjectURL(updateItem.icon)
-                                            : `${API_URL}/${updateItem.icon}`}
-                                         alt={updateItem.title}/>
+                                <div style={{marginTop: 5}}>
+                                    <div className={'images'}>
+                                        <img src={
+                                            updateItem?.headerIcon?.name
+                                                ? URL.createObjectURL(updateItem.headerIcon)
+                                                : `${API_URL}/${updateItem.headerIcon}`}
+                                             alt={updateItem.name}/>
+                                    </div>
+                                    <div className={'images'}>
+                                        <img src={
+                                            updateItem?.footerIcon?.name
+                                                ? URL.createObjectURL(updateItem.footerIcon)
+                                                : `${API_URL}/${updateItem.footerIcon}`}
+                                             alt={updateItem.name}/>
+                                    </div>
                                 </div>
                             </div>
                         </div>

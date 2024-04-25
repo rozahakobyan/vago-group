@@ -9,7 +9,8 @@ class MassagersController {
     static async add (req, res, next){
         try{
             const {name} = req.body;
-            const {file} = req;
+            const headerIcon = req.files.headerIcon[0];
+            const footerIcon = req.files.footerIcon[0];
 
             if(!name){
                 throw HttpError(404, {
@@ -19,7 +20,7 @@ class MassagersController {
                 })
             }
 
-            if (!file) {
+            if (!headerIcon || !footerIcon) {
                 throw HttpError(422, {
                     errors: {
                         image: 'Invalid file'
@@ -28,21 +29,34 @@ class MassagersController {
             }
 
             const root = path.resolve('public/massagersIcon')
-            await sharp(file.path)
+
+            await sharp(headerIcon.path)
                 .rotate()
                 .resize({ width: 40 })
-                .toFile(path.join(root, file.filename));
+                .toFile(path.join(root, headerIcon.filename));
 
-            await sharp(file.path)
+            await sharp(headerIcon.path)
                 .rotate()
                 .resize({ width: 40 })
                 .webp({
                     quality: 80,
                 })
-                .toFile(path.join(root, file.filename + '.webp'))
+                .toFile(path.join(root, headerIcon.filename + '.webp'))
 
+            await sharp(footerIcon.path)
+                .rotate()
+                .resize({ width: 40 })
+                .toFile(path.join(root, footerIcon.filename));
 
-            const massager = await Massagers.create({name, icon: file.filename})
+            await sharp(footerIcon.path)
+                .rotate()
+                .resize({ width: 40 })
+                .webp({
+                    quality: 80,
+                })
+                .toFile(path.join(root, footerIcon.filename + '.webp'))
+
+            const massager = await Massagers.create({name, headerIcon: headerIcon.filename, footerIcon: footerIcon.filename})
 
             res.json({
                 status: "ok",
@@ -57,7 +71,8 @@ class MassagersController {
         try{
             const {name} = req.body;
             const { id } = req.params;
-            const {file} = req;
+            const {headerIcon} = req.files;
+            const {footerIcon} = req.files;
 
             const massager = await Massagers.findByPk(+id);
 
@@ -69,33 +84,56 @@ class MassagersController {
                 })
             }
 
-            if(file){
+            if(headerIcon){
+                // console.log(headerIcon)
                 const root = path.resolve('public/massagersIcon');
 
-                if (massager.icon) {
-                    if(!path.join(root, massager.icon)){
-                        await fs.unlink(path.join(root, massager.icon));
-                    }
-                    if(!path.join(root, massager.icon + '.webp')){
-                        await fs.unlink(path.join(root, massager.icon + '.webp'));
-                    }
+                if (massager.headerIcon) {
+                    await fs.unlink(path.join(root, massager.headerIcon));
+                    await fs.unlink(path.join(root, massager.headerIcon + '.webp'));
                 }
 
-                await sharp(file.path)
+                await sharp(headerIcon[0].path)
                     .rotate()
                     .resize({ width: 40 })
-                    .toFile(path.join(root, file.filename));
+                    .toFile(path.join(root, headerIcon[0].filename));
 
-                await sharp(file.path)
+                await sharp(headerIcon[0].path)
                     .rotate()
                     .resize({ width: 40 })
                     .webp({
                         quality: 80,
                     })
-                    .toFile(path.join(root, file.filename + '.webp'))
+                    .toFile(path.join(root, headerIcon[0].filename + '.webp'))
 
-                await massager.update({name, icon: file.filename})
-            }else{
+                await massager.update({name, headerIcon: headerIcon[0].filename})
+            }
+
+            if(footerIcon){
+                const root = path.resolve('public/massagersIcon');
+
+                if (massager.footerIcon) {
+                    await fs.unlink(path.join(root, massager.footerIcon));
+                    await fs.unlink(path.join(root, massager.footerIcon + '.webp'));
+                }
+
+                await sharp(footerIcon[0].path)
+                    .rotate()
+                    .resize({ width: 40 })
+                    .toFile(path.join(root, footerIcon[0].filename));
+
+                await sharp(footerIcon[0].path)
+                    .rotate()
+                    .resize({ width: 40 })
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, footerIcon[0].filename + '.webp'))
+
+                await massager.update({name, footerIcon: footerIcon[0].filename})
+            }
+
+            if(!headerIcon && !footerIcon){
                 await massager.update({name})
             }
 
@@ -123,13 +161,13 @@ class MassagersController {
             }
 
             const root = path.resolve('public/massagersIcon');
-            if (massager.icon) {
-                if(!path.join(root, massager.icon)){
-                    await fs.unlink(path.join(root, massager.icon));
-                }
-                if(!path.join(root, massager.icon + '.webp')){
-                    await fs.unlink(path.join(root, massager.icon + '.webp'));
-                }
+            if (massager.headerIcon) {
+                await fs.unlink(path.join(root, massager.headerIcon));
+                await fs.unlink(path.join(root, massager.headerIcon + '.webp'));
+            }
+            if (massager.footerIcon) {
+                await fs.unlink(path.join(root, massager.footerIcon));
+                await fs.unlink(path.join(root, massager.footerIcon + '.webp'));
             }
 
             await massager.destroy()
@@ -146,7 +184,8 @@ class MassagersController {
         try{
             const massagers = await Massagers.findAll({
                 attributes: [ 'id', 'name',
-                    [sequelize.literal(`CONCAT('massagersIcon/', icon)`), 'icon']
+                    [sequelize.literal(`CONCAT('massagersIcon/', headerIcon)`), 'headerIcon'],
+                    [sequelize.literal(`CONCAT('massagersIcon/', footerIcon)`), 'footerIcon'],
                 ]
             })
 

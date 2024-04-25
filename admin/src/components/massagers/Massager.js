@@ -19,7 +19,10 @@ function Massager({massager, updateItem, setUpdateItem}) {
 
     return (
         <div className={'item'}>
-            <img src={`${API_URL}/${massager.icon}`} alt={massager.name}/>
+            <div>
+                <img src={`${API_URL}/${massager.headerIcon}`} alt={massager.name}/>
+                <img src={`${API_URL}/${massager.footerIcon}`} alt={massager.name}/>
+            </div>
             <h3>{massager.name}</h3>
             <ul className="icon_row">
                 <li

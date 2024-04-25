@@ -64,12 +64,8 @@ class LoginImageController {
                 const root = path.resolve('public/loginImage');
 
                 if (loginImage.image) {
-                    if(!path.join(root, loginImage.image)){
-                        await fs.unlink(path.join(root, loginImage.image));
-                    }
-                    if(!path.join(root, loginImage.image + '.webp')){
-                        await fs.unlink(path.join(root, loginImage.image + '.webp'));
-                    }
+                    await fs.unlink(path.join(root, loginImage.image));
+                    await fs.unlink(path.join(root, loginImage.image + '.webp'));
                 }
 
                 await sharp(file.path)
@@ -113,12 +109,8 @@ class LoginImageController {
             const root = path.resolve('public/loginImage');
 
             if (loginImage.image) {
-                if(!path.join(root, loginImage.image)){
-                    await fs.unlink(path.join(root, loginImage.image));
-                }
-                if(!path.join(root, loginImage.image + '.webp')){
-                    await fs.unlink(path.join(root, loginImage.image + '.webp'));
-                }
+                await fs.unlink(path.join(root, loginImage.image));
+                await fs.unlink(path.join(root, loginImage.image + '.webp'));
             }
 
             await loginImage.destroy();
