@@ -28,6 +28,16 @@
       .left_row {
         padding: 10px;
 
+        p{
+          color: $dark;
+          font-size: 14px;
+          font-weight: 600;
+          font-family: $robotoFont;
+          transition: $themeTime;
+          margin-top: 15px;
+          text-align: center;
+        }
+
         .input_item {
           width: 350px;
           height: 45px;

@@ -50,6 +50,7 @@ function UpdateItemMassager({updateItem, setUpdateItem}) {
                             </div>
                             <div className={'row_img'}>
                                 <div>
+                                    <p>Header Icon</p>
                                     <div className={'custom-file'}>
                                         <label
                                             htmlFor="file-upload"
@@ -65,6 +66,7 @@ function UpdateItemMassager({updateItem, setUpdateItem}) {
                                             id="file-upload"
                                             type="file"/>
                                     </div>
+                                    <p>Footer Icon</p>
                                     <div className={'custom-file'}>
                                         <label
                                             htmlFor="file-upload2"
@@ -84,7 +86,7 @@ function UpdateItemMassager({updateItem, setUpdateItem}) {
                                         Save
                                     </button>
                                 </div>
-                                <div style={{marginTop: 5}}>
+                                <div style={{marginTop: 30}}>
                                     <div className={'images'}>
                                         <img src={
                                             updateItem?.headerIcon?.name

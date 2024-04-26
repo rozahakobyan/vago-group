@@ -112,6 +112,15 @@
         .row_img {
           display: flex;
           padding-top: 15px;
+          p{
+            color: $dark;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: $robotoFont;
+            transition: $themeTime;
+            margin-bottom: 10px;
+            text-align: center;
+          }
 
           .custom-file{
             margin-bottom: 10px;
@@ -136,7 +145,7 @@
             margin-left: 35px;
             width: 40px;
             height: 40px;
-            margin-bottom: 15px;
+            margin-bottom: 45px;
 
             img {
               width: 100%;

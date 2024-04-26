@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 
 
-function Price() {
+function Prices() {
     /* const [product, setProduct] = useState([])
     const [pageNumber, setPageNumber] = useState(1)
     const [pageCount, setPageCount] = useState(1)
@@ -21,9 +21,9 @@ function Price() {
     return (
         <div className="priceList">
             <div className="priceList-area">
-                <h2 className="priceList-title">Price List</h2>
+                <h2 className="priceList-title">Prices List</h2>
                 <div className="priceList-area">
-                    <table className="Price-table">
+                    <table className="Prices-table">
                         <thead>
                             <tr>
                                 <th >Packages</th>
@@ -41,7 +41,7 @@ function Price() {
                             </tr>
                         )) */}
                             <tr>
-                                <td className="service-name">Price</td>
+                                <td className="service-name">Prices</td>
                                 <td>850 EUR</td>
                                 <td>999 EUR</td>
                                 <td>650 EUR</td>
@@ -71,4 +71,4 @@ function Price() {
     )
 }
 
-export default Price
+export default Prices

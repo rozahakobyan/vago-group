@@ -41,7 +41,8 @@ class ContactsController {
                                 model: Massagers,
                                 as: "massager",
                                 required: false,
-                                attributes: ["name", [sequelize.literal(`CONCAT('massagersIcon/', icon)`), 'icon']]
+                                attributes: ["name", [sequelize.literal(`CONCAT('massagersIcon/', headerIcon)`), 'headerIcon'],
+                                    [sequelize.literal(`CONCAT('massagersIcon/', footerIcon)`), 'footerIcon']]
                             }
                         ]
                     },
@@ -98,7 +99,8 @@ class ContactsController {
                                 model: Massagers,
                                 as: "massager",
                                 required: false,
-                                attributes: ["name", [sequelize.literal(`CONCAT('massagersIcon/', icon)`), 'icon']]
+                                attributes: ["name", [sequelize.literal(`CONCAT('massagersIcon/', headerIcon)`), 'headerIcon'],
+                                    [sequelize.literal(`CONCAT('massagersIcon/', footerIcon)`), 'footerIcon']]
                             }
                         ]
                     },
@@ -207,7 +209,8 @@ class ContactsController {
                                 model: Massagers,
                                 as: "massager",
                                 required: false,
-                                attributes: ["name", [sequelize.literal(`CONCAT('massagersIcon/', icon)`), 'icon']]
+                                attributes: ["name", [sequelize.literal(`CONCAT('massagersIcon/', headerIcon)`), 'headerIcon'],
+                                    [sequelize.literal(`CONCAT('massagersIcon/', footerIcon)`), 'footerIcon']]
                             }
                         ]
                     },

@@ -23,11 +23,11 @@ function Services() {
         <div className="priceList-area">
             <h2 className="priceList-title">Services</h2>
             <div className="priceList-area">
-                <table className="Price-table">
+                <table className="Prices-table">
                     <thead>
                         <tr>
                             <th>Service Name</th>
-                            <th>Price</th>
+                            <th>Prices</th>
                            
                         </tr>
                     </thead>

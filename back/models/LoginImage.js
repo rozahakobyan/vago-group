@@ -16,6 +16,10 @@ LoginImage.init({
         type:DataTypes.STRING(255),
         allowNull: false,
     },
+    // active: {
+    //     type: DataTypes.BOOLEAN,
+    //     allowNull: false,
+    // }
 }, {
     sequelize,
     tableName: 'loginImage',
