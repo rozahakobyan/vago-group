@@ -53,8 +53,8 @@ export class Api {
         return api.get('/home-info/list');
     }
 
-    static loginImageList() {
-        return api.get('/login-image/list');
+    static loginImageList(data = {}) {
+        return api.get('/login-image/list', {params: data});
     }
 
     static massagerList() {
@@ -79,5 +79,9 @@ export class Api {
 
     static pricesList(data = {}) {
         return api.get('/prices/list', {params: data});
+    }
+
+    static packagesList() {
+        return api.get('/packages/list');
     }
 }

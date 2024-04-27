@@ -19,6 +19,7 @@ const EXCLUDES = [
   'GET:/contacts/list',
   'GET:/partners/list',
   'GET:/prices/list',
+  'GET:/login-image/list',
 ];
 
 export default function authorization(req, res, next) {

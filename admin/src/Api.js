@@ -255,7 +255,7 @@ export class Api {
     }
 
     static pricesList() {
-        return api.get('/prices/list-price');
+        return api.get('/prices/list');
     }
 
     static pricesDelete(id) {

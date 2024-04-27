@@ -16,6 +16,5 @@ router.put('/update/:id',
 router.delete('/delete/:id', PricesController.delete);
 
 router.get('/list', PricesController.list)
-router.get('/list-price', PricesController.listPrice)
 
 export default router;

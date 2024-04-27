@@ -81,7 +81,7 @@ function LogImage({loginImage, updateItem, setUpdateItem}) {
     }, []);
 
     return (
-        <div className={'item'}>
+        <div className={`item${loginImage.active ? " active" : ""}`}>
             <img src={`${API_URL}/${loginImage.image}`} alt={""}/>
             <ul className="icon_row">
                 <li

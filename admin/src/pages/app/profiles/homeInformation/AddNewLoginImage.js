@@ -8,7 +8,7 @@ import Button from "../../../../components/Button";
 import {loginImageAddRequest} from "../../../../store/actions/loginImage";
 
 const AddNewLoginImage = () => {
-    const [loginImage, setLoginImage] = useState({image: null});
+    const [loginImage, setLoginImage] = useState({image: null, active: false});
     const errors = useSelector(state => state.loginImage.errors);
     const loading = useSelector(state => state.loginImage.loading);
     const navigate = useNavigate();
@@ -17,6 +17,11 @@ const AddNewLoginImage = () => {
     const handleChangeFile = useCallback((e) => {
         const file = e.target.files[0]
         setLoginImage({...loginImage, image: file})
+    }, [loginImage]);
+
+    const handleChangeActive = useCallback((e, path) => {
+        const text = e.target.checked
+        setLoginImage({...loginImage, [path]: text});
     }, [loginImage]);
 
     const handleSubmitSave = useCallback(async (e) => {
@@ -51,6 +56,14 @@ const AddNewLoginImage = () => {
                                 id="file-upload"
                                 type="file"/>
                             {errors.file ? <small>{errors.file}</small> : null}
+                        </div>
+                        <div className={'input_item'}>
+                            <label> Active Login Image
+                                <input
+                                    checked={loginImage.active}
+                                    onChange={(e) => handleChangeActive(e, "active")}
+                                    type="checkbox"/>
+                            </label>
                         </div>
                         <Button title={'Save'} loading={loading}/>
                     </div>

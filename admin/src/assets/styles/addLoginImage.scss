@@ -33,6 +33,7 @@
           height: 45px;
           border-radius: 5px;
           overflow: hidden;
+          margin-top: 10px;
 
           input {
             width: 100%;
@@ -43,6 +44,14 @@
             color: black;
             font-size: 16px;
             font-weight: $robotoFont;
+          }
+
+          label{
+            input{
+              width: 15px;
+              height: 15px;
+              margin-left: 10px;
+            }
           }
         }
 
