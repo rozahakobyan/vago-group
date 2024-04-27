@@ -27,7 +27,7 @@ function Services() {
                     <thead>
                         <tr>
                             <th>Service Name</th>
-                            <th>Prices</th>
+                            <th>Packages</th>
                            
                         </tr>
                     </thead>

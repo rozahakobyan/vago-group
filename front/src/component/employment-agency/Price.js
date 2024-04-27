@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
-
+import React, { useEffect } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {pricesListRequest} from "../../store/actions/prices";
 
 function Prices() {
-    /* const [product, setProduct] = useState([])
-    const [pageNumber, setPageNumber] = useState(1)
-    const [pageCount, setPageCount] = useState(1)
+    const dispatch = useDispatch();
+
+    const pricesList = useSelector(state => state.prices.pricesList);
 
     useEffect(() => {
-        (async () => {
-            const { data } = await axios.get('https://reqres.in/api/users', { page: pageNumber })
-            setProduct(data.data)
-            console.log(data)
-            setPageCount(data.total_pages)
-        })()
-    }, [pageNumber]) */
+        dispatch(pricesListRequest({active: true}))
+    }, []);
 
-
+    console.log(pricesList)
 
     return (
         <div className="priceList">
             <div className="priceList-area">
-                <h2 className="priceList-title">Prices List</h2>
+                <h2 className="priceList-title">Packages List</h2>
                 <div className="priceList-area">
                     <table className="Prices-table">
                         <thead>
@@ -41,7 +36,7 @@ function Prices() {
                             </tr>
                         )) */}
                             <tr>
-                                <td className="service-name">Prices</td>
+                                <td className="service-name">Packages</td>
                                 <td>850 EUR</td>
                                 <td>999 EUR</td>
                                 <td>650 EUR</td>
