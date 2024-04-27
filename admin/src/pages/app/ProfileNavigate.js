@@ -20,6 +20,10 @@ import AddNewPartners from "./profiles/partners/AddNewPartners";
 import Contacts from "./profiles/contacts/Contacts";
 import AddNewContact from "./profiles/contacts/AddNewContact";
 import Information from "./profiles/homeInformation/Information";
+import AddNewPrices from "./profiles/prices/AddNewPrices";
+import Prices from "./profiles/prices/Prices";
+import Packages from "./profiles/packages/Packages";
+import AddNewPackages from "./profiles/packages/AddNewPackages";
 
 const ProfileNavigate = () => {
     return (
@@ -40,6 +44,10 @@ const ProfileNavigate = () => {
                 <Route path={'/partners/add-new-partners'} element={<AddNewPartners/>}/>
                 <Route path={'/contacts'} element={<Contacts/>}/>
                 <Route path={'/contacts/add-new-contacts'} element={<AddNewContact/>}/>
+                <Route path={'/prices'} element={<Prices/>}/>
+                <Route path={'/prices/add-new-prices'} element={<AddNewPrices/>}/>
+                <Route path={'/packages'} element={<Packages/>}/>
+                <Route path={'/packages/add-new-packages'} element={<AddNewPackages/>}/>
                 <Route path={'/users/:page'} element={<Users/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Route>

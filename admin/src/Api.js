@@ -250,6 +250,42 @@ export class Api {
 
         return api.put(`/contacts/update/${id}`, data);
     }
+
+    static pricesAdd(data = {}) {
+        return api.post('/prices/add', data);
+    }
+
+    static pricesList() {
+        return api.get('/prices/list-price');
+    }
+
+    static pricesDelete(id) {
+        return api.delete(`/prices/delete/${id}`);
+    }
+
+    static pricesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/prices/update/${id}`, data);
+    }
+
+    static packagesAdd(data = {}) {
+        return api.post('/packages/add', data);
+    }
+
+    static packagesList() {
+        return api.get('/packages/list');
+    }
+
+    static packagesDelete(id) {
+        return api.delete(`/packages/delete/${id}`);
+    }
+
+    static packagesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/packages/update/${id}`, data);
+    }
 }
 
 

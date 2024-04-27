@@ -72,7 +72,12 @@ export class Api {
     static partnersList() {
         return api.get('/partners/list');
     }
+
     static contactsList() {
         return api.get('/contacts/list');
+    }
+
+    static pricesList(data = {}) {
+        return api.get('/prices/list', {params: data});
     }
 }

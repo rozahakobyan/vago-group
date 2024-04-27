@@ -43,12 +43,16 @@ Contacts.hasMany(ContactsMassager,
 ContactsMassager.belongsTo(Massagers,
     {
         foreignKey: "massagerId",
+        onDelete: "CASCADE",
+        onUpdate: 'CASCADE',
     })
 
 Massagers.hasMany(ContactsMassager,
     {
         foreignKey: 'massagerId',
         as: "massager",
+        onDelete: "CASCADE",
+        onUpdate: 'CASCADE',
     });
 
 export default ContactsMassager;

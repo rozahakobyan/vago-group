@@ -50,6 +50,7 @@ const AddNewMassagers = () => {
                                 type="text"/>
                         </div>
                         {errors.name ? <small>{errors.name}</small> : null}
+                        <p>Header Icon</p>
                         <div className={'item_file_cat'}>
                             <label
                                 htmlFor="file-upload"
@@ -66,6 +67,7 @@ const AddNewMassagers = () => {
                                 type="file"/>
                             {errors.file ? <small>{errors.file}</small> : null}
                         </div>
+                        <p>Footer Icon</p>
                         <div className={'item_file_cat'}>
                             <label
                                 htmlFor="file-upload2"
