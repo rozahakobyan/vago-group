@@ -286,6 +286,24 @@ export class Api {
 
         return api.put(`/packages/update/${id}`, data);
     }
+
+    static servicesAdd(data = {}) {
+        return api.post('/services/add', data);
+    }
+
+    static servicesList() {
+        return api.get('/services/list');
+    }
+
+    static servicesDelete(id) {
+        return api.delete(`/services/delete/${id}`);
+    }
+
+    static servicesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/services/update/${id}`, data);
+    }
 }
 
 

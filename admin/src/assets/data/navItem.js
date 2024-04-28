@@ -1,9 +1,11 @@
 import {MdConstruction, MdDashboard} from "react-icons/md";
-import {FaFacebookMessenger, FaRegRegistered, FaUsers} from "react-icons/fa";
+import {FaFacebookMessenger, FaRegRegistered, FaServicestack, FaUsers} from "react-icons/fa";
 import {BiBuilding, BiPackage} from "react-icons/bi";
 import {AiOutlineTeam} from "react-icons/ai";
 import {IoIosContacts, IoIosHelpCircle, IoIosSettings} from "react-icons/io";
 import {GiPriceTag} from "react-icons/gi";
+import {FcServices} from "react-icons/fc";
+import {GrServices} from "react-icons/gr";
 
 export default [
     {
@@ -93,7 +95,7 @@ export default [
         subMenu: [
             {
                 id: 6_1,
-                title: "Add New Partners",
+                title: "Add New Services",
                 path: "add-new-partners",
             },
         ]
@@ -140,6 +142,21 @@ export default [
                 id: 9_1,
                 title: "Add New Packages",
                 path: "add-new-packages",
+            },
+        ]
+    },
+    {
+        id: 10,
+        name: 'Services',
+        path: 'services',
+        Icon: GrServices,
+        openIcon: true,
+        renderItem: true,
+        subMenu: [
+            {
+                id: 9_1,
+                title: "Add New Services",
+                path: "add-new-services",
             },
         ]
     },

@@ -14,11 +14,11 @@ class ServicesController {
                 })
             }
 
-            const achievement = await Services.create({name, number})
+            const service = await Services.create({name, number})
 
             res.json({
                 status: "ok",
-                achievement
+                service
             })
         }catch (e) {
             next(e)
@@ -30,11 +30,11 @@ class ServicesController {
             const {name, number} = req.body;
             const { id } = req.params;
 
-            const achievement = await Services.findOne({
+            const service = await Services.findOne({
                 where: {id}
             })
 
-            if (!achievement) {
+            if (!service) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -42,11 +42,11 @@ class ServicesController {
                 })
             }
 
-            await achievement.update({name, number})
+            await service.update({name, number})
 
             res.json({
                 status: "ok",
-                achievement
+                service
             })
         }catch (e) {
             next(e)
@@ -57,9 +57,9 @@ class ServicesController {
         try{
             const { id } = req.params;
 
-            const achievement = await Services.findByPk(id)
+            const service = await Services.findByPk(id)
 
-            if (!achievement) {
+            if (!service) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -67,7 +67,7 @@ class ServicesController {
                 })
             }
 
-            await achievement.destroy()
+            await service.destroy()
 
             res.json({
                 status: "ok"
@@ -79,11 +79,11 @@ class ServicesController {
 
     static async list (req, res, next){
         try{
-            const achievements = await Services.findAll()
+            const services = await Services.findAll()
 
             res.json({
                 status: "ok",
-                achievements
+                services
             })
         }catch (e) {
             next(e)

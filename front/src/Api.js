@@ -84,4 +84,8 @@ export class Api {
     static packagesList(data = {}) {
         return api.get('/packages/list', {params: data});
     }
+
+    static servicesList() {
+        return api.get('/services/list');
+    }
 }

@@ -18,7 +18,7 @@ function Partners() {
             <div className="EmploymentAgency-partners-area">
                 <div className="EmploymentAgency-partner-info">
                     <div className="EmploymentAgency-partners-title">
-                        <h1>Partners</h1>
+                        <h1>Services</h1>
                     </div>
                     <div className="EmploymentAgency-partners-blocks">
                         {partnersList && partnersList.map(p => (

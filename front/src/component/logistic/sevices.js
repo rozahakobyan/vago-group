@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
+import {useDispatch, useSelector} from "react-redux";
+import {servicesListRequest} from "../../store/actions/services";
 
 function Services() {
-    const [product, setProduct] = useState([])
-    const [pageNumber, setPageNumber] = useState(1)
-    const [pageCount, setPageCount] = useState(1)
+    const dispatch = useDispatch();
+
+    const servicesList = useSelector(state => state.services.servicesList)
 
     useEffect(() => {
-        (async () => {
-            const { data } = await axios.get('https://reqres.in/api/users', { page: pageNumber })
-            setProduct(data.data)
-            console.log(data)
-            setPageCount(data.total_pages)
-        })()
-    }, [pageNumber])
+        dispatch(servicesListRequest())
+    }, []);
 
-
+    console.log(servicesList)
 
     return (
         <div className="priceList">

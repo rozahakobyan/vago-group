@@ -24,6 +24,8 @@ import AddNewPrices from "./profiles/prices/AddNewPrices";
 import Prices from "./profiles/prices/Prices";
 import Packages from "./profiles/packages/Packages";
 import AddNewPackages from "./profiles/packages/AddNewPackages";
+import Services from "./profiles/services/Services";
+import AddNewServices from "./profiles/services/AddNewServices";
 
 const ProfileNavigate = () => {
     return (
@@ -48,6 +50,8 @@ const ProfileNavigate = () => {
                 <Route path={'/prices/add-new-prices'} element={<AddNewPrices/>}/>
                 <Route path={'/packages'} element={<Packages/>}/>
                 <Route path={'/packages/add-new-packages'} element={<AddNewPackages/>}/>
+                <Route path={'/services'} element={<Services/>}/>
+                <Route path={'/services/add-new-services'} element={<AddNewServices/>}/>
                 <Route path={'/users/:page'} element={<Users/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Route>
