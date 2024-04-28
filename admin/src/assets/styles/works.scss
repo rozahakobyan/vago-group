@@ -72,7 +72,7 @@
     }
 
     .item {
-      width: calc(100% / 3 - 20px);
+      min-width: calc(100% / 3 - 20px);
       padding: 25px;
       box-shadow: $shadowDark;
       transition: $themeTime;
