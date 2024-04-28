@@ -48,7 +48,7 @@ const AddNewPartners = () => {
                                 placeholder={'name partners...'}
                                 type="text"/>
                         </div>
-                        {errors.name ? <small>{errors.name}</small> : null}
+                        {errors?.name ? <small>{errors?.name}</small> : null}
 
                         <div className={'item_file_cat'}>
                             <label
@@ -64,7 +64,7 @@ const AddNewPartners = () => {
                                 accept="image/*"
                                 id="file-upload"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
                         <Button title={'Save'} loading={loading}/>
                     </div>

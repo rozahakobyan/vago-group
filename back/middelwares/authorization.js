@@ -15,6 +15,7 @@ const EXCLUDES = [
   'POST:/login-image/add',
   'POST:/welcome/add',
   'POST:/products/add',
+  'POST:/contacts/add',
   'GET:/works/list',
   'GET:/contacts/list',
   'GET:/partners/list',

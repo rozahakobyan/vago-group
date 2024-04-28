@@ -10,6 +10,8 @@ class ContactsController {
         try{
             const {address, email, phone, activeContact, pathList = []} = req.body;
 
+            console.log(req.body);
+
             if(!address || !email || !phone){
                 throw HttpError(404, {
                     errors: {
@@ -27,6 +29,7 @@ class ContactsController {
                     path: p.path
                 })))
             }
+            
 
             const createdContact = await Contacts.findOne({
                 where: { id: contact.id },

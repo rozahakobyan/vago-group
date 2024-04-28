@@ -230,6 +230,7 @@ export class Api {
     }
 
     static contactsAdd(data = {}) {
+        console.log(data);
         return api.post('/contacts/add', data);
     }
 

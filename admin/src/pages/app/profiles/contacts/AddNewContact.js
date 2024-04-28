@@ -81,7 +81,7 @@ function AddNewContact() {
                                 placeholder={'address...'}
                                 type="text"/>
                         </div>
-                        {errors.address ? <small className={'errors_message'}>{errors.address}</small> : null}
+                        {errors?.address ? <small className={'errors_message'}>{errors?.address}</small> : null}
 
                         <div className={'input_item'}>
                             <input
@@ -90,7 +90,7 @@ function AddNewContact() {
                                 onChange={(e) => handleChangeText(e.target.value, "phone")}
                                 type="text"/>
                         </div>
-                        {errors.phone ? <small className={'errors_message'}>{errors.phone}</small> : null}
+                        {errors?.phone ? <small className={'errors_message'}>{errors?.phone}</small> : null}
 
                         <div className={'input_item'}>
                             <input
@@ -99,7 +99,7 @@ function AddNewContact() {
                                 onChange={(e) => handleChangeText(e.target.value, "email")}
                                 type="text"/>
                         </div>
-                        {errors.email ? <small className={'errors_message'}>{errors.email}</small> : null}
+                        {errors?.email ? <small className={'errors_message'}>{errors?.email}</small> : null}
 
                         <div className={'input_item'}>
                             <label> Active Contact
