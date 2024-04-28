@@ -13,7 +13,7 @@ const LogoutWrapper = ({children,helmetTitle}) => {
     const loginImageList = useSelector(state => state.loginImage.loginImagesList)
 
     useEffect(() => {
-        dispatch(loginImageListRequest())
+        dispatch(loginImageListRequest({active: true}))
     }, []);
 
     if(token){
@@ -23,6 +23,8 @@ const LogoutWrapper = ({children,helmetTitle}) => {
     return (
         <div className={'logout-wrapper'} style={{
             backgroundImage: loginImageList[0] ? `url(${API_URL}/${loginImageList[0].image})` : `url(${loginImage})`,
+            backgroundRepeat: "no-repeat",
+            height: "100vh"
         }}>
             <Helmet>
                 <title>

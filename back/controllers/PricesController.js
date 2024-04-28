@@ -87,36 +87,7 @@ class PricesController {
 
             if(active){
                 where[Op.or] = [
-                    { active: { [Op.substring]: active } },
-                ];
-            }
-
-            const price = await Prices.findAll({
-                where
-            })
-
-            const packages = await Packages.findAll()
-
-            const prices = [...price, ...packages]
-
-            res.json({
-                status: "ok",
-                prices
-            })
-        }catch (e) {
-            next(e)
-        }
-    }
-
-    static async listPrice (req, res, next){
-        try{
-            const {active} = req.query;
-
-            const where = {};
-
-            if(active){
-                where[Op.or] = [
-                    { active: { [Op.substring]: active } },
+                    { active: { [Op.substring]: 1 } },
                 ];
             }
 

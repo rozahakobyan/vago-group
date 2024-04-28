@@ -19,6 +19,11 @@ function UpdateItemLoginImage({updateItem, setUpdateItem}) {
         setUpdateItem({...updateItem, image: file})
     }, [updateItem]);
 
+    const handleChangeActive = useCallback((e, path) => {
+        const text = e.target.checked
+        setUpdateItem({...updateItem, [path]: text});
+    }, [updateItem]);
+
     const handleSave = useCallback(async (e) => {
         e.preventDefault()
         dispatch(isLoading('of'))
@@ -37,6 +42,15 @@ function UpdateItemLoginImage({updateItem, setUpdateItem}) {
                     <FaWindowClose onClick={handleClose} className={'close'}/>
                     <form>
                         <div className={'cont'}>
+                            <div className={'input_item'}>
+                                <label> Active Login Image
+                                    <input
+                                        checked={updateItem.active}
+                                        onChange={(e) => handleChangeActive(e, "active")}
+                                        type="checkbox"/>
+                                </label>
+                            </div>
+
                             <div className={'row_img'}>
                                 <div>
                                     <div className={'custom-file'}>
@@ -54,6 +68,7 @@ function UpdateItemLoginImage({updateItem, setUpdateItem}) {
                                             id="file-upload"
                                             type="file"/>
                                     </div>
+
                                     <button onClick={handleSave}>
                                         Save
                                     </button>

@@ -4,10 +4,12 @@ import path from "path";
 import HttpError from "http-errors";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
+import {Op} from "sequelize";
 
 class LoginImageController {
     static async add (req, res, next){
         try{
+            const { active } = req.body;
             const { file } = req;
 
             if (!file) {
@@ -33,7 +35,7 @@ class LoginImageController {
                 .toFile(path.join(root, file.filename + '.webp'))
 
             const loginImage = await LoginImage.create({
-                image: file.filename
+                image: file.filename, active
             })
 
             res.json({
@@ -49,6 +51,7 @@ class LoginImageController {
     static async update (req, res, next){
         try{
             const {id} = req.params;
+            const {active} = req.body;
             const {file} = req;
             const loginImage = await LoginImage.findByPk(+id);
 
@@ -81,7 +84,9 @@ class LoginImageController {
                     })
                     .toFile(path.join(root, file.filename + '.webp'))
 
-                await loginImage.update({image: file.filename})
+                await loginImage.update({image: file.filename, active})
+            }else{
+                await loginImage.update({active})
             }
 
             res.json({
@@ -125,9 +130,20 @@ class LoginImageController {
 
     static async list (req, res, next){
         try{
+            const {active} = req.query;
+
+            const where = {};
+
+            if(active){
+                where[Op.or] = [
+                    { active: { [Op.substring]: 1 } },
+                ];
+            }
+
             const loginImage = await LoginImage.findAll({
+                where,
                 attributes: [ 'id',
-                    [sequelize.literal(`CONCAT('loginImage/', image)`), 'image']
+                    [sequelize.literal(`CONCAT('loginImage/', image)`), 'image'], "active"
                 ]});
 
             res.json({

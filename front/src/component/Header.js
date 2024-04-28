@@ -31,16 +31,13 @@ function Header() {
         })
     }, [contactsList])
 
-
-
-
     return (
         <header>
             <div id='verev'>
                 {list && list.map(l => (
                     <div className="header-blocks" key={l.id}>
                         <NavLink to={"/homeInformation"}>
-                            <div className="logo"><img src='./img/logo.png' /></div>
+                            <div className="logo"><img src={'./img/logo.png'} alt={""} /></div>
                         </NavLink>
                         <div className="header-block">
                             <p className="mail-title">Email:</p>
@@ -71,14 +68,10 @@ function Header() {
 
                         <div className={'header-block-msg'} >
                             {l.massagersList && l.massagersList.map(lm => (
-                                <NavLink to={lm.path}><div className='msg-box'><img src={`${API_URL}/${lm.massager.headerIcon}`} alt={""} /></div></NavLink>
+                                <NavLink to={lm.path} key={lm.id}><div className='msg-box'><img src={`${API_URL}/${lm.massager.icon}`} alt={""} /></div></NavLink>
                             ))}
 
-
-
                         </div>
-
-
                     </div>
                 ))}
             </div>
