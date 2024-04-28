@@ -10,8 +10,8 @@ function Prices() {
     const packagesList = useSelector(state => state.packages.packagesList);
 
     useEffect(() => {
-        dispatch(pricesListRequest({active: true}))
-        dispatch(packagesListRequest())
+        dispatch(pricesListRequest({active: true, activePage: "Logistic"}))
+        dispatch(packagesListRequest({activePage: "Logistic"}))
     }, []);
 
     return (

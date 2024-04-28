@@ -81,7 +81,7 @@ export class Api {
         return api.get('/prices/list', {params: data});
     }
 
-    static packagesList() {
-        return api.get('/packages/list');
+    static packagesList(data = {}) {
+        return api.get('/packages/list', {params: data});
     }
 }

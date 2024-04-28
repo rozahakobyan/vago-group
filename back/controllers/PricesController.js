@@ -84,10 +84,17 @@ class PricesController {
 
             const where = {};
 
-            if(active || activePage){
+            if(active && activePage){
                 where[Op.or] = [
-                    { active: { [Op.substring]: 1 } },
-                    { activePage: { [Op.substring]: activePage } },
+                    { active: { [Op.substring]: 1}, activePage: { [Op.substring]: activePage} }
+                ];
+            } else if(active){
+                where[Op.or] = [
+                    { active: { [Op.substring]: 1} }
+                ];
+            }else if(activePage){
+                where[Op.or] = [
+                    { activePage: { [Op.substring]: activePage} }
                 ];
             }
 

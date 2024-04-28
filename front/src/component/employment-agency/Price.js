@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import {useDispatch, useSelector} from "react-redux";
 import {pricesListRequest} from "../../store/actions/prices";
+import {packagesListRequest} from "../../store/actions/packages";
 
 
 function Prices() {
     const dispatch = useDispatch();
 
     const pricesList = useSelector(state => state.prices.pricesList);
+    const packagesList = useSelector(state => state.packages.packagesList);
 
     useEffect(() => {
-        dispatch(pricesListRequest({active: true}))
+        dispatch(pricesListRequest({active: true, activePage: "Employment Agency"}))
+        dispatch(packagesListRequest({activePage: "Employment Agency"}))
     }, []);
-
-    console.log(pricesList)
 
     return (
         <div className="priceList">
@@ -30,11 +31,18 @@ function Prices() {
                             </tr>
                         </thead>
                         <tbody>
-                            {pricesList.map(p => ( <tr key={p.id}>
+                            {pricesList && pricesList.map(p => ( <tr key={p.id}>
                                 <td>{p.name}</td>
-                                <td>{typeof p.advanced === "string" ? p.advanced : p.advanced ? "🗸" : ""}</td>
-                                <td>{typeof p.premium === "string" ? p.premium : p.premium ? "🗸" : ""}</td>
-                                <td>{typeof p.standard === "string" ? p.standard : p.standard ? "🗸" : ""}</td>
+                                <td>{p.advanced}</td>
+                                <td>{p.premium}</td>
+                                <td>{p.standard}</td>
+                            </tr>))}
+
+                            {packagesList && packagesList.map(p => ( <tr key={p.id}>
+                                <td>{p.name}</td>
+                                <td>{p.advanced ? "🗸" : ""}</td>
+                                <td>{p.premium ? "🗸" : ""}</td>
+                                <td>{p.standard ? "🗸" : ""}</td>
                             </tr>))}
 
                             <tr className="order-button">
