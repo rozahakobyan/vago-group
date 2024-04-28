@@ -316,9 +316,14 @@
     height: 300px;
 }
 
+.Partners-name{
+    text-align: center;
+    
+}
+
 /* --------------- */
 
-.Price-table {
+.Prices-table {
     width: 1000px;
 
     margin: 0 auto;
@@ -337,10 +342,11 @@
     border-radius: 10px;
 }
 
-.Price-table td {
+.Prices-table td {
     border-bottom: 1px solid black;
     height: 30px;
     text-align: center;
+    
 }
 
 .service-name {

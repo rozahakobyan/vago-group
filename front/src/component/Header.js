@@ -71,7 +71,7 @@ function Header() {
 
                         <div className={'header-block-msg'} >
                             {l.massagersList && l.massagersList.map(lm => (
-                                <NavLink to={lm.path}><div className='msg-box'><img src={`${API_URL}/${lm.massager.icon}`} alt={""} /></div></NavLink>
+                                <NavLink to={lm.path}><div className='msg-box'><img src={`${API_URL}/${lm.massager.headerIcon}`} alt={""} /></div></NavLink>
                             ))}
 
 

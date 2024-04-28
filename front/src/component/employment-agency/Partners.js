@@ -12,6 +12,7 @@ function Partners() {
     useEffect(() => {
         dispatch(partnersListRequest())
     }, []);
+    console.log(partnersList);
 
     return (
         <section>
@@ -22,7 +23,10 @@ function Partners() {
                     </div>
                     <div className="EmploymentAgency-partners-blocks">
                         {partnersList && partnersList.map(p => (
-                            <div className="EmploymentAgency-block"><img src={`${API_URL}/${p.image}`} alt={""} /></div>
+                            <div key={p.id}>
+                                <div className="EmploymentAgency-block"><img src={`${API_URL}/${p.image}`} alt={""} /></div>
+                                <div className="Partners-name"><strong>{p.name}</strong></div>
+                            </div>
                         ))}
                     </div>
                 </div>
