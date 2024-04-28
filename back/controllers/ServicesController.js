@@ -1,7 +1,7 @@
 import HttpError from "http-errors";
-import Achievements from "../models/Achievements.js";
+import Services from "../models/Services.js";
 
-class AchievementsController {
+class ServicesController {
     static async add (req, res, next){
         try{
             const {name, number} = req.body;
@@ -14,7 +14,7 @@ class AchievementsController {
                 })
             }
 
-            const achievement = await Achievements.create({name, number})
+            const achievement = await Services.create({name, number})
 
             res.json({
                 status: "ok",
@@ -30,7 +30,7 @@ class AchievementsController {
             const {name, number} = req.body;
             const { id } = req.params;
 
-            const achievement = await Achievements.findOne({
+            const achievement = await Services.findOne({
                 where: {id}
             })
 
@@ -57,7 +57,7 @@ class AchievementsController {
         try{
             const { id } = req.params;
 
-            const achievement = await Achievements.findByPk(id)
+            const achievement = await Services.findByPk(id)
 
             if (!achievement) {
                 throw HttpError(404, {
@@ -79,7 +79,7 @@ class AchievementsController {
 
     static async list (req, res, next){
         try{
-            const achievements = await Achievements.findAll()
+            const achievements = await Services.findAll()
 
             res.json({
                 status: "ok",
@@ -91,4 +91,4 @@ class AchievementsController {
     }
 }
 
-export default AchievementsController;
+export default ServicesController;

@@ -33,12 +33,10 @@ class WorksController {
 
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 200 })
                 .toFile(path.join(root, file.filename));
 
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 200 })
                 .webp({
                     quality: 80,
                 })
@@ -103,12 +101,10 @@ class WorksController {
 
                 await sharp(file.path)
                     .rotate()
-                    .resize({ width: 200 })
                     .toFile(path.join(root, file.filename));
 
                 await sharp(file.path)
                     .rotate()
-                    .resize({ width: 200 })
                     .webp({
                         quality: 80,
                     })

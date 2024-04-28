@@ -41,7 +41,6 @@ class ProductsController {
 
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 200 })
                 .toFile(path.join(root, file.filename));
 
             await resizeImages(file.path, root, file.filename, 2);
@@ -87,7 +86,6 @@ class ProductsController {
 
                 await sharp(file.path)
                     .rotate()
-                    .resize({ width: 200 })
                     .toFile(path.join(destFolder, file.filename));
 
                 await resizeImages(file.path, destFolder, file.filename, 2);

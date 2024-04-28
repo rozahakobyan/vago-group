@@ -6,14 +6,19 @@ import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
 import { packagesAddRequest, isLoading } from '../../../../store/actions/packages';
+import Select from "react-select";
+import activePricePage from "../../../../assets/data/activePricePage";
 
 const AddNewPackages = () => {
     const [packages, setPackages] = useState({
         name: "",
+        activePage: "",
         advanced: false,
         premium: false,
         standard: false,
     });
+    const [selected, setSelected] = useState(null);
+
     const errors = useSelector(state => state.packages.errors);
     const loading = useSelector(state => state.packages.loading);
     const navigate = useNavigate();
@@ -23,6 +28,11 @@ const AddNewPackages = () => {
         const text = e.target.value
         setPackages({...packages, [path]: text});
     }, [packages]);
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setSelected(selectedOption)
+        setPackages({...packages, activePage: selectedOption.label})
+    }, [packages])
 
     const handleChangeActive = useCallback((e, path) => {
         const text = e.target.checked
@@ -54,6 +64,14 @@ const AddNewPackages = () => {
                                 type="text"/>
                         </div>
                         {errors?.name ? <small>{errors?.name}</small> : null}
+
+                        <Select value={selected}
+                                options={activePricePage}
+                                onChange={handleSelectChange}
+                                placeholder={<div>Page...</div>}
+                                className="react-select-containers"
+                                classNamePrefix="react-selects"
+                        />
 
                         <div className={'input_item'}>
                             <label> Active advanced

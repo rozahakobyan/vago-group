@@ -28,6 +28,10 @@ Packages.init({
         type: DataTypes.BOOLEAN,
         allowNull: false,
     },
+    activePage: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+    },
 }, {
     sequelize,
     tableName: "packages",

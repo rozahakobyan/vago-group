@@ -22,6 +22,7 @@ function Price({price, updateItem, setUpdateItem}) {
             <h3>Advanced - {price.advanced}</h3>
             <h3>Premium - {price.premium}</h3>
             <h3>Standard - {price.standard}</h3>
+            <h3>Page - {price.activePage}</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(price)}

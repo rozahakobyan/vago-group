@@ -28,6 +28,10 @@ Prices.init({
         type: DataTypes.STRING(255),
         allowNull: false,
     },
+    activePage: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+    },
     active: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

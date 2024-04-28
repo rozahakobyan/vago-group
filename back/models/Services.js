@@ -1,11 +1,11 @@
 import sequelize from "../services/sequelize.js";
 import {DataTypes, Model} from "sequelize";
 
-class Achievements extends Model {
+class Services extends Model {
 
 }
 
-Achievements.init({
+Services.init({
     id: {
         type: DataTypes.BIGINT.UNSIGNED,
         primaryKey: true,
@@ -17,13 +17,13 @@ Achievements.init({
         allowNull: false,
     },
     number: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.STRING(255),
         allowNull: false,
     }
 }, {
     sequelize,
-    tableName: 'achievements',
-    modelName: 'achievements'
+    tableName: 'services',
+    modelName: 'services'
 })
 
-export default Achievements;
+export default Services;

@@ -147,7 +147,7 @@ function AddNewWork() {
                         <div className="input_item_right">
                             <div className={'price_row'}>
                                 <input
-                                    placeholder={'Package...'}
+                                    placeholder={'Price...'}
                                     value={work.price}
                                     onChange={(e) => handleChangeText(e.target.value, "price")}
                                     type="text"/>

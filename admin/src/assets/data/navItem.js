@@ -93,7 +93,7 @@ export default [
         subMenu: [
             {
                 id: 6_1,
-                title: "Add New prices",
+                title: "Add New Partners",
                 path: "add-new-partners",
             },
         ]

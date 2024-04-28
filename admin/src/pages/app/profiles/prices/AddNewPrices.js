@@ -1,11 +1,12 @@
 import React, {useCallback, useState} from 'react';
 import {Helmet} from "react-helmet";
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
-import { pricesAddRequest, isLoading } from '../../../../store/actions/prices';
+import { pricesAddRequest } from '../../../../store/actions/prices';
+import Select from "react-select";
+import activePricePage from "../../../../assets/data/activePricePage";
 
 const AddNewPrices = () => {
     const [price, setPrice] = useState({
@@ -13,8 +14,11 @@ const AddNewPrices = () => {
         advanced: "",
         premium: "",
         standard: "",
+        activePage: "",
         active: false
     });
+    const [selected, setSelected] = useState(null);
+
     const errors = useSelector(state => state.prices.errors);
     const loading = useSelector(state => state.prices.loading);
     const navigate = useNavigate();
@@ -24,6 +28,11 @@ const AddNewPrices = () => {
         const text = e.target.value
         setPrice({...price, [path]: text});
     }, [price]);
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setSelected(selectedOption)
+        setPrice({...price, activePage: selectedOption.label})
+    }, [price])
 
     const handleChangeActive = useCallback((e, path) => {
         const text = e.target.checked
@@ -82,6 +91,14 @@ const AddNewPrices = () => {
                                 type="text"/>
                         </div>
                         {errors?.standard ? <small>{errors?.standard}</small> : null}
+
+                        <Select value={selected}
+                                options={activePricePage}
+                                onChange={handleSelectChange}
+                                placeholder={<div>Page...</div>}
+                                className="react-select-containers"
+                                classNamePrefix="react-selects"
+                        />
 
                         <div className={'input_item'}>
                             <label> Active Price

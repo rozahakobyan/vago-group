@@ -5,13 +5,19 @@ import CustomsPortal from "../CustomsPortal";
 import classNames from "classnames";
 import { isLoading, packagesUpdateRequest } from '../../store/actions/packages';
 import Button from "../Button";
+import activePricePage from "../../assets/data/activePricePage";
+import Select from "react-select";
 
 function UpdateItemPackages({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
     }, [updateItem]);
-    
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setUpdateItem({...updateItem, activePage: selectedOption.label})
+    }, [updateItem])
+
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         setUpdateItem({...updateItem, [path]: text});
@@ -48,7 +54,15 @@ function UpdateItemPackages({updateItem, setUpdateItem}) {
                                     type="text"
                                 />
                             </div>
-                            
+
+                            <Select defaultValue={{value: updateItem.activePage, label: updateItem.activePage}}
+                                    options={activePricePage}
+                                    onChange={handleSelectChange}
+                                    placeholder={<div>Page...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                            />
+
                             <div className={'input_item'}>
                                 <label> Active advanced
                                     <input

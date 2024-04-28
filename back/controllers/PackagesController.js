@@ -1,12 +1,13 @@
 import HttpError from "http-errors";
 import Packages from "../models/Packages.js";
+import {Op} from "sequelize";
 
 class PackagesController {
     static async add (req, res, next){
         try{
-            const {name, advanced, premium, standard} = req.body;
+            const {name, advanced, premium, standard, activePage} = req.body;
 
-            if(!name){
+            if(!name || !activePage){
                 throw HttpError(404, {
                     errors: {
                         exists: "Not found"
@@ -14,7 +15,7 @@ class PackagesController {
                 })
             }
 
-            const packages = await Packages.create({name, advanced, premium, standard})
+            const packages = await Packages.create({name, advanced, premium, standard, activePage})
 
             res.json({
                 status: "ok",
@@ -27,7 +28,7 @@ class PackagesController {
 
     static async update (req, res, next){
         try{
-            const {name, advanced, premium, standard} = req.body;
+            const {name, advanced, premium, standard, activePage} = req.body;
             const { id } = req.params;
 
             const packages = await Packages.findOne({
@@ -42,7 +43,7 @@ class PackagesController {
                 })
             }
 
-            await packages.update({name, advanced, premium, standard})
+            await packages.update({name, advanced, premium, standard, activePage})
 
             res.json({
                 status: "ok",
@@ -79,7 +80,16 @@ class PackagesController {
 
     static async list (req, res, next){
         try{
-            const packages = await Packages.findAll()
+            const {activePage} = req.query;
+            const where = {};
+
+            if(activePage){
+                where[Op.or] = [
+                    { activePage: { [Op.substring]: activePage } },
+                ];
+            }
+
+            const packages = await Packages.findAll({where})
 
             res.json({
                 status: "ok",

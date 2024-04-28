@@ -1,14 +1,13 @@
 import HttpError from "http-errors";
 import Prices from "../models/Prices.js";
-import Packages from "../models/Packages.js";
 import {Op} from "sequelize";
 
 class PricesController {
     static async add (req, res, next){
         try{
-            const {name, advanced, premium, standard, active} = req.body;
+            const {name, advanced, premium, standard, activePage, active} = req.body;
 
-            if(!name || !advanced || !premium || !standard){
+            if(!name || !advanced || !premium || !standard || !activePage){
                 throw HttpError(404, {
                     errors: {
                         exists: "Not found"
@@ -16,7 +15,7 @@ class PricesController {
                 })
             }
 
-            const price = await Prices.create({name, advanced, premium, standard, active})
+            const price = await Prices.create({name, advanced, premium, standard, active, activePage})
 
             res.json({
                 status: "ok",
@@ -29,7 +28,7 @@ class PricesController {
 
     static async update (req, res, next){
         try{
-            const {name, advanced, premium, standard, active} = req.body;
+            const {name, advanced, premium, standard, activePage, active} = req.body;
             const { id } = req.params;
 
             const price = await Prices.findOne({
@@ -44,7 +43,7 @@ class PricesController {
                 })
             }
 
-            await price.update({name, advanced, premium, standard, active})
+            await price.update({name, advanced, premium, standard, active, activePage})
 
             res.json({
                 status: "ok",
@@ -81,19 +80,18 @@ class PricesController {
 
     static async list (req, res, next){
         try{
-            const {active} = req.query;
+            const {active, activePage} = req.query;
 
             const where = {};
 
-            if(active){
+            if(active || activePage){
                 where[Op.or] = [
                     { active: { [Op.substring]: 1 } },
+                    { activePage: { [Op.substring]: activePage } },
                 ];
             }
 
-            const prices = await Prices.findAll({
-                where
-            })
+            const prices = await Prices.findAll({where})
 
             res.json({
                 status: "ok",
