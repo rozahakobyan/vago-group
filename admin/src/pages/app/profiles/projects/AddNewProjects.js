@@ -56,7 +56,7 @@ const AddNewProjects = () => {
                                 placeholder={'name...'}
                                 type="text"/>
                         </div>
-                        {errors.name ? <small>{errors.name}</small> : null}
+                        {errors?.name ? <small>{errors?.name}</small> : null}
 
                         <div className={'desc_text'}>
                                 <textarea
@@ -64,7 +64,7 @@ const AddNewProjects = () => {
                                     onChange={(e) => handleChangeText(e, "description")}
                                     placeholder={'Description text...'}/>
                         </div>
-                        {errors.description ? <small>{errors.description}</small> : null}
+                        {errors?.description ? <small>{errors?.description}</small> : null}
 
                         <div className={'item_file_cat'}>
                             <label
@@ -80,7 +80,7 @@ const AddNewProjects = () => {
                                 accept="image/*"
                                 id="file-upload"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
 
                         <Select value={selected}
