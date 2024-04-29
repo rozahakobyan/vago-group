@@ -13,6 +13,7 @@ const initialState = {
     loading: false,
     galleriesList: [],
     status: "",
+    pages: 1
 };
 
 export const galleries = createReducer(initialState, (builder) => {
@@ -34,8 +35,9 @@ export const galleries = createReducer(initialState, (builder) => {
             state.loading = false;
         })
         .addCase(galleriesListRequest.fulfilled, (state, action) => {
-            const {galleries} = action.payload;
+            const {galleries, pages} = action.payload;
             state.galleriesList = galleries;
+            state.pages = pages;
         })
         .addCase(galleriesDeleteRequest.fulfilled, (state, action) => {
             const {status} = action.payload;

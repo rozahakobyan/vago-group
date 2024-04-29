@@ -13,7 +13,7 @@ export const projectsAddRequest = createAsyncThunk('projects/projectsAddRequest'
 
 export const projectsListRequest = createAsyncThunk('projects/projectsListRequest', async (arg = {}, thunkAPI) => {
     try {
-        const {data} = await Api.projectsList();
+        const {data} = await Api.projectsList(arg);
         return data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);

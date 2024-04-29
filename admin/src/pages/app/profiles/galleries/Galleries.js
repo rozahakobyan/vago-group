@@ -1,34 +1,25 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {loginImageAddRequest, loginImageListRequest} from "../../../../store/actions/loginImage";
+import {galleriesAddRequest, galleriesListRequest} from "../../../../store/actions/galleries";
 import LogImage from "../../../../components/homeInformation/LogImage";
 import {Helmet} from "react-helmet";
 import LoadingPage from "../../../../components/LoadingPage";
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        background: "#bebebe",
-        borderRadius: "35px 10px 35px 10px",
-    },
-};
+import Gallery from "../../../../components/galleries/Gallery";
+import ReactPaginate from "react-paginate";
 
 function Galleries() {
     const dispatch = useDispatch();
 
     const [updateItem, setUpdateItem] = useState(null);
+    const [page, setPage] = useState(1);
 
-    const loading = useSelector(state => state.loginImage.loading);
-    const loginImagesList = useSelector(state => state.loginImage.loginImagesList);
+    const loading = useSelector(state => state.galleries.loading);
+    const galleriesList = useSelector(state => state.galleries.galleriesList);
+    const pages = useSelector(state => state.galleries.pages);
 
     useEffect(() => {
-        dispatch(loginImageListRequest())
-    }, []);
+        dispatch(galleriesListRequest({page}))
+    }, [page]);
 
     useEffect(() => {
         if (updateItem?.isActive) {
@@ -41,22 +32,40 @@ function Galleries() {
     return (
         <div className={'galleries childrenWidth'}>
             <Helmet>
-                <title>all login image</title>
+                <title>all galleries</title>
             </Helmet>
 
             <div className={'cont_cat'}>
                 {
                     loading ? <LoadingPage/>
-                        : loginImagesList.map(item =>
-                            <LogImage
+                        : galleriesList.map(item =>
+                            <Gallery
                                 updateItem={updateItem}
                                 setUpdateItem={setUpdateItem}
                                 key={item.id}
-                                loginImage={item}/>)
+                                gallery={item}/>)
                 }
+                <div className={"pages-list"}>
+                    {pages && pages > 1 ? <ReactPaginate
+                        activeClassName={'items active '}
+                        breakClassName={'items break-me '}
+                        breakLabel={'...'}
+                        containerClassName={'pagination'}
+                        disabledClassName={'disabled-page'}
+                        marginPagesDisplayed={2}
+                        nextClassName={"items next "}
+                        nextLabel={">"}
+                        initialPage={page - 1}
+                        onPageChange={(ev) => setPage(ev.selected + 1)}
+                        pageCount={pages}
+                        pageClassName={'items pagination-page '}
+                        pageRangeDisplayed={2}
+                        previousClassName={"items previous"}
+                        previousLabel={"<"}/> : null}
+                </div>
             </div>
         </div>
-);
+    );
 }
 
 export default Galleries;

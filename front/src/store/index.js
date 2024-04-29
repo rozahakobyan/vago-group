@@ -12,6 +12,7 @@ import {packages} from "./reducers/packages";
 import {services} from "./reducers/services";
 import {histories} from "./reducers/histories";
 import {projects} from "./reducers/projects";
+import {galleries} from "./reducers/galleries";
 
 const root = {
     users,
@@ -27,6 +28,7 @@ const root = {
     services,
     histories,
     projects,
+    galleries,
 }
 
 export const store = configureStore({reducer: root})

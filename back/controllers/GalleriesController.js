@@ -4,6 +4,7 @@ import HttpError from "http-errors";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
 import Galleries from "../models/Galleries.js";
+import Works from "../models/Works.js";
 
 class GalleriesController {
     static async add (req, res, next){
@@ -127,7 +128,7 @@ class GalleriesController {
 
     static async list (req, res, next){
         try{
-            const {page = 1, limit = 10} = req.query;
+            const {page = 1, limit = 9} = req.query;
             const offset = (page - 1) * limit;
 
             const galleries = await Galleries.findAll({
@@ -137,9 +138,14 @@ class GalleriesController {
                     [sequelize.literal(`CONCAT('galleries/', src)`), 'src']
                 ]});
 
+            const total = await Galleries.count();
+
             res.json({
                 status:'ok',
                 galleries,
+                page,
+                total,
+                pages: Math.ceil(total / limit)
             })
         }catch (e) {
             next(e)

@@ -331,8 +331,8 @@ export class Api {
         });
     }
 
-    static projectsList() {
-        return api.get('/projects/list');
+    static projectsList(data = {}) {
+        return api.get('/projects/list', {params: data});
     }
 
     static projectsDelete(id) {
@@ -357,8 +357,8 @@ export class Api {
         });
     }
 
-    static galleriesList() {
-        return api.get('/galleries/list');
+    static galleriesList(data = {}) {
+        return api.get('/galleries/list', {params: data});
     }
 
     static galleriesDelete(id) {

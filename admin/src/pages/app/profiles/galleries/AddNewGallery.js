@@ -77,7 +77,7 @@ const AddNewGallery = () => {
                                                 <figure>
                                                     <img src={URL.createObjectURL(item)}
                                                          alt={item.name}/>
-                                                    <span className={'delete'} onClick={handleDeleteFiles(item)}>
+                                                    <span className={'delete'} onClick={handleDeleteFiles(index)}>
                                             <MdDeleteForever/>
                                        </span>
                                                 </figure>
