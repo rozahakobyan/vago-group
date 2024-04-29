@@ -10,6 +10,7 @@ import {contacts} from "./reducers/contacts";
 import {prices} from "./reducers/prices";
 import {packages} from "./reducers/packages";
 import {services} from "./reducers/services";
+import {histories} from "./reducers/histories";
 
 const root = {
     users,
@@ -22,7 +23,8 @@ const root = {
     contacts,
     prices,
     packages,
-    services
+    services,
+    histories,
 }
 
 export const store = configureStore({reducer: root})

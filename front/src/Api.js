@@ -88,4 +88,8 @@ export class Api {
     static servicesList() {
         return api.get('/services/list');
     }
+
+    static historiesList(data = {}) {
+        return api.get('/histories/list', {params: data});
+    }
 }

@@ -1,24 +1,25 @@
 import HttpError from "http-errors";
-import Welcome from "../models/Welcome.js";
+import History from "../models/History.js";
+import {Op} from "sequelize";
 
-class WelcomeController {
+class HistoryController {
     static async add (req, res, next){
         try{
-            const {title, description} = req.body;
+            const {active, description} = req.body;
 
-            if(!title || !description){
+            if(!description){
                 throw HttpError(404, {
                     errors: {
-                        exists: "Title or Description Not found"
+                        exists: "Description Not found"
                     }
                 })
             }
 
-            const info = await Welcome.create({title, description})
+            const history = await History.create({active, description})
 
             res.json({
                 status: "ok",
-                info
+                history
             })
         }catch (e) {
             next(e)
@@ -27,14 +28,14 @@ class WelcomeController {
 
     static async update (req, res, next){
         try{
-            const {title, description} = req.body;
+            const {active, description} = req.body;
             const { id } = req.params;
 
-            const info = await Welcome.findOne({
+            const history = await History.findOne({
                 where: {id}
             })
 
-            if (!info) {
+            if (!history) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -42,11 +43,11 @@ class WelcomeController {
                 })
             }
 
-            await info.update({title, description})
+            await history.update({active, description})
 
             res.json({
                 status: "ok",
-                info
+                history
             })
         }catch (e) {
             next(e)
@@ -57,9 +58,9 @@ class WelcomeController {
         try{
             const { id } = req.params;
 
-            const info = await Welcome.findByPk(id)
+            const history = await History.findByPk(id)
 
-            if (!info) {
+            if (!history) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -67,7 +68,7 @@ class WelcomeController {
                 })
             }
 
-            await info.destroy()
+            await history.destroy()
 
             res.json({
                 status: "ok"
@@ -79,13 +80,21 @@ class WelcomeController {
 
     static async list (req, res, next){
         try{
-            const { id } = req.params;
+            const {active} = req.query;
 
-            const info = await Welcome.findAll()
+            const where = {};
+
+            if(active){
+                where[Op.or] = [
+                    { active: { [Op.substring]: 1 } },
+                ];
+            }
+
+            const histories = await History.findAll({where})
 
             res.json({
                 status: "ok",
-                info
+                histories
             })
         }catch (e) {
             next(e)
@@ -93,4 +102,4 @@ class WelcomeController {
     }
 }
 
-export default WelcomeController;
+export default HistoryController;

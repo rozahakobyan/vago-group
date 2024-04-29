@@ -26,6 +26,8 @@ import Packages from "./profiles/packages/Packages";
 import AddNewPackages from "./profiles/packages/AddNewPackages";
 import Services from "./profiles/services/Services";
 import AddNewServices from "./profiles/services/AddNewServices";
+import Histories from "./profiles/homeInformation/Histories";
+import AddNewHistory from "./profiles/homeInformation/AddNewHistory";
 
 const ProfileNavigate = () => {
     return (
@@ -36,6 +38,8 @@ const ProfileNavigate = () => {
                 <Route path={'/information/add-new-information'} element={<AddNewHomeInfo/>}/>
                 <Route path={'/information/login-image'} element={<LoginImage/>}/>
                 <Route path={'/information/add-new-login-image'} element={<AddNewLoginImage/>}/>
+                <Route path={'/information/histories'} element={<Histories/>}/>
+                <Route path={'/information/add-new-history'} element={<AddNewHistory/>}/>
                 <Route path={'/massagers'} element={<Massagers/>}/>
                 <Route path={'/massagers/add-new-massagers'} element={<AddNewMassagers/>}/>
                 <Route path={'/works'} element={<Works/>}/>

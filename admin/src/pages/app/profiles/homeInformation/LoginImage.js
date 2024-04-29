@@ -1,17 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {createPortal} from "react-dom";
-import Modal from "react-modal";
-
-import {IoClose} from "react-icons/io5";
-import {AiFillDelete} from "react-icons/ai";
-
-import IsLoading from "../../../../components/LoadingPage";
 import {loginImageAddRequest, loginImageListRequest} from "../../../../store/actions/loginImage";
 import LogImage from "../../../../components/homeInformation/LogImage";
 import {Helmet} from "react-helmet";
 import LoadingPage from "../../../../components/LoadingPage";
-import Massager from "../../../../components/massagers/Massager";
 
 const customStyles = {
     content: {

@@ -2,31 +2,29 @@ import React, {useCallback, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import classNames from "classnames";
-import {API_URL} from "../../Api";
-import { isLoading, servicesUpdateRequest } from '../../store/actions/services';
+import { isLoading, historiesUpdateRequest } from '../../store/actions/histories';
 
-function UpdateItemService({updateItem, setUpdateItem}) {
+function UpdateItemHistory({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
     }, [updateItem]);
 
-    const handleChange = useCallback((e, path) => {
+    const handleChangeText = useCallback((e, path) => {
         const text = e.target.value;
         setUpdateItem({...updateItem, [path]: text});
     }, [updateItem]);
-
-    const handleChangeFile = useCallback((e) => {
-        const file = e.target.files[0]
-        setUpdateItem({...updateItem, image: file})
+    
+    const handleChangeActive = useCallback((e, path) => {
+        const text = e.target.checked
+        setUpdateItem({...updateItem, [path]: text});
     }, [updateItem]);
 
     const handleSave = useCallback(async (e) => {
         e.preventDefault()
         dispatch(isLoading('of'))
-        const {payload} = await dispatch(servicesUpdateRequest(updateItem))
+        const {payload} = await dispatch(historiesUpdateRequest(updateItem))
         if (!payload.errors) {
             setUpdateItem({...updateItem, isActive: true})
         }
@@ -34,28 +32,27 @@ function UpdateItemService({updateItem, setUpdateItem}) {
 
     return (
         updateItem ?
-            <CustomsPortal className={'update_service container_modal'}>
+            <CustomsPortal className={'update_history container_modal'}>
                 <div className={classNames('modal', {
                     isActive: updateItem.isActive
                 })}>
                     <FaWindowClose onClick={handleClose} className={'close'}/>
                     <form>
                         <div className={'cont'}>
-                            <div className={'input_item'}>
-                                <input
-                                    onChange={(e) => handleChange(e, "name")}
-                                    value={updateItem.name}
-                                    placeholder={"name services..."}
-                                    type="text"
-                                />
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={updateItem.description}
+                                    onChange={(e) => handleChangeText(e, "description")}
+                                    placeholder={'Description text...'}/>
                             </div>
+
                             <div className={'input_item'}>
-                                <input
-                                    onChange={(e) => handleChange(e, "number")}
-                                    value={updateItem.number}
-                                    placeholder={"Price..."}
-                                    type="text"
-                                />
+                                <label> Active History
+                                    <input
+                                        checked={updateItem.active}
+                                        onChange={(e) => handleChangeActive(e, "active")}
+                                        type="checkbox"/>
+                                </label>
                             </div>
                             <button onClick={handleSave}>
                                 Save
@@ -68,4 +65,4 @@ function UpdateItemService({updateItem, setUpdateItem}) {
     );
 }
 
-export default UpdateItemService;
+export default UpdateItemHistory;

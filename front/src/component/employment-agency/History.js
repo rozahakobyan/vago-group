@@ -1,6 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {historiesListRequest} from "../../store/actions/histories";
 
-function Hystory() {
+function History() {
+    const dispatch = useDispatch();
+
+    const historiesList = useSelector(state => state.histories.historiesList)
+
+    useEffect(() => {
+        dispatch(historiesListRequest({active: true}))
+    }, []);
+
+    console.log(historiesList)
+
     return (
         <div className="history-area">
             <div className="history-title">
@@ -64,4 +76,4 @@ function Hystory() {
     )
 }
 
-export default Hystory
+export default History

@@ -49,7 +49,7 @@ const AddNewServices = () => {
                             <input
                                 value={service.number}
                                 onChange={(e) => handleChangeText(e, "number")}
-                                placeholder={'number...'}
+                                placeholder={'Price...'}
                                 type="text"/>
                         </div>
                         {errors?.number ? <small>{errors?.number}</small> : null}
