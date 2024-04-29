@@ -48,6 +48,16 @@ export default [
                 title: "Histories",
                 path: "histories",
             },
+            {
+                id: 2_6,
+                title: "Add New Gallery",
+                path: "add-new-gallery",
+            },
+            {
+                id: 2_7,
+                title: "Galleries",
+                path: "galleries",
+            },
         ]
     },
     {

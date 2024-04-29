@@ -12,6 +12,7 @@ import works from "./works.js";
 import prices from "./prices.js";
 import packages from "./packages.js";
 import projects from "./projects.js";
+import galleries from "./galleries.js";
 
 const router = Router();
 
@@ -28,5 +29,6 @@ router.use('/works', works);
 router.use('/prices', prices);
 router.use('/packages', packages);
 router.use('/projects', projects);
+router.use('/galleries', galleries);
 
 export default router;

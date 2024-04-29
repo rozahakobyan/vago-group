@@ -348,6 +348,32 @@ export class Api {
             },
         });
     }
+
+    static galleriesAdd(data = {}) {
+        return api.post('/galleries/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static galleriesList() {
+        return api.get('/galleries/list');
+    }
+
+    static galleriesDelete(id) {
+        return api.delete(`/galleries/delete/${id}`);
+    }
+
+    static galleriesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/galleries/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
 }
 
 

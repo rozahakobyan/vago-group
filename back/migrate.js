@@ -14,7 +14,8 @@ import {
     Massagers,
     Prices,
     Packages,
-    Projects
+    Projects,
+    Galleries
 } from "./models/index.js";
 
 async function main(){
@@ -34,6 +35,7 @@ async function main(){
     await Prices.sync({alter:true, logging:true});
     await Packages.sync({alter:true, logging:true});
     await Projects.sync({alter:true, logging:true});
+    await Galleries.sync({alter:true, logging:true});
 
     process.exit(0);
 }
