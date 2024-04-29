@@ -260,3 +260,30 @@
 .logistic-vacancie-join:hover {
     background-color: black;
 }
+
+
+
+.serviceList{
+    width: 100%;
+}
+.service-area{
+    margin: 0 auto;
+    width: 1050px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    border-radius: 15px;
+    background-color: var(--color4);
+    text-align: center;
+}
+.service-table{
+    margin: 0 auto;
+}
+
+.service-table td{
+    border-bottom: 1px solid black;
+}
+.serviceName{
+    width: 600px;
+    
+}
