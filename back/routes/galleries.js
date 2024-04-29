@@ -14,9 +14,8 @@ router.post(
     validate(galleries.add),
     GalleriesController.add);
 
-router.put('/update/:id' , uploader([]).fields([
-        {name: "gallery[]", maxCount:10}
-    ]),
+router.put('/update/:id' ,
+    uploader.image.single('src'),
     validate(galleries.update),
     GalleriesController.update)
 

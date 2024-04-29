@@ -1,4 +1,4 @@
 export default [
-    {value: "started", label: "started"},
+    {value: "pending", label: "pending"},
     {value: "ended", label: "ended"},
 ]

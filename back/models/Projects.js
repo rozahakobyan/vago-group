@@ -25,8 +25,8 @@ Projects.init({
         allowNull: false,
     },
     status: {
-        type: DataTypes.ENUM("started", "ended"),
-        defaultValue: "started",
+        type: DataTypes.ENUM("pending", "ended"),
+        defaultValue: "pending",
         allowNull: false,
     }
 },{

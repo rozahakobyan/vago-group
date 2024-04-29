@@ -12,6 +12,7 @@ import status from "../../../../assets/data/status";
 const AddNewProjects = () => {
     const [project, setProject] = useState({name: "", description: "", status: "", image: null});
     const [selected, setSelected] = useState(null);
+    const [error, setError] = useState(null);
     const errors = useSelector(state => state.projects.errors);
     const loading = useSelector(state => state.projects.loading);
     const navigate = useNavigate();
@@ -19,7 +20,12 @@ const AddNewProjects = () => {
 
     const handleChangeText = useCallback((e, path) => {
         const text = e.target.value
-        setProject({...project, [path]: text});
+        if(text.length <= 300){
+            setProject({...project, [path]: text});
+            setError("")
+        }else{
+            setError("Text Long !!!")
+        }
     }, [project]);
 
     const handleSelectChange = useCallback((selectedOption) => {
@@ -56,7 +62,7 @@ const AddNewProjects = () => {
                                 placeholder={'name...'}
                                 type="text"/>
                         </div>
-                        {errors.name ? <small>{errors.name}</small> : null}
+                        {errors?.name ? <small>{errors.name}</small> : null}
 
                         <div className={'desc_text'}>
                                 <textarea
@@ -64,7 +70,8 @@ const AddNewProjects = () => {
                                     onChange={(e) => handleChangeText(e, "description")}
                                     placeholder={'Description text...'}/>
                         </div>
-                        {errors.description ? <small>{errors.description}</small> : null}
+                        {errors?.description ? <small>{errors.description}</small> : null}
+                        {error ? <small>{error}</small> : null}
 
                         <div className={'item_file_cat'}>
                             <label
@@ -80,7 +87,7 @@ const AddNewProjects = () => {
                                 accept="image/*"
                                 id="file-upload"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors.file}</small> : null}
                         </div>
 
                         <Select value={selected}

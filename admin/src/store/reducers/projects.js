@@ -13,6 +13,7 @@ const initialState = {
     loading: false,
     projectsList: [],
     status: "",
+    pages: 1
 };
 
 export const projects = createReducer(initialState, (builder) => {
@@ -34,8 +35,9 @@ export const projects = createReducer(initialState, (builder) => {
             state.loading = false;
         })
         .addCase(projectsListRequest.fulfilled, (state, action) => {
-            const {projects} = action.payload;
+            const {projects, pages} = action.payload;
             state.projectsList = projects;
+            state.pages = pages;
         })
         .addCase(projectsDeleteRequest.fulfilled, (state, action) => {
             const {status} = action.payload;

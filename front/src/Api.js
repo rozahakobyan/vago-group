@@ -97,4 +97,7 @@ export class Api {
         return api.get('/projects/list', {params: data});
     }
 
+    static galleriesList(data = {}) {
+        return api.get('/galleries/list', {params: data});
+    }
 }

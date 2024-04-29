@@ -13,7 +13,7 @@ export const galleriesAddRequest = createAsyncThunk('login/galleriesAddRequest',
 
 export const galleriesListRequest = createAsyncThunk('login/galleriesListRequest', async (arg = {}, thunkAPI) => {
     try {
-        const {data} = await Api.galleriesList();
+        const {data} = await Api.galleriesList(arg);
         return data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);
