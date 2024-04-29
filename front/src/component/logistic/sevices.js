@@ -29,13 +29,7 @@ function Services() {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* product.map(p => (
-                        <tr key={p.id}>
-                            <td>{p.first_name}</td>
-                            <td>{p.last_name}</td>
-                            <td><img src={p.avatar} alt={""} width={50} height={50} /></td>
-                        </tr>
-                    )) */}
+                           
                             {servicesList && servicesList.map(s => (
 
                                 <tr key={s.id}>

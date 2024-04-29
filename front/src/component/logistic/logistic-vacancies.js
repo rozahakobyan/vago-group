@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { worksListRequest } from "../../store/actions/works";
-
+import { API_URL } from "../../Api"
 
 function Vacancieces() {
     const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function Vacancieces() {
                             <tr className="vacancie-text">
                                 <td >
                                     <div className="vacancieImgArea">
-                                        <img src="./img/vacancie.png"/>
+                                        <img src={`${API_URL}/${w.image}`} alt={""} />
                                     </div>
                                     <div className="vacancie-title">
                                         <h3>{w.name}</h3>

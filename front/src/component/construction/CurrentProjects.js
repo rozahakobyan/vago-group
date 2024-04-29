@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { projectsListRequest } from "../../store/actions/projects";
+import { API_URL } from "../../Api"
 
 function CurrentProjects() {
+
+    const dispatch = useDispatch();
+
+    const projectsList = useSelector(state => state.projects.projectsList);
+
+    useEffect(() => {
+        dispatch(projectsListRequest({ status: "started" }))
+    }, []);
+
+    console.log(projectsList)
+
+
     return (
         <div className="currentProjects-area">
             <div className="currentProjects-title">
                 <h2>Current Projects</h2>
             </div>
             <div className="currentProjects-blocks">
-                <div className="currentProject">
-                    <div className="currentProjectImg">
-                        <img src="./img/gortsiq.jpg" />
+                {projectsList && projectsList.map(p => (
+                    <div className="currentProject" key={p.id}>
+                        <div className="currentProjectImg">
+                            <img src={`${API_URL}/${p.image}`} alt={""} />
+                        </div>
+                        <div className="currentProject-title">
+                            <h2>{p.name}</h2>
+                        </div>
+                        <div className="currentProject-text">
+                            <p>{p.description}</p>
+                        </div>
                     </div>
-                    <div className="currentProject-title">
-                        <h2>Project</h2>
-                    </div>
-                    <div className="currentProject-text">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                    </div>
-                </div>
+                ))}
+
             </div>
         </div>
     )
