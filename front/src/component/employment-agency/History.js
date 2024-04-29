@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {historiesListRequest} from "../../store/actions/histories";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { historiesListRequest } from "../../store/actions/histories";
 
 function History() {
     const dispatch = useDispatch();
@@ -8,7 +8,7 @@ function History() {
     const historiesList = useSelector(state => state.histories.historiesList)
 
     useEffect(() => {
-        dispatch(historiesListRequest({active: true}))
+        dispatch(historiesListRequest({ active: true }))
     }, []);
 
     console.log(historiesList)
@@ -18,60 +18,12 @@ function History() {
             <div className="history-title">
                 <h1><strong>History</strong></h1>
             </div>
-            <div className="history-text">
-                <p style={{ color: '#999999' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deserunt
-                    dolore beatae porro adipisci hic esse perferendis impedit incidunt exercitationem qui, similique
-                    commodi quidem aperiam odio? Dolorum dicta corrupti rerum? Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Dolorem hic cum facere obcaecati beatae fugiat iure magni. Deserunt voluptatem
-                    quisquam similique nostrum! Vero nesciunt harum optio aliquid repudiandae esse blanditiis? Lorem
-                    ipsum dolor sit amet consectetur, adipisicing elit. Molestiae quasi perferendis vel necessitatibus,
-                    expedita quaerat, sit, debitis repudiandae dolor ea accusantium dolore! Ipsam, obcaecati
-                    voluptatibus? Temporibus debitis aspernatur dolorem incidunt? Lorem ipsum dolor, sit amet
-                    consectetur adipisicing elit. Harum atque delectus necessitatibus pariatur reprehenderit veniam
-                    quibusdam voluptates, ducimus veritatis nisi id beatae, eveniet, consequatur ut reiciendis neque
-                    earum similique consectetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex
-                    commodi nisi ullam dignissimos consequatur odio, possimus autem distinctio voluptas atque quas
-                    soluta aut facilis cumque doloribus sequi inventore a!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deserunt
-                    dolore beatae porro adipisci hic esse perferendis impedit incidunt exercitationem qui, similique
-                    commodi quidem aperiam odio? Dolorum dicta corrupti rerum? Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Dolorem hic cum facere obcaecati beatae fugiat iure magni. Deserunt voluptatem
-                    quisquam similique nostrum! Vero nesciunt harum optio aliquid repudiandae esse blanditiis? Lorem
-                    ipsum dolor sit amet consectetur, adipisicing elit. Molestiae quasi perferendis vel necessitatibus,
-                    expedita quaerat, sit, debitis repudiandae dolor ea accusantium dolore! Ipsam, obcaecati
-                    voluptatibus? Temporibus debitis aspernatur dolorem incidunt? Lorem ipsum dolor, sit amet
-                    consectetur adipisicing elit. Harum atque delectus necessitatibus pariatur reprehenderit veniam
-                    quibusdam voluptates, ducimus veritatis nisi id beatae, eveniet, consequatur ut reiciendis neque
-                    earum similique consectetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex
-                    commodi nisi ullam dignissimos consequatur odio, possimus autem distinctio voluptas atque quas
-                    soluta aut facilis cumque doloribus sequi inventore a!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deserunt
-                    dolore beatae porro adipisci hic esse perferendis impedit incidunt exercitationem qui, similique
-                    commodi quidem aperiam odio? Dolorum dicta corrupti rerum? Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Dolorem hic cum facere obcaecati beatae fugiat iure magni. Deserunt voluptatem
-                    quisquam similique nostrum! Vero nesciunt harum optio aliquid repudiandae esse blanditiis? Lorem
-                    ipsum dolor sit amet consectetur, adipisicing elit. Molestiae quasi perferendis vel necessitatibus,
-                    expedita quaerat, sit, debitis repudiandae dolor ea accusantium dolore! Ipsam, obcaecati
-                    voluptatibus? Temporibus debitis aspernatur dolorem incidunt? Lorem ipsum dolor, sit amet
-                    consectetur adipisicing elit. Harum atque delectus necessitatibus pariatur reprehenderit veniam
-                    quibusdam voluptates, ducimus veritatis nisi id beatae, eveniet, consequatur ut reiciendis neque
-                    earum similique consectetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex
-                    commodi nisi ullam dignissimos consequatur odio, possimus autem distinctio voluptas atque quas
-                    soluta aut facilis cumque doloribus sequi inventore a!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deserunt
-                    dolore beatae porro adipisci hic esse perferendis impedit incidunt exercitationem qui, similique
-                    commodi quidem aperiam odio? Dolorum dicta corrupti rerum? Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Dolorem hic cum facere obcaecati beatae fugiat iure magni. Deserunt voluptatem
-                    quisquam similique nostrum! Vero nesciunt harum optio aliquid repudiandae esse blanditiis? Lorem
-                    ipsum dolor sit amet consectetur, adipisicing elit. Molestiae quasi perferendis vel necessitatibus,
-                    expedita quaerat, sit, debitis repudiandae dolor ea accusantium dolore! Ipsam, obcaecati
-                    voluptatibus? Temporibus debitis aspernatur dolorem incidunt? Lorem ipsum dolor, sit amet
-                    consectetur adipisicing elit. Harum atque delectus necessitatibus pariatur reprehenderit veniam
-                    quibusdam voluptates, ducimus veritatis nisi id beatae, eveniet, consequatur ut reiciendis neque
-                    earum similique consectetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex
-                    commodi nisi ullam dignissimos consequatur odio, possimus autem distinctio voluptas atque quas
-                    soluta aut facilis cumque doloribus sequi inventore a!</p>
-            </div>
+            {historiesList && historiesList.map(h => (
+                <div className="history-text" key={h.id}>
+                    <p style={{ color: '#999999' }}>{h.description}</p>
+                </div>
+            ))}
+
         </div>
     )
 }

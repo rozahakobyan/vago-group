@@ -72,11 +72,12 @@
 .update_history {
 
   .modal {
-    width: 600px;
+    width: 1000px;
     padding: 20px;
     border-radius: 10px;
     background: #ffffff;
     animation: slide-in-elliptic-top-fwd .7s cubic-bezier(.25, .46, .45, .94) both;
+    
 
     .close {
       position: absolute;
@@ -98,20 +99,22 @@
           textarea {
             border-radius: 10px;
             width: 90%;
-            height: 145px;
+            height: 500px;
             resize: none;
             padding: 10px;
             outline: none;
             color: $dark;
             font-family: $robotoFont;
-            font-size: 16px;
+            font-size: 13px;
           }
         }
 
         .input_item {
-          width: 450px;
+          width: 900px;
           height: 45px;
           overflow: hidden;
+          
+          
 
           input {
             width: 100%;
@@ -129,6 +132,7 @@
               width: 15px;
               height: 15px;
               margin-left: 10px;
+              
             }
           }
         }
