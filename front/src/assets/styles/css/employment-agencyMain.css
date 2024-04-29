@@ -361,7 +361,7 @@
 }
 
 .order-button td{
-    border-bottom: none ;
+    border-bottom: 1px solid black;
 }
 
 .order-button button{
