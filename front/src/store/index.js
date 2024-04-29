@@ -11,6 +11,7 @@ import {prices} from "./reducers/prices";
 import {packages} from "./reducers/packages";
 import {services} from "./reducers/services";
 import {histories} from "./reducers/histories";
+import {projects} from "./reducers/projects";
 
 const root = {
     users,
@@ -25,6 +26,7 @@ const root = {
     packages,
     services,
     histories,
+    projects,
 }
 
 export const store = configureStore({reducer: root})

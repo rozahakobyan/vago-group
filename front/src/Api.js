@@ -92,4 +92,9 @@ export class Api {
     static historiesList(data = {}) {
         return api.get('/histories/list', {params: data});
     }
+
+    static projectsList(data = {}) {
+        return api.get('/projects/list', {params: data});
+    }
+
 }

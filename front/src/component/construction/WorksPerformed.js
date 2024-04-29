@@ -1,6 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {projectsListRequest} from "../../store/actions/projects";
 
 function WorksPerformed() {
+    const dispatch = useDispatch();
+
+    const projectsList = useSelector(state => state.projects.projectsList);
+
+    useEffect(() => {
+        dispatch(projectsListRequest({status: "started"}))
+    }, []);
+
+    console.log(projectsList)
+
     return (
         <div className="worksPerformed-area">
             <div className="worksPerformed-title">

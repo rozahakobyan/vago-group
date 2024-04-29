@@ -11,6 +11,7 @@ import contacts from "./contacts.js";
 import works from "./works.js";
 import prices from "./prices.js";
 import packages from "./packages.js";
+import projects from "./projects.js";
 
 const router = Router();
 
@@ -26,5 +27,6 @@ router.use('/contacts', contacts);
 router.use('/works', works);
 router.use('/prices', prices);
 router.use('/packages', packages);
+router.use('/projects', projects);
 
 export default router;

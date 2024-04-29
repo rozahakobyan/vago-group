@@ -322,6 +322,32 @@ export class Api {
 
         return api.put(`/histories/update/${id}`, data);
     }
+
+    static projectsAdd(data = {}) {
+        return api.post('/projects/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static projectsList() {
+        return api.get('/projects/list');
+    }
+
+    static projectsDelete(id) {
+        return api.delete(`/projects/delete/${id}`);
+    }
+
+    static projectsUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/projects/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
 }
 
 
