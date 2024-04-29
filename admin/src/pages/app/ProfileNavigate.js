@@ -30,6 +30,8 @@ import Histories from "./profiles/homeInformation/Histories";
 import AddNewHistory from "./profiles/homeInformation/AddNewHistory";
 import Projects from "./profiles/projects/Projects";
 import AddNewProjects from "./profiles/projects/AddNewProjects";
+import Galleries from "./profiles/galleries/Galleries";
+import AddNewGallery from "./profiles/galleries/AddNewGallery";
 
 const ProfileNavigate = () => {
     return (
@@ -42,6 +44,8 @@ const ProfileNavigate = () => {
                 <Route path={'/information/add-new-login-image'} element={<AddNewLoginImage/>}/>
                 <Route path={'/information/histories'} element={<Histories/>}/>
                 <Route path={'/information/add-new-history'} element={<AddNewHistory/>}/>
+                <Route path={'/information/galleries'} element={<Galleries/>}/>
+                <Route path={'/information/add-new-gallery'} element={<AddNewGallery/>}/>
                 <Route path={'/massagers'} element={<Massagers/>}/>
                 <Route path={'/massagers/add-new-massagers'} element={<AddNewMassagers/>}/>
                 <Route path={'/works'} element={<Works/>}/>

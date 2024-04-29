@@ -15,17 +15,18 @@ export default function uploader(fileTypes=[]) {
       fileSize: 1024 * 1024 * 10,
     },
     fileFilter: (req, file, cb) => {
-      if (!file || !file.mimetype || !file.originalname) {        
+      if (!file || !file.mimetype || !file.originalname) {
         cb(null, true);
         return;
-      }      
+      }
 
       if (!fileTypes.length || fileTypes.includes(file.mimetype)) {
         cb(null, true);
         return
-      }      
+      }
 
-      cb(new HttpError(422), false);
+      const errorMessage = `File type '${file.mimetype}' is not allowed.`;
+      cb(new HttpError(422, errorMessage), false);
     }
   })
 }
