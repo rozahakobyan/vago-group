@@ -28,6 +28,8 @@ import Services from "./profiles/services/Services";
 import AddNewServices from "./profiles/services/AddNewServices";
 import Histories from "./profiles/homeInformation/Histories";
 import AddNewHistory from "./profiles/homeInformation/AddNewHistory";
+import Projects from "./profiles/projects/Projects";
+import AddNewProjects from "./profiles/projects/AddNewProjects";
 
 const ProfileNavigate = () => {
     return (
@@ -56,6 +58,8 @@ const ProfileNavigate = () => {
                 <Route path={'/packages/add-new-packages'} element={<AddNewPackages/>}/>
                 <Route path={'/services'} element={<Services/>}/>
                 <Route path={'/services/add-new-services'} element={<AddNewServices/>}/>
+                <Route path={'/projects'} element={<Projects/>}/>
+                <Route path={'/projects/add-new-projects'} element={<AddNewProjects/>}/>
                 <Route path={'/users/:page'} element={<Users/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Route>

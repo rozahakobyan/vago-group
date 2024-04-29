@@ -13,7 +13,8 @@ import {
     ContactsMassager,
     Massagers,
     Prices,
-    Packages
+    Packages,
+    Projects
 } from "./models/index.js";
 
 async function main(){
@@ -32,6 +33,7 @@ async function main(){
     await ContactsMassager.sync({alter:true, logging:true});
     await Prices.sync({alter:true, logging:true});
     await Packages.sync({alter:true, logging:true});
+    await Projects.sync({alter:true, logging:true});
 
     process.exit(0);
 }

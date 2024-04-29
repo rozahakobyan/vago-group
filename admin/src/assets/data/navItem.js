@@ -5,7 +5,7 @@ import {AiOutlineTeam} from "react-icons/ai";
 import {IoIosContacts, IoIosHelpCircle, IoIosSettings} from "react-icons/io";
 import {GiPriceTag} from "react-icons/gi";
 import {FcServices} from "react-icons/fc";
-import {GrServices} from "react-icons/gr";
+import {GrProjects, GrServices} from "react-icons/gr";
 
 export default [
     {
@@ -90,7 +90,7 @@ export default [
         subMenu: [
             {
                 id: 5_1,
-                title: "Add New Products",
+                title: "Add New Projects",
                 path: "add-new-products",
             },
         ]
@@ -167,6 +167,21 @@ export default [
                 id: 9_1,
                 title: "Add New Histories",
                 path: "add-new-services",
+            },
+        ]
+    },
+    {
+        id: 11,
+        name: 'Projects',
+        path: 'projects',
+        Icon: GrProjects,
+        openIcon: true,
+        renderItem: true,
+        subMenu: [
+            {
+                id: 11_1,
+                title: "Add New Projects",
+                path: "add-new-projects",
             },
         ]
     },
