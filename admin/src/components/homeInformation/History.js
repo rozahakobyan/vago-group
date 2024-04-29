@@ -4,41 +4,41 @@ import {BiEdit} from "react-icons/bi";
 import {API_URL} from "../../Api";
 import {RiDeleteBin6Line} from "react-icons/ri";
 import { servicesDeleteRequest } from '../../store/actions/services';
-import UpdateItemservice from './UpdateItemService';
-import UpdateItemService from "./UpdateItemService";
+import UpdateItemservice from './UpdateItemHistory';
+import UpdateItemHistory from "./UpdateItemHistory";
+import {historiesDeleteRequest} from "../../store/actions/histories";
 
-function Service({service, updateItem, setUpdateItem}) {
+function History({history, updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
 
     const handleDelete = useCallback((id)=> () => {
-        dispatch(servicesDeleteRequest({id}))
+        dispatch(historiesDeleteRequest({id}))
     }, [])
 
-    const handleUpdate = useCallback((service) => () => {
-        setUpdateItem(service)
+    const handleUpdate = useCallback((history) => () => {
+        setUpdateItem(history)
     }, []);
 
     return (
-        <div className={'item'}>
-            <h3>Name - {service.name}</h3>
-            <h3>Price - {service.number}</h3>
+        <div className={`item${history.active ? " active" : ""}`}>
+            <span>{history.description}</span>
             <ul className="icon_row">
                 <li
-                    onClick={handleUpdate(service)}
+                    onClick={handleUpdate(history)}
                     className={'icon'}>
                     <BiEdit/>
                 </li>
                 <li
-                    onClick={handleDelete(service.id)}
+                    onClick={handleDelete(history.id)}
                     className={'icon'}>
                     <RiDeleteBin6Line/>
                 </li>
             </ul>
-            <UpdateItemService
+            <UpdateItemHistory
                 updateItem={updateItem}
                 setUpdateItem={setUpdateItem}/>
         </div>
     );
 }
 
-export default Service;
+export default History;

@@ -13,7 +13,6 @@ const EXCLUDES = [
   'POST:/users/password-update',
   'POST:/home-info/add',
   'POST:/login-image/add',
-  'POST:/welcome/add',
   'POST:/products/add',
   'POST:/contacts/add',
   'GET:/works/list',
@@ -22,6 +21,7 @@ const EXCLUDES = [
   'GET:/prices/list',
   'GET:/login-image/list',
   'GET:/services/list',
+  'GET:/histories/list',
 ];
 
 export default function authorization(req, res, next) {

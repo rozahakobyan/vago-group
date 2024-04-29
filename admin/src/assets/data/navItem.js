@@ -38,6 +38,16 @@ export default [
                 title: "Login Image",
                 path: "login-image",
             },
+            {
+                id: 2_4,
+                title: "Add New History",
+                path: "add-new-history",
+            },
+            {
+                id: 2_5,
+                title: "Histories",
+                path: "histories",
+            },
         ]
     },
     {
@@ -95,7 +105,7 @@ export default [
         subMenu: [
             {
                 id: 6_1,
-                title: "Add New Services",
+                title: "Add New Histories",
                 path: "add-new-partners",
             },
         ]
@@ -155,7 +165,7 @@ export default [
         subMenu: [
             {
                 id: 9_1,
-                title: "Add New Services",
+                title: "Add New Histories",
                 path: "add-new-services",
             },
         ]

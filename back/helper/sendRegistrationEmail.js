@@ -16,7 +16,7 @@ async function sendRegistrationEmail(to,html) {
         let mailOptions = {
             from: INFO_EMAIL,
             to: to,
-            subject: 'Welcome to Our Application',
+            subject: 'History to Our Application',
             html: html
         
         };

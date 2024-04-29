@@ -304,6 +304,24 @@ export class Api {
 
         return api.put(`/services/update/${id}`, data);
     }
+
+    static historiesAdd(data = {}) {
+        return api.post('/histories/add', data);
+    }
+
+    static historiesList() {
+        return api.get('/histories/list');
+    }
+
+    static historiesDelete(id) {
+        return api.delete(`/histories/delete/${id}`);
+    }
+
+    static historiesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/histories/update/${id}`, data);
+    }
 }
 
 
