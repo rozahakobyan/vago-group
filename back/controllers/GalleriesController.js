@@ -132,7 +132,7 @@ class GalleriesController {
             const offset = (page - 1) * limit;
 
             const galleries = await Galleries.findAll({
-                limit,
+                limit: Number(limit),
                 offset,
                 attributes: [ 'id',
                     [sequelize.literal(`CONCAT('galleries/', src)`), 'src']

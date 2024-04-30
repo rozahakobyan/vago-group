@@ -154,7 +154,7 @@ class ProductsController {
                     ['name', 'ASC'],
                 ],
                 where,
-                limit,
+                limit: Number(limit),
                 offset
             })
 

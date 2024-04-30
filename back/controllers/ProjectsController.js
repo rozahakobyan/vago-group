@@ -148,7 +148,7 @@ class ProjectsController {
 
             const projects = await Project.findAll({
                 where,
-                limit,
+                limit: Number(limit),
                 offset,
                 attributes: [ 'id', 'name', 'description', 'status',
                     [sequelize.literal(`CONCAT('projects/', image)`), 'image']

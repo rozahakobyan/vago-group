@@ -32,7 +32,7 @@ function Vacancieces() {
                             <tr className="vacancie-text">
                                 <td >
                                     <div className="vacancieImgArea">
-                                    <img src={`${API_URL}/${w.image}`} alt={""} />
+                                        <img src={`${API_URL}/${w.image}`} alt={""} />
                                     </div>
                                     <div className="vacancie-title">
                                         <h3>{w.name}</h3>

@@ -1,7 +1,9 @@
-import React, {useState, useCallback, useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {galleriesListRequest} from "../../store/actions/galleries";
+import React, { useState, useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { galleriesListRequest } from "../../store/actions/galleries";
 import ReactPaginate from "react-paginate";
+import { API_URL } from "../../Api"
+
 
 function Gallery() {
     const dispatch = useDispatch();
@@ -13,7 +15,7 @@ function Gallery() {
     const galleriesList = useSelector(state => state.galleries.galleriesList);
 
     useEffect(() => {
-        dispatch(galleriesListRequest({page}))
+        dispatch(galleriesListRequest({ page, limit: 4 }))
     }, [page]);
 
     console.log(galleriesList)
@@ -34,11 +36,13 @@ function Gallery() {
             <div className="gallery-type">
                 <h3>Photo</h3>
             </div>
-            <div className="gallery-blocks">
-                <img src={"./img/logo.jpg"} onClick={() => openFullscreenImg("./img/logo.jpg")} alt={""}/>
-                <img src={"./img/gortsiq.jpg"} onClick={() => openFullscreenImg("./img/gortsiq.jpg")} alt={""}/>
-                <img src={"./img/logo.jpg"} onClick={() => openFullscreenImg("./img/logo.jpg")} alt={""}/>
+
+            <div className="gallery-blocks" >
+                {galleriesList && galleriesList.map(g => (
+                    <img src={`${API_URL}/${g.src}`} onClick={() => openFullscreenImg(`${API_URL}/${g.src}`)} alt={""} key={g.id}/>
+                ))}
             </div>
+
             <div className={"pages-list"}>
                 {pages && pages > 1 ? <ReactPaginate
                     activeClassName={'items active '}
@@ -55,12 +59,12 @@ function Gallery() {
                     pageClassName={'items pagination-page '}
                     pageRangeDisplayed={2}
                     previousClassName={"items previous"}
-                    previousLabel={"<"}/> : null}
+                    previousLabel={"<"} /> : null}
             </div>
             {fullscreenImg && (
                 <div className="fullscreen-img-overlay" onClick={closeFullscreenImg}>
                     <div className="fullscreen-img-container">
-                        <img src={fullscreenImg} alt="Fullscreen"/>
+                        <img src={fullscreenImg} alt="Fullscreen" />
                         <button className="close-btn" onClick={closeFullscreenImg}>✕</button>
                     </div>
                 </div>
@@ -71,13 +75,13 @@ function Gallery() {
             </div>
             <div className="gallery-blocks">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/FwVx8PV3V0M?si=OyHsuVIac0WXC5Sm"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen={true}></iframe>
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen={true}></iframe>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/FwVx8PV3V0M?si=OyHsuVIac0WXC5Sm"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen={true}></iframe>
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen={true}></iframe>
             </div>
         </div>
     );
