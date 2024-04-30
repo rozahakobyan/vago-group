@@ -4,11 +4,12 @@ import HttpError from "http-errors";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
 import Galleries from "../models/Galleries.js";
-import Works from "../models/Works.js";
+import {Op} from "sequelize";
 
 class GalleriesController {
     static async add (req, res, next){
         try{
+            const {pageGallery} = req.body;
             const gallery = req.files['gallery[]'];
 
             if(!gallery){
@@ -21,7 +22,8 @@ class GalleriesController {
                 const root = path.resolve('public/galleries')
 
                 await Galleries.bulkCreate(gallery.map(s => ({
-                    src: s.filename
+                    src: s.filename,
+                    pageGallery
                 })));
 
                 gallery.map(async (file) => {
@@ -55,6 +57,7 @@ class GalleriesController {
         try{
             const {id} = req.params;
             const {file} = req;
+            const {pageGallery} = req.body;
             const gallery = await Galleries.findByPk(+id);
 
             if (!gallery) {
@@ -84,7 +87,9 @@ class GalleriesController {
                     })
                     .toFile(path.join(root, file.filename + '.webp'))
 
-                await gallery.update({src: file.filename})
+                await gallery.update({src: file.filename, pageGallery})
+            }else{
+                await gallery.update({pageGallery})
             }
 
             res.json({
@@ -128,14 +133,23 @@ class GalleriesController {
 
     static async list (req, res, next){
         try{
-            const {page = 1, limit = 9} = req.query;
+            const {page = 1, limit = 9, pageGallery} = req.query;
             const offset = (page - 1) * limit;
+
+            const where = {};
+
+            if(pageGallery){
+                where[Op.or] = [
+                    { pageGallery: { [Op.substring]: pageGallery } },
+                ];
+            }
 
             const galleries = await Galleries.findAll({
                 limit: Number(limit),
                 offset,
+                where,
                 attributes: [ 'id',
-                    [sequelize.literal(`CONCAT('galleries/', src)`), 'src']
+                    [sequelize.literal(`CONCAT('galleries/', src)`), 'src'], "pageGallery"
                 ]});
 
             const total = await Galleries.count();

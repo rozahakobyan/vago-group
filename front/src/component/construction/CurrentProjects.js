@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useMemo} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { projectsListRequest } from "../../store/actions/projects";
 import { API_URL } from "../../Api"
@@ -7,14 +7,21 @@ function CurrentProjects() {
 
     const dispatch = useDispatch();
 
-    const projectsList = useSelector(state => state.projects.projectsList);
+    const list = useSelector(state => state.projects.projectsList);
+
+    const projectsList = useMemo(() => {
+        return list.filter(l => {
+            if(l.status === "pending"){
+                return l;
+            }
+        })
+    }, [list])
 
     useEffect(() => {
-        dispatch(projectsListRequest({ status: "started" }))
+        dispatch(projectsListRequest())
     }, []);
 
     console.log(projectsList)
-
 
     return (
         <div className="currentProjects-area">

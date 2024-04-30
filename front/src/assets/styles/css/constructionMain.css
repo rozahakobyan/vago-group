@@ -509,7 +509,7 @@
     box-sizing: border-box;
 }
 
-.items {
+.items a{
     align-items: center;
     color: #000;
     cursor: pointer;

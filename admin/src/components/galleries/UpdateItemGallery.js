@@ -1,18 +1,23 @@
 import React, {useCallback} from 'react';
-import {isLoading, massagerUpdateRequest} from "../../store/actions/massagers";
 import {useDispatch} from "react-redux";
 import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
 import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import classNames from "classnames";
 import {API_URL} from "../../Api";
-import {galleriesUpdateRequest} from "../../store/actions/galleries";
+import {galleriesUpdateRequest, isLoading} from "../../store/actions/galleries";
+import Select from "react-select";
+import galleryPage from "../../assets/data/galleryPage";
 
 function UpdateItemGallery({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
     }, [updateItem]);
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setUpdateItem({...updateItem, pageGallery: selectedOption.label})
+    }, [updateItem])
 
     const handleChangeFile = useCallback((e) => {
         const file = e.target.files[0]
@@ -37,6 +42,13 @@ function UpdateItemGallery({updateItem, setUpdateItem}) {
                     <FaWindowClose onClick={handleClose} className={'close'}/>
                     <form>
                         <div className={'cont'}>
+                            <Select defaultValue={{value: updateItem.pageGallery, label: updateItem.pageGallery}}
+                                    options={galleryPage}
+                                    onChange={handleSelectChange}
+                                    placeholder={<div>Page...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                            />
                             <div className={'row_img'}>
                                 <div>
                                     <div className={'custom-file'}>

@@ -13,9 +13,10 @@ function Gallery() {
 
     const pages = useSelector(state => state.galleries.pages);
     const galleriesList = useSelector(state => state.galleries.galleriesList);
+    const loading = useSelector(state => state.galleries.loading);
 
     useEffect(() => {
-        dispatch(galleriesListRequest({ page, limit: 4 }))
+        dispatch(galleriesListRequest({ page, limit: 4, pageGallery: "Construction" }))
     }, [page]);
 
     console.log(galleriesList)

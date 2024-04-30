@@ -13,6 +13,10 @@ Galleries.init({
         src: {
             type: DataTypes.STRING(255),
             allowNull: false
+        },
+        pageGallery: {
+            type: DataTypes.STRING(255),
+            allowNull: false
         }
     }, {
         sequelize,

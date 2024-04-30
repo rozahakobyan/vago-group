@@ -63,7 +63,7 @@ function UpdateItemProject({updateItem, setUpdateItem}) {
                             <Select defaultValue={{value: updateItem.status, label: updateItem.status}}
                                     options={status}
                                     onChange={handleSelectChange}
-                                    placeholder={<div>Departments...</div>}
+                                    placeholder={<div>Status...</div>}
                                     className="react-select-containers"
                                     classNamePrefix="react-selects"
                             />

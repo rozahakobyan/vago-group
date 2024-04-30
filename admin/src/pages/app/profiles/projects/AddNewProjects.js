@@ -65,17 +65,12 @@ const AddNewProjects = () => {
 
                         {errors?.name ? <small>{errors?.name}</small> : null}
 
-                        {errors?.name ? <small>{errors.name}</small> : null}
-
-
                         <div className={'desc_text'}>
                                 <textarea
                                     value={project.description}
                                     onChange={(e) => handleChangeText(e, "description")}
                                     placeholder={'Description text...'}/>
                         </div>
-
-                        {errors?.description ? <small>{errors?.description}</small> : null}
 
                         {errors?.description ? <small>{errors.description}</small> : null}
                         {error ? <small>{error}</small> : null}
@@ -97,8 +92,6 @@ const AddNewProjects = () => {
                                 type="file"/>
 
                             {errors?.file ? <small>{errors?.file}</small> : null}
-
-                            {errors?.file ? <small>{errors.file}</small> : null}
 
                         </div>
 

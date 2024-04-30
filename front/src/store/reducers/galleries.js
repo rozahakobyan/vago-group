@@ -25,5 +25,14 @@ export const galleries = createReducer(initialState, (builder) => {
             const {galleries, pages} = action.payload;
             state.galleriesList = galleries;
             state.pages = pages;
+            state.loading = false;
+        })
+        .addCase(galleriesListRequest.pending, (state, action) => {
+            state.loading = true;
+        })
+        .addCase(galleriesListRequest.rejected, (state, action) => {
+            const {errors} = action.payload;
+            state.errors = errors;
+            state.loading = false;
         })
 });

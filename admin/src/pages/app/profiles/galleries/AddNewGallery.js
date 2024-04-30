@@ -6,11 +6,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
 import {galleriesAddRequest} from "../../../../store/actions/galleries";
+import Select from "react-select";
+import galleryPage from "../../../../assets/data/galleryPage";
 
 const AddNewGallery = () => {
     const [galleries, setGalleries] = useState({
         gallery: [],
+        pageGallery: ""
     });
+    const [selected, setSelected] = useState(null);
+
     const errors = useSelector(state => state.galleries.errors);
     const loading = useSelector(state => state.galleries.loading);
     const navigate = useNavigate();
@@ -21,6 +26,11 @@ const AddNewGallery = () => {
         setGalleries((prevState) => ({...prevState, gallery: [...prevState.gallery, ...filesArray]}));
         ev.target.value = '';
     }, []);
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setSelected(selectedOption)
+        setGalleries({...galleries, pageGallery: selectedOption.label})
+    }, [galleries])
 
     const handleDeleteFiles = useCallback((index) => (e) => {
         e.preventDefault();
@@ -46,6 +56,13 @@ const AddNewGallery = () => {
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
+                        <Select value={selected}
+                                options={galleryPage}
+                                onChange={handleSelectChange}
+                                placeholder={<div>Page...</div>}
+                                className="react-select-containers"
+                                classNamePrefix="react-selects"
+                        />
                         <div className={'item_file_cat'}>
                             <label
                                 htmlFor="file-upload"

@@ -26,6 +26,7 @@ function Gallery({gallery, updateItem, setUpdateItem}) {
     return (
         <div className={"item"}>
             <img src={`${API_URL}/${gallery.src}`} alt={""}/>
+            <h3>{gallery.pageGallery}</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(gallery)}
