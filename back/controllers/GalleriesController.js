@@ -152,14 +152,19 @@ class GalleriesController {
                     [sequelize.literal(`CONCAT('galleries/', src)`), 'src'], "pageGallery"
                 ]});
 
-            const total = await Galleries.count();
+            const total = await Galleries.findAll({
+                where,
+                attributes: [ 'id',
+                    [sequelize.literal(`CONCAT('galleries/', src)`), 'src'], "pageGallery"
+                ]
+            });
 
             res.json({
                 status:'ok',
                 galleries,
                 page,
                 total,
-                pages: Math.ceil(total / limit)
+                pages: Math.ceil(total.length / limit)
             })
         }catch (e) {
             next(e)
