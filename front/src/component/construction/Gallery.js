@@ -41,7 +41,7 @@ function Gallery() {
             <div className="gallery-blocks" >
                 {galleriesList && !loading ? galleriesList.map(g => (
                     <img src={`${API_URL}/${g.src}`} onClick={() => openFullscreenImg(`${API_URL}/${g.src}`)} alt={""} key={g.id} />
-                )) : <div></div>}
+                )) : <div><div class="loader"></div></div>}
             </div>
 
             <div className={"pages-list"}>
