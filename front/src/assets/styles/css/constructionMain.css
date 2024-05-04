@@ -499,7 +499,7 @@
     align-items: center;
 }
 
-.pages-list {
+.pages-list .pages-list {
     width: 100%;
     height: 100%;
     display: flex;
@@ -509,7 +509,7 @@
     box-sizing: border-box;
 }
 
-.items a{
+.pages-list .items a{
     align-items: center;
     color: white;
     cursor: pointer;
@@ -519,22 +519,26 @@
     justify-content: center;
     width: 40px;
     border-radius: 50%;
-    margin-right: 10px;
+    
     
 }
 
-.disabled-page {
+.pages-list .disabled-page {
     background: rgba(0, 0, 0, 1);
     
 }
 
-.active {
+.pages-list .pagination-page.active{
+    background-color: black;
+}
+
+.pages-list .active {
     border: solid 1px white;
-    border-radius: 40px;
+    
     color: white;
 }
 
-.next {
+.pages-list .next {
     font-size: 16px;
     position: absolute;
     right: 0;
@@ -543,7 +547,7 @@
     border-radius: 50%;
 }
 
-.pagination {
+.pages-list .pagination {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -553,13 +557,16 @@
     color: white;
 }
 
-.pagination-page {
+.pages-list .pagination-page {
     font-weight: 700;
     color: white;
     border-radius: 50%;
 }
 
-.previous {
+
+
+
+.pages-list .previous {
     font-size: 16px;
     left: 0;
     position: absolute;
@@ -570,7 +577,7 @@
 }
 
 
-.item {
+.pages-list .item {
     min-width: calc(100% / 3 - 20px);
     padding: 25px;
     box-shadow: shadowDark;
@@ -578,9 +585,10 @@
     margin-bottom: 20px;
     border-radius: 10px;
     color: white;
+    
 }
 
-.item img {
+.pages-list .item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -591,7 +599,7 @@
 
 
 
-.icon_row {
+.pages-list .icon_row {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -599,7 +607,7 @@
     color: white;
 }
 
-li {
+.pages-list li {
     width: 40px;
     height: 40px;
     background: var(--color1);
@@ -617,13 +625,64 @@ li {
     
 }
 
-li:hover {
+.pages-list li:hover {
     
     background-color: black;
 
 }
 
-.item.active {
+.pages-list .item.active {
     box-shadow: shadowRed;
 
 }
+
+
+
+/* ------------------------- */
+
+
+
+.loader{
+    width: 40px;
+    aspect-ratio: 1;
+    --c:no-repeat linear-gradient(#000 0 0);
+    background: 
+      var(--c) 0    0,
+      var(--c) 0    100%, 
+      var(--c) 50%  0,  
+      var(--c) 50%  100%, 
+      var(--c) 100% 0, 
+      var(--c) 100% 100%;
+    background-size: 8px 50%;
+    animation: l7-0 1s infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  .loader:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000;
+    top: calc(50% - 4px);
+    left: -8px;
+    animation: inherit;
+    animation-name: l7-1;
+  }
+  
+  @keyframes l7-0 {
+   16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}
+   33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}
+   50%    {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}
+   66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}
+   83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 30%, 8px 30%}
+  }
+  
+  @keyframes l7-1 {
+   20%  {left:0px}
+   40%  {left:calc(50%  - 4px)}
+   60%  {left:calc(100% - 8px)}
+   80%,
+   100% {left:100%}
+  }
