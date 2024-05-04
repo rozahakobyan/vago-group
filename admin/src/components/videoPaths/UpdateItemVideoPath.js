@@ -14,7 +14,7 @@ function UpdateItemVideoPath({path, updateItem, setUpdateItem}) {
     const [text, setText] = useState("");
 
     useEffect(() => {
-        if(text.trim().match(/^https?:\/\/(w{3})?.?youtu.be(\/.+)?/gm)){
+        if(text.trim().match(/^https?:\/\/(w{3})?.?youtu.?be.?(com)?(\/.+)/gm)){
             setUpdateItem({...updateItem, path: text});
         }
     }, [updateItem, text]);
