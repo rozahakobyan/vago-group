@@ -78,12 +78,12 @@
     animation: slide-in-elliptic-top-fwd .7s cubic-bezier(.25, .46, .45, .94) both;
 
     .close {
-      position: absolute;
       right: 5px;
       top: 5px;
       color: red;
       cursor: pointer;
       font-size: 21px;
+      margin-left: 530px;
     }
 
     form {

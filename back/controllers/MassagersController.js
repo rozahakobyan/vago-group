@@ -71,8 +71,7 @@ class MassagersController {
         try{
             const {name} = req.body;
             const { id } = req.params;
-            const {headerIcon} = req.files;
-            const {footerIcon} = req.files;
+            const {headerIcon, footerIcon} = req.files;
 
             const massager = await Massagers.findByPk(+id);
 

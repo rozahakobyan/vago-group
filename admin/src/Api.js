@@ -72,24 +72,26 @@ export class Api {
         return api.get(`/users/find-user-by-id/${id}`);
     }
 
-    static addHomeInfo(data = {}) {
-        return api.post('/home-info/add', data, {
+    static bannerAdd(data = {}) {
+        return api.post('/banner/add', data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
         });
     }
 
-    static homeInfoList() {
-        return api.get('/home-info/list');
+    static bannerList() {
+        return api.get('/banner/list');
     }
 
-    static deleteHomeInfo(id) {
-        return api.delete(`/home-info/delete/${id}`);
+    static bannerDelete(id) {
+        return api.delete(`/banner/delete/${id}`);
     }
 
-    static updateHomeInfo(id, data = {}) {
-        return api.put(`/home-info/update/${id}`, data, {
+    static bannerUpdate(arg = {}) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/banner/update/${id}`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -373,6 +375,24 @@ export class Api {
                 'Content-Type': 'multipart/form-data',
             },
         });
+    }
+
+    static videoPathsAdd(data = {}) {
+        return api.post('/video-path/add', data);
+    }
+
+    static videoPathsList() {
+        return api.get('/video-path/list');
+    }
+
+    static videoPathsDelete(id) {
+        return api.delete(`/video-path/delete/${id}`);
+    }
+
+    static videoPathsUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/video-path/update/${id}`, data);
     }
 }
 

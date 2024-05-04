@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { galleriesListRequest } from "../../store/actions/galleries";
 import ReactPaginate from "react-paginate";
 import { API_URL } from "../../Api"
+import {videoPathsListRequest} from "../../store/actions/videoPath";
 
 
 function Gallery() {
@@ -13,13 +14,15 @@ function Gallery() {
 
     const pages = useSelector(state => state.galleries.pages);
     const galleriesList = useSelector(state => state.galleries.galleriesList);
+    const videoPathsList = useSelector(state => state.videoPath.videoPathsList);
     const loading = useSelector(state => state.galleries.loading);
 
     useEffect(() => {
         dispatch(galleriesListRequest({ page, limit: 4, pageGallery: "Construction" }))
+        dispatch(videoPathsListRequest({pageVideo: "Construction" }))
     }, [page]);
 
-    console.log(galleriesList)
+    console.log(videoPathsList)
 
     const openFullscreenImg = useCallback((src) => {
         setFullscreenImg(src);

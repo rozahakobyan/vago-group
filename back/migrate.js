@@ -15,7 +15,8 @@ import {
     Prices,
     Packages,
     Projects,
-    Galleries
+    Galleries,
+    VideoPath
 } from "./models/index.js";
 
 async function main(){
@@ -36,6 +37,7 @@ async function main(){
     await Packages.sync({alter:true, logging:true});
     await Projects.sync({alter:true, logging:true});
     await Galleries.sync({alter:true, logging:true});
+    await VideoPath.sync({alter:true, logging:true});
 
     process.exit(0);
 }

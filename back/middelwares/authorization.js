@@ -24,6 +24,7 @@ const EXCLUDES = [
   'GET:/histories/list',
   'GET:/projects/list',
   'GET:/galleries/list',
+  'GET:/video-path/list',
 ];
 
 export default function authorization(req, res, next) {

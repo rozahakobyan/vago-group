@@ -1,6 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {users} from './reducers/users'
-import {homeInfo} from "./reducers/homeInfo";
+import {users} from './reducers/users';
 import {loginImage} from "./reducers/loginImage";
 import {massagers} from "./reducers/massagers";
 import {works} from "./reducers/works";
@@ -13,10 +12,11 @@ import {services} from "./reducers/services";
 import {histories} from "./reducers/histories";
 import {projects} from "./reducers/projects";
 import {galleries} from "./reducers/galleries";
+import {videoPath} from "./reducers/videoPath";
+import {banner} from "./reducers/banner";
 
 const root = {
     users,
-    homeInfo,
     loginImage,
     massagers,
     works, 
@@ -29,6 +29,8 @@ const root = {
     histories,
     projects,
     galleries,
+    videoPath,
+    banner,
 }
 
 export const store = configureStore({reducer: root})

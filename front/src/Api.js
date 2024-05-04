@@ -48,9 +48,9 @@ export class Api {
     static activateUser(params) {
         return api.post('/users/activate', params);
     }
-    
-    static homeInfoList() {
-        return api.get('/home-info/list');
+
+    static bannerList(data = {}) {
+        return api.get('/banner/list', {params: data});
     }
 
     static loginImageList(data = {}) {
@@ -99,5 +99,9 @@ export class Api {
 
     static galleriesList(data = {}) {
         return api.get('/galleries/list', {params: data});
+    }
+
+    static videoPathsList(data = {}) {
+        return api.get('/video-path/list', {params: data});
     }
 }

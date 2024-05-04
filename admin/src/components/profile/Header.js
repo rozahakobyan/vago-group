@@ -61,27 +61,9 @@ const Header = () => {
                 isActiveScroll: scrollDirection === false
             })}>
                 <Logo/>
-                {/*<form*/}
-                {/*    onSubmit={handleSearch}*/}
-                {/*    className={'search'}>*/}
-                {/*    <div className={'input-search'}>*/}
-                {/*        <input*/}
-                {/*            onChange={handleChange}*/}
-                {/*            value={search}*/}
-                {/*            placeholder={'Search...'}*/}
-                {/*            type={'text'}*/}
-                {/*        />*/}
-                {/*        {*/}
-                {/*            search.length >= 3 ? <small*/}
-                {/*                onClick={handleRemoveSearch}*/}
-                {/*                className={'remove-text'}>*/}
-                {/*                <CiSquareRemove/></small> : null*/}
-                {/*        }*/}
-                {/*    </div>*/}
-                {/*    <button>*/}
-                {/*        <span> <GoSearch/></span>*/}
-                {/*    </button>*/}
-                {/*</form>*/}
+
+                <h3>Vago Group</h3>
+
                 <Profile
                     setSettingModal={setSettingModal}
                     settingModal={settingModal}

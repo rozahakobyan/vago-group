@@ -6,7 +6,7 @@ import Users from "./profiles/Users";
 import Settings from "./profiles/Settings";
 import EditProfile from "./EditProfile";
 import EditAccountPassword from "./EditAccountPassword";
-import AddNewHomeInfo from "./profiles/homeInformation/AddNewHomeInfo";
+import AddNewHomeInfo from "./profiles/homeInformation/AddNewBanner";
 import LoginImage from "./profiles/homeInformation/LoginImage";
 import Massagers from "./profiles/massagers/Massagers";
 import AddNewLoginImage from "./profiles/homeInformation/AddNewLoginImage";
@@ -19,7 +19,7 @@ import Partners from "./profiles/partners/Partners";
 import AddNewPartners from "./profiles/partners/AddNewPartners";
 import Contacts from "./profiles/contacts/Contacts";
 import AddNewContact from "./profiles/contacts/AddNewContact";
-import Information from "./profiles/homeInformation/Information";
+import Information from "./profiles/homeInformation/Banners";
 import AddNewPrices from "./profiles/prices/AddNewPrices";
 import Prices from "./profiles/prices/Prices";
 import Packages from "./profiles/packages/Packages";
@@ -32,6 +32,8 @@ import Projects from "./profiles/projects/Projects";
 import AddNewProjects from "./profiles/projects/AddNewProjects";
 import Galleries from "./profiles/galleries/Galleries";
 import AddNewGallery from "./profiles/galleries/AddNewGallery";
+import AddNewVideoPath from "./profiles/videoPath/AddNewVideoPath";
+import VideoPaths from "./profiles/videoPath/VideoPaths";
 
 const ProfileNavigate = () => {
     return (
@@ -46,6 +48,8 @@ const ProfileNavigate = () => {
                 <Route path={'/information/add-new-history'} element={<AddNewHistory/>}/>
                 <Route path={'/information/galleries'} element={<Galleries/>}/>
                 <Route path={'/information/add-new-gallery'} element={<AddNewGallery/>}/>
+                <Route path={'/information/video-paths'} element={<VideoPaths/>}/>
+                <Route path={'/information/add-new-video-path'} element={<AddNewVideoPath/>}/>
                 <Route path={'/massagers'} element={<Massagers/>}/>
                 <Route path={'/massagers/add-new-massagers'} element={<AddNewMassagers/>}/>
                 <Route path={'/works'} element={<Works/>}/>

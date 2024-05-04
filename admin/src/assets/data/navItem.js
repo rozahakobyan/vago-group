@@ -58,6 +58,16 @@ export default [
                 title: "Galleries",
                 path: "galleries",
             },
+            {
+                id: 2_8,
+                title: "Add New Video Path",
+                path: "add-new-video-path",
+            },
+            {
+                id: 2_9,
+                title: "Video Paths",
+                path: "video-paths",
+            },
         ]
     },
     {

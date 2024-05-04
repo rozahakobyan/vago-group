@@ -1,8 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+import {bannerListRequest} from "../../store/actions/banner";
 
 
 function Main() {
+    const dispatch = useDispatch()
+
+    const bannersList = useSelector(state => state.banner.bannersList)
+
+    useEffect(() => {
+        dispatch(bannerListRequest({active: true}))
+    }, []);
+
+    console.log(bannersList)
+
     return (
         <>
             <section>
