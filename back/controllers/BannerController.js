@@ -15,6 +15,11 @@ class BannerController {
             const employmentAgencyImage = req.files.employmentAgencyImage[0];
             const logisticImage = req.files.logisticImage[0];
 
+            console.log(req.body);
+            console.log(req.files)
+
+
+
             if(!title || !description){
                 throw HttpError(404, {
                     errors: {

@@ -62,7 +62,7 @@ function AddNewBanner() {
                                 placeholder={'title...'}
                                 type="text"/>
                         </div>
-                        {errors.title ? <small>{errors.title}</small> : null}
+                        {errors?.title ? <small>{errors?.title}</small> : null}
 
                         <div className={'desc_text'}>
                                 <textarea
@@ -85,7 +85,7 @@ function AddNewBanner() {
                                 accept="image/*"
                                 id="file-upload"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
                         <p>Construction Image</p>
                         <div className={'item_file_cat'}>
@@ -102,7 +102,7 @@ function AddNewBanner() {
                                 accept="image/*"
                                 id="file-upload2"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
                         <p>Employment Agency Image</p>
                         <div className={'item_file_cat'}>
@@ -119,7 +119,7 @@ function AddNewBanner() {
                                 accept="image/*"
                                 id="file-upload3"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
                         <p>Logistic Image</p>
                         <div className={'item_file_cat'}>
@@ -136,7 +136,7 @@ function AddNewBanner() {
                                 accept="image/*"
                                 id="file-upload4"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
 
                         <div className={'input_item'}>
