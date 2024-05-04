@@ -20,7 +20,7 @@ function AddNewVideoPath() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(text.trim().match(/^https?:\/\/(w{3})?.?youtu.be(\/.+)?/gm)){
+        if(text.trim().match(/^https?:\/\/(w{3})?.?youtu.?be.?(com)?(\/.+)/gm)){
             setVideoPath({...videoPath, path: text});
         }
     }, [videoPath, text]);
