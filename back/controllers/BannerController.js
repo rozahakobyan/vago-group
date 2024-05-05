@@ -5,6 +5,7 @@ import sharp from "sharp";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
 import {Op} from "sequelize";
+import Translation from "../models/Translation.js";
 
 class BannerController {
     static async add (req, res, next){
@@ -14,11 +15,6 @@ class BannerController {
             const constructionImage = req.files.constructionImage[0];
             const employmentAgencyImage = req.files.employmentAgencyImage[0];
             const logisticImage = req.files.logisticImage[0];
-
-            console.log(req.body);
-            console.log(req.files)
-
-
 
             if(!title || !description){
                 throw HttpError(404, {
@@ -82,11 +78,41 @@ class BannerController {
                 })
                 .toFile(path.join(root, logisticImage.filename + '.webp'))
 
-            const banner = await Banner.create({title, description, active,
+            const translation = await Translation.create({
+                en: {
+                    title: title.en,
+                    description: description.en
+                },
+                ru: {
+                    title: title.ru,
+                    description: description.ru
+                },
+                am: {
+                    title: title.am,
+                    description: description.am
+                },
+                pl: {
+                    title: title.pl,
+                    description: description.pl
+                },
+            })
+
+            const bannerCreate = await Banner.create({title: title.en, description: description.en, active,
                 homeImage: homeImage.filename,
                 constructionImage: constructionImage.filename,
                 employmentAgencyImage: employmentAgencyImage.filename,
-                logisticImage: logisticImage.filename
+                logisticImage: logisticImage.filename,
+                translationId: translation.id
+            })
+
+            const banner = await Banner.findOne({
+                where: {
+                    id: bannerCreate.id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
             })
 
             res.json({
@@ -280,7 +306,11 @@ class BannerController {
                     [sequelize.literal(`CONCAT('banner/', constructionImage)`), 'constructionImage'],
                     [sequelize.literal(`CONCAT('banner/', employmentAgencyImage)`), 'employmentAgencyImage'],
                     [sequelize.literal(`CONCAT('banner/', logisticImage)`), 'logisticImage'],
-                ]
+                ],
+                include: {
+                    model: Translation,
+                    required: false,
+                }
             })
 
             res.json({

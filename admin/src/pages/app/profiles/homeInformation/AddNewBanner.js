@@ -9,8 +9,18 @@ import {bannerAddRequest} from "../../../../store/actions/banner";
 
 function AddNewBanner() {
     const [banner, setBanner] = useState({
-        title: "",
-        description: "",
+        title: {
+            en: "gvhb",
+            ru: "овлс",
+            am: "բմ",
+            pl: "hgjhbjdnkk"
+        },
+        description: {
+            en: "gvhb",
+            ru: "овлс",
+            am: "բմ",
+            pl: "hgjhbjdnkk"
+        },
         homeImage: null,
         constructionImage: null,
         employmentAgencyImage: null,
@@ -41,6 +51,7 @@ function AddNewBanner() {
         e.preventDefault()
         console.log(banner)
         const {payload} = await dispatch(bannerAddRequest(banner));
+        console.log(payload.banner)
         if (payload?.status === 'ok') {
             navigate('/information')
             Account.setNavbarUrlPathSub('information')
@@ -55,21 +66,21 @@ function AddNewBanner() {
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
-                        <div className={'input_item'}>
-                            <input
-                                value={banner.title}
-                                onChange={(e) => handleChangeText(e, "title")}
-                                placeholder={'title...'}
-                                type="text"/>
-                        </div>
-                        {errors?.title ? <small>{errors?.title}</small> : null}
+                        {/*<div className={'input_item'}>*/}
+                        {/*    <input*/}
+                        {/*        value={banner.title}*/}
+                        {/*        onChange={(e) => handleChangeText(e, "title")}*/}
+                        {/*        placeholder={'title...'}*/}
+                        {/*        type="text"/>*/}
+                        {/*</div>*/}
+                        {/*{errors?.title ? <small>{errors?.title}</small> : null}*/}
 
-                        <div className={'desc_text'}>
-                                <textarea
-                                    value={banner.description}
-                                    onChange={(e) => handleChangeText(e, "description")}
-                                    placeholder={'Description text...'}/>
-                        </div>
+                        {/*<div className={'desc_text'}>*/}
+                        {/*        <textarea*/}
+                        {/*            value={banner.description}*/}
+                        {/*            onChange={(e) => handleChangeText(e, "description")}*/}
+                        {/*            placeholder={'Description text...'}/>*/}
+                        {/*</div>*/}
                         <p>Home Image</p>
                         <div className={'item_file_cat'}>
                             <label

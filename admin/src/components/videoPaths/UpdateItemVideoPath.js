@@ -8,7 +8,7 @@ import Select from "react-select";
 import videoPage from "../../assets/data/videoPage";
 import {NavLink} from "react-router-dom";
 
-function UpdateItemVideoPath({path, updateItem, setUpdateItem}) {
+function UpdateItemVideoPath({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
 
     const [text, setText] = useState("");

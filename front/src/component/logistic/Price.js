@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {pricesListRequest} from "../../store/actions/prices";
 import {packagesListRequest} from "../../store/actions/packages";
 
+
 function Prices() {
     const dispatch = useDispatch();
 

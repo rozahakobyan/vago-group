@@ -11,7 +11,6 @@ const EXCLUDES = [
   'POST:/users/send-password-recovery-code',
   'POST:/users/validate-password-recovery-code',
   'POST:/users/password-update',
-  'POST:/home-info/add',
   'POST:/login-image/add',
   'POST:/products/add',
   'POST:/contacts/add',
@@ -26,6 +25,7 @@ const EXCLUDES = [
   'GET:/projects/list',
   'GET:/galleries/list',
   'GET:/video-path/list',
+  'GET:/banner/list',
 ];
 
 export default function authorization(req, res, next) {
@@ -40,6 +40,10 @@ export default function authorization(req, res, next) {
     }
 
     const { authorization } = req.headers;
+
+    if(!authorization){
+      throw HttpError(401, "Authorization header i missing")
+    }
 
     const { userId } = jwt.verify(authorization.replace('Bearer ', ''), JWT_SECRET)
     if (!userId) {

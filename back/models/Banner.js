@@ -1,5 +1,6 @@
 import sequelize from "../services/sequelize.js";
 import {DataTypes, Model} from "sequelize";
+import Translation from "./Translation.js";
 
 class Banner extends Model {
 
@@ -45,5 +46,18 @@ Banner.init({
     tableName: 'banner',
     modelName: 'banner'
 })
+
+Banner.belongsTo(Translation,
+    {
+        foreignKey: "translationId",
+        onDelete: "CASCADE",
+        onUpdate: 'CASCADE',
+    })
+Translation.hasMany(Banner,
+    {
+        foreignKey: 'translationId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    });
 
 export default Banner;

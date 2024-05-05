@@ -2,8 +2,8 @@ import Joi from 'joi';
 
 export default {
     add: Joi.object({
-        title: Joi.string().max(255).required(),
-        description: Joi.string().max(255).required(),
+        title: Joi.object().required(),
+        description: Joi.object().required(),
         homeImage: Joi.string(),
         constructionImage: Joi.string(),
         employmentAgencyImage: Joi.string(),
@@ -11,8 +11,8 @@ export default {
         active: Joi.boolean().required(),
     }),
     update: Joi.object({
-        title: Joi.string().max(255),
-        description: Joi.string().max(255),
+        title: Joi.object(),
+        description: Joi.object(),
         homeImage: Joi.string().allow(null, '').default(null),
         constructionImage: Joi.string().allow(null, '').default(null),
         employmentAgencyImage: Joi.string().allow(null, '').default(null),
