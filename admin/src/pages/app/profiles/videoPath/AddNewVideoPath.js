@@ -51,7 +51,7 @@ function AddNewVideoPath() {
                             <input
                                 value={text}
                                 onChange={(e) => setText(e.target.value)}
-                                placeholder={'iframe...'}
+                                placeholder={'Path...'}
                                 type="text"/>
                         </div>
 
