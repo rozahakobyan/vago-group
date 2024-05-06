@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { galleriesListRequest } from "../../store/actions/galleries";
 import ReactPaginate from "react-paginate";
 import { API_URL } from "../../Api"
-import {videoPathsListRequest} from "../../store/actions/videoPath";
+import { videoPathsListRequest } from "../../store/actions/videoPath";
 
 
 function Gallery() {
@@ -19,7 +19,7 @@ function Gallery() {
 
     useEffect(() => {
         dispatch(galleriesListRequest({ page, limit: 4, pageGallery: "Construction" }))
-        dispatch(videoPathsListRequest({pageVideo: "Construction" }))
+        dispatch(videoPathsListRequest({ pageVideo: "Construction" }))
     }, [page]);
 
     console.log(videoPathsList)
@@ -77,16 +77,16 @@ function Gallery() {
             <div className="gallery-type">
                 <h3>Video</h3>
             </div>
-            <div className="gallery-blocks">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/FwVx8PV3V0M?si=OyHsuVIac0WXC5Sm"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen={true}></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/FwVx8PV3V0M?si=OyHsuVIac0WXC5Sm"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen={true}></iframe>
-            </div>
+            {videoPathsList && videoPathsList.map(v => (
+                <div className="gallery-blocks" key={v.id}>
+                    <iframe width="560" height="315" src={v.path}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen={true}></iframe>
+
+                </div>
+            ))}
+
         </div>
     );
 }
