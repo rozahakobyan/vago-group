@@ -131,6 +131,7 @@ class BannerController {
             const {homeImage, constructionImage, employmentAgencyImage, logisticImage} = req.files;
 
             const banner = await Banner.findByPk(+id);
+            const translation = await Translation.findByPk(banner.translationId);
 
             if (!banner) {
                 throw HttpError(404, {
@@ -229,12 +230,41 @@ class BannerController {
             }
 
             if(!homeImage && !constructionImage && !employmentAgencyImage && !logisticImage){
-                await banner.update({title, description, active})
+                await banner.update({title: title.en && title.en, description: description.en && description.en, active})
             }
+
+            await translation.update({
+                en: {
+                    title: title.en && title.en,
+                    description: description.en && description.en
+                },
+                ru: {
+                    title: title.ru && title.ru,
+                    description: description.ru && description.ru
+                },
+                am: {
+                    title: title.am && title.am,
+                    description: description.am && description.am
+                },
+                pl: {
+                    title: title.pl && title.pl,
+                    description: description.pl && description.pl
+                },
+            })
+
+            const bannerUpdate = await Banner.findOne({
+                where: {
+                    id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
 
             res.json({
                 status: "ok",
-                banner
+                banner: bannerUpdate
             })
         }catch (e) {
             next(e)
@@ -246,6 +276,7 @@ class BannerController {
             const { id } = req.params;
 
             const banner = await Banner.findByPk(id)
+            const translation = await Translation.findByPk(banner.translationId);
 
             if (!banner) {
                 throw HttpError(404, {
@@ -277,6 +308,7 @@ class BannerController {
                 await fs.unlink(path.join(root, banner.logisticImage + '.webp'));
             }
 
+            await translation.destroy()
             await banner.destroy()
 
             res.json({
@@ -301,7 +333,7 @@ class BannerController {
 
             const banners = await Banner.findAll({
                 where,
-                attributes: [ 'id', 'title', 'description', 'active',
+                attributes: [ 'id', 'active',
                     [sequelize.literal(`CONCAT('banner/', homeImage)`), 'homeImage'],
                     [sequelize.literal(`CONCAT('banner/', constructionImage)`), 'constructionImage'],
                     [sequelize.literal(`CONCAT('banner/', employmentAgencyImage)`), 'employmentAgencyImage'],

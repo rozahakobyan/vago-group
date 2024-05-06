@@ -5,12 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { Account } from "../helpers/Account";
 import { createUserData } from "../store/actions/users";
 import { API_URL } from "../Api"
+import Select from "react-select";
+import languages from "../assets/data/language";
 
 function Header() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const token = useSelector(state => state.users.token);
+
+    const language = Account.getLanguage();
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        Account.setLanguage(selectedOption.value)
+    }, [])
 
     const handleLogOut = useCallback(() => {
         Account.deleteStrong()
@@ -61,7 +69,12 @@ function Header() {
                                 </div>
 
                                 <div className={'header-block-language'}>
-
+                                    <Select defaultValue={{value: language, label: language}}
+                                             options={languages}
+                                             onChange={handleSelectChange}
+                                             placeholder={<div>Language...</div>}
+                                             className="react-select-containers"
+                                             classNamePrefix="react-selects"/>
                                 </div>
                             </div>
                         </div>

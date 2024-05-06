@@ -53,6 +53,7 @@ Banner.belongsTo(Translation,
         onDelete: "CASCADE",
         onUpdate: 'CASCADE',
     })
+
 Translation.hasMany(Banner,
     {
         foreignKey: 'translationId',

@@ -6,6 +6,13 @@ export class Account {
   static getToken() {
     return localStorage.getItem('token') || null;
   }
+  static setLanguage(lang) {
+    localStorage.setItem('language', lang);
+  }
+
+  static getLanguage() {
+    return localStorage.getItem('language') || "en";
+  }
 
   static deleteStrong() {
     localStorage.removeItem('token');

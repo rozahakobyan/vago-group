@@ -17,6 +17,7 @@ export const userLoginRequired = createAsyncThunk('user/login', async (arg = {},
         const {token, status, ...user} = data;
         Account.setToken(token)
         Account.setUser(user)
+        Account.setLanguage("en")
         return data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);

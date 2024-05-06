@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import {useDispatch} from "react-redux";
 import {bannerDeleteRequest} from "../../store/actions/banner";
 import {BiEdit} from "react-icons/bi";
@@ -20,7 +20,7 @@ function Banner ({banner, updateItem, setUpdateItem}) {
     return (
         <div className={`item${banner.active ? " active" : ""}`}>
             <img src={`${API_URL}/${banner.homeImage}`} alt={""}/>
-            <h3>{banner.title}</h3>
+            <h3>{banner.translation.en.title}</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(banner)}

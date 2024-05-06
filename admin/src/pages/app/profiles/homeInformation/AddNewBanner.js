@@ -37,7 +37,7 @@ function AddNewBanner() {
 
     const handleChangeText = useCallback((e, path, val) => {
         const text = e.target.value
-        setBanner({...banner, [path]: {...[path], [val]: text}});
+        setBanner({...banner, [path]: {...banner[path], [val]: text}});
     }, [banner]);
 
     const handleChangeActive = useCallback((e, path) => {
@@ -69,27 +69,76 @@ function AddNewBanner() {
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
-                        <p onClick={() => setTitleOpen(!titleOpen)}>Title  {titleOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</p>
-                        {titleOpen && <div>
+                        <h3 onClick={() => {
+                            setTitleOpen(!titleOpen)
+                            setDescOpen(false)
+                        }}>Title  {titleOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {titleOpen && <div className={"open_input"}>
                             <div className={'input_item'}>
                                 <input
                                     value={banner.title.en}
                                     onChange={(e) => handleChangeText(e, "title", "en")}
-                                    placeholder={'title...'}
+                                    placeholder={'English title...'}
                                     type="text"/>
                             </div>
-                            {errors?.title?.en ? <small>{errors?.title.en}</small> : null}
+                            {errors?.title?.en ? <small>{errors.title.en}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={banner.title.ru}
+                                    onChange={(e) => handleChangeText(e, "title", "ru")}
+                                    placeholder={'Russian title...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.title?.ru ? <small>{errors.title.ru}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={banner.title.am}
+                                    onChange={(e) => handleChangeText(e, "title", "am")}
+                                    placeholder={'Armenian title...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.title?.am ? <small>{errors.title.am}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={banner.title.pl}
+                                    onChange={(e) => handleChangeText(e, "title", "pl")}
+                                    placeholder={'Polish title...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.title?.pl ? <small>{errors.title.pl}</small> : null}
                         </div>
                         }
-                        <p>Description {descOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</p>
+                        <h3 onClick={() => {
+                            setDescOpen(!descOpen)
+                            setTitleOpen(false)
+                        }}>Description {descOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {descOpen && <div className={"open_input"}>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={banner.description.en}
+                                    onChange={(e) => handleChangeText(e, "description", "en")}
+                                    placeholder={'English Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={banner.description.ru}
+                                    onChange={(e) => handleChangeText(e, "description", "ru")}
+                                    placeholder={'Russian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={banner.description.am}
+                                    onChange={(e) => handleChangeText(e, "description", "am")}
+                                    placeholder={'Armenian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={banner.description.pl}
+                                    onChange={(e) => handleChangeText(e, "description", "pl")}
+                                    placeholder={'Polish Description text...'}/>
+                            </div>
+                        </div>}
 
-
-                        {/*<div className={'desc_text'}>*/}
-                        {/*        <textarea*/}
-                        {/*            value={banner.description}*/}
-                        {/*            onChange={(e) => handleChangeText(e, "description")}*/}
-                        {/*            placeholder={'Description text...'}/>*/}
-                        {/*</div>*/}
                         <p>Home Image</p>
                         <div className={'item_file_cat'}>
                             <label
