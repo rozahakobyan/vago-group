@@ -21,6 +21,7 @@ import {
 } from "./models/index.js";
 
 async function main(){
+    await Translation.sync({alter:true, logging:true});
     await LoginImage.sync({alter:true, logging:true});
     await Users.sync({alter:true, logging:true});
     await UserSettings.sync({alter:true, logging:true});
@@ -39,7 +40,7 @@ async function main(){
     await Projects.sync({alter:true, logging:true});
     await Galleries.sync({alter:true, logging:true});
     await VideoPath.sync({alter:true, logging:true});
-    await Translation.sync({alter:true, logging:true});
+    
 
     process.exit(0);
 }
