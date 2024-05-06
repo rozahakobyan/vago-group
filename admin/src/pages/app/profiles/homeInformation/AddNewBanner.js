@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {Helmet} from "react-helmet";
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
+import {MdKeyboardArrowDown, MdKeyboardArrowRight, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from "react-icons/md";
 import Button from "../../../../components/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
@@ -10,16 +10,16 @@ import {bannerAddRequest} from "../../../../store/actions/banner";
 function AddNewBanner() {
     const [banner, setBanner] = useState({
         title: {
-            en: "gvhb",
-            ru: "овлс",
-            am: "բմ",
-            pl: "hgjhbjdnkk"
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
         },
         description: {
-            en: "gvhb",
-            ru: "овлс",
-            am: "բմ",
-            pl: "hgjhbjdnkk"
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
         },
         homeImage: null,
         constructionImage: null,
@@ -27,14 +27,17 @@ function AddNewBanner() {
         logisticImage: null,
         active: false
     });
+    const [titleOpen, setTitleOpen] = useState(false);
+    const [descOpen, setDescOpen] = useState(false);
+
     const errors = useSelector(state => state.banner.errors);
     const loading = useSelector(state => state.banner.loading);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleChangeText = useCallback((e, path) => {
+    const handleChangeText = useCallback((e, path, val) => {
         const text = e.target.value
-        setBanner({...banner, [path]: text});
+        setBanner({...banner, [path]: {...[path], [val]: text}});
     }, [banner]);
 
     const handleChangeActive = useCallback((e, path) => {
@@ -66,14 +69,20 @@ function AddNewBanner() {
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
-                        {/*<div className={'input_item'}>*/}
-                        {/*    <input*/}
-                        {/*        value={banner.title}*/}
-                        {/*        onChange={(e) => handleChangeText(e, "title")}*/}
-                        {/*        placeholder={'title...'}*/}
-                        {/*        type="text"/>*/}
-                        {/*</div>*/}
-                        {/*{errors?.title ? <small>{errors?.title}</small> : null}*/}
+                        <p onClick={() => setTitleOpen(!titleOpen)}>Title  {titleOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</p>
+                        {titleOpen && <div>
+                            <div className={'input_item'}>
+                                <input
+                                    value={banner.title.en}
+                                    onChange={(e) => handleChangeText(e, "title", "en")}
+                                    placeholder={'title...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.title?.en ? <small>{errors?.title.en}</small> : null}
+                        </div>
+                        }
+                        <p>Description {descOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</p>
+
 
                         {/*<div className={'desc_text'}>*/}
                         {/*        <textarea*/}
