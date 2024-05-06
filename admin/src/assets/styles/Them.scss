@@ -65,7 +65,7 @@
       .active-nav-item {
         .left-text-content {
           .item-title {
-            font-family: $dancingFont;
+            //font-family: $dancingFont;
             color: red;
           }
 
@@ -83,7 +83,7 @@
 
       .nav-item:hover {
         .item-title {
-          font-family: $dancingFont;
+          //font-family: $dancingFont;
           color: red;
         }
 
@@ -193,7 +193,8 @@
 
   .users, .login-image, .massagers, .works,
   .products, .partners, .contacts, .prices,
-  .packages{
+  .packages, .banners, .video-paths, .histories, .galleries,
+  .projects{
     .cont_cat {
       .item {
         background: $light;

@@ -41,10 +41,13 @@ function Gallery() {
                 <h3>Photo</h3>
             </div>
 
-            <div className="gallery-blocks" >
+            <div className="gallery-blocks">
                 {galleriesList && !loading ? galleriesList.map(g => (
-                    <img src={`${API_URL}/${g.src}`} onClick={() => openFullscreenImg(`${API_URL}/${g.src}`)} alt={""} key={g.id} />
-                )) : <div><div class="loader"></div></div>}
+                    <img src={`${API_URL}/${g.src}`} onClick={() => openFullscreenImg(`${API_URL}/${g.src}`)} alt={""}
+                         key={g.id}/>
+                )) : <div>
+                    <div class="loader"></div>
+                </div>}
             </div>
 
             <div className={"pages-list"}>
@@ -63,12 +66,12 @@ function Gallery() {
                     pageClassName={'items pagination-page '}
                     pageRangeDisplayed={2}
                     previousClassName={"items previous"}
-                    previousLabel={"<"} /> : null}
+                    previousLabel={"<"}/> : null}
             </div>
             {fullscreenImg && (
                 <div className="fullscreen-img-overlay" onClick={closeFullscreenImg}>
                     <div className="fullscreen-img-container">
-                        <img src={fullscreenImg} alt="Fullscreen" />
+                        <img src={fullscreenImg} alt="Fullscreen"/>
                         <button className="close-btn" onClick={closeFullscreenImg}>✕</button>
                     </div>
                 </div>
@@ -80,9 +83,9 @@ function Gallery() {
             {videoPathsList && videoPathsList.map(v => (
                 <div className="gallery-blocks" key={v.id}>
                     <iframe width="560" height="315" src={v.path}
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen={true}></iframe>
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
                 </div>
             ))}

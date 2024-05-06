@@ -125,7 +125,7 @@ export default [
         subMenu: [
             {
                 id: 6_1,
-                title: "Add New Histories",
+                title: "Add New Partners",
                 path: "add-new-partners",
             },
         ]
@@ -185,7 +185,7 @@ export default [
         subMenu: [
             {
                 id: 9_1,
-                title: "Add New Histories",
+                title: "Add New Services",
                 path: "add-new-services",
             },
         ]
