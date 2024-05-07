@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React, {useCallback, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { bannerListRequest } from "../../store/actions/banner";
 import {Account} from "../../helpers/Account";
 import {API_URL} from "../../Api";
-import loginImage from "../../assets/images/login.jpg";
 
 function Main() {
     const dispatch = useDispatch()
@@ -16,23 +15,19 @@ function Main() {
         dispatch(bannerListRequest({ active: true }))
     }, [bannersList, language]);
 
-    console.log(bannersList)
 
     return (
-
         <>
             {bannersList && bannersList.map(b => (
-                <section>
+                <section key={b.id}>
                     <div className="banner-panel" style={{
-                        backgroundImage: b?.homeImage ? `url(${API_URL}/${b.homeImage})` : `url(${loginImage})`,
-                        backgroundRepeat: "no-repeat",
-                        height: "100vh"
+                        backgroundImage: `url(${API_URL}/${b.homeImage})`,
+                        backgroundRepeat: "no-repeat"
                     }}>
                         <div className="shade">
                             <div className="motto">
                                 <h1 className="motto-title">{b.translation[language].title}</h1>
-                                <p className="motto-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis minima
-                                    ut atque </p>
+                                <p className="motto-text">{b.translation[language].description}</p>
                             </div>
                         </div>
                     </div>

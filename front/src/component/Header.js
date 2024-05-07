@@ -8,11 +8,21 @@ import { API_URL } from "../Api"
 import Select from "react-select";
 import languages from "../assets/data/language";
 
+const formatOptionLabel = ({label, icon}) => (
+    <div style={{display: "flex"}}>
+        <div style={{marginRight: "10px", color: "#ccc"}}>
+            <img src={icon} alt={label} width={20} height={15}/>
+        </div>
+        <div>{label}</div>
+    </div>
+);
+
 function Header() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const token = useSelector(state => state.users.token);
+    const contactsList = useSelector(state => state.contacts.contactsList);
 
     const language = Account.getLanguage();
 
@@ -20,12 +30,18 @@ function Header() {
         Account.setLanguage(selectedOption.value)
     }, [])
 
+    const findSelectValue = useCallback((value) => {
+        return languages.find(l => {
+            if(l.value === value){
+                return l
+            }
+        })
+    }, [])
+
     const handleLogOut = useCallback(() => {
         Account.deleteStrong()
         dispatch(createUserData())
     }, [])
-
-    const contactsList = useSelector(state => state.contacts.contactsList);
 
     useEffect(() => {
         dispatch(contactsListRequest())
@@ -69,12 +85,26 @@ function Header() {
                                 </div>
 
                                 <div className={'header-block-language'}>
-                                    <Select defaultValue={{value: language, label: language}}
-                                             options={languages}
-                                             onChange={handleSelectChange}
-                                             placeholder={<div>Language...</div>}
-                                             className="react-select-containers"
-                                             classNamePrefix="react-selects"/>
+                                    <Select defaultValue={() => findSelectValue(language)}
+                                            menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                            styles={{
+                                                menuPortal: (provided) => ({
+                                                    ...provided,
+                                                    zIndex: 9999,
+                                                }),
+                                                menu: (provided) => ({
+                                                    ...provided,
+                                                    zIndex: 9999,
+                                                    bottom: 'auto',
+                                                })
+                                            }}
+                                            formatOptionLabel={formatOptionLabel}
+                                            options={languages}
+                                            onChange={handleSelectChange}
+                                            placeholder={<div>Language...</div>}
+                                            isSearchable={false}
+                                            className="react-select-containers"
+                                            classNamePrefix="react-selects"/>
                                 </div>
                             </div>
                         </div>
