@@ -17,6 +17,8 @@ function UpdateItemBanner({updateItem, setUpdateItem}) {
 
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
+        setTitleOpen(false)
+        setDescOpen(false)
     }, [updateItem]);
 
     const handleChangeText = useCallback((e, path, val) => {

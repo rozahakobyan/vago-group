@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React, {useCallback, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { bannerListRequest } from "../../store/actions/banner";
-import { Account } from "../../helpers/Account";
-import { API_URL } from "../../Api";
-import loginImage from "../../assets/images/login.jpg";
+import {Account} from "../../helpers/Account";
+import {API_URL} from "../../Api";
 
 function Main() {
     const dispatch = useDispatch()
@@ -15,37 +14,36 @@ function Main() {
     useEffect(() => {
         dispatch(bannerListRequest({ active: true }))
     }, [bannersList, language]);
+    
     return (
-
         <>
             {bannersList && bannersList.map(b => (
-                <section>
+                <section key={b.id}>
                     <div className="banner-panel" style={{
-                        backgroundImage: b?.homeImage ? `url(${API_URL}/${b.homeImage})` : `url(${loginImage})`,
+
+                        backgroundImage: `url(${API_URL}/${b.homeImage})`,
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        
                     }}>
-                    <div className="shade">
-                        <div className="motto">
-                            <h1 className="motto-title">{b.translation[language].title}</h1>
-                            <p className="motto-text">{b.translation[language].description}</p>
+                        <div className="shade">
+                            <div className="motto">
+                                <h1 className="motto-title">{b.translation[language].title}</h1>
+                                <p className="motto-text">{b.translation[language].description}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </section>
-    ))
-}
-
-
-<section>
-    <div className='services'>
-        <div className='service-title'>OUR SERVICES</div>
-        <div className='services-buttons'>
-            <div className='bigBlock'>
-                <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
-                <NavLink to={'/construction'}>
+            ))
+            }
+            
+            <section>
+                <div className='services'>
+                    <div className='service-title'>OUR SERVICES</div>
+                    <div className='services-buttons'>
+                        <div className='bigBlock'>
+                            <p style={{textAlign: 'center'}}>CONSTRUCTION</p>
+                            <NavLink to={'/construction'}>
                     <div className='services-button'>
                         <img src={'./img/construction.jpg'} alt={""} />
                     </div>

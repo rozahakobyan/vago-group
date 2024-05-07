@@ -12,7 +12,7 @@ export default function uploader(fileTypes=[]) {
       }
     }),
     limits: {
-      fileSize: 1024 * 1024 * 10,
+      fileSize: 1024 * 1024 * 1024,
     },
     fileFilter: (req, file, cb) => {
       if (!file || !file.mimetype || !file.originalname) {

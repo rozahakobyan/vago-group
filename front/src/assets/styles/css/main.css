@@ -149,18 +149,14 @@ body {
 
 .header-block-language {
     width: 150px;
-    height: 50px;
-    background-color: var(--color1);
     text-align: center;
     margin: 5px 0 0 5px;
-    transition: background-color 0.5s;
+    z-index: 9999;
 }
 
 .header-block-language:hover {
     background-color: black;
 }
-
-
 
 /* --------------------------------- */
 .buttons {
