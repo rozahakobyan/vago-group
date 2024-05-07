@@ -110,7 +110,7 @@ export default [
         subMenu: [
             {
                 id: 5_1,
-                title: "Add New Projects",
+                title: "Add New Products",
                 path: "add-new-products",
             },
         ]

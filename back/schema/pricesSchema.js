@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 export default {
     add: Joi.object({
-        name: Joi.string().max(255).required(),
+        name: Joi.object().required(),
         advanced: Joi.string().max(255).required(),
         premium: Joi.string().max(255).required(),
         standard: Joi.string().max(255).required(),
@@ -11,6 +11,7 @@ export default {
     }),
     update: Joi.object({
         name: Joi.string().max(255),
+        translation: Joi.object(),
         advanced: Joi.string().max(255),
         premium: Joi.string().max(255),
         standard: Joi.string().max(255),

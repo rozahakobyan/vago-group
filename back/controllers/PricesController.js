@@ -1,6 +1,8 @@
 import HttpError from "http-errors";
 import Prices from "../models/Prices.js";
 import {Op} from "sequelize";
+import Translation from "../models/Translation.js";
+import Banner from "../models/Banner.js";
 
 class PricesController {
     static async add (req, res, next){
@@ -15,7 +17,33 @@ class PricesController {
                 })
             }
 
-            const price = await Prices.create({name, advanced, premium, standard, active, activePage})
+            const translation = await Translation.create({
+                en: {
+                    name: name.en
+                },
+                ru: {
+                    name: name.ru
+                },
+                am: {
+                    name: name.am
+                },
+                pl: {
+                    name: name.pl
+                },
+            })
+
+            const priceCreate = await Prices.create({name: name.en, advanced, premium,
+                standard, active, activePage, translationId: translation.id})
+
+            const price = await Banner.findOne({
+                where: {
+                    id: priceCreate.id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
 
             res.json({
                 status: "ok",
@@ -28,12 +56,14 @@ class PricesController {
 
     static async update (req, res, next){
         try{
-            const {name, advanced, premium, standard, activePage, active} = req.body;
+            const {name, advanced, premium, standard, activePage, active, translation} = req.body;
             const { id } = req.params;
 
             const price = await Prices.findOne({
                 where: {id}
             })
+
+            const translations = await Translation.findByPk(price.translationId);
 
             if (!price) {
                 throw HttpError(404, {
@@ -43,7 +73,8 @@ class PricesController {
                 })
             }
 
-            await price.update({name, advanced, premium, standard, active, activePage})
+            await price.update({name: translation.en.name, advanced, premium, standard, active, activePage})
+            await translations.update(translation)
 
             res.json({
                 status: "ok",
@@ -59,6 +90,7 @@ class PricesController {
             const { id } = req.params;
 
             const price = await Prices.findByPk(id)
+            const translation = await Translation.findByPk(price.translationId);
 
             if (!price) {
                 throw HttpError(404, {
@@ -68,7 +100,16 @@ class PricesController {
                 })
             }
 
+            if (!translation) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
             await price.destroy()
+            await translation.destroy()
 
             res.json({
                 status: "ok"
@@ -98,7 +139,12 @@ class PricesController {
                 ];
             }
 
-            const prices = await Prices.findAll({where})
+            const prices = await Prices.findAll({
+                where,
+                include: {
+                    model: Translation,
+                    required: false,
+                }})
 
             res.json({
                 status: "ok",

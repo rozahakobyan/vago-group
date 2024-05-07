@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
@@ -7,11 +7,22 @@ import { isLoading, packagesUpdateRequest } from '../../store/actions/packages';
 import Button from "../Button";
 import activePricePage from "../../assets/data/activePricePage";
 import Select from "react-select";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp} from "react-icons/md";
 
 function UpdateItemPackages({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
+
+    const [nameOpen, setNameOpen] = useState(false);
+
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
+        setNameOpen(false)
+    }, [updateItem]);
+
+    const handleChangeText = useCallback((e, path, val) => {
+        const text = e.target.value
+        setUpdateItem({...updateItem, translation: {...updateItem.translation,
+                [path]: {...updateItem.translation[path], [val]: text}}});
     }, [updateItem]);
 
     const handleSelectChange = useCallback((selectedOption) => {
@@ -46,14 +57,40 @@ function UpdateItemPackages({updateItem, setUpdateItem}) {
                     <FaWindowClose onClick={handleClose} className={'close'}/>
                     <form>
                         <div className={'cont'}>
-                            <div className={'input_item'}>
-                                <input
-                                    onChange={(e) => handleChange(e, "name")}
-                                    value={updateItem.name}
-                                    placeholder={"name updateItem..."}
-                                    type="text"
-                                />
+                            <h3 onClick={() => {
+                                setNameOpen(!nameOpen)
+                            }}>Name  {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                            {nameOpen && <div className={"open_input"}>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.en.name}
+                                        onChange={(e) => handleChangeText(e, "en", "name")}
+                                        placeholder={'English name...'}
+                                        type="text"/>
+                                </div>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.ru.name}
+                                        onChange={(e) => handleChangeText(e, "ru", "name")}
+                                        placeholder={'Russian name...'}
+                                        type="text"/>
+                                </div>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.am.name}
+                                        onChange={(e) => handleChangeText(e, "am", "name")}
+                                        placeholder={'Armenian name...'}
+                                        type="text"/>
+                                </div>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.pl.name}
+                                        onChange={(e) => handleChangeText(e, "pl", "name")}
+                                        placeholder={'Polish name...'}
+                                        type="text"/>
+                                </div>
                             </div>
+                            }
 
                             <Select defaultValue={{value: updateItem.activePage, label: updateItem.activePage}}
                                     options={activePricePage}

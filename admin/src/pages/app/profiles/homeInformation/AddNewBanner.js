@@ -8,6 +8,9 @@ import {Account} from "../../../../helpers/account";
 import {bannerAddRequest} from "../../../../store/actions/banner";
 
 function AddNewBanner() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [banner, setBanner] = useState({
         title: {
             en: "",
@@ -32,8 +35,6 @@ function AddNewBanner() {
 
     const errors = useSelector(state => state.banner.errors);
     const loading = useSelector(state => state.banner.loading);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const handleChangeText = useCallback((e, path, val) => {
         const text = e.target.value

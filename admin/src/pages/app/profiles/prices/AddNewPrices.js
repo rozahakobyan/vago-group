@@ -7,10 +7,19 @@ import Button from "../../../../components/Button";
 import { pricesAddRequest } from '../../../../store/actions/prices';
 import Select from "react-select";
 import activePricePage from "../../../../assets/data/activePricePage";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp} from "react-icons/md";
 
 const AddNewPrices = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    
     const [price, setPrice] = useState({
-        name: "",
+        name:{
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
+        },
         advanced: "",
         premium: "",
         standard: "",
@@ -18,13 +27,17 @@ const AddNewPrices = () => {
         active: false
     });
     const [selected, setSelected] = useState(null);
-
+    const [nameOpen, setNameOpen] = useState(false);
+    
     const errors = useSelector(state => state.prices.errors);
     const loading = useSelector(state => state.prices.loading);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    const handleChangeText = useCallback((e, path) => {
+    
+    const handleChangeText = useCallback((e, path, val) => {
+        const text = e.target.value
+        setPrice({...price, [path]: {...price[path], [val]: text}});
+    }, [price]);
+    
+    const handleChange = useCallback((e, path) => {
         const text = e.target.value
         setPrice({...price, [path]: text});
     }, [price]);
@@ -56,19 +69,49 @@ const AddNewPrices = () => {
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
-                        <div className={'input_item'}>
-                            <input
-                                value={price.name}
-                                onChange={(e) => handleChangeText(e, "name")}
-                                placeholder={'name prices...'}
-                                type="text"/>
+                        <h3 onClick={() => {
+                            setNameOpen(!nameOpen)
+                        }}>Name {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {nameOpen && <div className={"open_input"}>
+                            <div className={'input_item'}>
+                                <input
+                                    value={price.name.en}
+                                    onChange={(e) => handleChangeText(e, "name", "en")}
+                                    placeholder={'English name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.en ? <small>{errors.name.en}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={price.name.ru}
+                                    onChange={(e) => handleChangeText(e, "name", "ru")}
+                                    placeholder={'Russian name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.ru ? <small>{errors.name.ru}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={price.name.am}
+                                    onChange={(e) => handleChangeText(e, "name", "am")}
+                                    placeholder={'Armenian name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.am ? <small>{errors.name.am}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={price.name.pl}
+                                    onChange={(e) => handleChangeText(e, "name", "pl")}
+                                    placeholder={'Polish name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.pl ? <small>{errors.name.pl}</small> : null}
                         </div>
-                        {errors?.name ? <small>{errors?.name}</small> : null}
+                        }
 
                         <div className={'input_item'}>
                             <input
                                 value={price.advanced}
-                                onChange={(e) => handleChangeText(e, "advanced")}
+                                onChange={(e) => handleChange(e, "advanced")}
                                 placeholder={'advanced prices...'}
                                 type="text"/>
                         </div>
@@ -77,7 +120,7 @@ const AddNewPrices = () => {
                         <div className={'input_item'}>
                             <input
                                 value={price.premium}
-                                onChange={(e) => handleChangeText(e, "premium")}
+                                onChange={(e) => handleChange(e, "premium")}
                                 placeholder={'premium prices...'}
                                 type="text"/>
                         </div>
@@ -86,7 +129,7 @@ const AddNewPrices = () => {
                         <div className={'input_item'}>
                             <input
                                 value={price.standard}
-                                onChange={(e) => handleChangeText(e, "standard")}
+                                onChange={(e) => handleChange(e, "standard")}
                                 placeholder={'standard prices...'}
                                 type="text"/>
                         </div>

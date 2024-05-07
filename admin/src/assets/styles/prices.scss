@@ -91,6 +91,18 @@
       align-items: flex-start;
 
       .cont {
+
+        .open_input{
+          animation: growDown 300ms ease-in-out forwards;
+        }
+
+        h3{
+          color: #0e5287;
+          font-weight: 600;
+          font-family: $robotoFont;
+          cursor: pointer;
+        }
+
         .input_item {
           width: 450px;
           height: 45px;
@@ -137,5 +149,18 @@
 
   .isActive {
     animation: slide-out-elliptic-top-bck .7s ease-in both;
+  }
+}
+
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0)
+  }
+  80% {
+    transform: scaleY(1.1)
+  }
+  100% {
+    transform: scaleY(1)
   }
 }

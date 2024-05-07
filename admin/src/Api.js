@@ -196,7 +196,7 @@ export class Api {
     }
 
     static productsUpdate(arg) {
-        const {id, isActive, createdAt, products, updatedAt, ...data} = arg;
+        const {id, isActive, createdAt, products, translationId, updatedAt, ...data} = arg;
 
         return api.put(`/products/update/${id}`, data, {
             headers: {
@@ -266,7 +266,7 @@ export class Api {
     }
 
     static pricesUpdate(arg) {
-        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+        const {id, isActive, translationId, createdAt, updatedAt, ...data} = arg;
 
         return api.put(`/prices/update/${id}`, data);
     }
@@ -284,7 +284,7 @@ export class Api {
     }
 
     static packagesUpdate(arg) {
-        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+        const {id, isActive, translationId, createdAt, updatedAt, ...data} = arg;
 
         return api.put(`/packages/update/${id}`, data);
     }
@@ -302,7 +302,7 @@ export class Api {
     }
 
     static servicesUpdate(arg) {
-        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+        const {id, isActive, translationId, createdAt, updatedAt, ...data} = arg;
 
         return api.put(`/services/update/${id}`, data);
     }

@@ -20,7 +20,7 @@ function Service({service, updateItem, setUpdateItem}) {
 
     return (
         <div className={'item'}>
-            <h3>Name - {service.name}</h3>
+            <h3>Name - {service.translation.en.name}</h3>
             <h3>Price - {service.number}</h3>
             <ul className="icon_row">
                 <li

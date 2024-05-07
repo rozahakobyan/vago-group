@@ -1,5 +1,7 @@
 import HttpError from "http-errors";
 import Services from "../models/Services.js";
+import Translation from "../models/Translation.js";
+import Banner from "../models/Banner.js";
 
 class ServicesController {
     static async add (req, res, next){
@@ -14,7 +16,32 @@ class ServicesController {
                 })
             }
 
-            const service = await Services.create({name, number})
+            const translation = await Translation.create({
+                en: {
+                    name: name.en
+                },
+                ru: {
+                    name: name.ru
+                },
+                am: {
+                    name: name.am
+                },
+                pl: {
+                    name: name.pl
+                },
+            })
+
+            const serviceCreate = await Services.create({name: name.en, number, translationId: translation.id})
+
+            const service = await Banner.findOne({
+                where: {
+                    id: serviceCreate.id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
 
             res.json({
                 status: "ok",
@@ -27,12 +54,14 @@ class ServicesController {
 
     static async update (req, res, next){
         try{
-            const {name, number} = req.body;
+            const {name, number, translation} = req.body;
             const { id } = req.params;
 
             const service = await Services.findOne({
                 where: {id}
             })
+
+            const translations = await Translation.findByPk(service.translationId);
 
             if (!service) {
                 throw HttpError(404, {
@@ -42,7 +71,8 @@ class ServicesController {
                 })
             }
 
-            await service.update({name, number})
+            await service.update({name: translation.en.name, number})
+            await translations.update(translation)
 
             res.json({
                 status: "ok",
@@ -58,6 +88,7 @@ class ServicesController {
             const { id } = req.params;
 
             const service = await Services.findByPk(id)
+            const translation = await Translation.findByPk(service.translationId);
 
             if (!service) {
                 throw HttpError(404, {
@@ -67,7 +98,16 @@ class ServicesController {
                 })
             }
 
+            if (!translation) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
             await service.destroy()
+            await translation.destroy()
 
             res.json({
                 status: "ok"
@@ -79,7 +119,11 @@ class ServicesController {
 
     static async list (req, res, next){
         try{
-            const services = await Services.findAll()
+            const services = await Services.findAll({
+                include: {
+                    model: Translation,
+                    required: false,
+                }})
 
             res.json({
                 status: "ok",

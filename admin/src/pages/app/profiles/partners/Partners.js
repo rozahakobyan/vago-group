@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 import LoadingPage from "../../../../components/LoadingPage";
 import { partnersListRequest } from '../../../../store/actions/partners';
-import ReactPaginate from "react-paginate";
 import Partner from "../../../../components/partners/Partner";
 
 function Partners() {

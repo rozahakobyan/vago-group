@@ -7,6 +7,8 @@ import sequelize from "../services/sequelize.js";
 import fss from "fs";
 import resizeImages from "../helper/resizeImages.js";
 import {Op} from "sequelize";
+import Translation from "../models/Translation.js";
+import Banner from "../models/Banner.js";
 
 class ProductsController {
     static async add (req, res, next){
@@ -29,9 +31,27 @@ class ProductsController {
                     }
                 })
             }
-            const products = await Products.create({name, price, image: file.filename})
 
-            const destFolder = `public/products/product_${products.id}`
+            const translation = await Translation.create({
+                en: {
+                    name: name.en
+                },
+                ru: {
+                    name: name.ru
+                },
+                am: {
+                    name: name.am
+                },
+                pl: {
+                    name: name.pl
+                },
+            })
+
+            const productCreate = await Products.create({name: name.en, price,
+                image: file.filename,
+                translationId: translation.id})
+
+            const destFolder = `public/products/product_${productCreate.id}`
 
             if (!fss.existsSync(destFolder)) {
                 fss.mkdirSync(destFolder)
@@ -46,9 +66,19 @@ class ProductsController {
             await resizeImages(file.path, root, file.filename, 2);
             await resizeImages(file.path, root, file.filename, 3);
 
+            const product = await Banner.findOne({
+                where: {
+                    id: productCreate.id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
+
             res.json({
                 status: "ok",
-                products
+                product
             })
         }catch (e) {
             next(e)
@@ -57,11 +87,12 @@ class ProductsController {
 
     static async update (req, res, next){
         try{
-            const {name, price} = req.body;
+            const {name, price, translation} = req.body;
             const { id } = req.params;
             const {file} = req;
 
             const product = await Products.findByPk(+id);
+            const translations = await Translation.findByPk(product.translationId);
 
             if (!product) {
                 throw HttpError(404, {
@@ -91,10 +122,11 @@ class ProductsController {
                 await resizeImages(file.path, destFolder, file.filename, 2);
                 await resizeImages(file.path, destFolder, file.filename, 3);
 
-                await product.update({ name, price, image: file.filename });
-
+                await product.update({ name: translation.en.name, price, image: file.filename });
+                await translations.update(translation)
             } else {
-                await product.update({ name, price });
+                await product.update({ name: translation.en.name, price });
+                await translations.update(translation)
             }
 
             res.json({
@@ -111,8 +143,17 @@ class ProductsController {
             const { id } = req.params;
 
             const product = await Products.findByPk(id)
+            const translation = await Translation.findByPk(product.translationId);
 
             if (!product) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
+            if (!translation) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -125,6 +166,7 @@ class ProductsController {
             await fs.rm(imagePath, { recursive: true, force: true })
 
             await product.destroy()
+            await translation.destroy()
 
             res.json({
                 status: "ok"
@@ -153,6 +195,10 @@ class ProductsController {
                 order: [
                     ['name', 'ASC'],
                 ],
+                include: {
+                    model: Translation,
+                    required: false,
+                },
                 where,
                 limit: Number(limit),
                 offset

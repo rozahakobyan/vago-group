@@ -4,6 +4,8 @@ import path from "path";
 import sharp from "sharp";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
+import Translation from "../models/Translation.js";
+import Banner from "../models/Banner.js";
 
 class PartnersController {
     static async add (req, res, next){
@@ -40,8 +42,34 @@ class PartnersController {
                 })
                 .toFile(path.join(root, file.filename + '.webp'))
 
+            const translation = await Translation.create({
+                en: {
+                    name: name.en
+                },
+                ru: {
+                    name: name.ru
+                },
+                am: {
+                    name: name.am
+                },
+                pl: {
+                    name: name.pl
+                },
+            })
 
-            const partner = await Partners.create({name, image: file.filename})
+            const partnerCreate = await Partners.create({name: name.en,
+                image: file.filename,
+                translationId: translation.id})
+
+            const partner = await Banner.findOne({
+                where: {
+                    id: partnerCreate.id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
 
             res.json({
                 status: "ok",
@@ -54,11 +82,12 @@ class PartnersController {
 
     static async update (req, res, next){
         try{
-            const {name} = req.body;
+            const {name, translation} = req.body;
             const { id } = req.params;
             const {file} = req;
 
             const partner = await Partners.findByPk(+id);
+            const translations = await Translation.findByPk(partner.translationId);
 
             if (!partner) {
                 throw HttpError(404, {
@@ -87,9 +116,11 @@ class PartnersController {
                     })
                     .toFile(path.join(root, file.filename + '.webp'))
     
-                await partner.update({name, image: file.filename})
+                await partner.update({name: translation.en.name, image: file.filename})
+                await translations.update(translation)
             }else{
-                await partner.update({name})
+                await partner.update({name: translation.en.name})
+                await translations.update(translation)
             }
 
             res.json({
@@ -106,8 +137,17 @@ class PartnersController {
             const { id } = req.params;
 
             const partner = await Partners.findByPk(id)
+            const translation = await Translation.findByPk(partner.translationId);
 
             if (!partner) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
+            if (!translation) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -122,6 +162,7 @@ class PartnersController {
             }
 
             await partner.destroy()
+            await translation.destroy()
 
             res.json({
                 status: "ok"
@@ -136,8 +177,11 @@ class PartnersController {
             const partners = await Partners.findAll({
                 attributes: [ 'id', 'name',
                     [sequelize.literal(`CONCAT('partners/', image)`), 'image']
-                ]
-            })
+                ],
+                include: {
+                    model: Translation,
+                    required: false,
+                }})
 
             res.json({
                 status: "ok",

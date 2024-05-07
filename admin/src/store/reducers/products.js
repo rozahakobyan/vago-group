@@ -22,8 +22,8 @@ export const products = createReducer(initialState, (builder) => {
             state.product.isLoading = action.payload.arg
         })
         .addCase(productsAddRequest.fulfilled, (state, action) => {
-            const {products} = action.payload;
-            state.product = products;
+            const {product} = action.payload;
+            state.product = product;
             state.loading = false;
         })
         .addCase(productsAddRequest.pending, (state) => {

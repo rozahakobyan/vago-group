@@ -1,6 +1,6 @@
 import {Router} from "express";
 import validate from "../middelwares/validate.js";
-import prices from "../schema/prices.js";
+import prices from "../schema/pricesSchema.js";
 import PricesController from "../controllers/PricesController.js";
 
 const router = Router()

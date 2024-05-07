@@ -20,7 +20,7 @@ function Partner({partner, updateItem, setUpdateItem}) {
     return (
         <div className={'item'}>
             <img src={`${API_URL}/${partner.image}`} alt={""}/>
-            <h3>{partner.name}</h3>
+            <h3>{partner.translation.en.name}</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(partner)}
