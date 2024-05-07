@@ -2,7 +2,6 @@ import HttpError from "http-errors";
 import Packages from "../models/Packages.js";
 import {Op} from "sequelize";
 import Translation from "../models/Translation.js";
-import Banner from "../models/Banner.js";
 
 class PackagesController {
     static async add (req, res, next){
@@ -36,7 +35,7 @@ class PackagesController {
                 standard, activePage,
                 translationId: translation.id})
 
-            const packages = await Banner.findOne({
+            const packages = await Packages.findOne({
                 where: {
                     id: packagesCreate.id
                 },

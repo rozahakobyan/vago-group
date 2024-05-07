@@ -133,8 +133,6 @@ class BannerController {
             const banner = await Banner.findByPk(+id);
             const translations = await Translation.findByPk(banner.translationId);
 
-            console.log({title, description, translation})
-
             if (!banner) {
                 throw HttpError(404, {
                     errors: {
@@ -162,7 +160,7 @@ class BannerController {
                     })
                     .toFile(path.join(root, homeImage[0].filename + '.webp'))
 
-                await banner.update({active, homeImage: homeImage[0].filename})
+                await banner.update({homeImage: homeImage[0].filename})
             }
 
             if(constructionImage){
@@ -184,7 +182,7 @@ class BannerController {
                     })
                     .toFile(path.join(root, constructionImage[0].filename + '.webp'))
 
-                await banner.update({active, constructionImage: constructionImage[0].filename})
+                await banner.update({constructionImage: constructionImage[0].filename})
             }
 
             if(employmentAgencyImage){
@@ -206,7 +204,7 @@ class BannerController {
                     })
                     .toFile(path.join(root, employmentAgencyImage[0].filename + '.webp'))
 
-                await banner.update({active, employmentAgencyImage: employmentAgencyImage[0].filename})
+                await banner.update({employmentAgencyImage: employmentAgencyImage[0].filename})
             }
 
             if(logisticImage){
@@ -228,20 +226,11 @@ class BannerController {
                     })
                     .toFile(path.join(root, logisticImage[0].filename + '.webp'))
 
-                await banner.update({active, logisticImage: logisticImage[0].filename})
+                await banner.update({logisticImage: logisticImage[0].filename})
             }
 
-            // if(!homeImage && !constructionImage && !employmentAgencyImage && !logisticImage){
-            //     if(titles && titles.en){
-            //         await banner.update({title: titles.en, description, active})
-            //     }
-            //     if(descriptions && descriptions.en){
-            //         await banner.update({title, description: descriptions.en, active})
-            //     }
-            //     if(!titles.en && !descriptions.en){
-            //         await banner.update({active})
-            //     }
-            // }
+            await banner.update({title: translation.en.title, description: translation.en.description, active})
+            await translations.update(translation)
 
             const bannerUpdate = await Banner.findOne({
                 where: {
@@ -324,7 +313,7 @@ class BannerController {
 
             const banners = await Banner.findAll({
                 where,
-                attributes: [ 'id', 'active', 'title', 'description',
+                attributes: [ 'id', 'active', 'title', 'description', 'translationId',
                     [sequelize.literal(`CONCAT('banner/', homeImage)`), 'homeImage'],
                     [sequelize.literal(`CONCAT('banner/', constructionImage)`), 'constructionImage'],
                     [sequelize.literal(`CONCAT('banner/', employmentAgencyImage)`), 'employmentAgencyImage'],

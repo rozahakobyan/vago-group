@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {Helmet} from "react-helmet";
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
@@ -10,18 +10,36 @@ import Select from "react-select";
 import status from "../../../../assets/data/status";
 
 const AddNewProjects = () => {
-    const [project, setProject] = useState({name: "", description: "", status: "", image: null});
-    const [selected, setSelected] = useState(null);
-    const [error, setError] = useState(null);
-    const errors = useSelector(state => state.projects.errors);
-    const loading = useSelector(state => state.projects.loading);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleChangeText = useCallback((e, path) => {
+    const [project, setProject] = useState({
+        name: {
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
+        },
+        description: {
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
+        },
+        status: "",
+        image: null});
+    const [selected, setSelected] = useState(null);
+    const [error, setError] = useState(null);
+    const [nameOpen, setNameOpen] = useState(false);
+    const [descOpen, setDescOpen] = useState(false);
+    
+    const errors = useSelector(state => state.projects.errors);
+    const loading = useSelector(state => state.projects.loading);
+
+    const handleChangeText = useCallback((e, path, val) => {
         const text = e.target.value
         if(text.length <= 300){
-            setProject({...project, [path]: text});
+            setProject({...project, [path]: {...project[path], [val]: text}});
             setError("")
         }else{
             setError("Text Long !!!")
@@ -55,24 +73,75 @@ const AddNewProjects = () => {
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
-                        <div className={'input_item'}>
-                            <input
-                                value={project.name}
-                                onChange={(e) => handleChangeText(e, "name")}
-                                placeholder={'name...'}
-                                type="text"/>
+                        <h3 onClick={() => {
+                            setNameOpen(!nameOpen)
+                        }}>Name {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {nameOpen && <div className={"open_input"}>
+                            <div className={'input_item'}>
+                                <input
+                                    value={project.name.en}
+                                    onChange={(e) => handleChangeText(e, "name", "en")}
+                                    placeholder={'English name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.en ? <small>{errors.name.en}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={project.name.ru}
+                                    onChange={(e) => handleChangeText(e, "name", "ru")}
+                                    placeholder={'Russian name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.ru ? <small>{errors.name.ru}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={project.name.am}
+                                    onChange={(e) => handleChangeText(e, "name", "am")}
+                                    placeholder={'Armenian name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.am ? <small>{errors.name.am}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={project.name.pl}
+                                    onChange={(e) => handleChangeText(e, "name", "pl")}
+                                    placeholder={'Polish name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.pl ? <small>{errors.name.pl}</small> : null}
                         </div>
-
-                        {errors?.name ? <small>{errors?.name}</small> : null}
-
-                        <div className={'desc_text'}>
+                        }
+                        <h3 onClick={() => {
+                            setDescOpen(!descOpen)
+                            setNameOpen(false)
+                        }}>Description {descOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {descOpen && <div className={"open_input"}>
+                            <div className={'desc_text'}>
                                 <textarea
-                                    value={project.description}
-                                    onChange={(e) => handleChangeText(e, "description")}
-                                    placeholder={'Description text...'}/>
-                        </div>
-
-                        {errors?.description ? <small>{errors.description}</small> : null}
+                                    value={project.description.en}
+                                    onChange={(e) => handleChangeText(e, "description", "en")}
+                                    placeholder={'English Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={project.description.ru}
+                                    onChange={(e) => handleChangeText(e, "description", "ru")}
+                                    placeholder={'Russian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={project.description.am}
+                                    onChange={(e) => handleChangeText(e, "description", "am")}
+                                    placeholder={'Armenian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={project.description.pl}
+                                    onChange={(e) => handleChangeText(e, "description", "pl")}
+                                    placeholder={'Polish Description text...'}/>
+                            </div>
+                        </div>}
+                        
                         {error ? <small>{error}</small> : null}
 
 

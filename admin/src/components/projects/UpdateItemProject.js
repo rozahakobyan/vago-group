@@ -1,8 +1,8 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from "react-icons/md";
 import classNames from "classnames";
 import {API_URL} from "../../Api";
 import { isLoading, projectsUpdateRequest } from '../../store/actions/projects';
@@ -11,17 +11,30 @@ import status from "../../assets/data/status";
 
 function UpdateItemProject({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
+
+    const [error, setError] = useState(null);
+    const [nameOpen, setNameOpen] = useState(false);
+    const [descOpen, setDescOpen] = useState(false);
+
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
+        setNameOpen(false)
+        setDescOpen(false)
     }, [updateItem]);
 
     const handleSelectChange = useCallback((selectedOption) => {
         setUpdateItem({...updateItem, status: selectedOption.label})
     }, [updateItem])
 
-    const handleChange = useCallback((e, path) => {
+    const handleChangeText = useCallback((e, path, val) => {
         const text = e.target.value
-        setUpdateItem({...updateItem, [path]: text})
+        if(text.length <= 300){
+            setUpdateItem({...updateItem, translation: {...updateItem.translation,
+                    [path]: {...updateItem.translation[path], [val]: text}}});
+            setError("")
+        }else{
+            setError("Text Long !!!")
+        }
     }, [updateItem]);
 
     const handleChangeFile = useCallback((e) => {
@@ -47,19 +60,71 @@ function UpdateItemProject({updateItem, setUpdateItem}) {
                     <FaWindowClose onClick={handleClose} className={'close'}/>
                     <form>
                         <div className={'cont'}>
-                            <div className={'input_item'}>
-                                <input
-                                    onChange={(e) => handleChange(e, "name")}
-                                    value={updateItem.name || ''}
-                                    type="text"
-                                />
-                            </div>
-                            <div className={'desc_text'}>
+                            <h3 onClick={() => {
+                                setNameOpen(!nameOpen)
+                                setDescOpen(false)
+                            }}>Name  {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                            {nameOpen && <div className={"open_input"}>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.en.name}
+                                        onChange={(e) => handleChangeText(e, "en", "name")}
+                                        placeholder={'English name...'}
+                                        type="text"/>
+                                </div>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.ru.name}
+                                        onChange={(e) => handleChangeText(e, "ru", "name")}
+                                        placeholder={'Russian name...'}
+                                        type="text"/>
+                                </div>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.am.name}
+                                        onChange={(e) => handleChangeText(e, "am", "name")}
+                                        placeholder={'Armenian name...'}
+                                        type="text"/>
+                                </div>
+                                <div className={'input_item'}>
+                                    <input
+                                        value={updateItem.translation.pl.name}
+                                        onChange={(e) => handleChangeText(e, "pl", "name")}
+                                        placeholder={'Polish name...'}
+                                        type="text"/>
+                                </div>
+                            </div>}
+                            <h3 onClick={() => {
+                                setDescOpen(!descOpen)
+                                setNameOpen(false)
+                            }}>Description {descOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                            {descOpen && <div className={"open_input"}>
+                                <div className={'desc_text'}>
                                 <textarea
-                                    value={updateItem.description}
-                                    onChange={(e) => handleChange(e, "description")}
-                                    placeholder={'Description text...'}/>
-                            </div>
+                                    value={updateItem.translation.en.description}
+                                    onChange={(e) => handleChangeText(e, "en", "description")}
+                                    placeholder={'English Description text...'}/>
+                                </div>
+                                <div className={'desc_text'}>
+                                <textarea
+                                    value={updateItem.translation.ru.description}
+                                    onChange={(e) => handleChangeText(e, "ru", "description")}
+                                    placeholder={'Russian Description text...'}/>
+                                </div>
+                                <div className={'desc_text'}>
+                                <textarea
+                                    value={updateItem.translation.am.description}
+                                    onChange={(e) => handleChangeText(e, "am", "description")}
+                                    placeholder={'Armenian Description text...'}/>
+                                </div>
+                                <div className={'desc_text'}>
+                                <textarea
+                                    value={updateItem.translation.pl.description}
+                                    onChange={(e) => handleChangeText(e, "pl", "description")}
+                                    placeholder={'Polish Description text...'}/>
+                                </div>
+                            </div>}
+                            {error ? <small>{error}</small> : null}
                             <Select defaultValue={{value: updateItem.status, label: updateItem.status}}
                                     options={status}
                                     onChange={handleSelectChange}

@@ -2,7 +2,6 @@ import HttpError from "http-errors";
 import Prices from "../models/Prices.js";
 import {Op} from "sequelize";
 import Translation from "../models/Translation.js";
-import Banner from "../models/Banner.js";
 
 class PricesController {
     static async add (req, res, next){
@@ -35,7 +34,7 @@ class PricesController {
             const priceCreate = await Prices.create({name: name.en, advanced, premium,
                 standard, active, activePage, translationId: translation.id})
 
-            const price = await Banner.findOne({
+            const price = await Prices.findOne({
                 where: {
                     id: priceCreate.id
                 },

@@ -8,7 +8,6 @@ import fss from "fs";
 import resizeImages from "../helper/resizeImages.js";
 import {Op} from "sequelize";
 import Translation from "../models/Translation.js";
-import Banner from "../models/Banner.js";
 
 class ProductsController {
     static async add (req, res, next){
@@ -66,7 +65,7 @@ class ProductsController {
             await resizeImages(file.path, root, file.filename, 2);
             await resizeImages(file.path, root, file.filename, 3);
 
-            const product = await Banner.findOne({
+            const product = await Products.findOne({
                 where: {
                     id: productCreate.id
                 },

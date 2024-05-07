@@ -2,9 +2,9 @@ import Joi from 'joi';
 
 export default {
     add: Joi.object({
-        name: Joi.string().max(255).required(),
+        name: Joi.object().required(),
         department: Joi.string().max(255).required(),
-        description: Joi.string().max(255).required(),
+        description: Joi.object().required(),
         price: Joi.string().max(255).required(),
         hoursWeek: Joi.number().min(0).required(),
         image: Joi.string().max(255),
@@ -16,6 +16,7 @@ export default {
         description: Joi.string().max(255),
         price: Joi.string().max(255),
         hoursWeek: Joi.number().min(0),
+        translation: Joi.object(),
         image: Joi.string().max(255),
         schedule:Joi.array().items(Joi.string().allow(null,'')),
     }),

@@ -8,13 +8,26 @@ import {AiFillDelete} from "react-icons/ai";
 import {worksAddRequest} from "../../../../store/actions/works";
 import Select from "react-select";
 import departments from "../../../../assets/data/departments"
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from "react-icons/md";
 
 function AddNewWork() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    
     const [work, setWork] = useState({
-        name: "",
+        name: {
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
+        },
         department: "",
-        description: "",
+        description: {
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
+        },
         price: "",
         hoursWeek: null,
         image: null,
@@ -23,13 +36,19 @@ function AddNewWork() {
     const [selected, setSelected] = useState(null);
     const [text, setText] = useState("");
     const [textError, setTextError] = useState("");
+    const [nameOpen, setNameOpen] = useState(false);
+    const [descOpen, setDescOpen] = useState(false);
+
     const errors = useSelector(state => state.works.errors);
     const loading = useSelector(state => state.works.loading);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
 
-    const handleChangeText = useCallback((text, path) => {
+    const handleChange = useCallback((text, path) => {
         setWork({...work, [path]: text});
+    }, [work]);
+
+    const handleChangeText = useCallback((e, path, val) => {
+        const text = e.target.value
+        setWork({...work, [path]: {...work[path], [val]: text}});
     }, [work]);
 
     const handleSelectChange = useCallback((selectedOption) => {
@@ -76,14 +95,44 @@ function AddNewWork() {
             <div className="add_con">
                 <form>
                     <div className="left_row">
-                        <div className={'input_item'}>
-                            <input
-                                value={work.name}
-                                onChange={(e) => handleChangeText(e.target.value, "name")}
-                                placeholder={'name...'}
-                                type="text"/>
+                        <h3 onClick={() => {
+                            setNameOpen(!nameOpen)
+                        }}>Name {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {nameOpen && <div className={"open_input"}>
+                            <div className={'input_item'}>
+                                <input
+                                    value={work.name.en}
+                                    onChange={(e) => handleChangeText(e, "name", "en")}
+                                    placeholder={'English name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.en ? <small>{errors.name.en}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={work.name.ru}
+                                    onChange={(e) => handleChangeText(e, "name", "ru")}
+                                    placeholder={'Russian name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.ru ? <small>{errors.name.ru}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={work.name.am}
+                                    onChange={(e) => handleChangeText(e, "name", "am")}
+                                    placeholder={'Armenian name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.am ? <small>{errors.name.am}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={work.name.pl}
+                                    onChange={(e) => handleChangeText(e, "name", "pl")}
+                                    placeholder={'Polish name...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.name?.pl ? <small>{errors.name.pl}</small> : null}
                         </div>
-                        {errors.name ? <small className={'errors_message'}>{errors.name}</small> : null}
+                        }
                         <Select value={selected}
                                 options={departments}
                                 onChange={handleSelectChange}
@@ -94,11 +143,11 @@ function AddNewWork() {
                         <div className={'input_item'}>
                             <input
                                 value={work.hoursWeek}
-                                onChange={(e) => handleChangeText(e.target.value, "hoursWeek")}
+                                onChange={(e) => handleChange(e.target.value, "hoursWeek")}
                                 placeholder={'hoursWeek...'}
                                 type="number"/>
                         </div>
-                        {errors.hoursWeek ? <small className={'errors_message'}>{errors.hoursWeek}</small> : null}
+                        {errors?.hoursWeek ? <small className={'errors_message'}>{errors.hoursWeek}</small> : null}
                         <div className={'item_file_cat'}>
                             <label
                                 htmlFor="file-upload"
@@ -113,7 +162,7 @@ function AddNewWork() {
                                 accept="image/*"
                                 id="file-upload"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors.file}</small> : null}
                         </div>
                         {
                             work.image ?
@@ -149,20 +198,42 @@ function AddNewWork() {
                                 <input
                                     placeholder={'Price...'}
                                     value={work.price}
-                                    onChange={(e) => handleChangeText(e.target.value, "price")}
+                                    onChange={(e) => handleChange(e.target.value, "price")}
                                     type="text"/>
                             </div>
                         </div>
-                        {errors.price ? <small className={'errors_message'}>{errors.price}</small> : null}
+                        {errors?.price ? <small className={'errors_message'}>{errors.work}</small> : null}
 
-                        <div className={'desc_text'}>
+                        <h3 onClick={() => {
+                            setDescOpen(!descOpen)
+                            setNameOpen(false)
+                        }}>Description {descOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {descOpen && <div className={"open_input"}>
+                            <div className={'desc_text'}>
                                 <textarea
-                                    onChange={(e) => handleChangeText(e.target.value, "description")}
-                                    value={work.description}
-                                    placeholder={'Description text...'}/>
-                        </div>
-                        {errors.description ?
-                            <small className={'errors_message'}>{errors.description}</small> : null}
+                                    value={work.description.en}
+                                    onChange={(e) => handleChangeText(e, "description", "en")}
+                                    placeholder={'English Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={work.description.ru}
+                                    onChange={(e) => handleChangeText(e, "description", "ru")}
+                                    placeholder={'Russian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={work.description.am}
+                                    onChange={(e) => handleChangeText(e, "description", "am")}
+                                    placeholder={'Armenian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={work.description.pl}
+                                    onChange={(e) => handleChangeText(e, "description", "pl")}
+                                    placeholder={'Polish Description text...'}/>
+                            </div>
+                        </div>}
                         <Button title={'Save'} loading={loading} onClick={handleSubmitSave}/>
 
                     </div>

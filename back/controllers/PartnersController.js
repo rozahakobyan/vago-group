@@ -5,7 +5,6 @@ import sharp from "sharp";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
 import Translation from "../models/Translation.js";
-import Banner from "../models/Banner.js";
 
 class PartnersController {
     static async add (req, res, next){
@@ -61,7 +60,7 @@ class PartnersController {
                 image: file.filename,
                 translationId: translation.id})
 
-            const partner = await Banner.findOne({
+            const partner = await Partners.findOne({
                 where: {
                     id: partnerCreate.id
                 },

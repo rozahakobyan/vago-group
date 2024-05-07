@@ -89,7 +89,7 @@ export class Api {
     }
 
     static bannerUpdate(arg = {}) {
-        const {id, isActive, createdAt, translation, updatedAt, ...data} = arg;
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
 
         return api.put(`/banner/update/${id}`, data, {
             headers: {
@@ -170,7 +170,7 @@ export class Api {
     }
 
     static worksUpdate(arg) {
-        const {id, isActive, createdAt, updatedAt, schedules, ...data} = arg;
+        const {id, isActive, createdAt, updatedAt, translationId, schedules, ...data} = arg;
 
         return api.put(`/works/update/${id}`, data, {
             headers: {

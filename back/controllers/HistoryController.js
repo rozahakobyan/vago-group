@@ -2,7 +2,6 @@ import HttpError from "http-errors";
 import History from "../models/History.js";
 import {Op} from "sequelize";
 import Translation from "../models/Translation.js";
-import Banner from "../models/Banner.js";
 
 class HistoryController {
     static async add (req, res, next){
@@ -36,7 +35,7 @@ class HistoryController {
                 description: description.en,
                 translationId: translation.id})
 
-            const history = await Banner.findOne({
+            const history = await History.findOne({
                 where: {
                     id: historyCreate.id
                 },

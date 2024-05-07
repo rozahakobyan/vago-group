@@ -20,7 +20,7 @@ function Work({work, updateItem, setUpdateItem}) {
     return (
         <div className={'item'}>
             <img src={`${API_URL}/${work.image}`} alt={""}/>
-            <h3>Work - {work.name}</h3>
+            <h3>Work - {work.translation.en.name}</h3>
             <h3>Department - {work.department}</h3>
             <h3>Price - {work.price}</h3>
             <ul className="icon_row">

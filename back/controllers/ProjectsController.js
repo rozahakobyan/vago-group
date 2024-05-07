@@ -5,7 +5,7 @@ import HttpError from "http-errors";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
 import {Op} from "sequelize";
-import Galleries from "../models/Galleries.js";
+import Translation from "../models/Translation.js";
 
 class ProjectsController {
     static async add (req, res, next){
@@ -41,8 +41,39 @@ class ProjectsController {
                 })
                 .toFile(path.join(root, file.filename + '.webp'))
 
-            const project = await Project.create({
-                name, description, status, image: file.filename,
+            const translation = await Translation.create({
+                en: {
+                    name: name.en,
+                    description: description.en
+                },
+                ru: {
+                    name: name.ru,
+                    description: description.ru
+                },
+                am: {
+                    name: name.am,
+                    description: description.am
+                },
+                pl: {
+                    name: name.pl,
+                    description: description.pl
+                },
+            })
+
+            const projectCreate = await Project.create({
+                name: name.en, description: description.en,
+                status, image: file.filename,
+                translationId: translation.id
+            })
+
+            const project = await Project.findOne({
+                where: {
+                    id: projectCreate.id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
             })
 
             res.json({
@@ -57,15 +88,24 @@ class ProjectsController {
     static async update (req, res, next){
         try{
             const {id} = req.params;
-            const {name, description, status} = req.body;
+            const {name, description, translation, status} = req.body;
             const {file} = req;
 
             const project = await Project.findByPk(id);
+            const translations = await Translation.findByPk(project.translationId);
 
             if (!project) {
                 throw HttpError(422, {
                     errors: {
-                        error: 'No Image found'
+                        error: 'Not found'
+                    }
+                })
+            }
+
+            if (!translation) {
+                throw HttpError(422, {
+                    errors: {
+                        error: 'Not found'
                     }
                 })
             }
@@ -89,14 +129,28 @@ class ProjectsController {
                     })
                     .toFile(path.join(root, file.filename + '.webp'))
 
-                await project.update({image: file.filename, name, description, status})
+                await project.update({image: file.filename, name: translation.en.name,
+                    description: translation.en.description, status})
+                await translations.update(translation)
             }else{
-                await project.update({name, description, status})
+                await project.update({ name: translation.en.name,
+                    description: translation.en.description, status})
+                await translations.update(translation)
             }
+
+            const projectUpdate = await Project.findOne({
+                where: {
+                    id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
 
             res.json({
                 status: 'ok',
-                project
+                project: projectUpdate
             })
         }catch (e) {
             next(e)
@@ -108,8 +162,17 @@ class ProjectsController {
             const {id} = req.params;
 
             const project = await Project.findByPk(id);
+            const translation = await Translation.findByPk(project.translationId);
 
             if (!project) {
+                throw HttpError(422, {
+                    errors: {
+                        error: 'No Image found'
+                    }
+                })
+            }
+
+            if (!translation) {
                 throw HttpError(422, {
                     errors: {
                         error: 'No Image found'
@@ -124,6 +187,7 @@ class ProjectsController {
             }
 
             await project.destroy();
+            await translation.destroy();
 
             res.json({
                 status:'ok',
@@ -152,7 +216,12 @@ class ProjectsController {
                 offset,
                 attributes: [ 'id', 'name', 'description', 'status',
                     [sequelize.literal(`CONCAT('projects/', image)`), 'image']
-                ]});
+                ],
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            });
 
             const total = await Project.count();
 

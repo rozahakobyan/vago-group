@@ -6,6 +6,7 @@ import path from "path";
 import sharp from "sharp";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
+import Translation from "../models/Translation.js";
 
 class WorksController {
     static async add (req, res, next){
@@ -42,7 +43,29 @@ class WorksController {
                 })
                 .toFile(path.join(root, file.filename + '.webp'))
 
-            const work = await Works.create({name, department, price, hoursWeek, description, image: file.filename})
+            const translation = await Translation.create({
+                en: {
+                    name: name.en,
+                    description: description.en
+                },
+                ru: {
+                    name: name.ru,
+                    description: description.ru
+                },
+                am: {
+                    name: name.am,
+                    description: description.am
+                },
+                pl: {
+                    name: name.pl,
+                    description: description.pl
+                },
+            })
+
+            const work = await Works.create({
+                name: name.en, department,
+                price, hoursWeek, description: description.en,
+                image: file.filename, translationId: translation.id})
 
             if(schedule.length){
                 await WorksSchedules.bulkCreate(schedule.map(d => ({
@@ -60,8 +83,12 @@ class WorksController {
                         required: false,
                         attributes: ["id", "date"],
                     },
+                    {
+                        model: Translation,
+                        required: false,
+                    }
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "image"]
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "image", "translationId"]
             })
 
             res.json({
@@ -75,15 +102,23 @@ class WorksController {
 
     static async update (req, res, next){
         try{
-            const {name, department, price, hoursWeek, description, schedule = []} = req.body;
+            const {name, department, translation, price, hoursWeek, description, schedule = []} = req.body;
             const { id } = req.params;
             const {file} = req;
 
             const work = await Works.findOne({
                 where: {id}
             })
+            const translations = await Translation.findByPk(work.translationId);
 
             if (!work) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+            if (!translations) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -110,9 +145,13 @@ class WorksController {
                     })
                     .toFile(path.join(root, file.filename + '.webp'))
 
-                await work.update({name, department, price, hoursWeek, description, image: file.filename})
+                await work.update({name: translation.en.name, department, price,
+                    hoursWeek, description: translation.en.description, image: file.filename})
+                await translations.update(translation)
             }else{
-                await work.update({name, department, price, hoursWeek, description})
+                await work.update({name: translation.en.name, department,
+                    price, hoursWeek, description: translation.en.description})
+                await translations.update(translation)
             }
 
             if(schedule){
@@ -131,8 +170,12 @@ class WorksController {
                         required: false,
                         attributes: ["id", "date"],
                     },
+                    {
+                        model: Translation,
+                        required: false,
+                    }
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "image"]
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "image", "translationId"]
             })
 
             res.json({
@@ -149,8 +192,17 @@ class WorksController {
             const { id } = req.params;
 
             const work = await Works.findByPk(id)
+            const translation = await Translation.findByPk(work.translationId);
 
             if (!work) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
+            if (!translation) {
                 throw HttpError(404, {
                     errors: {
                         exists: 'Not Found'
@@ -165,6 +217,7 @@ class WorksController {
             }
 
             await work.destroy()
+            await translation.destroy()
 
             res.json({
                 status: "ok"
@@ -248,9 +301,12 @@ class WorksController {
                         as: "schedules",
                         required: false,
                         attributes: ["id", "date"],
-                    },
+                    },{
+                        model: Translation,
+                        required: false,
+                    }
                 ],
-                attributes: ["id", "name", "department", "price", "hoursWeek", "description",
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "translationId",
                     [sequelize.literal(`CONCAT('works/', image)`), 'image']],
                 limit,
                 offset

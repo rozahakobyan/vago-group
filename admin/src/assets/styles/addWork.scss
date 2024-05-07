@@ -88,6 +88,17 @@
         width: 50%;
         padding: 10px;
 
+        .open_input{
+          animation: growDown 300ms ease-in-out forwards;
+        }
+
+        h3{
+          color: #0e5287;
+          font-weight: 600;
+          font-family: $robotoFont;
+          cursor: pointer;
+        }
+
         small {
           color: red;
           font-size: 14px;
@@ -295,7 +306,7 @@
           textarea {
             border-radius: 10px;
             width: 90%;
-            height: 145px;
+            height: 100px;
             resize: none;
             padding: 10px;
             outline: none;
