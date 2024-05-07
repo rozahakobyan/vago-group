@@ -85,6 +85,7 @@ function Header() {
                                 </div>
 
                                 <div className={'header-block-language'}>
+
                                     <Select defaultValue={() => findSelectValue(language)}
                                             menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
                                             styles={{
@@ -105,6 +106,7 @@ function Header() {
                                             isSearchable={false}
                                             className="react-select-containers"
                                             classNamePrefix="react-selects"/>
+
                                 </div>
                             </div>
                         </div>

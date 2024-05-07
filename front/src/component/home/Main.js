@@ -14,15 +14,17 @@ function Main() {
     useEffect(() => {
         dispatch(bannerListRequest({ active: true }))
     }, [bannersList, language]);
-
-
+    
     return (
         <>
             {bannersList && bannersList.map(b => (
                 <section key={b.id}>
                     <div className="banner-panel" style={{
+
                         backgroundImage: `url(${API_URL}/${b.homeImage})`,
-                        backgroundRepeat: "no-repeat"
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
                     }}>
                         <div className="shade">
                             <div className="motto">
@@ -32,45 +34,45 @@ function Main() {
                         </div>
                     </div>
                 </section>
-            ))}
-
-
+            ))
+            }
+            
             <section>
                 <div className='services'>
                     <div className='service-title'>OUR SERVICES</div>
                     <div className='services-buttons'>
                         <div className='bigBlock'>
-                            <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
+                            <p style={{textAlign: 'center'}}>CONSTRUCTION</p>
                             <NavLink to={'/construction'}>
-                                <div className='services-button'>
-                                    <img src={'./img/construction.jpg'} alt={""} />
-                                </div>
-                            </NavLink>
-                        </div>
-
-                        <div className='bigBlock'>
-                            <p style={{ textAlign: 'center' }}>EMPLOYMENT-AGENCY</p>
-                            <NavLink to={'/employment-agency'}>
-                                <div className='services-button'>
-                                    <img src={'./img/recruitment.jpg'} alt={""} />
-                                </div>
-                            </NavLink>
-                        </div>
-
-                        <div className='bigBlock'>
-                            <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
-                            <NavLink to={'/logistic'}>
-                                <div className='services-button'>
-                                    <img src={'./img/logistic.jpg'} alt={""} />
-                                </div>
-                            </NavLink>
-                        </div>
-
+                    <div className='services-button'>
+                        <img src={'./img/construction.jpg'} alt={""} />
                     </div>
+                </NavLink>
+            </div>
 
-                </div>
+            <div className='bigBlock'>
+                <p style={{ textAlign: 'center' }}>EMPLOYMENT-AGENCY</p>
+                <NavLink to={'/employment-agency'}>
+                    <div className='services-button'>
+                        <img src={'./img/recruitment.jpg'} alt={""} />
+                    </div>
+                </NavLink>
+            </div>
 
-            </section>
+            <div className='bigBlock'>
+                <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
+                <NavLink to={'/logistic'}>
+                    <div className='services-button'>
+                        <img src={'./img/logistic.jpg'} alt={""} />
+                    </div>
+                </NavLink>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
         </>
     );
 }
