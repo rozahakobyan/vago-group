@@ -5,17 +5,28 @@ import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
 import {historiesAddRequest} from "../../../../store/actions/histories";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp} from "react-icons/md";
 
 const AddNewHistory = () => {
-    const [history, setHistory] = useState({description: "", active: false});
-    const errors = useSelector(state => state.histories.errors);
-    const loading = useSelector(state => state.histories.loading);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const handleChangeText = useCallback((e, path) => {
+    
+    const [history, setHistory] = useState({
+        description: {
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
+        },
+        active: false});
+    const [descOpen, setDescOpen] = useState(false);
+    
+    const errors = useSelector(state => state.histories.errors);
+    const loading = useSelector(state => state.histories.loading);
+    
+    const handleChangeText = useCallback((e, path, val) => {
         const text = e.target.value
-        setHistory({...history, [path]: text});
+        setHistory({...history, [path]: {...history[path], [val]: text}});
     }, [history]);
 
     const handleChangeActive = useCallback((e, path) => {
@@ -40,12 +51,35 @@ const AddNewHistory = () => {
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>
                     <div className="left_row">
-                        <div className={'desc_text'}>
+                        <h3 onClick={() => {
+                            setDescOpen(!descOpen)
+                        }}>Description {descOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {descOpen && <div className={"open_input"}>
+                            <div className={'desc_text'}>
                                 <textarea
-                                    value={history.description}
-                                    onChange={(e) => handleChangeText(e, "description")}
-                                    placeholder={'Description text...'}/>
-                        </div>
+                                    value={history.description.en}
+                                    onChange={(e) => handleChangeText(e, "description", "en")}
+                                    placeholder={'English Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={history.description.ru}
+                                    onChange={(e) => handleChangeText(e, "description", "ru")}
+                                    placeholder={'Russian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={history.description.am}
+                                    onChange={(e) => handleChangeText(e, "description", "am")}
+                                    placeholder={'Armenian Description text...'}/>
+                            </div>
+                            <div className={'desc_text'}>
+                                <textarea
+                                    value={history.description.pl}
+                                    onChange={(e) => handleChangeText(e, "description", "pl")}
+                                    placeholder={'Polish Description text...'}/>
+                            </div>
+                        </div>}
 
                         <div className={'input_item'}>
                             <label> Active History

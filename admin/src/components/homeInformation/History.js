@@ -21,7 +21,7 @@ function History({history, updateItem, setUpdateItem}) {
 
     return (
         <div className={`item${history.active ? " active" : ""}`}>
-            <span>{history.description}</span>
+            <span>{history.translation.en.description}</span>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(history)}

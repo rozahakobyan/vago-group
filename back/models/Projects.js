@@ -1,5 +1,6 @@
 import {DataTypes, Model} from "sequelize";
 import sequelize from "../services/sequelize.js";
+import Translation from "./Translation.js";
 
 class Projects extends Model{
 
@@ -34,5 +35,19 @@ Projects.init({
     tableName: "projects",
     modelName: "projects"
 })
+
+Projects.belongsTo(Translation,
+    {
+        foreignKey: "translationId",
+        onDelete: "CASCADE",
+        onUpdate: 'CASCADE',
+    })
+
+Translation.hasMany(Projects,
+    {
+        foreignKey: 'translationId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    });
 
 export default Projects

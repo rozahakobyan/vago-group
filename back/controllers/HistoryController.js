@@ -1,6 +1,8 @@
 import HttpError from "http-errors";
 import History from "../models/History.js";
 import {Op} from "sequelize";
+import Translation from "../models/Translation.js";
+import Banner from "../models/Banner.js";
 
 class HistoryController {
     static async add (req, res, next){
@@ -15,7 +17,34 @@ class HistoryController {
                 })
             }
 
-            const history = await History.create({active, description})
+            const translation = await Translation.create({
+                en: {
+                    description: description.en
+                },
+                ru: {
+                    description: description.ru
+                },
+                am: {
+                    description: description.am
+                },
+                pl: {
+                    description: description.pl
+                },
+            })
+
+            const historyCreate = await History.create({active,
+                description: description.en,
+                translationId: translation.id})
+
+            const history = await Banner.findOne({
+                where: {
+                    id: historyCreate.id
+                },
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
 
             res.json({
                 status: "ok",
@@ -28,12 +57,13 @@ class HistoryController {
 
     static async update (req, res, next){
         try{
-            const {active, description} = req.body;
+            const {active, description, translation} = req.body;
             const { id } = req.params;
 
             const history = await History.findOne({
                 where: {id}
             })
+            const translations = await Translation.findByPk(history.translationId);
 
             if (!history) {
                 throw HttpError(404, {
@@ -43,7 +73,8 @@ class HistoryController {
                 })
             }
 
-            await history.update({active, description})
+            await history.update({active, description: translation.en.description})
+            await translations.update(translation)
 
             res.json({
                 status: "ok",
@@ -58,7 +89,8 @@ class HistoryController {
         try{
             const { id } = req.params;
 
-            const history = await History.findByPk(id)
+            const history = await History.findByPk(+id)
+            const translation = await Translation.findByPk(history.translationId);
 
             if (!history) {
                 throw HttpError(404, {
@@ -68,6 +100,15 @@ class HistoryController {
                 })
             }
 
+            if (!translation) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
+            await translation.destroy()
             await history.destroy()
 
             res.json({
@@ -90,7 +131,12 @@ class HistoryController {
                 ];
             }
 
-            const histories = await History.findAll({where})
+            const histories = await History.findAll({
+                where,
+                include: {
+                    model: Translation,
+                    required: false,
+                }})
 
             res.json({
                 status: "ok",

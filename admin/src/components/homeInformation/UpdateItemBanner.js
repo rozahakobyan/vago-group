@@ -23,7 +23,8 @@ function UpdateItemBanner({updateItem, setUpdateItem}) {
 
     const handleChangeText = useCallback((e, path, val) => {
         const text = e.target.value
-        setUpdateItem({...updateItem, [path]: {...updateItem[path], [val]: text}});
+        setUpdateItem({...updateItem, translation: {...updateItem.translation,
+                [path]: {...updateItem.translation[path], [val]: text}}});
     }, [updateItem]);
 
     const handleChangeFile = useCallback((e, path) => {
@@ -61,29 +62,29 @@ function UpdateItemBanner({updateItem, setUpdateItem}) {
                             {titleOpen && <div className={"open_input"}>
                                 <div className={'input_item'}>
                                     <input
-                                        value={updateItem.title?.en ? updateItem.title.en : updateItem.translation.en.title}
-                                        onChange={(e) => handleChangeText(e, "title", "en")}
+                                        value={updateItem.translation.en.title}
+                                        onChange={(e) => handleChangeText(e, "en", "title")}
                                         placeholder={'English title...'}
                                         type="text"/>
                                 </div>
                                 <div className={'input_item'}>
                                     <input
-                                        value={updateItem.title?.ru ? updateItem.title.ru : updateItem.translation.ru.title}
-                                        onChange={(e) => handleChangeText(e, "title", "ru")}
+                                        value={updateItem.titles?.ru ? updateItem.titles.ru : updateItem.translation.ru.title}
+                                        onChange={(e) => handleChangeText(e, "titles", "ru")}
                                         placeholder={'Russian title...'}
                                         type="text"/>
                                 </div>
                                 <div className={'input_item'}>
                                     <input
-                                        value={updateItem.title?.am ? updateItem.title.am : updateItem.translation.am.title}
-                                        onChange={(e) => handleChangeText(e, "title", "am")}
+                                        value={updateItem.titles?.am ? updateItem.titles.am : updateItem.translation.am.title}
+                                        onChange={(e) => handleChangeText(e, "titles", "am")}
                                         placeholder={'Armenian title...'}
                                         type="text"/>
                                 </div>
                                 <div className={'input_item'}>
                                     <input
-                                        value={updateItem.title?.pl ? updateItem.title.pl : updateItem.translation.pl.title}
-                                        onChange={(e) => handleChangeText(e, "title", "pl")}
+                                        value={updateItem.titles?.pl ? updateItem.titles.pl : updateItem.translation.pl.title}
+                                        onChange={(e) => handleChangeText(e, "titles", "pl")}
                                         placeholder={'Polish title...'}
                                         type="text"/>
                                 </div>
@@ -96,26 +97,26 @@ function UpdateItemBanner({updateItem, setUpdateItem}) {
                             {descOpen && <div className={"open_input"}>
                                 <div className={'desc_text'}>
                                 <textarea
-                                    value={updateItem.description?.en ? updateItem.description.en : updateItem.translation.en.description}
-                                    onChange={(e) => handleChangeText(e, "description", "en")}
+                                    value={updateItem.descriptions?.en ? updateItem.descriptions.en : updateItem.translation.en.description}
+                                    onChange={(e) => handleChangeText(e, "descriptions", "en")}
                                     placeholder={'English Description text...'}/>
                                 </div>
                                 <div className={'desc_text'}>
                                 <textarea
-                                    value={updateItem.description?.ru ? updateItem.description.ru : updateItem.translation.ru.description}
-                                    onChange={(e) => handleChangeText(e, "description", "ru")}
+                                    value={updateItem.descriptions?.ru ? updateItem.descriptions.ru : updateItem.translation.ru.description}
+                                    onChange={(e) => handleChangeText(e, "descriptions", "ru")}
                                     placeholder={'Russian Description text...'}/>
                                 </div>
                                 <div className={'desc_text'}>
                                 <textarea
-                                    value={updateItem.description?.am ? updateItem.description.am : updateItem.translation.am.description}
-                                    onChange={(e) => handleChangeText(e, "description", "am")}
+                                    value={updateItem.descriptions?.am ? updateItem.descriptions.am : updateItem.translation.am.description}
+                                    onChange={(e) => handleChangeText(e, "descriptions", "am")}
                                     placeholder={'Armenian Description text...'}/>
                                 </div>
                                 <div className={'desc_text'}>
                                 <textarea
-                                    value={updateItem.description?.pl ? updateItem.description.pl : updateItem.translation.pl.description}
-                                    onChange={(e) => handleChangeText(e, "description", "pl")}
+                                    value={updateItem.descriptions?.pl ? updateItem.descriptions.pl : updateItem.translation.pl.description}
+                                    onChange={(e) => handleChangeText(e, "descriptions", "pl")}
                                     placeholder={'Polish Description text...'}/>
                                 </div>
                             </div>}

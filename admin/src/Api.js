@@ -320,7 +320,7 @@ export class Api {
     }
 
     static historiesUpdate(arg) {
-        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+        const {id, isActive, translationId, createdAt, updatedAt, ...data} = arg;
 
         return api.put(`/histories/update/${id}`, data);
     }

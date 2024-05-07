@@ -126,12 +126,14 @@ class BannerController {
 
     static async update (req, res, next){
         try{
-            const {title, description, active} = req.body;
+            const {title, description, translation, active} = req.body;
             const { id } = req.params;
             const {homeImage, constructionImage, employmentAgencyImage, logisticImage} = req.files;
 
             const banner = await Banner.findByPk(+id);
-            const translation = await Translation.findByPk(banner.translationId);
+            const translations = await Translation.findByPk(banner.translationId);
+
+            console.log({title, description, translation})
 
             if (!banner) {
                 throw HttpError(404, {
@@ -160,7 +162,7 @@ class BannerController {
                     })
                     .toFile(path.join(root, homeImage[0].filename + '.webp'))
 
-                await banner.update({title, description, active, homeImage: homeImage[0].filename})
+                await banner.update({active, homeImage: homeImage[0].filename})
             }
 
             if(constructionImage){
@@ -182,7 +184,7 @@ class BannerController {
                     })
                     .toFile(path.join(root, constructionImage[0].filename + '.webp'))
 
-                await banner.update({title, description, active, constructionImage: constructionImage[0].filename})
+                await banner.update({active, constructionImage: constructionImage[0].filename})
             }
 
             if(employmentAgencyImage){
@@ -204,7 +206,7 @@ class BannerController {
                     })
                     .toFile(path.join(root, employmentAgencyImage[0].filename + '.webp'))
 
-                await banner.update({title, description, active, employmentAgencyImage: employmentAgencyImage[0].filename})
+                await banner.update({active, employmentAgencyImage: employmentAgencyImage[0].filename})
             }
 
             if(logisticImage){
@@ -226,31 +228,20 @@ class BannerController {
                     })
                     .toFile(path.join(root, logisticImage[0].filename + '.webp'))
 
-                await banner.update({title, description, active, logisticImage: logisticImage[0].filename})
+                await banner.update({active, logisticImage: logisticImage[0].filename})
             }
 
-            if(!homeImage && !constructionImage && !employmentAgencyImage && !logisticImage){
-                await banner.update({title: title.en && title.en, description: description.en && description.en, active})
-            }
-
-            await translation.update({
-                en: {
-                    title: title.en && title.en,
-                    description: description.en && description.en
-                },
-                ru: {
-                    title: title.ru && title.ru,
-                    description: description.ru && description.ru
-                },
-                am: {
-                    title: title.am && title.am,
-                    description: description.am && description.am
-                },
-                pl: {
-                    title: title.pl && title.pl,
-                    description: description.pl && description.pl
-                },
-            })
+            // if(!homeImage && !constructionImage && !employmentAgencyImage && !logisticImage){
+            //     if(titles && titles.en){
+            //         await banner.update({title: titles.en, description, active})
+            //     }
+            //     if(descriptions && descriptions.en){
+            //         await banner.update({title, description: descriptions.en, active})
+            //     }
+            //     if(!titles.en && !descriptions.en){
+            //         await banner.update({active})
+            //     }
+            // }
 
             const bannerUpdate = await Banner.findOne({
                 where: {
@@ -333,7 +324,7 @@ class BannerController {
 
             const banners = await Banner.findAll({
                 where,
-                attributes: [ 'id', 'active',
+                attributes: [ 'id', 'active', 'title', 'description',
                     [sequelize.literal(`CONCAT('banner/', homeImage)`), 'homeImage'],
                     [sequelize.literal(`CONCAT('banner/', constructionImage)`), 'constructionImage'],
                     [sequelize.literal(`CONCAT('banner/', employmentAgencyImage)`), 'employmentAgencyImage'],

@@ -2,11 +2,12 @@ import Joi from 'joi';
 
 export default {
     add: Joi.object({
-        description: Joi.string().required(),
+        description: Joi.object().required(),
         active: Joi.boolean().required()
     }),
     update: Joi.object({
-        description: Joi.string(),
+        description: Joi.string().max(255),
+        translation: Joi.object(),
         active: Joi.boolean()
     })
 }
