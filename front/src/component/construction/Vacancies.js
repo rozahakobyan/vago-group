@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { worksListRequest } from "../../store/actions/works";
 import { API_URL } from "../../Api"
+import ReactPaginate from "react-paginate";
 
 
 function Vacancieces() {
     const dispatch = useDispatch();
-
+    const [page, setPage] = useState(1);
     const worksList = useSelector(state => state.works.worksList)
+    const loading = useSelector(state => state.works.loading)
+
     const pages = useSelector(state => state.works.pages)
 
     useEffect(() => {
-        dispatch(worksListRequest({ department: "Construction" }))
+        dispatch(worksListRequest({ department: "Construction", limit: 4 }))
     }, [])
 
     console.log(worksList)
@@ -26,7 +29,7 @@ function Vacancieces() {
             </div>
             <div className="vacancies-blocks">
 
-                {worksList && worksList.map(w => (
+                {worksList && !loading ? worksList.map(w => (
 
                     <div key={w.id}>
                         <table className="vacancie">
@@ -45,7 +48,7 @@ function Vacancieces() {
                                     <div className="vacancie-workSchedule">
                                         <strong>Work Schedule</strong>
                                     </div>
-                                    {w.schedules && w.schedules.map(ws => (
+                                    {w.schedules &&  w.schedules.map(ws => (
                                         <p key={ws.id}>
                                             {ws.date}
                                         </p>
@@ -61,9 +64,28 @@ function Vacancieces() {
                             </tr>
                         </table>
                     </div>
-
-                ))}
-
+    
+                )) : <div>
+                <div class="loader"></div>
+            </div>}
+                <div className={"pages-list"}>
+                {pages && pages > 1 ? <ReactPaginate
+                    activeClassName={'items active '}
+                    breakClassName={'items break-me '}
+                    breakLabel={'...'}
+                    containerClassName={'pagination'}
+                    disabledClassName={'disabled-page'}
+                    marginPagesDisplayed={2}
+                    nextClassName={"items next "}
+                    nextLabel={">"}
+                    initialPage={page - 1}
+                    onPageChange={(ev) => setPage(ev.selected + 1)}
+                    pageCount={pages}
+                    pageClassName={'items pagination-page '}
+                    pageRangeDisplayed={2}
+                    previousClassName={"items previous"}
+                    previousLabel={"<"}/> : null}
+            </div>
             </div>
         </div>
     )

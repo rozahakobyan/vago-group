@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { galleriesListRequest } from "../../store/actions/galleries";
 import ReactPaginate from "react-paginate";
 import { API_URL } from "../../Api"
+import { videoPathsListRequest } from "../../store/actions/videoPath";
 
 
 function Gallery() {
@@ -13,13 +14,13 @@ function Gallery() {
 
     const pages = useSelector(state => state.galleries.pages);
     const galleriesList = useSelector(state => state.galleries.galleriesList);
+    const videoPathsList = useSelector(state => state.videoPath.videoPathsList);
     const loading = useSelector(state => state.galleries.loading);
 
     useEffect(() => {
         dispatch(galleriesListRequest({ page, limit: 4, pageGallery: "Employment Agency" }))
+        dispatch(videoPathsListRequest({ pageVideo: "Employment Agency" }))
     }, [page]);
-
-    console.log(galleriesList)
 
     const openFullscreenImg = useCallback((src) => {
         setFullscreenImg(src);
@@ -38,10 +39,13 @@ function Gallery() {
                 <h3>Photo</h3>
             </div>
 
-            <div className="gallery-blocks" >
-                {galleriesList && galleriesList.map(g => (
-                    <img src={`${API_URL}/${g.src}`} onClick={() => openFullscreenImg(`${API_URL}/${g.src}`)} alt={""} key={g.id}/>
-                ))}
+            <div className="gallery-blocks">
+                {galleriesList && !loading ? galleriesList.map(g => (
+                    <img src={`${API_URL}/${g.src}`} onClick={() => openFullscreenImg(`${API_URL}/${g.src}`)} alt={""}
+                         key={g.id}/>
+                )) : <div>
+                    <div class="loader"></div>
+                </div>}
             </div>
 
             <div className={"pages-list"}>
@@ -60,12 +64,12 @@ function Gallery() {
                     pageClassName={'items pagination-page '}
                     pageRangeDisplayed={2}
                     previousClassName={"items previous"}
-                    previousLabel={"<"} /> : null}
+                    previousLabel={"<"}/> : null}
             </div>
             {fullscreenImg && (
                 <div className="fullscreen-img-overlay" onClick={closeFullscreenImg}>
                     <div className="fullscreen-img-container">
-                        <img src={fullscreenImg} alt="Fullscreen" />
+                        <img src={fullscreenImg} alt="Fullscreen"/>
                         <button className="close-btn" onClick={closeFullscreenImg}>✕</button>
                     </div>
                 </div>
@@ -74,16 +78,16 @@ function Gallery() {
             <div className="gallery-type">
                 <h3>Video</h3>
             </div>
-            <div className="gallery-blocks">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/FwVx8PV3V0M?si=OyHsuVIac0WXC5Sm"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen={true}></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/FwVx8PV3V0M?si=OyHsuVIac0WXC5Sm"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen={true}></iframe>
-            </div>
+            {videoPathsList && videoPathsList.map(v => (
+                <div className="gallery-blocks" key={v.id}>
+                    <iframe width="560" height="315" src={v.path}
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+                </div>
+            ))}
+
         </div>
     );
 }

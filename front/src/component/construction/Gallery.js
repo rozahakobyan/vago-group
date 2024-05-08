@@ -22,8 +22,6 @@ function Gallery() {
         dispatch(videoPathsListRequest({ pageVideo: "Construction" }))
     }, [page]);
 
-    console.log(videoPathsList)
-
     const openFullscreenImg = useCallback((src) => {
         setFullscreenImg(src);
     }, []);
