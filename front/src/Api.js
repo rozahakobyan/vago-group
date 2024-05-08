@@ -65,6 +65,10 @@ export class Api {
         return api.get('/works/list', {params: data});
     }
 
+    static workGetById(id) {
+        return api.get(`/works/get-by-id/${id}`);
+    }
+
     static productsList() {
         return api.get('/products/list');
     }

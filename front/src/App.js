@@ -22,7 +22,7 @@ function App() {
       <Route path={"/construction"} element={<Construction />} />
       <Route path={'/employment-agency'} element={<EmploymentAgency/>}/>
       <Route path={'/logistic'} element={<Logistic/>}/>
-      <Route path={'/vacancies-detales'} element={<VacanciesDetales/>}/>
+      <Route path={'/vacancies-detales/:id'} element={<VacanciesDetales/>}/>
     </Routes>
   )
 }

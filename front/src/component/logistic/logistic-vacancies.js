@@ -47,7 +47,7 @@ function Vacancieces() {
                                         </p>
                                     ))}
                                     <div className="vacancie-join-area">
-                                        <NavLink to={'/vacancies-detales'}>
+                                        <NavLink to={`/vacancies-detales/${w.id}`}>
                                             <div className="vacancie-join">
                                                 <strong>Join</strong>
                                             </div>

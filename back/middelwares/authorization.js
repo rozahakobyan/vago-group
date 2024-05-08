@@ -16,6 +16,7 @@ const EXCLUDES = [
   'POST:/contacts/add',
   'POST:/banner/add',
   'GET:/works/list',
+  'GET:/works/get-by-id',
   'GET:/contacts/list',
   'GET:/partners/list',
   'GET:/prices/list',

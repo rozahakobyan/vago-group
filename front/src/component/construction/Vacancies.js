@@ -9,6 +9,7 @@ function Vacancieces() {
     const dispatch = useDispatch();
 
     const worksList = useSelector(state => state.works.worksList)
+    const pages = useSelector(state => state.works.pages)
 
     useEffect(() => {
         dispatch(worksListRequest({ department: "Construction" }))
@@ -50,7 +51,7 @@ function Vacancieces() {
                                         </p>
                                     ))}
                                     <div className="vacancie-join-area">
-                                        <NavLink to={'/vacancies-detales'}>
+                                        <NavLink to={`/vacancies-detales/${w.id}`}>
                                             <div className="vacancie-join">
                                                 <strong>Join</strong>
                                             </div>

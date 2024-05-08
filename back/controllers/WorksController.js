@@ -7,6 +7,7 @@ import sharp from "sharp";
 import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
 import Translation from "../models/Translation.js";
+import Galleries from "../models/Galleries.js";
 
 class WorksController {
     static async add (req, res, next){
@@ -312,14 +313,54 @@ class WorksController {
                 offset
             })
 
-            const total = await Works.count();
+            const total = await Works.findAll({where});
 
             res.json({
                 status: "ok",
                 works,
                 page,
                 total,
-                pages: Math.ceil(total / limit)
+                pages: Math.ceil(total.length / limit)
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
+
+    static async getById (req, res, next){
+        try{
+            const {id} = req.params;
+
+            const work = await Works.findOne({
+                where: {
+                    id
+                },
+                include: [
+                    {
+                        model: WorksSchedules,
+                        as: "schedules",
+                        required: false,
+                        attributes: ["id", "date"],
+                    },{
+                        model: Translation,
+                        required: false,
+                    }
+                ],
+                attributes: ["id", "name", "department", "price", "hoursWeek", "description", "translationId",
+                    [sequelize.literal(`CONCAT('works/', image)`), 'image']]
+            })
+
+            if (!work) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
+            res.json({
+                status: "ok",
+                work,
             })
         }catch (e) {
             next(e)

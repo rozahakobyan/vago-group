@@ -24,5 +24,6 @@ router.delete('/delete/:id', WorksController.delete);
 router.delete('/delete-schedule/:id', WorksController.deleteSchedules);
 
 router.get('/list', WorksController.list)
+router.get('/get-by-id/:id', WorksController.getById)
 
 export default router;
