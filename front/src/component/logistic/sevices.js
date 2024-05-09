@@ -3,15 +3,20 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from "react-redux";
 import { servicesListRequest } from "../../store/actions/services";
+import { Account } from "../../helpers/Account";
+
+
 
 function Services() {
     const dispatch = useDispatch();
 
     const servicesList = useSelector(state => state.services.servicesList)
+    const language = Account.getLanguage();
+
 
     useEffect(() => {
         dispatch(servicesListRequest())
-    }, []);
+    }, [servicesList, language]);
 
     console.log(servicesList)
 
@@ -33,7 +38,7 @@ function Services() {
                             {servicesList && servicesList.map(s => (
 
                                 <tr key={s.id}>
-                                    <td className="serviceName">{s.name}</td>
+                                    <td className="serviceName">{s.translation[language].name}</td>
 
                                     <td>{s.number}</td>
                                 </tr>

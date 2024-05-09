@@ -1,20 +1,23 @@
-import React, { useEffect } from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {pricesListRequest} from "../../store/actions/prices";
-import {packagesListRequest} from "../../store/actions/packages";
-
+import React, { useEffect, useState } from "react";
+import axios from 'axios'
+import { useDispatch, useSelector } from "react-redux";
+import { pricesListRequest } from "../../store/actions/prices";
+import { packagesListRequest } from "../../store/actions/packages";
+import { Account } from "../../helpers/Account";
 
 function Prices() {
     const dispatch = useDispatch();
 
     const pricesList = useSelector(state => state.prices.pricesList);
     const packagesList = useSelector(state => state.packages.packagesList);
+    const language = Account.getLanguage();
+
 
     useEffect(() => {
-        dispatch(pricesListRequest({active: true, activePage: "Logistic"}))
-        dispatch(packagesListRequest({activePage: "Logistic"}))
-    }, []);
-
+        dispatch(pricesListRequest({ active: true, activePage: "Logistic" }))
+        dispatch(packagesListRequest({ activePage: "Logistic" }))
+    }, [pricesList, language]);
+    console.log(pricesList);
     return (
         <div className="priceList">
             <div className="priceList-area">
@@ -24,21 +27,23 @@ function Prices() {
                         <thead>
                             <tr>
                                 <th>Packages</th>
+                                <th>Standard</th>
                                 <th>Advanced</th>
                                 <th>Premium</th>
-                                <th>Standard</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            {pricesList && pricesList.map(p => ( <tr key={p.id}>
-                                <td>{p.name}</td>
+                            {pricesList && pricesList.map(p => (<tr key={p.id}>
+                                <td>{p.translation[language].name}</td>
+                                <td>{p.standard}</td>
                                 <td>{p.advanced}</td>
                                 <td>{p.premium}</td>
-                                <td>{p.standard}</td>
+
                             </tr>))}
 
-                            {packagesList && packagesList.map(p => ( <tr key={p.id}>
-                                <td>{p.name}</td>
+                            {packagesList && packagesList.map(p => (<tr key={p.id}>
+                                <td>{p.translation[language].name}</td>
                                 <td>{p.advanced ? "🗸" : ""}</td>
                                 <td>{p.premium ? "🗸" : ""}</td>
                                 <td>{p.standard ? "🗸" : ""}</td>

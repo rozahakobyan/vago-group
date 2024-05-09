@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
-import {useDispatch, useSelector} from "react-redux";
-import {pricesListRequest} from "../../store/actions/prices";
-import {packagesListRequest} from "../../store/actions/packages";
-import {Account} from "../../helpers/Account";
+import { useDispatch, useSelector } from "react-redux";
+import { pricesListRequest } from "../../store/actions/prices";
+import { packagesListRequest } from "../../store/actions/packages";
+import { Account } from "../../helpers/Account";
 
 function Prices() {
     const dispatch = useDispatch();
@@ -14,10 +14,10 @@ function Prices() {
 
 
     useEffect(() => {
-        dispatch(pricesListRequest({active: true, activePage: "Employment Agency"}))
-        dispatch(packagesListRequest({activePage: "Employment Agency"}))
+        dispatch(pricesListRequest({ active: true, activePage: "Employment Agency" }))
+        dispatch(packagesListRequest({ activePage: "Employment Agency" }))
     }, [pricesList, language]);
-
+    console.log(pricesList);
     return (
         <div className="priceList">
             <div className="priceList-area">
@@ -30,19 +30,19 @@ function Prices() {
                                 <th>Standard</th>
                                 <th>Advanced</th>
                                 <th>Premium</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
-                            {pricesList && pricesList.map(p => ( <tr key={p.id}>
+                            {pricesList && pricesList.map(p => (<tr key={p.id}>
                                 <td>{p.translation[language].name}</td>
                                 <td>{p.standard}</td>
                                 <td>{p.advanced}</td>
                                 <td>{p.premium}</td>
-                                
+
                             </tr>))}
 
-                            {packagesList && packagesList.map(p => ( <tr key={p.id}>
+                            {packagesList && packagesList.map(p => (<tr key={p.id}>
                                 <td>{p.translation[language].name}</td>
                                 <td>{p.advanced ? "🗸" : ""}</td>
                                 <td>{p.premium ? "🗸" : ""}</td>
