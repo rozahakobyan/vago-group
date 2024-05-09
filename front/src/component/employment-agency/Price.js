@@ -3,18 +3,20 @@ import axios from 'axios'
 import {useDispatch, useSelector} from "react-redux";
 import {pricesListRequest} from "../../store/actions/prices";
 import {packagesListRequest} from "../../store/actions/packages";
-
+import {Account} from "../../helpers/Account";
 
 function Prices() {
     const dispatch = useDispatch();
 
     const pricesList = useSelector(state => state.prices.pricesList);
     const packagesList = useSelector(state => state.packages.packagesList);
+    const language = Account.getLanguage();
+
 
     useEffect(() => {
         dispatch(pricesListRequest({active: true, activePage: "Employment Agency"}))
         dispatch(packagesListRequest({activePage: "Employment Agency"}))
-    }, []);
+    }, [pricesList, language]);
 
     return (
         <div className="priceList">
@@ -25,21 +27,23 @@ function Prices() {
                         <thead>
                             <tr>
                                 <th>Packages</th>
+                                <th>Standard</th>
                                 <th>Advanced</th>
                                 <th>Premium</th>
-                                <th>Standard</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             {pricesList && pricesList.map(p => ( <tr key={p.id}>
-                                <td>{p.name}</td>
+                                <td>{p.translation[language].name}</td>
+                                <td>{p.standard}</td>
                                 <td>{p.advanced}</td>
                                 <td>{p.premium}</td>
-                                <td>{p.standard}</td>
+                                
                             </tr>))}
 
                             {packagesList && packagesList.map(p => ( <tr key={p.id}>
-                                <td>{p.name}</td>
+                                <td>{p.translation[language].name}</td>
                                 <td>{p.advanced ? "🗸" : ""}</td>
                                 <td>{p.premium ? "🗸" : ""}</td>
                                 <td>{p.standard ? "🗸" : ""}</td>
