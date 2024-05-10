@@ -6,11 +6,12 @@ import {Account} from "../../helpers/Account";
 
 
 function CurrentProjects() {
-
     const dispatch = useDispatch();
 
     const list = useSelector(state => state.projects.projectsList);
+
     const language = Account.getLanguage();
+
     const projectsList = useMemo(() => {
         return list.filter(l => {
             if(l.status === "ended"){
@@ -21,7 +22,7 @@ function CurrentProjects() {
 
     useEffect(() => {
         dispatch(projectsListRequest())
-    }, [projectsList, language]);
+    }, []);
 
     console.log(projectsList)
 

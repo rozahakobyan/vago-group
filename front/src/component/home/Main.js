@@ -1,9 +1,10 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { bannerListRequest } from "../../store/actions/banner";
 import {Account} from "../../helpers/Account";
 import {API_URL} from "../../Api";
+import loginImage from "../../assets/images/login.jpg";
 
 function Main() {
     const dispatch = useDispatch()
@@ -20,8 +21,7 @@ function Main() {
             {bannersList && bannersList.map(b => (
                 <section key={b.id}>
                     <div className="banner-panel" style={{
-
-                        backgroundImage: `url(${API_URL}/${b.homeImage})`,
+                        backgroundImage: b?.homeImage ? `url(${API_URL}/${b.homeImage})` : `url(${loginImage})`,
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
@@ -44,35 +44,32 @@ function Main() {
                         <div className='bigBlock'>
                             <p style={{textAlign: 'center'}}>CONSTRUCTION</p>
                             <NavLink to={'/construction'}>
-                    <div className='services-button'>
-                        <img src={'./img/construction.jpg'} alt={""} />
+                                <div className='services-button'>
+                                    <img src={bannersList && bannersList[0]?.constructionImage ? `${API_URL}/${bannersList[0].constructionImage}` : './img/construction.jpg'} alt={""}/>
+                                </div>
+                            </NavLink>
+                        </div>
+
+                        <div className='bigBlock'>
+                            <p style={{textAlign: 'center'}}>EMPLOYMENT-AGENCY</p>
+                            <NavLink to={'/employment-agency'}>
+                                <div className='services-button'>
+                                    <img src={bannersList && bannersList[0]?.employmentAgencyImage ? `${API_URL}/${bannersList[0].employmentAgencyImage}` : './img/recruitment.jpg'} alt={""} />
+                                </div>
+                            </NavLink>
+                        </div>
+
+                        <div className='bigBlock'>
+                            <p style={{ textAlign: 'center' }}>LOGISTICS</p>
+                            <NavLink to={'/logistic'}>
+                                <div className='services-button'>
+                                    <img src={bannersList && bannersList[0]?.logisticImage ? `${API_URL}/${bannersList[0].logisticImage}` : './img/logistic.jpg'} alt={""} />
+                                </div>
+                            </NavLink>
+                        </div>
                     </div>
-                </NavLink>
-            </div>
-
-            <div className='bigBlock'>
-                <p style={{ textAlign: 'center' }}>EMPLOYMENT-AGENCY</p>
-                <NavLink to={'/employment-agency'}>
-                    <div className='services-button'>
-                        <img src={'./img/recruitment.jpg'} alt={""} />
-                    </div>
-                </NavLink>
-            </div>
-
-            <div className='bigBlock'>
-                <p style={{ textAlign: 'center' }}>CONSTRUCTION</p>
-                <NavLink to={'/logistic'}>
-                    <div className='services-button'>
-                        <img src={'./img/logistic.jpg'} alt={""} />
-                    </div>
-                </NavLink>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+                </div>
+            </section>
         </>
     );
 }

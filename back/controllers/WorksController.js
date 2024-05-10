@@ -309,7 +309,7 @@ class WorksController {
                 ],
                 attributes: ["id", "name", "department", "price", "hoursWeek", "description", "translationId",
                     [sequelize.literal(`CONCAT('works/', image)`), 'image']],
-                    limit: Number(limit),
+                limit: Number(limit),
                 offset
             })
 

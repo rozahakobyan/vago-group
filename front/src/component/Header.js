@@ -7,6 +7,7 @@ import { createUserData } from "../store/actions/users";
 import { API_URL } from "../Api"
 import Select from "react-select";
 import languages from "../assets/data/language";
+import translation from "../assets/data/translation";
 
 const formatOptionLabel = ({label, icon}) => (
     <div style={{display: "flex"}}>
@@ -28,6 +29,7 @@ function Header() {
 
     const handleSelectChange = useCallback((selectedOption) => {
         Account.setLanguage(selectedOption.value)
+        window.location.reload(false)
     }, [])
 
     const findSelectValue = useCallback((value) => {
@@ -123,16 +125,16 @@ function Header() {
             {/* ----------------------------- */}
             <div className="buttons">
                 <NavLink to={'/'}>
-                    <div className="button"><strong>Home</strong></div>
+                    <div className="button"><strong>{translation.home[language]}</strong></div>
                 </NavLink>
                 <NavLink to={"/construction"}>
-                    <div className="button"><strong>Construction</strong> </div>
+                    <div className="button"><strong>{translation.construction[language]}</strong> </div>
                 </NavLink>
                 <NavLink to={'/employment-agency'}>
-                    <div className="button"><strong>Employment agency</strong></div>
+                    <div className="button"><strong>{translation.employmentAgency[language]}</strong></div>
                 </NavLink>
                 <NavLink to={'/logistic'}>
-                    <div className="button"><strong>Logistics</strong></div>
+                    <div className="button"><strong>{translation.logistics[language]}</strong></div>
                 </NavLink>
             </div>
         </header>

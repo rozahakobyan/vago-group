@@ -1,54 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { worksListRequest } from "../../store/actions/works";
 import { API_URL } from "../../Api"
 import ReactPaginate from "react-paginate";
+import {Account} from "../../helpers/Account";
 
 
 function Vacancieces() {
     const dispatch = useDispatch();
+
     const [page, setPage] = useState(1);
+
     const worksList = useSelector(state => state.works.worksList)
     const loading = useSelector(state => state.works.loading)
-
     const pages = useSelector(state => state.works.pages)
 
+    const language = Account.getLanguage();
+
     useEffect(() => {
-        dispatch(worksListRequest({ department: "Construction", limit: 4 }))
-    }, [])
-
-    console.log(worksList)
-
-
+        dispatch(worksListRequest({ department: "Construction", limit: 4, page }))
+    }, [page])
 
     return (
         <div className="vacanciesArea">
             <div className="vacanciesTitle">
-                <h2>Vacancies</h2>
+                <h2>{worksList && "Vacancies"}</h2>
             </div>
             <div className="vacancies-blocks">
-
                 {worksList && !loading ? worksList.map(w => (
-
                     <div key={w.id}>
                         <table className="vacancie">
                             <tr className="vacancie-text">
-                                <td >
+                                <td>
                                     <div className="vacancieImgArea">
-                                        <img src={`${API_URL}/${w.image}`} alt={""} />
+                                        <img src={`${API_URL}/${w.image}`} alt={""}/>
                                     </div>
                                     <div className="vacancie-title">
-                                        <h3>{w.name}</h3>
+                                        <h3>{w.translation[language].name}</h3>
                                     </div>
                                     <div className="vacancie-price-hours">
-                                        <p><strong>Price</strong> - {w.price}<br />
+                                        <p><strong>Price</strong> - {w.price}<br/>
                                             <strong>Hours a Week</strong> - {w.hoursWeek}h</p>
                                     </div>
                                     <div className="vacancie-workSchedule">
                                         <strong>Work Schedule</strong>
                                     </div>
-                                    {w.schedules &&  w.schedules.map(ws => (
+                                    {w.schedules && w.schedules.map(ws => (
                                         <p key={ws.id}>
                                             {ws.date}
                                         </p>
@@ -63,12 +61,11 @@ function Vacancieces() {
                                 </td>
                             </tr>
                         </table>
-                    </div>
-    
-                )) : <div>
-                <div class="loader"></div>
-            </div>}
-                <div className={"pages-list"}>
+                    </div>)) : <div>
+                    <div className="loader"></div>
+                </div>}
+            </div>
+            <div className={"pages-list"}>
                 {pages && pages > 1 ? <ReactPaginate
                     activeClassName={'items active '}
                     breakClassName={'items break-me '}
@@ -85,7 +82,6 @@ function Vacancieces() {
                     pageRangeDisplayed={2}
                     previousClassName={"items previous"}
                     previousLabel={"<"}/> : null}
-            </div>
             </div>
         </div>
     )

@@ -21,7 +21,7 @@ function CurrentProjects() {
 
     useEffect(() => {
         dispatch(projectsListRequest())
-    }, [projectsList, language]);
+    }, []);
 
     console.log(projectsList)
 
