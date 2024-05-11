@@ -56,7 +56,7 @@ function Footer() {
                             </div>
                         </div>
                         <div className="footer-phone">
-                            <div className="footer-phone-title">Massager</div>
+                            <div className="footer-phone-title">{translation.messager[language]}</div>
                             <div className="footer-phone-text">
                                 {l.massagersList && l.massagersList.map(lm => (
                                     <ul style={{ listStyle: "none" }} key={lm.id}>

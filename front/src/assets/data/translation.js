@@ -35,7 +35,12 @@ export default {
         am: "Հասցե",
         pl: "Adres"
     },
-
+    messager: {
+        en: "Messager",
+        ru: "Мессенджер",
+        am: "Մեսենջեռ",
+        pl: "Komunikator"
+    },
 
     /* vacancies */
     vacancies: {
@@ -86,5 +91,60 @@ export default {
         am: "Ավարտված նախագծեր",
         pl: "Zrealizowane projekty"
     },
-    
+    /* offer */
+    offer: {
+        en: "Offer",
+        ru: "Предложения",
+        am: "Առաջաչկներ",
+        pl: "Oferta"
+    },
+    offerName: {
+        en: "Name",
+        ru: "Имя",
+        am: "Անուն",
+        pl: "Nazwa"
+    },
+    offerPhone: {
+        en: "Phone",
+        ru: "Номер",
+        am: "Հեռախոսահամար",
+        pl: "Telefon"
+    },
+    offerMessage: {
+        en: "Message",
+        ru: "Сообщение",
+        am: "Հաղորդագրություն ",
+        pl: "wiadomość"
+    },
+    submit:{
+        en: "Send",
+        ru: "Отправить",
+        am: "Ուղղարկել",
+        pl: "Wysłać"
+    },
+    gallery:{
+        en: "Gallery",
+        ru: "Галерея",
+        am: "Տեսադարան",
+        pl: "Galeria"
+    },
+    photo:{
+        en: "Photo",
+        ru: "Фото",
+        am: "Նկարներ",
+        pl: "Zdjęcie"
+    },
+    video:{
+        en: "Video",
+        ru: "Видео",
+        am: "Վիդեո",
+        pl: "Wideo"
+    },
+    contacts:{
+        en: "Contacts",
+        ru: "Контакты",
+        am: "Կոնտակտներ",
+        pl: "Łączność"
+    },
+
 }
