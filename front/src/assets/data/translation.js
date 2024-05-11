@@ -158,5 +158,53 @@ export default {
         am: "Կոնտակտներ",
         pl: "Łączność"
     },
-
+    application:{
+        en: "Application",
+        ru: "Заявление",
+        am: "Դիմում",
+        pl: "Aplikacja"
+    },
+    packages:{
+        en: "Packages",
+        ru: "Пакеты",
+        am: "Փաթեթներ",
+        pl: "Pakiety"
+    },
+    standard:{
+        en: "Standard",
+        ru: "Стандартный",
+        am: "Ստանդարտ",
+        pl: "Standard"
+    },
+    advanced:{
+        en: "Advanced",
+        ru: "Продвинутый",
+        am: "Ընդլայնված",
+        pl: "Zaawansowany"
+    },
+    premium:{
+        en: "Premium",
+        ru: "Премиум",
+        am: "Պրեմիում",
+        pl: "Zaawansowany"
+    },
+    order:{
+        en: "ORDER",
+        ru: "ЗАКАЗ",
+        am: "ՊԱՏՎԵՐ",
+        pl: "ZAMÓWIENIE"
+    },
+    partners:{
+        en: "Partners",
+        ru: "Партнеры",
+        am: "Գործընկերներ",
+        pl: "Wzmacniacz"
+    },
+    history:{
+        en: "History",
+        ru: "История",
+        am: "Պատմություն",
+        pl: "Historia"
+    },
+    
 }

@@ -156,14 +156,14 @@
     }
 
     .contacts-Area form button {
-        width: 80px;
+       
         height: 40px;
         font-size: 20px;
         background-color: black;
         color: white;
         border: none;
         transition: background-color 0.4s;
-        transform: translate(-443px, 0px);
+        transform: translate(-425px, 0px);
         text-align: center !important;
         padding: 0;
     }
@@ -227,17 +227,13 @@
     }
 
     .offersArea form button {
-        width: 80px;
+        
         height: 40px;
-        transform: translate(-321px, 0);
+        transform: translate(-305px, 0);
         font-size: 20px;
         color: white;
         border: none;
         transition: background-color 0.4s;
-    }
-
-    .offersArea form button:hover {
-        background-color: var(--color1);
     }
 
     /* ---------- */
@@ -405,14 +401,14 @@
     }
 
     .contacts-Area form button {
-        width: 80px;
+       
         height: 40px;
         font-size: 20px;
         background-color: black;
         color: white;
         border: none;
         transition: background-color 0.4s;
-        transform: translate(-319px, 0px);
+        transform: translate(-300px, 0px);
         text-align: center !important;
         padding: 0;
     }
@@ -474,19 +470,14 @@
     }
 
     .offersArea form button {
-        width: 80px;
+        
         height: 40px;
-        transform: translate(-321px, 0);
+        transform: translate(-306px, 0);
         font-size: 20px;
         color: white;
         border: none;
         transition: background-color 0.4s;
     }
-
-    .offersArea form button:hover {
-        background-color: var(--color1);
-    }
-
     /* ---------- */
 
 
@@ -562,14 +553,14 @@
     }
 
     .contacts-Area form button {
-        width: 80px;
+        
         height: 40px;
         font-size: 20px;
         background-color: black;
         color: white;
         border: none;
         transition: background-color 0.4s;
-        transform: translate(-308px, 0px);
+        transform: translate(-290px, 0px);
         text-align: center !important;
         padding: 0;
     }
@@ -626,18 +617,15 @@
     }
 
     .offersArea form button {
-        width: 80px;
+        
         height: 40px;
-        transform: translate(-220px, 0);
+        transform: translate(-205px, 0);
         font-size: 20px;
         color: white;
         border: none;
         transition: background-color 0.4s;
     }
 
-    .offersArea form button:hover {
-        background-color: var(--color1);
-    }
 
     /* ---------- */
 
@@ -715,14 +703,14 @@
     }
 
     .contacts-Area form button {
-        width: 80px;
+       
         height: 40px;
         font-size: 20px;
         background-color: black;
         color: white;
         border: none;
         transition: background-color 0.4s;
-        transform: translate(-223px, 0px);
+        transform: translate(-205px, 0px);
         text-align: center !important;
         padding: 0;
     }
@@ -787,18 +775,16 @@
     }
 
     .offersArea form button {
-        width: 80px;
+       
         height: 40px;
-        transform: translate(-121px, 0);
+        transform: translate(-105px, 0);
         font-size: 20px;
         color: white;
         border: none;
         transition: background-color 0.4s;
     }
 
-    .offersArea form button:hover {
-        background-color: var(--color1);
-    }
+    
 
     /* ---------- */
 
@@ -883,14 +869,14 @@
     }
 
     .contacts-Area form button {
-        width: 80px;
+        
         height: 40px;
         font-size: 20px;
         background-color: black;
         color: white;
         border: none;
         transition: background-color 0.4s;
-        transform: translate(-120px, 0px);
+        transform: translate(-101px, 0px);
         text-align: center !important;
         padding: 0;
     }

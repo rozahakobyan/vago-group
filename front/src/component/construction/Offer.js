@@ -28,7 +28,7 @@ function Offer() {
                     <input type={"email"} placeholder={"Email"} />
                     <input type={"text"} placeholder={translation.offerPhone[language]} />
                     <textarea placeholder={translation.offerMessage[language]} /><br />
-                    <button className="wide" type={"submit"} onClick={handleSend}>{translation.submit[language]}</button>
+                    <button type={"submit"} onClick={handleSend}>{translation.submit[language]}</button>
                 </form>
             </div>
         </div>
