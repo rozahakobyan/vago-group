@@ -63,7 +63,7 @@ function Header() {
                 {list && list.map(l => (
                     <div className="header-blocks" key={l.id}>
                         <NavLink to={"/homeInformation"}>
-                            <div className="logo"><img src={'./img/logo.png'} alt={""} /></div>
+                            <div className="logo"><img src={'../img/logo.png'} alt={""} /></div>
                         </NavLink>
                         <div className="header-block">
                             <p className="mail-title">Email:</p>
@@ -72,7 +72,7 @@ function Header() {
 
                         </div>
                         <div className="header-block">
-                            <p className="phone-title">Phone:</p>
+                            <p className="phone-title">{translation.phone[language]}:</p>
                             <div className="number">{l.phone}</div>
                         </div>
                         <div className={'header-block'}>
