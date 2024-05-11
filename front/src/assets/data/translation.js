@@ -29,6 +29,12 @@ export default {
         am: "Հեռախոսահամար",
         pl: "Telefon"
     },
+    address: {
+        en: "Address",
+        ru: "Адрес",
+        am: "Հասցե",
+        pl: "Adres"
+    },
 
 
     /* vacancies */

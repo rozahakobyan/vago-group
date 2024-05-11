@@ -4,12 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { contactsListRequest } from "../store/actions/contacts";
 import {API_URL} from "../Api"
 import { NavLink } from "react-router-dom";
+import translation from "../assets/data/translation";
+import {Account} from "../helpers/Account";
 
 function Footer() {
     const dispatch = useDispatch();
 
     const contactsList = useSelector(state => state.contacts.contactsList);
-
+    const language = Account.getLanguage();
+    
     useEffect(() => {
         dispatch(contactsListRequest())
     }, [])
@@ -29,14 +32,14 @@ function Footer() {
                     <div className="footer-info" key={l.id}>
 
                         <div className="footer-address">
-                            <div className="address-title">Address</div>
+                            <div className="address-title">{translation.address[language]}</div>
                             <div className="address-text">
                                 <p>{l.address}</p>
                             </div>
                         </div>
 
                         <div className="footer-phone">
-                            <div className="footer-phone-title">Phone</div>
+                            <div className="footer-phone-title">{translation.phone[language]}</div>
                             <div className="footer-phone-text">
                                 <ul style={{ listStyle: "none" }}>
                                     <li>{l.phone}</li>
