@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 const { INFO_EMAIL, APP_PASS } = process.env;
 
-async function sendRegistrationEmail(to,html) {
+async function sendMassageToEmail(from, html) {
     try {
         let transporter = nodemailer.createTransport({
             service: 'Gmail',
@@ -14,18 +14,17 @@ async function sendRegistrationEmail(to,html) {
 
         // Email content
         let mailOptions = {
-            from: INFO_EMAIL,
-            to: to,
+            from: from,
+            to: INFO_EMAIL,
             subject: 'History to Our Application',
             html: html
-        
         };
    
         await transporter.sendMail(mailOptions);
-        console.log('Registration email sent successfully!');
+        console.log('Massage email sent successfully!');
     } catch (error) {
-        console.error('Error sending registration email:', error);       
+        console.error('Error sending massage:', error);
     }
 }
 
-export default sendRegistrationEmail
+export default sendMassageToEmail;

@@ -4,13 +4,12 @@ import {Massagers} from "../models/index.js";
 import ContactsMassager from "../models/ContactsMassager.js";
 import sequelize from "../services/sequelize.js";
 import {Op} from "sequelize";
+import Translation from "../models/Translation.js";
 
 class ContactsController {
     static async add (req, res, next){
         try{
             const {address, email, phone, activeContact, pathList = []} = req.body;
-
-            console.log(req.body);
 
             if(!address || !email || !phone){
                 throw HttpError(404, {
@@ -20,7 +19,23 @@ class ContactsController {
                 })
             }
 
-            const contact = await Contacts.create({address, email, phone, activeContact})
+            const translation = await Translation.create({
+                en: {
+                    address: address.en
+                },
+                ru: {
+                    address: address.ru
+                },
+                am: {
+                    address: address.am
+                },
+                pl: {
+                    address: address.pl
+                },
+            })
+
+            const contact = await Contacts.create({address: address.en,
+                email, phone, activeContact, translationId: translation.id})
 
             if(pathList.length){
                 await ContactsMassager.bulkCreate(pathList.map(p => ({
@@ -30,7 +45,6 @@ class ContactsController {
                 })))
             }
             
-
             const createdContact = await Contacts.findOne({
                 where: { id: contact.id },
                 include: [
@@ -48,7 +62,10 @@ class ContactsController {
                                     [sequelize.literal(`CONCAT('massagersIcon/', footerIcon)`), 'footerIcon']]
                             }
                         ]
-                    },
+                    },{
+                        model: Translation,
+                        required: false,
+                    }
                 ],
                 attributes: ["id", "address", "phone", "email", "activeContact"]
             })
@@ -64,12 +81,13 @@ class ContactsController {
 
     static async update (req, res, next){
         try{
-            const {address, email, phone, activeContact, pathList = []} = req.body;
+            const {address, email, phone, translation, activeContact, pathList = []} = req.body;
             const { id } = req.params;
 
             const contact = await Contacts.findOne({
                 where: {id}
             })
+            const translations = await Translation.findByPk(contact.translationId);
 
             if (!contact) {
                 throw HttpError(404, {
@@ -79,7 +97,16 @@ class ContactsController {
                 })
             }
 
-            await contact.update({address, email, phone, activeContact})
+            if (!translations) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
+            await contact.update({address: translation.en.address, email, phone, activeContact})
+            await translations.update(translation)
 
             if(pathList){
                 await ContactsMassager.bulkCreate(pathList.map(p => ({
@@ -106,7 +133,10 @@ class ContactsController {
                                     [sequelize.literal(`CONCAT('massagersIcon/', footerIcon)`), 'footerIcon']]
                             }
                         ]
-                    },
+                    },{
+                        model: Translation,
+                        required: false,
+                    }
                 ],
                 attributes: ["id", "address", "phone", "email", "activeContact"]
             })
@@ -125,6 +155,7 @@ class ContactsController {
             const { id } = req.params;
 
             const contact = await Contacts.findByPk(id)
+            const translation = await Translation.findByPk(contact.translationId);
 
             if (!contact) {
                 throw HttpError(404, {
@@ -134,7 +165,16 @@ class ContactsController {
                 })
             }
 
+            if (!translation) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
             await contact.destroy()
+            await translation.destroy()
 
             res.json({
                 status: "ok"
@@ -216,7 +256,10 @@ class ContactsController {
                                     [sequelize.literal(`CONCAT('massagersIcon/', footerIcon)`), 'footerIcon']]
                             }
                         ]
-                    },
+                    },{
+                        model: Translation,
+                        required: false,
+                    }
                 ],
                 attributes: ["id", "address", "phone", "email", "activeContact"]
             })

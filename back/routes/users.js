@@ -38,4 +38,6 @@ router.put('/update/:id', UsersController.updateUser)
 
 router.get('/find-user-by-id/:id', UsersController.findUserById)
 
+router.post('/send-massage', UsersController.sendMassage)
+
 export default router;

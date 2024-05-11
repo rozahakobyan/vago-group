@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {Account} from "../../../../helpers/account";
@@ -6,32 +6,42 @@ import {Helmet} from "react-helmet";
 import Button from "../../../../components/Button";
 import {AiFillDelete} from "react-icons/ai";
 import {contactsAddRequest} from "../../../../store/actions/contacts";
-import Select from "react-select";
 import {massagerListRequest} from "../../../../store/actions/massagers";
-import _ from "lodash";
 import Path from "../../../../components/contacts/Path";
-import {contactsUpdateRequest} from "../../../../store/actions/contacts";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp} from "react-icons/md";
 
 function AddNewContact() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [contact, setContact] = useState({
-        address: "",
+        address: {
+            en: "",
+            ru: "",
+            am: "",
+            pl: ""
+        },
         email: "",
         phone: "",
         activeContact: false,
         pathList: [],
     });
-
+    const [addressOpen, setAddressOpen] = useState(false);
+    
     const errors = useSelector(state => state.contacts.errors);
     const loading = useSelector(state => state.contacts.loading);
     const massagersList = useSelector(state => state.massagers.massagersList);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(massagerListRequest())
     }, []);
 
-    const handleChangeText = useCallback((text, path) => {
+    const handleChangeText = useCallback((e, path, val) => {
+        const text = e.target.value
+        setContact({...contact, [path]: {...contact[path], [val]: text}});
+    }, [contact]);
+
+    const handleChange = useCallback((text, path) => {
         setContact({...contact, [path]: text});
     }, [contact]);
 
@@ -54,7 +64,7 @@ function AddNewContact() {
     return (
         <div className={'add-new-contacts childrenWidth'}>
             <Helmet>
-                <title>add new contacts</title>
+                <address>add new contacts</address>
             </Helmet>
             <div className="add_con">
                 <form>
@@ -74,20 +84,50 @@ function AddNewContact() {
                         </div>
                     </div>
                     <div className="right_item">
-                        <div className={'input_item'}>
-                            <input
-                                value={contact.address}
-                                onChange={(e) => handleChangeText(e.target.value, "address")}
-                                placeholder={'address...'}
-                                type="text"/>
+                        <h3 onClick={() => {
+                            setAddressOpen(!addressOpen)
+                        }}>Address  {addressOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        {addressOpen && <div className={"open_input"}>
+                            <div className={'input_item'}>
+                                <input
+                                    value={contact.address.en}
+                                    onChange={(e) => handleChangeText(e, "address", "en")}
+                                    placeholder={'English address...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.address?.en ? <small>{errors.address.en}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={contact.address.ru}
+                                    onChange={(e) => handleChangeText(e, "address", "ru")}
+                                    placeholder={'Russian address...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.address?.ru ? <small>{errors.address.ru}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={contact.address.am}
+                                    onChange={(e) => handleChangeText(e, "address", "am")}
+                                    placeholder={'Armenian address...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.address?.am ? <small>{errors.address.am}</small> : null}
+                            <div className={'input_item'}>
+                                <input
+                                    value={contact.address.pl}
+                                    onChange={(e) => handleChangeText(e, "address", "pl")}
+                                    placeholder={'Polish address...'}
+                                    type="text"/>
+                            </div>
+                            {errors?.address?.pl ? <small>{errors.address.pl}</small> : null}
                         </div>
-                        {errors?.address ? <small className={'errors_message'}>{errors?.address}</small> : null}
+                        }
 
                         <div className={'input_item'}>
                             <input
                                 placeholder={'Phone...'}
                                 value={contact.phone}
-                                onChange={(e) => handleChangeText(e.target.value, "phone")}
+                                onChange={(e) => handleChange(e.target.value, "phone")}
                                 type="text"/>
                         </div>
                         {errors?.phone ? <small className={'errors_message'}>{errors?.phone}</small> : null}
@@ -96,7 +136,7 @@ function AddNewContact() {
                             <input
                                 placeholder={'Email...'}
                                 value={contact.email}
-                                onChange={(e) => handleChangeText(e.target.value, "email")}
+                                onChange={(e) => handleChange(e.target.value, "email")}
                                 type="text"/>
                         </div>
                         {errors?.email ? <small className={'errors_message'}>{errors?.email}</small> : null}
@@ -105,7 +145,7 @@ function AddNewContact() {
                             <label> Active Contact
                                 <input
                                     checked={contact.activeContact}
-                                    onChange={(e) => handleChangeText(e.target.checked, "activeContact")}
+                                    onChange={(e) => handleChange(e.target.checked, "activeContact")}
                                     type="checkbox"/>
                             </label>
                         </div>

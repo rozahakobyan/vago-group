@@ -10,13 +10,13 @@ import Select from "react-select";
 import Path from "./Path";
 import {massagerListRequest} from "../../store/actions/massagers";
 import {NavLink} from "react-router-dom";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp} from "react-icons/md";
 
-function UpdateItemupdateItem({updateItem, setUpdateItem}) {
+function UpdateItemContact({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
 
-    const [text, setText] = useState("");
-    const [textError, setTextError] = useState("");
-
+    const [addressOpen, setAddressOpen] = useState(false);
+    
     const massagersList = useSelector(state => state.massagers.massagersList);
     const errors = useSelector(state => state.contacts.errors);
     
@@ -26,9 +26,16 @@ function UpdateItemupdateItem({updateItem, setUpdateItem}) {
 
     const handleClose = useCallback(() => {
         setUpdateItem({...updateItem, isActive: true})
+        setAddressOpen(false)
     }, [updateItem]);
 
-    const handleChangeText = useCallback((text, path) => {
+    const handleChangeText = useCallback((e, path, val) => {
+        const text = e.target.value
+        setUpdateItem({...updateItem, translation: {...updateItem.translation,
+                [path]: {...updateItem.translation[path], [val]: text}}});
+    }, [updateItem]);
+    
+    const handleChange = useCallback((text, path) => {
         setUpdateItem({...updateItem, [path]: text});
     }, [updateItem]);
 
@@ -94,20 +101,46 @@ function UpdateItemupdateItem({updateItem, setUpdateItem}) {
                                 </div>
                             </div>
                             <div className="right_item">
-                                <div className={'input_item'}>
-                                    <input
-                                        value={updateItem.address}
-                                        onChange={(e) => handleChangeText(e.target.value, "address")}
-                                        placeholder={'address...'}
-                                        type="text"/>
+                                <h3 onClick={() => {
+                                    setAddressOpen(!addressOpen)
+                                }}>Address  {addressOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                                {addressOpen && <div className={"open_input"}>
+                                    <div className={'input_item'}>
+                                        <input
+                                            value={updateItem.translation.en.address}
+                                            onChange={(e) => handleChangeText(e, "en", "address")}
+                                            placeholder={'English address...'}
+                                            type="text"/>
+                                    </div>
+                                    <div className={'input_item'}>
+                                        <input
+                                            value={updateItem.translation.ru.address}
+                                            onChange={(e) => handleChangeText(e, "ru", "address")}
+                                            placeholder={'Russian address...'}
+                                            type="text"/>
+                                    </div>
+                                    <div className={'input_item'}>
+                                        <input
+                                            value={updateItem.translation.am.address}
+                                            onChange={(e) => handleChangeText(e, "am", "address")}
+                                            placeholder={'Armenian address...'}
+                                            type="text"/>
+                                    </div>
+                                    <div className={'input_item'}>
+                                        <input
+                                            value={updateItem.translation.pl.address}
+                                            onChange={(e) => handleChangeText(e, "pl", "address")}
+                                            placeholder={'Polish address...'}
+                                            type="text"/>
+                                    </div>
                                 </div>
-                                {errors.address ? <small className={'errors_message'}>{errors.address}</small> : null}
+                                }
 
                                 <div className={'input_item'}>
                                     <input
                                         placeholder={'Phone...'}
                                         value={updateItem.phone}
-                                        onChange={(e) => handleChangeText(e.target.value, "phone")}
+                                        onChange={(e) => handleChange(e.target.value, "phone")}
                                         type="text"/>
                                 </div>
                                 {errors.phone ? <small className={'errors_message'}>{errors.phone}</small> : null}
@@ -116,7 +149,7 @@ function UpdateItemupdateItem({updateItem, setUpdateItem}) {
                                     <input
                                         placeholder={'Email...'}
                                         value={updateItem.email}
-                                        onChange={(e) => handleChangeText(e.target.value, "email")}
+                                        onChange={(e) => handleChange(e.target.value, "email")}
                                         type="text"/>
                                 </div>
                                 {errors.email ? <small className={'errors_message'}>{errors.email}</small> : null}
@@ -125,7 +158,7 @@ function UpdateItemupdateItem({updateItem, setUpdateItem}) {
                                     <label> Active contact
                                         <input
                                             checked={updateItem.activeContact}
-                                            onChange={(e) => handleChangeText(e.target.checked, "activeContact")}
+                                            onChange={(e) => handleChange(e.target.checked, "activeContact")}
                                             type="checkbox"/>
                                     </label>
                                 </div>
@@ -140,4 +173,4 @@ function UpdateItemupdateItem({updateItem, setUpdateItem}) {
     );
 }
 
-export default UpdateItemupdateItem;
+export default UpdateItemContact;

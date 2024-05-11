@@ -1,5 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../services/sequelize.js";
+import Translation from "./Translation.js";
+import History from "./History.js";
 
 class Contacts extends Model {
 
@@ -34,5 +36,19 @@ Contacts.init({
         tableName: 'contacts',
         modelName: 'contacts'
     })
+
+Contacts.belongsTo(Translation,
+    {
+        foreignKey: "translationId",
+        onDelete: "CASCADE",
+        onUpdate: 'CASCADE',
+    })
+
+Translation.hasMany(Contacts,
+    {
+        foreignKey: 'translationId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    });
 
 export default Contacts;

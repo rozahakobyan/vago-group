@@ -9,6 +9,7 @@ import fs from "fs/promises";
 import usersSchema from "../schema/usersSchema.js";
 import _ from "lodash";
 import {Op} from "sequelize";
+import sendMassageToEmail from "../helper/sendMassageToEmail.js";
 const { JWT_SECRET, FRONT_URL } = process.env;
 
 class UsersController {
@@ -539,6 +540,23 @@ class UsersController {
             res.json({
                 status: "ok",
                 user
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
+
+    static async sendMassage(req, res, next){
+        try{
+            const {email, massage} = req.body;
+
+            const html = `<p>${massage}</p>`;
+
+            await sendMassageToEmail(email, html)
+
+            res.json({
+                status: "ok",
+                message: "Successfully massage"
             })
         }catch (e) {
             next(e)
