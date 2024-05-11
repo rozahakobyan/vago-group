@@ -22,7 +22,7 @@ function Prices() {
     return (
         <div className="priceList">
             <div className="priceList-area">
-                <h2 className="priceList-title">Packages List</h2>
+                <h2 className="priceList-title">{translation.packagesList[language]}</h2>
                 <div className="priceList-area">
                     <table className="Prices-table">
                         <thead>

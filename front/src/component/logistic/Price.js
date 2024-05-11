@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { pricesListRequest } from "../../store/actions/prices";
 import { packagesListRequest } from "../../store/actions/packages";
 import { Account } from "../../helpers/Account";
+import translation from "../../assets/data/translation";
 
 function Prices() {
     const dispatch = useDispatch();
@@ -21,15 +22,15 @@ function Prices() {
     return (
         <div className="priceList">
             <div className="priceList-area">
-                <h2 className="priceList-title">Packages List</h2>
+                <h2 className="priceList-title">{translation.packagesList[language]}</h2>
                 <div className="priceList-area">
                     <table className="Prices-table">
                         <thead>
                             <tr>
-                                <th>Packages</th>
-                                <th>Standard</th>
-                                <th>Advanced</th>
-                                <th>Premium</th>
+                                <th>{translation.packages[language]}</th>
+                                <th>{translation.standard[language]}</th>
+                                <th>{translation.advanced[language]}</th>
+                                <th>{translation.premium[language]}</th>
 
                             </tr>
                         </thead>
@@ -51,9 +52,9 @@ function Prices() {
 
                             <tr className="order-button">
                                 <td className="service-name"></td>
-                                <td><button>ORDER</button></td>
-                                <td><button>ORDER</button></td>
-                                <td><button>ORDER</button></td>
+                                <td><button>{translation.order[language]}</button></td>
+                                <td><button>{translation.order[language]}</button></td>
+                                <td><button>{translation.order[language]}</button></td>
                             </tr>
                         </tbody>
                     </table>

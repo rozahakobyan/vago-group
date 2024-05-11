@@ -206,5 +206,62 @@ export default {
         am: "Պատմություն",
         pl: "Historia"
     },
+    calculator:{
+        en: "Calculator",
+        ru: "Калькулятор",
+        am: "Հաշվիչ",
+        pl: "Kalkulator"
+    },
+    fromWhatCity:{
+        en: "From what city",
+        ru: "Из какого города",
+        am: "որ քաղաքից",
+        pl: "Z jakiego miasta"
+    },
+    toWhichCity:{
+        en: "To which city",
+        ru: "В какой город",
+        am: "որ քաղաք",
+        pl: "Do jakiego miasta"
+    },
+    selectProduct:{
+        en: "Select product",
+        ru: "Выберите товар",
+        am: "Ընտրել ապրանքը",
+        pl: "Wybierz produkt"
+    },
+    transportationWillCost:{
+        en: "transportation willost",
+        ru: "перевозка бдет стоить",
+        am: "տեղափոխումը կարժենա",
+        pl: "transport będzie kosztować"
+    },
+    packagesList:{
+        en: "Packages List",
+        ru: "Список пакетов",
+        am: "Փաթեթների ցուցակ",
+        pl: "Lista pakietów"
+    },
+    services:{
+        en: "Services",
+        ru: "Услуги",
+        am: "Ծառայություններ",
+        pl: "Usługi"
+    },
+    serviceName:{
+        en: "Service name",
+        ru: "Название услуги",
+        am: "Ծառայության անուն",
+        pl: "Nazwa serwisu"
+    },
+    price: {
+        en: "Price",
+        ru: "Цена",
+        am: "Արժեք",
+        pl: "Cena"
+    }
+
+    
+    
     
 }
