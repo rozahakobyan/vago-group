@@ -259,8 +259,14 @@ export default {
         ru: "Цена",
         am: "Արժեք",
         pl: "Cena"
+    },
+    ourServices: {
+        en: "Our Services",
+        ru: "Наши шуслуги",
+        am: "Մեր Ծառայությունները",
+        pl: "Nasze Usługi"
     }
-
+    
     
     
     

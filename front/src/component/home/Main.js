@@ -5,6 +5,8 @@ import { bannerListRequest } from "../../store/actions/banner";
 import {Account} from "../../helpers/Account";
 import {API_URL} from "../../Api";
 import loginImage from "../../assets/images/login.jpg";
+import translation from "../../assets/data/translation";
+
 
 function Main() {
     const dispatch = useDispatch()
@@ -14,7 +16,7 @@ function Main() {
 
     useEffect(() => {
         dispatch(bannerListRequest({ active: true }))
-    }, [bannersList, language]);
+    }, []);
     
     return (
         <>
@@ -39,10 +41,10 @@ function Main() {
             
             <section>
                 <div className='services'>
-                    <div className='service-title'>OUR SERVICES</div>
+                    <div className='service-title'>{translation.ourServices[language]}</div>
                     <div className='services-buttons'>
                         <div className='bigBlock'>
-                            <p style={{textAlign: 'center'}}>CONSTRUCTION</p>
+                            <p style={{textAlign: 'center'}}>{translation.construction[language]}</p>
                             <NavLink to={'/construction'}>
                                 <div className='services-button'>
                                     <img src={bannersList && bannersList[0]?.constructionImage ? `${API_URL}/${bannersList[0].constructionImage}` : './img/construction.jpg'} alt={""}/>
@@ -51,7 +53,7 @@ function Main() {
                         </div>
 
                         <div className='bigBlock'>
-                            <p style={{textAlign: 'center'}}>EMPLOYMENT-AGENCY</p>
+                            <p style={{textAlign: 'center'}}>{translation.employmentAgency[language]}</p>
                             <NavLink to={'/employment-agency'}>
                                 <div className='services-button'>
                                     <img src={bannersList && bannersList[0]?.employmentAgencyImage ? `${API_URL}/${bannersList[0].employmentAgencyImage}` : './img/recruitment.jpg'} alt={""} />
@@ -60,7 +62,7 @@ function Main() {
                         </div>
 
                         <div className='bigBlock'>
-                            <p style={{ textAlign: 'center' }}>LOGISTICS</p>
+                            <p style={{ textAlign: 'center' }}>{translation.logistics[language]}</p>
                             <NavLink to={'/logistic'}>
                                 <div className='services-button'>
                                     <img src={bannersList && bannersList[0]?.logisticImage ? `${API_URL}/${bannersList[0].logisticImage}` : './img/logistic.jpg'} alt={""} />

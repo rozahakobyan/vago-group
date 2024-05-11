@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useMemo} from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { worksListRequest } from "../../store/actions/works";
 import { API_URL } from "../../Api"
 import ReactPaginate from "react-paginate";
-import {Account} from "../../helpers/Account";
+import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
 
 
@@ -12,12 +12,10 @@ function Vacancieces() {
     const dispatch = useDispatch();
 
     const [page, setPage] = useState(1);
-
+    const language = Account.getLanguage();
     const worksList = useSelector(state => state.works.worksList)
     const loading = useSelector(state => state.works.loading)
     const pages = useSelector(state => state.works.pages)
-
-    const language = Account.getLanguage();
 
     useEffect(() => {
         dispatch(worksListRequest({ department: "Employment Agency", limit: 4, page }))
@@ -35,13 +33,13 @@ function Vacancieces() {
                             <tr className="vacancie-text">
                                 <td>
                                     <div className="vacancieImgArea">
-                                        <img src={`${API_URL}/${w.image}`} alt={""}/>
+                                        <img src={`${API_URL}/${w.image}`} alt={""} />
                                     </div>
                                     <div className="vacancie-title">
                                         <h3>{w.translation[language].name}</h3>
                                     </div>
                                     <div className="vacancie-price-hours">
-                                        <p><strong>{translation.vacanciesPrice[language]}</strong> - {w.price}<br/>
+                                        <p><strong>{translation.vacanciesPrice[language]}</strong> - {w.price}<br />
                                             <strong>{translation.vacanciesHAW[language]}</strong> - {w.hoursWeek}{translation.vacanciesHour[language]}</p>
                                     </div>
                                     <div className="vacancie-workSchedule">
@@ -82,7 +80,7 @@ function Vacancieces() {
                     pageClassName={'items pagination-page '}
                     pageRangeDisplayed={2}
                     previousClassName={"items previous"}
-                    previousLabel={"<"}/> : null}
+                    previousLabel={"<"} /> : null}
             </div>
         </div>
     )

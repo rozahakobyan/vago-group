@@ -13,8 +13,8 @@ function Partners() {
     const language = Account.getLanguage();
     useEffect(() => {
         dispatch(partnersListRequest())
-    }, [partnersList, language]);
-    console.log(partnersList);
+    }, []);
+    
 
 
     return (
