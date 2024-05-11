@@ -80,9 +80,9 @@ function Header() {
 
                                 <div className={'header-block-login'}>
                                     {token ? <div className={"log-out"} onClick={handleLogOut}>
-                                        <p>Log Out</p>
+                                        <p>{translation.logOut[language]}</p>
                                     </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
-                                        <p>Login</p>
+                                        <p>{translation.logIn[language]}</p>
                                     </div>}
                                 </div>
 

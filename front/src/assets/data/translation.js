@@ -41,6 +41,18 @@ export default {
         am: "Մեսենջեռ",
         pl: "Komunikator"
     },
+    logOut: {
+        en: "log-out",
+        ru: "Выйти",
+        am: "Դուրս գալ",
+        pl: "Wyloguj"
+    },
+    logIn: {
+        en: "log-in",
+        ru: "Вход",
+        am: "Մուտք",
+        pl: "Zaloguj sie"
+    },
 
     /* vacancies */
     vacancies: {
