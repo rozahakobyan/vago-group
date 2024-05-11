@@ -73,5 +73,18 @@ export default {
         ru: "Подробнее",
         am: "Ավելին",
         pl: "Więcej"
-    }
+    },
+    currentProjects: {
+        en: "Current Projects",
+        ru: "Текущие проекты",
+        am: "Ընթացիկ նախագծեր",
+        pl: "Obecne projekty"
+    },
+    completedProjects: {
+        en: "Completed projects",
+        ru: "Завершенные проекты",
+        am: "Ավարտված նախագծեր",
+        pl: "Zrealizowane projekty"
+    },
+    
 }
