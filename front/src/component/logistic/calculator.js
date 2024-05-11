@@ -1,28 +1,32 @@
 import React from 'react'
+import {Account} from "../../helpers/Account";
+import translation from "../../assets/data/translation";
+
+const language = Account.getLanguage();
 
 function Calculator() {
 
     return (
         <div className='calculator-area'>
             <div className='calculator-form'>
-                <h4>Calculator</h4>
+                <h4>{translation.calculator[language]}</h4>
                 <form>
                     <div className='label-area'>
-                        <label>From what city</label><br/>
+                        <label>{translation.fromWhatCity[language]}</label><br/>
                         <input type={'text'}></input>
                     </div>
                     <div className='label-area'>
-                        <label>To which city</label><br/>
+                        <label>{translation.toWhichCity[language]}</label><br/>
                         <input type={'text'}></input>
                     </div>
                     <div className='product-area'>
-                        <label>Select product</label><br/>
+                        <label>{translation.selectProduct[language]}</label><br/>
                         <input type={'text'}></input>
                     </div>
 
                 </form>
                 <div className='logistic-price'>
-                    <p>transportation will cost ???$</p>
+                    <p>{translation.transportationWillCost[language]} ???$</p>
                 </div>
             </div>
         </div>

@@ -38,11 +38,12 @@
 }
 
 .vacancie-join-area {
-    width: 100%;
+    width: 200px;
+    margin:  auto;
 }
 
 .vacancie-join {
-    width: 150px;
+    min-width: 200px;
     height: 50px;
     border: none;
     background-color: var(--color1);
@@ -130,6 +131,7 @@
     width: 300px;
     height: 400px;
     margin: 25px;
+    text-align: center;
 }
 
 .currentProjectImg {
@@ -288,14 +290,23 @@
 }
 
 .offersArea form button {
-    width: 80px;
+    min-width: 113px;
+    transform: translate(-427px, 0); 
     height: 40px;
-    transform: translate(-443px, 0);
     font-size: 20px;
     background-color: black;
     color: white;
     border: none;
     transition: background-color 0.4s;
+}
+
+.offersArea form button {
+    min-width: 80px;
+}
+
+.offersArea form button.wide {
+    min-width: 113px;
+    transform: translate(-427px, 0); 
 }
 
 .offersArea form button:hover {
@@ -466,14 +477,14 @@
 }
 
 .contacts-Area form button {
-    width: 80px;
+    min-width: 117px;
     height: 40px;
     font-size: 20px;
     background-color: black;
     color: white;
     border: none;
     transition: background-color 0.4s;
-    transform: translate(-443px, 0px);
+    transform: translate(-425px, 0px);
     text-align: center !important;
     padding: 0;
 }

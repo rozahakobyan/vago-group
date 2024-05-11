@@ -4,7 +4,8 @@ import { galleriesListRequest } from "../../store/actions/galleries";
 import ReactPaginate from "react-paginate";
 import { API_URL } from "../../Api"
 import { videoPathsListRequest } from "../../store/actions/videoPath";
-
+import {Account} from "../../helpers/Account";
+import translation from "../../assets/data/translation";
 
 function Gallery() {
     const dispatch = useDispatch();
@@ -16,6 +17,8 @@ function Gallery() {
     const galleriesList = useSelector(state => state.galleries.galleriesList);
     const videoPathsList = useSelector(state => state.videoPath.videoPathsList);
     const loading = useSelector(state => state.galleries.loading);
+    const language = Account.getLanguage();
+
 
     useEffect(() => {
         dispatch(galleriesListRequest({ page, limit: 4, pageGallery: "Employment Agency" }))
@@ -33,10 +36,10 @@ function Gallery() {
     return (
         <div className="galleryArea">
             <div className="gallery-title">
-                <h2>Gallery</h2>
+                <h2>{translation.gallery[language]}</h2>
             </div>
             <div className="gallery-type">
-                <h3>Photo</h3>
+                <h3>{translation.photo[language]}</h3>
             </div>
 
             <div className="gallery-blocks">
@@ -76,7 +79,7 @@ function Gallery() {
             )}
 
             <div className="gallery-type">
-                <h3>Video</h3>
+                <h3>{translation.video[language]}</h3>
             </div>
             {videoPathsList && videoPathsList.map(v => (
                 <div className="gallery-blocks" key={v.id}>

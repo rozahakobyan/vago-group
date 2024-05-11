@@ -5,6 +5,7 @@ import { worksListRequest } from "../../store/actions/works";
 import { API_URL } from "../../Api"
 import ReactPaginate from "react-paginate";
 import {Account} from "../../helpers/Account";
+import translation from "../../assets/data/translation";
 
 
 function Vacancieces() {
@@ -25,7 +26,7 @@ function Vacancieces() {
     return (
         <div className="vacanciesArea">
             <div className="vacanciesTitle">
-                <h2>{worksList && "Vacancies"}</h2>
+                <h2>{worksList && translation.vacancies[language]}</h2>
             </div>
             <div className="vacancies-blocks">
                 {worksList && !loading ? worksList.map(w => (
@@ -40,11 +41,11 @@ function Vacancieces() {
                                         <h3>{w.translation[language].name}</h3>
                                     </div>
                                     <div className="vacancie-price-hours">
-                                        <p><strong>Price</strong> - {w.price}<br/>
-                                            <strong>Hours a Week</strong> - {w.hoursWeek}h</p>
+                                        <p><strong>{translation.vacanciesPrice[language]}</strong> - {w.price}<br/>
+                                            <strong>{translation.vacanciesHAW[language]}</strong> - {w.hoursWeek}{translation.vacanciesHour[language]}</p>
                                     </div>
                                     <div className="vacancie-workSchedule">
-                                        <strong>Work Schedule</strong>
+                                        <strong>{translation.vacanciesWorkSchedule[language]}</strong>
                                     </div>
                                     {w.schedules && w.schedules.map(ws => (
                                         <p key={ws.id}>
@@ -54,7 +55,7 @@ function Vacancieces() {
                                     <div className="vacancie-join-area">
                                         <NavLink to={`/vacancies-detales/${w.id}`}>
                                             <div className="vacancie-join">
-                                                <strong>Join</strong>
+                                                <strong>{translation.vacanciesJoin[language]}</strong>
                                             </div>
                                         </NavLink>
                                     </div>

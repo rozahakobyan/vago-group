@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { projectsListRequest } from "../../store/actions/projects";
 import { API_URL } from "../../Api"
 import {Account} from "../../helpers/Account";
+import translation from "../../assets/data/translation";
 
 
 function CurrentProjects() {
@@ -29,7 +30,7 @@ function CurrentProjects() {
     return (
         <div className="currentProjects-area">
             <div className="currentProjects-title">
-                <h2>Current Projects</h2>
+                <h2>{translation.completedProjects[language]}</h2>
             </div>
             <div className="currentProjects-blocks">
                 {projectsList && projectsList.map(p => (
@@ -40,7 +41,9 @@ function CurrentProjects() {
                         <div className="currentProject-title">
                             <h2>{p.translation[language].name}</h2>
                         </div>
-                        <div className="currentProject-text">
+                        <div className="currentProject-text" style={{
+                                textAlign: "center"
+                            }}>
                             <p>{p.translation[language].description}</p>
                         </div>
                     </div>

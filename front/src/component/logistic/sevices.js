@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from "react-redux";
 import { servicesListRequest } from "../../store/actions/services";
 import { Account } from "../../helpers/Account";
+import translation from "../../assets/data/translation";
 
 
 
@@ -23,13 +24,13 @@ function Services() {
     return (
         <div className="serviceList">
             <div className="service-area">
-                <h2 className="serviceList-title">Services</h2>
+                <h2 className="serviceList-title">{translation.services[language]}</h2>
                 <div className="serviceList-area">
                     <table className="service-table">
                         <thead>
                             <tr>
-                                <th >Service Name</th>
-                                <th>Packages</th>
+                                <th>{translation.serviceName[language]}</th>
+                                <th>{translation.price[language]}</th>
 
                             </tr>
                         </thead>
