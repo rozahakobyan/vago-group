@@ -46,6 +46,8 @@ body {
     width: 280px;
     text-align: center;
     
+    
+    
 
 }
 
@@ -55,6 +57,7 @@ body {
 
 .logo img {
     width: 280px;
+    
 }
 
 .header-block-msg svg{
@@ -154,9 +157,7 @@ body {
     z-index: 9999;
 }
 
-.header-block-language:hover {
-    background-color: black;
-}
+
 
 /* --------------------------------- */
 .buttons {

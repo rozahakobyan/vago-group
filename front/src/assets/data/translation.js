@@ -3,24 +3,24 @@ export default {
         en: "Home",
         ru: "Дом",
         am: "Տուն",
-        pl: "Home"
+        pl: "Dom"
     },
     construction: {
         en: "Construction",
         ru: "Строительство",
         am: "Շինարարություն",
-        pl: "Construction"
+        pl: "Budowa"
     },
     employmentAgency: {
         en: "Employment Agency",
-        ru: "Строительство",
-        am: "Շինարարություն",
-        pl: "Construction"
+        ru: "Трудоустройтсво",
+        am: "Զբաղվածություն",
+        pl: "Zatrudnienie"
     },
     logistics: {
         en: "Logistics",
-        ru: "Строительство",
-        am: "Շինարարություն",
-        pl: "Construction"
+        ru: "Логистика",
+        am: "Լոգիստիկա",
+        pl: "Logistyka"
     },
 }
