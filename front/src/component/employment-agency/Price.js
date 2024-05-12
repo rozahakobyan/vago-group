@@ -17,8 +17,7 @@ function Prices() {
     useEffect(() => {
         dispatch(pricesListRequest({ active: true, activePage: "Employment Agency" }))
         dispatch(packagesListRequest({ activePage: "Employment Agency" }))
-    }, [pricesList, language]);
-    console.log(pricesList);
+    }, []);
     return (
         <div className="priceList">
             <div className="priceList-area">

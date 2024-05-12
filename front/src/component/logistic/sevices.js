@@ -17,9 +17,8 @@ function Services() {
 
     useEffect(() => {
         dispatch(servicesListRequest())
-    }, [servicesList, language]);
+    }, []);
 
-    console.log(servicesList)
 
     return (
         <div className="serviceList">

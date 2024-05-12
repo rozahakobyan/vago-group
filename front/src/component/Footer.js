@@ -34,7 +34,7 @@ function Footer() {
                         <div className="footer-address">
                             <div className="address-title">{translation.address[language]}</div>
                             <div className="address-text">
-                                <p>{l.address}</p>
+                                <p>{l.translation[language].address}</p>
                             </div>
                         </div>
 
