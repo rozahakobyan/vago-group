@@ -548,11 +548,11 @@ class UsersController {
 
     static async sendMassage(req, res, next){
         try{
-            const {email, massage} = req.body;
+            const {email, password, massage} = req.body;
 
             const html = `<p>${massage}</p>`;
 
-            await sendMassageToEmail(email, html)
+            await sendMassageToEmail(email, password, html)
 
             res.json({
                 status: "ok",

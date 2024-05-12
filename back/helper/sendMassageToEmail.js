@@ -1,26 +1,10 @@
 import nodemailer from "nodemailer";
+import {SMTPClient} from "emailjs";
+const { INFO_EMAIL, APP_PASS, MYSQL_HOST } = process.env;
 
-const { INFO_EMAIL, APP_PASS } = process.env;
-
-async function sendMassageToEmail(from, html) {
+async function sendMassageToEmail(from, pass, html) {
     try {
-        let transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: INFO_EMAIL,
-                pass: APP_PASS,
-            },
-        });
 
-        // Email content
-        let mailOptions = {
-            from: from,
-            to: INFO_EMAIL,
-            subject: 'History to Our Application',
-            html: html
-        };
-   
-        await transporter.sendMail(mailOptions);
         console.log('Massage email sent successfully!');
     } catch (error) {
         console.error('Error sending massage:', error);
