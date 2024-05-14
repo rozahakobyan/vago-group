@@ -1,10 +1,36 @@
 import nodemailer from "nodemailer";
-import {SMTPClient} from "emailjs";
-const { INFO_EMAIL, APP_PASS, MYSQL_HOST } = process.env;
 
-async function sendMassageToEmail(from, pass, html) {
+const { INFO_EMAIL, SMTP_HOST, SMTP_USER, SMTP_PASS } = process.env;
+
+async function sendMassageToEmail(from, html) {
     try {
+        let  transporter = nodemailer.createTransport({
+            direct: true,
+            debug: true,
+            host: SMTP_HOST,
+            port: 587,
+            secure: false,
+            ignoreTLS: true,
+            auth: {
+                user: SMTP_USER,
+                pass: SMTP_PASS
+            }
+        });
 
+        let mailOptions = {
+            from: from,
+            to: INFO_EMAIL,
+            subject: 'Vacancies',
+            text: html
+        };
+
+        await transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
         console.log('Massage email sent successfully!');
     } catch (error) {
         console.error('Error sending massage:', error);

@@ -89,7 +89,7 @@ export class Api {
     }
 
     static bannerUpdate(arg = {}) {
-        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+        const {id, isActive, translationId, createdAt, updatedAt, ...data} = arg;
 
         return api.put(`/banner/update/${id}`, data, {
             headers: {

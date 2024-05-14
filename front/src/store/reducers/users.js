@@ -1,7 +1,7 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {
     activeNavbarToggle, createUserData,
-    userLoginRequired, userProfileRequired, userRegisterRequired,
+    userLoginRequired, userProfileRequired, userRegisterRequired, userSendMessageRequired,
 } from '../actions/users';
 import {Account} from "../../helpers/Account";
 
@@ -13,6 +13,7 @@ const initialState = {
     statusEditPassword: "",
     activeNavbar: false,
     status: "",
+    message: ""
 };
 export const users = createReducer(initialState, (builder) => {
     builder
@@ -53,6 +54,20 @@ export const users = createReducer(initialState, (builder) => {
         })
         .addCase(userProfileRequired.rejected, (state, action) => {
             state.loading = false;
+        })
+        .addCase(userSendMessageRequired.fulfilled, (state, action) => {
+            const {message} = action.payload;
+            state.message = message;
+            state.loading = false;
+        })
+        .addCase(userSendMessageRequired.pending, (state, action) => {
+            state.loading = true;
+        })
+        .addCase(userSendMessageRequired.rejected, (state, action) => {
+            // const {errors} = action.payload;
+            // state.errors = errors
+            state.loading = false;
+            console.log(action.payload)
         })
         .addCase(activeNavbarToggle,(state)=>{
             state.activeNavbar = !state.activeNavbar

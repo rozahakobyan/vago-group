@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useCallback} from 'react';
+import logo from '../../assets/images/logo.png';
 
-const Logo = () => {
+const Logo = ({open, setOpen}) => {
+    const handleClick = useCallback((e) => {
+        e.preventDefault();
+        setOpen(!open);
+    }, [open])
+
     return (
         <div className={'logo'}>
-            <img src={require('../../assets/images/logo.png')}/>
+            <img src={logo || ""} alt={""} onClick={handleClick}/>
         </div>
     );
 };

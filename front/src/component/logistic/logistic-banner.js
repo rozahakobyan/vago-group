@@ -19,7 +19,7 @@ function Logistic_banner() {
     return (
         <>
             {bannersList && bannersList.map(b => (
-                <div className="bannerArea" style={{
+                <div key={b.id} className="bannerArea" style={{
                     width: "100%",
                     height: "300px",
                     backgroundImage: b?.homeImage ? `url(${API_URL}/${b.logisticImage})` : `url(${loginImage})`,

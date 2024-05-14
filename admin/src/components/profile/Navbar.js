@@ -6,13 +6,12 @@ import {useLocation} from "react-router-dom";
 import {Account} from "../../helpers/account";
 import navItem from "../../assets/data/navItem";
 
-const Navbar = () => {
+const Navbar = ({open}) => {
     const [activePathName, setActivePathName] = useState('');
     const [activeSubItem, setActiveSubItem] = useState('')
     const scrollStatus = useSelector(state => state.users.scrollStatus);
     const {pathname} = useLocation();
     const {navPath, subMenuPath} = Account.getNavbarUrlPath();
-
 
     useEffect(() => {
 
@@ -31,7 +30,7 @@ const Navbar = () => {
     }, [navPath, subMenuPath]);
 
     return (
-        <nav className={classNames('navbar-left', {
+        <nav className={classNames(`navbar-left${open ? " active" : ""}`, {
             activeScrollNavbar: scrollStatus,
             isActiveScrollNavbar: scrollStatus === false
         })}>

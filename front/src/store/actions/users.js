@@ -72,6 +72,17 @@ export const updateForgotPasswordRequired = createAsyncThunk("user/updateForgotP
     }
 })
 
+export const userSendMessageRequired = createAsyncThunk("user/userSendMessageRequired", async (arg = {}, thunkAPI) => {
+    try{
+        console.log(arg)
+
+        const { data } = await Api.userSendMessage(arg);
+        return data;
+    }catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data);
+    }
+})
+
 export const activeNavbarToggle = createAction('active/navbar',()=>{
   return{
       payload:{

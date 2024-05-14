@@ -11,12 +11,12 @@ function History() {
     const dispatch = useDispatch();
     
     const historiesList = useSelector(state => state.histories.historiesList)
+
     const language = Account.getLanguage();
+
     useEffect(() => {
         dispatch(historiesListRequest({ active: true }))
-    },[historiesList, language]);
-
-    console.log(historiesList)
+    },[]);
 
     return (
         <div className="history-area">

@@ -548,11 +548,23 @@ class UsersController {
 
     static async sendMassage(req, res, next){
         try{
-            const {email, password, massage} = req.body;
+            const {email, phone, name, message, vacancyName} = req.body;
+            console.log(req.body)
 
-            const html = `<p>${massage}</p>`;
+            if(!email || !phone || !name || !message || !vacancyName){
+                throw HttpError(404, {
+                    errors: {
+                        exsist: 'Invalid send'
+                    }
+                });
+            }
 
-            await sendMassageToEmail(email, password, html)
+            const html = `<h4>Vacancy Name - ${vacancyName}</h4>
+                                 <p>Name - ${name}</p>
+                                 <p>Phone - ${phone}</p>
+                                 <p>${message}</p>`;
+
+            await sendMassageToEmail(email, html)
 
             res.json({
                 status: "ok",
