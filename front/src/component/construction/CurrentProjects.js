@@ -23,7 +23,7 @@ function CurrentProjects() {
         dispatch(projectsListRequest())
     }, []);
 
-    console.log(projectsList)
+    
 
     return (
         <div className="currentProjects-area">

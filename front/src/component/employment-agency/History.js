@@ -16,7 +16,7 @@ function History() {
         dispatch(historiesListRequest({ active: true }))
     },[historiesList, language]);
 
-    console.log(historiesList)
+    
 
     return (
         <div className="history-area">

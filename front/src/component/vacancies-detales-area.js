@@ -17,7 +17,7 @@ function VacanciesDetalesArea(){
         dispatch(workGetByIdRequest(id))
     }, [id, work]);
 
-    console.log(work);
+    
     return(
         <div className="vacancies-detales-area">
             <div className="vacancies-detales">
