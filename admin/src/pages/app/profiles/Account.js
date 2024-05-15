@@ -6,9 +6,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {removeUserLogout, userProfileRequest} from "../../../store/actions/users";
 import CustomsPortal from "../../../components/CustomsPortal";
 
-
 const Account = () => {
     const [verificationEmail, setVerificationEmail] = useState(false);
+    const [open, setOpen] = useState(false);
     const profile = useSelector(state => state.users.profile);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,9 +30,9 @@ const Account = () => {
 
     return (
         <div className={'account childrenWidth'}>
-            <Header/>
+            <Header open={open} setOpen={setOpen}/>
             <div className="container">
-                <Navbar/>
+                <Navbar open={open}/>
                 <Outlet/>
             </div>
             {

@@ -45,6 +45,10 @@ export class Api {
         return api.post('/users/password-update', password);
     }
 
+    static userSendMessage(data = {}) {
+        return api.post('/users/send-message', data);
+    }
+
     static activateUser(params) {
         return api.post('/users/activate', params);
     }

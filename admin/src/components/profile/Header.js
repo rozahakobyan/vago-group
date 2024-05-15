@@ -7,7 +7,7 @@ import {scrollStatus} from "../../store/actions/users";
 import Profile from "./Profile";
 import {useDispatch} from "react-redux";
 
-const Header = () => {
+const Header = ({open, setOpen}) => {
     const [search, setSearch] = useState('');
     const [scrollDirection, setScrollDirection] = useState(null);
     const [settingModal, setSettingModal] = useState(null);
@@ -60,7 +60,7 @@ const Header = () => {
                 activeScroll: scrollDirection,
                 isActiveScroll: scrollDirection === false
             })}>
-                <Logo/>
+                <Logo open={open} setOpen={setOpen}/>
 
                 <h3>Vago Group</h3>
 

@@ -12,6 +12,10 @@
   z-index: 1;
   padding-left: 35px;
   padding-top: 35px;
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 
   .nav-container {
     width: 100%;
@@ -185,4 +189,10 @@
 
 .isActiveScrollNavbar {
   top: 0;
+}
+
+.navbar-left.active {
+  opacity: 0;
+  transform: translateX(-100%);
+  width: 0px;
 }

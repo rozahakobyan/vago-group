@@ -6,14 +6,12 @@ import './assets/styles/css/index.css';
 import App from './App';
 import {Provider} from "react-redux";
 import {store} from "./store";
-import App2 from "./App2";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <Provider store={store}>
             <App/>
-            {/*<App2/>*/}
         </Provider>
     </BrowserRouter>
 );

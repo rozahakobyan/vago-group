@@ -1,18 +1,23 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { NavLink } from "react-router-dom";
+import React, {useState, useEffect, useMemo, useCallback} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { worksListRequest } from "../../store/actions/works";
 import { API_URL } from "../../Api"
 import ReactPaginate from "react-paginate";
 import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
+import {useNavigate} from "react-router-dom";
 
 
 function Vacancieces() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [page, setPage] = useState(1);
+    const [error, setError] = useState("");
+
     const language = Account.getLanguage();
+
+    const token = useSelector(state => state.users.token)
     const worksList = useSelector(state => state.works.worksList)
     const loading = useSelector(state => state.works.loading)
     const pages = useSelector(state => state.works.pages)
@@ -20,6 +25,17 @@ function Vacancieces() {
     useEffect(() => {
         dispatch(worksListRequest({ department: "Employment Agency", limit: 4, page }))
     }, [page])
+
+    const handleNavigate = useCallback((e, id) => {
+        e.preventDefault();
+        if(token){
+            navigate(`/vacancies-detales/${id}`)
+            setError("")
+            console.log(token)
+        }else{
+            setError("Login your account");
+        }
+    }, [token])
 
     return (
         <div className="vacanciesArea">
@@ -51,11 +67,9 @@ function Vacancieces() {
                                         </p>
                                     ))}
                                     <div className="vacancie-join-area">
-                                        <NavLink to={`/vacancies-detales/${w.id}`}>
-                                            <div className="vacancie-join">
-                                                <strong>{translation.vacanciesJoin[language]}</strong>
-                                            </div>
-                                        </NavLink>
+                                        <div className="vacancie-join" onClick={(e) => handleNavigate(e, w.id)}>
+                                            <strong>{translation.vacanciesJoin[language]}</strong>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -64,6 +78,7 @@ function Vacancieces() {
                     <div className="loader"></div>
                 </div>}
             </div>
+            {error && <p>{error}</p>}
             <div className={"pages-list"}>
                 {pages && pages > 1 ? <ReactPaginate
                     activeClassName={'items active '}

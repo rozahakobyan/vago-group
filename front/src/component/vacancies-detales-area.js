@@ -11,13 +11,12 @@ function VacanciesDetalesArea(){
     const work = useSelector(state => state.works.work)
     const language = Account.getLanguage();
 
-
-
     useEffect(() => {
         dispatch(workGetByIdRequest(id))
-    }, [id, work]);
+    }, [id]);
 
-    
+
+
     return(
         <div className="vacancies-detales-area">
             <div className="vacancies-detales">

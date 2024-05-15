@@ -20,6 +20,7 @@ const EXCLUDES = [
   'GET:/contacts/list',
   'GET:/partners/list',
   'GET:/prices/list',
+  'GET:/packages/list',
   'GET:/login-image/list',
   'GET:/services/list',
   'GET:/histories/list',
