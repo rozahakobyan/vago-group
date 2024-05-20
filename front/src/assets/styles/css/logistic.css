@@ -161,10 +161,26 @@
 }
 
 .calculator-form form input{
-    width: 300px;
+    width: 270px;
     height: 25px;
     border-radius: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
 
+}
+.calculator-form form .submit-button{
+    width: 150px;
+    height: 30px;
+    border-radius: 0px;
+    margin-top: 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    transition: background-color 0.5s;
+    font-size: 20px;
+}
+.calculator-form form .submit-button:hover{
+    background-color: var(--color1);
 }
 
 

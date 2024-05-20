@@ -33,6 +33,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-top: 15px;
 }
 .header-block-msg{
     width: 30px;

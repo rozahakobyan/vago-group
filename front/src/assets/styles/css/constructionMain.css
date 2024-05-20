@@ -290,7 +290,7 @@
 }
 
 .offersArea form button {
-    min-width: 113px;
+    width: 113px;
     transform: translate(-427px, 0); 
     height: 40px;
     font-size: 20px;
