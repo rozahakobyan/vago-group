@@ -12,9 +12,9 @@
 .effect-container {
   width: 100%;
   min-height: 93vh;
-  //background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  //background-size: 400% 400%;
-  //animation: gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -74,11 +74,6 @@
   border-radius: 20px;
   cursor: pointer;
 
-}
-
-.childrenWidth {
-  width: calc(100% - 300px);
-  position: relative;
 }
 
 .loading-page {

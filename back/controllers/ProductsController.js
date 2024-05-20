@@ -12,21 +12,12 @@ import Translation from "../models/Translation.js";
 class ProductsController {
     static async add (req, res, next){
         try{
-            const {name, price} = req.body;
-            const {file} = req;
+            const {name, price, currency} = req.body;
 
-            if(!name || !price){
+            if(!name || !price || !currency){
                 throw HttpError(404, {
                     errors: {
-                        exists: "name or price Not found"
-                    }
-                })
-            }
-
-            if (!file) {
-                throw HttpError(422, {
-                    errors: {
-                        image: 'Invalid file'
+                        exists: "Not found"
                     }
                 })
             }
@@ -47,23 +38,7 @@ class ProductsController {
             })
 
             const productCreate = await Products.create({name: name.en, price,
-                image: file.filename,
-                translationId: translation.id})
-
-            const destFolder = `public/products/product_${productCreate.id}`
-
-            if (!fss.existsSync(destFolder)) {
-                fss.mkdirSync(destFolder)
-            }
-
-            const root = path.resolve(destFolder);
-
-            await sharp(file.path)
-                .rotate()
-                .toFile(path.join(root, file.filename));
-
-            await resizeImages(file.path, root, file.filename, 2);
-            await resizeImages(file.path, root, file.filename, 3);
+                currency, translationId: translation.id})
 
             const product = await Products.findOne({
                 where: {
@@ -86,9 +61,8 @@ class ProductsController {
 
     static async update (req, res, next){
         try{
-            const {name, price, translation} = req.body;
+            const {name, price, currency, translation} = req.body;
             const { id } = req.params;
-            const {file} = req;
 
             const product = await Products.findByPk(+id);
             const translations = await Translation.findByPk(product.translationId);
@@ -101,32 +75,8 @@ class ProductsController {
                 })
             }
 
-            if (file) {
-                const destFolder = `public/products/product_${product.id}`
-                const ext = path.extname(file.filename)
-                if (!fss.existsSync(destFolder)) {
-                    fss.mkdirSync(destFolder)
-                }
-
-                if (product.image) {
-                    await fs.unlink(path.join(destFolder, product.image));
-                    await fs.unlink(path.join(destFolder, product.image + '@2x' + ext));
-                    await fs.unlink(path.join(destFolder, product.image + '@3x' + ext));
-                }
-
-                await sharp(file.path)
-                    .rotate()
-                    .toFile(path.join(destFolder, file.filename));
-
-                await resizeImages(file.path, destFolder, file.filename, 2);
-                await resizeImages(file.path, destFolder, file.filename, 3);
-
-                await product.update({ name: translation.en.name, price, image: file.filename });
-                await translations.update(translation)
-            } else {
-                await product.update({ name: translation.en.name, price });
-                await translations.update(translation)
-            }
+            await product.update({ name: translation.en.name, price, currency });
+            await translations.update(translation)
 
             res.json({
                 status: "ok",
@@ -160,10 +110,6 @@ class ProductsController {
                 })
             }
 
-            const imagePath = path.resolve(`public/products/product_${id}`);
-
-            await fs.rm(imagePath, { recursive: true, force: true })
-
             await product.destroy()
             await translation.destroy()
 
@@ -177,8 +123,7 @@ class ProductsController {
 
     static async list (req, res, next){
         try{
-            const {page = 1, limit = 10, search} = req.query;
-            const offset = (page - 1) * limit;
+            const {search} = req.query;
 
             const where = {};
             if (search) {
@@ -188,9 +133,7 @@ class ProductsController {
             }
 
             const products = await Products.findAll({
-                attributes: [ 'id', 'name', 'price',
-                    [sequelize.literal(`CONCAT('products/product_', Products.id,'/', image)`), 'image']
-                ],
+                attributes: [ 'id', 'name', 'price', 'currency'],
                 order: [
                     ['name', 'ASC'],
                 ],
@@ -198,19 +141,13 @@ class ProductsController {
                     model: Translation,
                     required: false,
                 },
-                where,
-                limit: Number(limit),
-                offset
+                where
             })
 
-            const total = await Products.count();
 
             res.json({
                 status: "ok",
-                products,
-                page,
-                total,
-                pages: Math.ceil(total / limit)
+                products
             })
         }catch (e) {
             next(e)

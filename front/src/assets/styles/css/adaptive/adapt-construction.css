@@ -175,8 +175,6 @@
 
 }
 
-
-
 @media screen and (max-width: 1000px) {
 
     .offersArea {
@@ -418,8 +416,6 @@
     }
 
 }
-
-
 
 @media screen and (max-width: 800px) {
     .offersArea {
@@ -716,7 +712,6 @@
     }
 }
 
-
 @media screen and (max-width: 700px) {
     .fullscreen-img-container img {
         max-width: 600px;
@@ -724,7 +719,6 @@
         max-height: 300px;
     }
 }
-
 
 @media screen and (max-width: 640px) {
 
@@ -882,8 +876,6 @@
     }
 
 }
-
-
 
 @media screen and (max-width: 480px) {
 

@@ -1,17 +1,15 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import classNames from "classnames";
-import {GoSearch} from "react-icons/go";
-import {CiSquareRemove} from "react-icons/ci";
 import Logo from "./Logo";
 import {scrollStatus} from "../../store/actions/users";
 import Profile from "./Profile";
 import {useDispatch} from "react-redux";
 
-const Header = ({open, setOpen}) => {
-    const [search, setSearch] = useState('');
+const Header = ({open, setOpen, path}) => {
+    const dispatch = useDispatch();
+
     const [scrollDirection, setScrollDirection] = useState(null);
     const [settingModal, setSettingModal] = useState(null);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(scrollStatus(scrollDirection))
@@ -40,20 +38,6 @@ const Header = ({open, setOpen}) => {
 
     }, [scrollDirection]);
 
-
-    const handleChange = useCallback((event) => {
-        const {value} = event.target
-        setSearch(value)
-    }, [])
-
-    const handleSearch = useCallback(() => {
-
-    }, [search])
-
-    const handleRemoveSearch = useCallback(() => {
-        setSearch('')
-    }, [])
-
     return (
         <header className={classNames('header')}>
             <nav className={classNames('nav', {
@@ -62,7 +46,8 @@ const Header = ({open, setOpen}) => {
             })}>
                 <Logo open={open} setOpen={setOpen}/>
 
-                <h3>Vago Group</h3>
+                <h3>{path?.subMenuPath ? path.subMenuPath.toUpperCase().replaceAll("-", " ")
+                    : path.navPath === "/users/1" ? "USERS" : path.navPath.toUpperCase().replaceAll("-", " ")}</h3>
 
                 <Profile
                     setSettingModal={setSettingModal}

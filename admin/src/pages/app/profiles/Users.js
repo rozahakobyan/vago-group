@@ -40,7 +40,7 @@ const Users = () => {
             <Helmet>
                 <title>users</title>
             </Helmet>
-            <input value={search} type={"text"} placeholder={"Search..."}
+            <input className={"input"} value={search} type={"text"} placeholder={"Search..."}
                    onChange={(e) => setSearch(e.target.value)}/>
 
             <div className="cont_cat">

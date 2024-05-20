@@ -7,7 +7,6 @@
   top: 68px;
   left: 0;
   background: $light;
-  transition: $themeTime;
   box-shadow: $shadowDark;
   z-index: 1;
   padding-left: 35px;
@@ -194,5 +193,5 @@
 .navbar-left.active {
   opacity: 0;
   transform: translateX(-100%);
-  width: 0px;
+  width: 0;
 }

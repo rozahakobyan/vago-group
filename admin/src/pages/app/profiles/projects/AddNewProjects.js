@@ -75,6 +75,7 @@ const AddNewProjects = () => {
                     <div className="left_row">
                         <h3 onClick={() => {
                             setNameOpen(!nameOpen)
+                            setDescOpen(false)
                         }}>Name {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
                         {nameOpen && <div className={"open_input"}>
                             <div className={'input_item'}>

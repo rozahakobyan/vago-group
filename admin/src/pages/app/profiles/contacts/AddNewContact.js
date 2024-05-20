@@ -67,7 +67,7 @@ function AddNewContact() {
                 <address>add new contacts</address>
             </Helmet>
             <div className="add_con">
-                <form>
+                <form className={"form"}>
                     <div className="left_row">
                         <div className={"path_list"}>
                             {massagersList && massagersList.map(m => (

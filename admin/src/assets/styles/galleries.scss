@@ -133,19 +133,16 @@
 .update_gallery {
 
   .modal {
-    width: 600px;
     padding: 20px;
     border-radius: 10px;
     background: #ffffff;
     animation: slide-in-elliptic-top-fwd .7s cubic-bezier(.25, .46, .45, .94) both;
-
     .close {
       right: 5px;
       top: 5px;
       color: red;
       cursor: pointer;
       font-size: 21px;
-      margin-left: 530px;
     }
 
     form {
@@ -198,7 +195,6 @@
           }
 
           .images {
-            width: 300px;
             height: 200px;
             padding-left: 20px;
             img {

@@ -40,7 +40,6 @@ const AddNewGallery = () => {
 
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
-        console.log(galleries)
         const {payload} = await dispatch(galleriesAddRequest(galleries));
         if (payload?.status === 'ok') {
             navigate('/information/galleries')
@@ -54,7 +53,7 @@ const AddNewGallery = () => {
                 <title>add new galleries</title>
             </Helmet>
             <div className="add_con">
-                <form onSubmit={handleSubmitSave}>
+                <form className={"form"} onSubmit={handleSubmitSave}>
                     <div className="left_row">
                         <Select value={selected}
                                 options={galleryPage}

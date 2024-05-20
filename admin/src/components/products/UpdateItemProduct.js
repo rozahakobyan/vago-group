@@ -6,6 +6,9 @@ import {MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from
 import classNames from "classnames";
 import {API_URL} from "../../Api";
 import { isLoading, productsUpdateRequest } from '../../store/actions/products';
+import activePricePage from "../../assets/data/activePricePage";
+import Select from "react-select";
+import currencyList from "../../assets/data/currencyList";
 
 function UpdateItemProduct({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
@@ -28,10 +31,9 @@ function UpdateItemProduct({updateItem, setUpdateItem}) {
         setUpdateItem({...updateItem, [path]: text})
     }, [updateItem]);
 
-    const handleChangeFile = useCallback((e) => {
-        const file = e.target.files[0]
-        setUpdateItem({...updateItem, image: file})
-    }, [updateItem]);
+    const handleSelectChange = useCallback((selectedOption) => {
+        setUpdateItem({...updateItem, currency: selectedOption.label})
+    }, [updateItem])
 
     const handleSave = useCallback(async (e) => {
         e.preventDefault()
@@ -92,33 +94,20 @@ function UpdateItemProduct({updateItem, setUpdateItem}) {
                                     type="number"
                                 />
                             </div>
+
+                            <Select defaultValue={{value: updateItem.currency, label: updateItem.currency}}
+                                    options={currencyList}
+                                    onChange={handleSelectChange}
+                                    placeholder={<div>Currency...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                            />
+
                             <div className={'row_img'}>
                                 <div>
-                                    <div className={'custom-file'}>
-                                        <label
-                                            htmlFor="file-upload"
-                                            className="custom-file-upload">
-                                            <MdOutlineDriveFolderUpload
-                                                className={'icon'}/>
-                                            Choose file
-                                        </label>
-                                        <input
-                                            onChange={handleChangeFile}
-                                            name={'files'}
-                                            accept="image/*"
-                                            id="file-upload"
-                                            type="file"/>
-                                    </div>
                                     <button onClick={handleSave}>
                                         Save
                                     </button>
-                                </div>
-                                <div className={'images'}>
-                                    <img src={
-                                        updateItem?.image?.name
-                                            ? URL.createObjectURL(updateItem.image)
-                                            : `${API_URL}/${updateItem.image}`}
-                                         alt={updateItem.name}/>
                                 </div>
                             </div>
                         </div>

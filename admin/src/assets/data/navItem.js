@@ -8,13 +8,13 @@ import {FcServices} from "react-icons/fc";
 import {GrProjects, GrServices} from "react-icons/gr";
 
 export default [
-    {
-        id: 1,
-        name: 'Dashboard',
-        Icon: MdDashboard,
-        path: '/',
-        renderItem: true
-    },
+    // {
+    //     id: 1,
+    //     name: 'Dashboard',
+    //     Icon: MdDashboard,
+    //     path: '/',
+    //     renderItem: true
+    // },
     {
         id: 2,
         name: 'Information',
@@ -219,11 +219,11 @@ export default [
         path: "settings",
         renderItem: true,
     },
-    {
-        id: 111,
-        name: 'Help',
-        Icon: IoIosHelpCircle,
-        path: "help",
-        renderItem: true,
-    },
+    // {
+    //     id: 111,
+    //     name: 'Help',
+    //     Icon: IoIosHelpCircle,
+    //     path: "help",
+    //     renderItem: true,
+    // },
 ]

@@ -1,20 +1,33 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {Outlet, useNavigate} from "react-router-dom";
 import Header from "../../../components/profile/Header";
 import Navbar from "../../../components/profile/Navbar";
 import {useDispatch, useSelector} from "react-redux";
 import {removeUserLogout, userProfileRequest} from "../../../store/actions/users";
 import CustomsPortal from "../../../components/CustomsPortal";
+import {Account as account} from "../../../helpers/account";
 
 const Account = () => {
-    const [verificationEmail, setVerificationEmail] = useState(false);
-    const [open, setOpen] = useState(false);
-    const profile = useSelector(state => state.users.profile);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const [verificationEmail, setVerificationEmail] = useState(false);
+    const [open, setOpen] = useState(false);
+
+    const profile = useSelector(state => state.users.profile);
+
+    const path = account.getNavbarUrlPath();
+
     useEffect(() => {
         dispatch(userProfileRequest())
+    }, []);
+
+    useMemo(() => {
+        if(window.screen.availWidth <= 640){
+            setOpen(true);
+        }else{
+            setOpen(false)
+        }
     }, []);
 
     useEffect(() => {
@@ -30,7 +43,7 @@ const Account = () => {
 
     return (
         <div className={'account childrenWidth'}>
-            <Header open={open} setOpen={setOpen}/>
+            <Header open={open} setOpen={setOpen} path={path}/>
             <div className="container">
                 <Navbar open={open}/>
                 <Outlet/>

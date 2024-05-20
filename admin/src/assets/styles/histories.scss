@@ -72,12 +72,13 @@
 .update_history {
 
   .modal {
-    width: 600px;
     padding: 20px;
     border-radius: 10px;
     background: #ffffff;
     animation: slide-in-elliptic-top-fwd .7s cubic-bezier(.25, .46, .45, .94) both;
-    
+    overflow-y: auto;
+    min-height: 580px;
+    max-height: 600px;
 
     .close {
       right: 5px;
@@ -85,7 +86,6 @@
       color: red;
       cursor: pointer;
       font-size: 21px;
-      margin-left: 530px;
     }
 
     form {
@@ -95,10 +95,10 @@
       .cont {
         .desc_text {
           padding-top: 20px;
-
+          width: 100%;
           textarea {
             border-radius: 10px;
-            width: 90%;
+            width: 350px;
             height: 100px;
             resize: none;
             padding: 10px;

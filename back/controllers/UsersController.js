@@ -496,7 +496,7 @@ class UsersController {
     static async updateUser(req, res, next){
         try{
             const {id} = req.params;
-            const {role} = req.body;
+            const {role, status} = req.body;
 
             const user = await Users.findByPk(id);
 
@@ -508,7 +508,7 @@ class UsersController {
                 })
             }
 
-            await user.update({role})
+            await user.update({role, status})
 
             res.json({
                 status: "ok",

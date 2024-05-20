@@ -18,10 +18,10 @@ Products.init({
         allowNull: false,
     },
     price: {
-        type: DataTypes.BIGINT(),
+        type: DataTypes.INTEGER(),
         allowNull: false,
     },
-    image: {
+    currency: {
         type:DataTypes.STRING(255),
         allowNull: false,
     },

@@ -93,7 +93,7 @@ function AddNewWork() {
                 <title>add new works</title>
             </Helmet>
             <div className="add_con">
-                <form>
+                <form className={"form"}>
                     <div className="left_row">
                         <h3 onClick={() => {
                             setNameOpen(!nameOpen)

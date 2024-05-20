@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import Account from "./profiles/Account";
 import Profile from "./profiles/Profile";
 import Users from "./profiles/Users";
@@ -39,7 +39,7 @@ const ProfileNavigate = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Account/>}>
-                <Route path={'/'} element={<Profile/>}/>
+                <Route path={'/'} element={<Navigate to={"/information"}/>}/>
                 <Route path={'/information'} element={<Information/>}/>
                 <Route path={'/information/add-new-information'} element={<AddNewHomeInfo/>}/>
                 <Route path={'/information/login-image'} element={<LoginImage/>}/>

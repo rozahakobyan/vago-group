@@ -1,10 +1,14 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import logo from '../../assets/images/logo.png';
 
 const Logo = ({open, setOpen}) => {
     const handleClick = useCallback((e) => {
         e.preventDefault();
-        setOpen(!open);
+        if(window.screen.availWidth <= 640){
+            setOpen(!open);
+        }else{
+            setOpen(false)
+        }
     }, [open])
 
     return (

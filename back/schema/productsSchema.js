@@ -4,12 +4,12 @@ export default {
     add: Joi.object({
         name: Joi.object().required(),
         price: Joi.number().required(),
-        image: Joi.string(),
+        currency: Joi.string().required(),
     }),
     update: Joi.object({
         name: Joi.string().max(255),
         price: Joi.number(),
         translation: Joi.object(),
-        image: Joi.string().allow(null, '').default(null),
+        currency: Joi.string(),
     })
 }

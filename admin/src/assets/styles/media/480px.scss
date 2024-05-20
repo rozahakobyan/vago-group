@@ -1,0 +1,160 @@
+@media screen and (max-width: 480px){
+  .container{
+    display: flex;
+    justify-content: center;
+  }
+  .childrenWidth {
+    width: 100%;
+    position: relative;
+  }
+  .users {
+    .input{
+      margin-left: 0;
+      width: 400px;
+    }
+  }
+  .update_banner{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_login_image{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+      .cont{
+        .row_img{
+          .images{
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+  .update_history{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_gallery{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+      .cont{
+        .row_img{
+          .images{
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+  .update_video-path{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_massager{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_work{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_product{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_partner{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_contact{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+      .cont{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  .update_price{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_package{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_service{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+  .update_project{
+    .modal{
+      width: 410px;
+      height: 100%;
+      .close{
+        margin-left: 340px;
+      }
+    }
+  }
+}

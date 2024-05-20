@@ -68,7 +68,7 @@ function AddNewBanner() {
                 <title>add new login image</title>
             </Helmet>
             <div className="add_con">
-                <form onSubmit={handleSubmitSave}>
+                <form className={"form"} onSubmit={handleSubmitSave}>
                     <div className="left_row">
                         <h3 onClick={() => {
                             setTitleOpen(!titleOpen)

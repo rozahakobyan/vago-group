@@ -6,6 +6,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
 import { productsAddRequest } from '../../../../store/actions/products';
+import Select from "react-select";
+import currencyList from "../../../../assets/data/currencyList";
 
 const AddNewProducts = () => {
     const navigate = useNavigate();
@@ -19,9 +21,10 @@ const AddNewProducts = () => {
             pl: ""
         }, 
         price: null,
-        image: null});
+        currency: ""});
     const [nameOpen, setNameOpen] = useState(false);
-    
+    const [selected, setSelected] = useState(null);
+
     const errors = useSelector(state => state.products.errors);
     const loading = useSelector(state => state.products.loading);
 
@@ -35,10 +38,10 @@ const AddNewProducts = () => {
         setProduct({...product, [path]: text});
     }, [product]);
 
-    const handleChangeFile = useCallback((e) => {
-        const file = e.target.files[0]
-        setProduct({...product, image: file})
-    }, [product]);
+    const handleSelectChange = useCallback((selectedOption) => {
+        setSelected(selectedOption)
+        setProduct({...product, currency: selectedOption.label})
+    }, [product])
 
     const handleSubmitSave = useCallback(async (e) => {
         e.preventDefault()
@@ -103,33 +106,18 @@ const AddNewProducts = () => {
                                 placeholder={'price...'}
                                 type="number"/>
                         </div>
-                        {errors?.number ? <small>{errors.number}</small> : null}
+                        {errors?.price ? <small>{errors.price}</small> : null}
 
-                        <div className={'item_file_cat'}>
-                            <label
-                                htmlFor="file-upload"
-                                className="custom-file">
-                                <MdOutlineDriveFolderUpload
-                                    className={'icon'}/>
-                                Choose file
-                            </label>
-                            <input
-                                onChange={handleChangeFile}
-                                name={'files'}
-                                accept="image/*"
-                                id="file-upload"
-                                type="file"/>
-                            {errors?.file ? <small>{errors.file}</small> : null}
-                        </div>
+                        <Select value={selected}
+                                options={currencyList}
+                                onChange={handleSelectChange}
+                                placeholder={<div>Currency...</div>}
+                                className="react-select-containers"
+                                classNamePrefix="react-selects"
+                        />
+
                         <Button title={'Save'} loading={loading}/>
                     </div>
-                    {
-                        product.image ?
-                            <figure className={'icon_file_img'}>
-                                <img src={URL.createObjectURL(product?.image)} alt={""}/>
-                            </figure>
-                            : null
-                    }
                 </form>
             </div>
         </div>

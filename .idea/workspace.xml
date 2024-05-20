@@ -5,65 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/data/videoPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/addBanner.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/addVideoPath.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/videoPath.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/videoPaths/UpdateItemVideoPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/videoPaths/VideoPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/AddNewBanner.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/Banners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/videoPath/AddNewVideoPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/videoPath/VideoPaths.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/store/actions/banner.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/store/actions/videoPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/store/reducers/videoPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/controllers/PathVideoController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/VideoPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/routes/videoPath.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/schema/videoPathSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/Api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/data/currencyList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/data/usersStatus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/1000px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/1100px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/1200px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/480px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/640px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/700px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/750px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/800px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/900px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/assets/styles/media/maxWidth.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/data/navItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/data/navItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addTours.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/allDestination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/allTour.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/categories.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/images/loginImage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addContacts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addContacts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addGalleries.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addGalleries.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addMassager.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addMassager.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addPartners.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addPartners.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addProducts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addProducts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addProjects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addProjects.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/addWork.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/addWork.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/allUsers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/allUsers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/banners.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/banners.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/contacts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/contacts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/destination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/detailsTour.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/galleries.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/galleries.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/histories.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/histories.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/info.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/banners.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/loginImage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/loginImage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/massagers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/massagers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/navbar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/packages.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/packages.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/partners.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/partners.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/prices.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/prices.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/products.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/projects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/projects.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/services.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/services.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/tour.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/videoPath.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/videoPath.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/works.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/works.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/homeInformation/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/homeInformation/Banner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/homeInformation/UpdateItemInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/homeInformation/UpdateItemBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/products/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/products/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/products/UpdateItemProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/products/UpdateItemProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/components/profile/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/profile/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/profile/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/profile/Logo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/users/AboutItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/users/AboutItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/AddNewHomeInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/Information.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/store/actions/homeInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/store/reducers/homeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/store/reducers/banner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/HomeInfoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/BannerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/MassagersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/MassagersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/middelwares/authorization.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/middelwares/authorization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/migrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/migrate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/HomeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Banner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/homeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/banner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/schema/homeInfoSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/bannerSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/Account.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/Account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/Users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/contacts/AddNewContact.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/contacts/AddNewContact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/galleries/AddNewGallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/galleries/AddNewGallery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/AddNewBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/AddNewBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/AddNewLoginImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/homeInformation/AddNewLoginImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/products/AddNewProducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/products/AddNewProducts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/projects/AddNewProjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/projects/AddNewProjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/ProductsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/ProductsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/UsersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/UsersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/models/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/Products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/schema/productsSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/schema/productsSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/assets/styles/css/adaptive/adapt-construction.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/styles/css/adaptive/adapt-construction.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,24 +97,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.Users.js.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/Roza/Desktop/vago-group/admin/src/components/videoPaths",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "ts.external.directory.path": "D:\\WebStorm 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.Users.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group/admin/src/components/videoPaths&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\videoPaths" />
@@ -166,6 +170,7 @@
       <workItem from="1713535530719" duration="10595000" />
       <workItem from="1713700672856" duration="2785000" />
       <workItem from="1713715721867" duration="141603000" />
+      <workItem from="1716225517361" duration="2681000" />
     </task>
     <servers />
   </component>

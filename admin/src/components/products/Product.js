@@ -19,9 +19,8 @@ function Product({product, updateItem, setUpdateItem}) {
 
     return (
         <div className={'item'}>
-            <img src={`${API_URL}/${product.image}`} alt={product.name}/>
             <h3>Product - {product.translation.en.name}</h3>
-            <h3>Price - {product.price}</h3>
+            <h3>Price - {product.price} {product.currency}</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(product)}
