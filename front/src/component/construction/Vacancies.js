@@ -32,6 +32,7 @@ function Vacancieces() {
                 {worksList && !loading ? worksList.map(w => (
                     <div key={w.id}>
                         <table className="vacancie">
+                            <tbody>
                             <tr className="vacancie-text">
                                 <td>
                                     <div className="vacancieImgArea">
@@ -61,6 +62,7 @@ function Vacancieces() {
                                     </div>
                                 </td>
                             </tr>
+                            </tbody>
                         </table>
                     </div>)) : <div>
                     <div className="loader"></div>

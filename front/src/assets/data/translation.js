@@ -231,11 +231,18 @@ export default {
         pl: "Wybierz produkt"
     },
     transportationWillCost:{
-        en: "transportation willost",
+        en: "transportation will cost",
         ru: "перевозка бдет стоить",
         am: "տեղափոխումը կարժենա",
         pl: "transport będzie kosztować"
     },
+    result:{
+        en: "Result",
+        ru: "Результат",
+        am: "Արդյունք",
+        pl: "Wynik"
+    },
+    
     packagesList:{
         en: "Packages List",
         ru: "Список пакетов",
