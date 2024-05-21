@@ -17,7 +17,8 @@ import {
     Projects,
     Galleries,
     VideoPath,
-    Translation
+    Translation,
+    MinimalPrice,
 } from "./models/index.js";
 
 async function main(){
@@ -40,7 +41,7 @@ async function main(){
     await Projects.sync({alter:true, logging:true});
     await Galleries.sync({alter:true, logging:true});
     await VideoPath.sync({alter:true, logging:true});
-    
+    await MinimalPrice.sync({alter:true, logging:true});
 
     process.exit(0);
 }

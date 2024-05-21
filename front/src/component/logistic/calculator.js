@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Account } from '../../helpers/Account';
 import translation from '../../assets/data/translation';
 import { Loader as GoogleMapsLoader } from '@googlemaps/js-api-loader';
@@ -6,7 +6,7 @@ import { Loader as GoogleMapsLoader } from '@googlemaps/js-api-loader';
 const language = Account.getLanguage();
 
 const options = {
-  apiKey: 'AIzaSyB2c0GKrKxmnzJKy9xsxkFi-f-fjDW9bFE', // գրել Distance Matrix API քեյը 
+  apiKey: 'AIzaSyB2c0GKrKxmnzJKy9xsxkFi-f-fjDW9bFE',
   version: 'weekly',
   libraries: ['places'],
 };
@@ -56,10 +56,10 @@ function Calculator() {
     }
   }, [city1, city2]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     calculateDistance();
-  };
+  }, []);
 
   return (
     <div className="calculator-area">

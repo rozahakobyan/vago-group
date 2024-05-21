@@ -1,20 +1,27 @@
-import {MdConstruction, MdDashboard} from "react-icons/md";
-import {FaFacebookMessenger, FaRegRegistered, FaServicestack, FaUsers} from "react-icons/fa";
+import {MdConstruction} from "react-icons/md";
+import {FaFacebookMessenger, FaRegRegistered, FaUsers} from "react-icons/fa";
 import {BiBuilding, BiPackage} from "react-icons/bi";
 import {AiOutlineTeam} from "react-icons/ai";
-import {IoIosContacts, IoIosHelpCircle, IoIosSettings} from "react-icons/io";
+import {IoIosContacts, IoIosSettings} from "react-icons/io";
 import {GiPriceTag} from "react-icons/gi";
-import {FcServices} from "react-icons/fc";
 import {GrProjects, GrServices} from "react-icons/gr";
 
 export default [
-    // {
-    //     id: 1,
-    //     name: 'Dashboard',
-    //     Icon: MdDashboard,
-    //     path: '/',
-    //     renderItem: true
-    // },
+    {
+        id: 1,
+        name: 'Minimal Prices',
+        Icon: GiPriceTag,
+        openIcon: true,
+        renderItem: true,
+        path: 'minimal-prices',
+        subMenu: [
+            {
+                id: 1_1,
+                title: "Add New Minimal Price",
+                path: "add-new-minimal-price",
+            }
+        ]
+    },
     {
         id: 2,
         name: 'Information',
@@ -212,13 +219,13 @@ export default [
         path: "/users/1",
         renderItem: true,
     },
-    {
-        id: 99,
-        name: 'Settings',
-        Icon: IoIosSettings,
-        path: "settings",
-        renderItem: true,
-    },
+    // {
+    //     id: 99,
+    //     name: 'Settings',
+    //     Icon: IoIosSettings,
+    //     path: "settings",
+    //     renderItem: true,
+    // },
     // {
     //     id: 111,
     //     name: 'Help',

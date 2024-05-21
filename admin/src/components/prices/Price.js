@@ -4,12 +4,13 @@ import {BiEdit} from "react-icons/bi";
 import {RiDeleteBin6Line} from "react-icons/ri";
 import { pricesDeleteRequest } from '../../store/actions/prices';
 import UpdateItemPrice from "./UpdateItemPrice";
+import {minimalPricesDeleteRequest} from "../../store/actions/minimalPrices";
 
 function Price({price, updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
 
     const handleDelete = useCallback((id)=> () => {
-        dispatch(pricesDeleteRequest({id}))
+        dispatch(minimalPricesDeleteRequest({id}))
     }, [])
 
     const handleUpdate = useCallback((price) => () => {
@@ -18,11 +19,10 @@ function Price({price, updateItem, setUpdateItem}) {
 
     return (
         <div className={`item${price.active ? " active" : ""}`}>
-            <h3>{price.translation.en.name}</h3>
-            <h3>Advanced - {price.advanced}</h3>
-            <h3>Premium - {price.premium}</h3>
-            <h3>Standard - {price.standard}</h3>
-            <h3>Page - {price.activePage}</h3>
+            <h3>{price.eur} eur</h3>
+            <h3>{price.usd} usd</h3>
+            <h3>{price.rub} rub</h3>
+            <h3>{price.amd} amd</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(price)}

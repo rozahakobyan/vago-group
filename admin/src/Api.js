@@ -394,6 +394,24 @@ export class Api {
 
         return api.put(`/video-path/update/${id}`, data);
     }
+
+    static minimalPricesAdd(data = {}) {
+        return api.post('/minimal-prices/add', data);
+    }
+
+    static minimalPricesList() {
+        return api.get('/minimal-prices/list');
+    }
+
+    static minimalPricesDelete(id) {
+        return api.delete(`/minimal-prices/delete/${id}`);
+    }
+
+    static minimalPricesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/minimal-prices/update/${id}`, data);
+    }
 }
 
 

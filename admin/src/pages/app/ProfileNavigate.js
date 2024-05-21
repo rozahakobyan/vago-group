@@ -1,7 +1,6 @@
 import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
 import Account from "./profiles/Account";
-import Profile from "./profiles/Profile";
 import Users from "./profiles/Users";
 import Settings from "./profiles/Settings";
 import EditProfile from "./EditProfile";
@@ -22,6 +21,8 @@ import AddNewContact from "./profiles/contacts/AddNewContact";
 import Information from "./profiles/homeInformation/Banners";
 import AddNewPrices from "./profiles/prices/AddNewPrices";
 import Prices from "./profiles/prices/Prices";
+import AddNewMinimalPrice from "./profiles/minimalPrice/AddNewPrices";
+import MinimalPrices from "./profiles/minimalPrice/Prices";
 import Packages from "./profiles/packages/Packages";
 import AddNewPackages from "./profiles/packages/AddNewPackages";
 import Services from "./profiles/services/Services";
@@ -62,6 +63,8 @@ const ProfileNavigate = () => {
                 <Route path={'/contacts/add-new-contacts'} element={<AddNewContact/>}/>
                 <Route path={'/prices'} element={<Prices/>}/>
                 <Route path={'/prices/add-new-prices'} element={<AddNewPrices/>}/>
+                <Route path={'/minimal-prices'} element={<MinimalPrices/>}/>
+                <Route path={'/minimal-prices/add-new-minimal-price'} element={<AddNewMinimalPrice/>}/>
                 <Route path={'/packages'} element={<Packages/>}/>
                 <Route path={'/packages/add-new-packages'} element={<AddNewPackages/>}/>
                 <Route path={'/services'} element={<Services/>}/>

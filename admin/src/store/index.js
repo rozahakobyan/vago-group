@@ -14,6 +14,7 @@ import {histories} from "./reducers/histories";
 import {projects} from "./reducers/projects";
 import {galleries} from "./reducers/galleries";
 import {videoPath} from "./reducers/videoPath";
+import {minimalPrices} from "./reducers/minimalPrices";
 
 const root = {
     users,
@@ -31,6 +32,7 @@ const root = {
     projects,
     galleries,
     videoPath,
+    minimalPrices
 }
 
 export const store = configureStore({reducer: root})
