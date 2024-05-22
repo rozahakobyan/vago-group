@@ -12,9 +12,7 @@ function Logistic_banner() {
 
     useEffect(() => {
         dispatch(bannerListRequest({ active: true }))
-    }, [bannersList]);
-
-    
+    }, []);
 
     return (
         <>

@@ -19,8 +19,9 @@ function Calculator() {
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
 
-  const calculateDistance = useCallback(async () => {
+  const calculateDistance = useCallback(async (e) => {
     try {
+      e.preventDefault();
       const google = await googleMapsLoader.load();
       const service = new google.maps.DistanceMatrixService();
       service.getDistanceMatrix(
@@ -56,16 +57,11 @@ function Calculator() {
     }
   }, [city1, city2]);
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    calculateDistance();
-  }, []);
-
   return (
     <div className="calculator-area">
       <div className="calculator-form">
         <h4>{translation.calculator[language]}</h4>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={calculateDistance}>
           <div className="label-area">
             <label>{translation.fromWhatCity[language]}</label>
             <br />

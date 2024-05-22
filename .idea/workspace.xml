@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/minimalPrice/AddNewPrices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/minimalPrice/Prices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/store/actions/minimalPrices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/store/reducers/minimalPrices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/controllers/MinimalPriceController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/models/MinimalPrice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/routes/minimalPrice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/schema/minimalPriceSchema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/data/currencyList.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/data/currencyList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/assets/data/navItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/data/navItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/prices/Price.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/prices/Price.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/prices/UpdateItemPrice.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/prices/UpdateItemPrice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/ProfileNavigate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/migrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/migrate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/logistic/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/logistic/calculator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/front/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +108,7 @@
       <workItem from="1713535530719" duration="10595000" />
       <workItem from="1713700672856" duration="2785000" />
       <workItem from="1713715721867" duration="141603000" />
-      <workItem from="1716225517361" duration="9643000" />
+      <workItem from="1716225517361" duration="9944000" />
     </task>
     <servers />
   </component>
