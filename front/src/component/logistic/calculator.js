@@ -65,7 +65,7 @@ function Calculator() {
   const handleChange1 = useCallback( async (e) => {
     try{
       setCity1(e.target.value)
-      const {data} = await axios.post("https://api.api-ninjas.com/v1/city",
+      const {data} = await axios.get("https://api.api-ninjas.com/v1/city",
           {params: {name: e.target.value}, headers: {"X-Api-Key": Api_Key}})
       setCities1(data)
       console.log(data)
