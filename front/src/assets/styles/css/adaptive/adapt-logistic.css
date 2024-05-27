@@ -122,3 +122,69 @@
         width: 400px;
     }
 }
+
+
+@media screen and (max-width: 430px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 430px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 400px;
+    }
+
+    
+
+   
+    .service-area {
+        width: 400px;   
+    }
+    .serviceName {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 390px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 390px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 380px;
+    }
+
+    
+
+   
+    .service-area {
+        width: 380px;   
+    }
+    .serviceName {
+        width: 380px;
+    }
+}

@@ -124,3 +124,110 @@
         font-size: 17px;
     }
 }
+
+@media screen and (max-width: 414px) {
+    .history-title{
+        font-size: 20px;
+    }
+
+    .history-text {
+        width: 390px;
+    }
+
+    .Prices-table {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .Prices-table th{
+        font-size: 13px;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 410px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .history-title{
+        font-size: 20px;
+    }
+
+    .history-text {
+        width: 390px;
+    }
+
+    .Prices-table {
+        width: 380px;
+        margin: 0 auto;
+    }
+
+    .Prices-table th{
+        font-size: 13px;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 390px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .history-title{
+        font-size: 20px;
+    }
+
+    .history-text {
+        width: 375px;
+    }
+
+    .Prices-table {
+        width: 375px;
+        margin: 0 auto;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 374px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 374px;
+        font-size: 17px;
+    }
+}
