@@ -20,9 +20,9 @@ function Package({packages, updateItem, setUpdateItem}) {
         <div className={"item"}>
             <h3>{packages.translation.en.name}</h3>
             <h3>Page - {packages.activePage}</h3>
+            <h3>Standard - {packages.standard ? "✔️" : "❌"}</h3>
             <h3>Advanced - {packages.advanced ? "✔️" : "❌"}</h3>
             <h3>Premium - {packages.premium ? "✔️" : "❌"}</h3>
-            <h3>Standard - {packages.standard ? "✔️" : "❌"}</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(packages)}

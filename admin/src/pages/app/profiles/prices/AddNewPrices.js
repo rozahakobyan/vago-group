@@ -110,6 +110,15 @@ const AddNewPrices = () => {
 
                         <div className={'input_item'}>
                             <input
+                                value={price.standard}
+                                onChange={(e) => handleChange(e, "standard")}
+                                placeholder={'standard prices...'}
+                                type="text"/>
+                        </div>
+                        {errors?.standard ? <small>{errors?.standard}</small> : null}
+
+                        <div className={'input_item'}>
+                            <input
                                 value={price.advanced}
                                 onChange={(e) => handleChange(e, "advanced")}
                                 placeholder={'advanced prices...'}
@@ -125,15 +134,6 @@ const AddNewPrices = () => {
                                 type="text"/>
                         </div>
                         {errors?.premium ? <small>{errors?.premium}</small> : null}
-
-                        <div className={'input_item'}>
-                            <input
-                                value={price.standard}
-                                onChange={(e) => handleChange(e, "standard")}
-                                placeholder={'standard prices...'}
-                                type="text"/>
-                        </div>
-                        {errors?.standard ? <small>{errors?.standard}</small> : null}
 
                         <Select value={selected}
                                 options={activePricePage}

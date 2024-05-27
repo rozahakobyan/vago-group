@@ -101,6 +101,15 @@ function UpdateItemPackages({updateItem, setUpdateItem}) {
                             />
 
                             <div className={'input_item'}>
+                                <label> Active standard
+                                    <input
+                                        checked={updateItem.standard}
+                                        onChange={(e) => handleChangeActive(e, "standard")}
+                                        type="checkbox"/>
+                                </label>
+                            </div>
+
+                            <div className={'input_item'}>
                                 <label> Active advanced
                                     <input
                                         checked={updateItem.advanced}
@@ -118,14 +127,6 @@ function UpdateItemPackages({updateItem, setUpdateItem}) {
                                 </label>
                             </div>
 
-                            <div className={'input_item'}>
-                                <label> Active standard
-                                    <input
-                                        checked={updateItem.standard}
-                                        onChange={(e) => handleChangeActive(e, "standard")}
-                                        type="checkbox"/>
-                                </label>
-                            </div>
                             <Button title={'Save'} onClick={handleSave}/>
                         </div>
                     </form>
