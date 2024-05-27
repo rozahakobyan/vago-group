@@ -65,7 +65,7 @@ const AddNewPackages = () => {
                     <div className="left_row">
                         <h3 onClick={() => {
                             setNameOpen(!nameOpen)
-                        }}>Name {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                        }}>Name {nameOpen ? <MdKeyboardArrowUp/> : <MdKeyboardArrowDown/>}</h3>
                         {nameOpen && <div className={"open_input"}>
                             <div className={'input_item'}>
                                 <input
@@ -111,6 +111,15 @@ const AddNewPackages = () => {
                         />
 
                         <div className={'input_item'}>
+                            <label> Active standard
+                                <input
+                                    checked={packages.standard}
+                                    onChange={(e) => handleChangeActive(e, "standard")}
+                                    type="checkbox"/>
+                            </label>
+                        </div>
+
+                        <div className={'input_item'}>
                             <label> Active advanced
                                 <input
                                     checked={packages.advanced}
@@ -124,15 +133,6 @@ const AddNewPackages = () => {
                                 <input
                                     checked={packages.premium}
                                     onChange={(e) => handleChangeActive(e, "premium")}
-                                    type="checkbox"/>
-                            </label>
-                        </div>
-
-                        <div className={'input_item'}>
-                            <label> Active standard
-                                <input
-                                    checked={packages.standard}
-                                    onChange={(e) => handleChangeActive(e, "standard")}
                                     type="checkbox"/>
                             </label>
                         </div>

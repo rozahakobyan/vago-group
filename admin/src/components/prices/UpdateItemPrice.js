@@ -59,7 +59,7 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                         <div className={'cont'}>
                             <h3 onClick={() => {
                                 setNameOpen(!nameOpen)
-                            }}>Name  {nameOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</h3>
+                            }}>Name {nameOpen ? <MdKeyboardArrowUp/> : <MdKeyboardArrowDown/>}</h3>
                             {nameOpen && <div className={"open_input"}>
                                 <div className={'input_item'}>
                                     <input
@@ -93,6 +93,14 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                             }
                             <div className={'input_item'}>
                                 <input
+                                    onChange={(e) => handleChange(e, "standard")}
+                                    value={updateItem.standard}
+                                    placeholder={"standard prices..."}
+                                    type="text"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
                                     onChange={(e) => handleChange(e, "advanced")}
                                     value={updateItem.advanced}
                                     placeholder={"advanced prices..."}
@@ -104,14 +112,6 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                                     onChange={(e) => handleChange(e, "premium")}
                                     value={updateItem.premium}
                                     placeholder={"premium prices..."}
-                                    type="text"
-                                />
-                            </div>
-                            <div className={'input_item'}>
-                                <input
-                                    onChange={(e) => handleChange(e, "standard")}
-                                    value={updateItem.standard}
-                                    placeholder={"standard prices..."}
                                     type="text"
                                 />
                             </div>
