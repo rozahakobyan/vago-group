@@ -186,7 +186,7 @@ export default {
         en: "Premium",
         ru: "Премиум",
         am: "Պրեմիում",
-        pl: "Zaawansowany"
+        pl: "Premia"
     },
     order:{
         en: "ORDER",

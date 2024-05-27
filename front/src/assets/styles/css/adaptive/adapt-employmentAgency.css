@@ -231,3 +231,42 @@
         font-size: 17px;
     }
 }
+@media screen and (max-width: 360px) {
+    .vacanciesTitle{
+        font-size: 25px;
+    }
+    .history-title{
+        font-size: 20px;
+    }
+
+    .history-text {
+        width: 360px;
+    }
+
+    .Prices-table {
+        width: 330px;
+        margin: 0 auto;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 340px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 310px;
+        font-size: 17px;
+    }
+    .Prices-table thead th{
+        font-size: 12px;
+        
+    }
+}

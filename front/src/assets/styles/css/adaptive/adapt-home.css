@@ -868,3 +868,70 @@
 
 
 }
+
+@media screen and (max-width: 430px) {
+
+    .footer-phone-title {
+        font-size: 30px;
+    }
+
+    .footer-info {
+        width: 420px;
+    }
+
+    .footer-address,
+    .footer-phone,
+    .footer-email {
+        float: left;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 250px;
+        text-align: center;
+        list-style: none;
+
+    }
+}
+@media screen and (max-width: 375px) {
+
+    .footer-phone-title {
+        font-size: 30px;
+    }
+
+    .footer-info {
+        width: 370px;
+    }
+
+    .footer-address,
+    .footer-phone,
+    .footer-email {
+        float: left;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 250px;
+        text-align: center;
+        list-style: none;
+
+    }
+}
+@media screen and (max-width: 360px) {
+
+    .footer-phone-title {
+        font-size: 30px;
+    }
+
+    .footer-info {
+        width: 360px;
+    }
+
+    .footer-address,
+    .footer-phone,
+    .footer-email {
+        float: left;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 240px;
+        text-align: center;
+        list-style: none;
+
+    }
+}
