@@ -2,9 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 import LoadingPage from "../../../../components/LoadingPage";
-import { pricesListRequest } from '../../../../store/actions/prices';
-import Price from "../../../../components/prices/Price";
-import {minimalPrices} from "../../../../store/reducers/minimalPrices";
+import Price from "../../../../components/minimalPrices/Price";
 import {minimalPricesListRequest} from "../../../../store/actions/minimalPrices";
 
 function Prices() {
