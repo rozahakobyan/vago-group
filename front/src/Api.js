@@ -1,16 +1,12 @@
 import axios from 'axios';
-import Account from "./helpers/Account";
+import {Account} from "./helpers/Account";
 
-const { REACT_APP_API_URL } = process.env;
-
+export const API_URL = 'http://localhost:4001/'
 const api = axios.create({
-    baseURL: REACT_APP_API_URL,
-    headers: {
-        "Content-Type": "application/json"
-    }
-});
+    baseURL: 'http://127.0.0.1:4001'
+})
 api.interceptors.request.use((config) => {
-    const token = Account.getToken()
+    const token = Account.getTokenStrong()
     if (token) {
         config.headers.authorization = `Bearer ${token}`;
     }
@@ -19,8 +15,7 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use((response) => response, (error) => {
     if (error.response.status === 401) {
-        Account.deleteStrong()
-        window.location.href = '/'
+        Account.removeStrong()
     }
     return Promise.reject(error);
 });
@@ -48,5 +43,73 @@ export class Api {
 
     static updateForgotPassword(password) {
         return api.post('/users/password-update', password);
+    }
+
+    static userSendMessage(data = {}) {
+        return api.post('/users/send-message', data);
+    }
+
+    static activateUser(params) {
+        return api.post('/users/activate', params);
+    }
+
+    static bannerList(data = {}) {
+        return api.get('/banner/list', {params: data});
+    }
+
+    static loginImageList(data = {}) {
+        return api.get('/login-image/list', {params: data});
+    }
+
+    static massagerList() {
+        return api.get('/massagers/list');
+    }
+
+    static worksList(data = {}) {
+        return api.get('/works/list', {params: data});
+    }
+
+    static workGetById(id) {
+        return api.get(`/works/get-by-id/${id}`);
+    }
+
+    static productsList() {
+        return api.get('/products/list');
+    }
+
+    static partnersList() {
+        return api.get('/partners/list');
+    }
+
+    static contactsList() {
+        return api.get('/contacts/list');
+    }
+
+    static pricesList(data = {}) {
+        return api.get('/prices/list', {params: data});
+    }
+
+    static packagesList(data = {}) {
+        return api.get('/packages/list', {params: data});
+    }
+
+    static servicesList() {
+        return api.get('/services/list');
+    }
+
+    static historiesList(data = {}) {
+        return api.get('/histories/list', {params: data});
+    }
+
+    static projectsList(data = {}) {
+        return api.get('/projects/list', {params: data});
+    }
+
+    static galleriesList(data = {}) {
+        return api.get('/galleries/list', {params: data});
+    }
+
+    static videoPathsList(data = {}) {
+        return api.get('/video-path/list', {params: data});
     }
 }

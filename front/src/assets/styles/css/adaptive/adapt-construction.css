@@ -1,0 +1,1210 @@
+@media screen and (max-width: 1200px) {
+
+
+    .galleryArea {
+        background-color: white;
+        width: 100%;
+
+
+        padding-bottom: 50px;
+    }
+
+    .gallery-title {
+        text-align: center;
+        font-size: 30px;
+        padding: 25px;
+    }
+
+    .gallery-blocks {
+        width: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+
+    }
+
+    .gallery-blocks img {
+        height: 200px;
+        margin: 5px;
+    }
+
+
+
+    .fullscreen-img-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Прозрачный черный фон */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .fullscreen-img-container {
+        position: relative;
+    }
+
+    .fullscreen-img-container img {
+        max-width: 800px;
+        max-height: 600px;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+        font-size: 20px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        color: #999;
+    }
+
+    .gallery-type {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .gallery-blocks iframe {
+        margin: 5px;
+    }
+
+    /* ---------------------------- */
+
+    .contactsArea {
+        width: 100%;
+        background-color: var(--color4);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contactsTitle {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contactsMap {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .contactsMap iframe {
+        width: 965px;
+        height: 300px;
+        margin: 0 auto;
+        border: none;
+    }
+
+    /* ----------------------------------------- */
+
+
+    .contactsFormArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .offers-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contacts-Area {
+        margin: 0 auto;
+        width: 1000px;
+        text-align: center;
+
+    }
+
+    .contacts-Area form input {
+        margin: 10px;
+        width: 255px;
+        height: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+        outline: none;
+    }
+
+    .contacts-Area form textarea {
+        width: 915px;
+        height: 300px;
+        padding: 25px;
+        resize: none;
+    }
+
+    .contacts-Area form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contacts-Area form button {
+       
+        height: 40px;
+        font-size: 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+        transform: translate(-425px, 0px);
+        text-align: center !important;
+        padding: 0;
+    }
+
+    .contacts-Area form button:hover {
+        background-color: var(--color1);
+    }
+
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    .offersArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .offers-title {
+        font-size: 30px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formArea {
+
+        width: 800px;
+        text-align: center;
+    }
+
+    .offersArea form input {
+        margin: 10px;
+        width: 204px;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        outline: none;
+
+    }
+
+    .offersArea form textarea {
+        width: 700px;
+        height: 300px;
+        padding: 10px;
+        font-size: 15px;
+        resize: none;
+
+    }
+
+    .offersArea form button {
+        
+        height: 40px;
+        transform: translate(-305px, 0);
+        font-size: 20px;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+    }
+
+    /* ---------- */
+
+
+    .galleryArea {
+        background-color: white;
+        width: 100%;
+
+
+        padding-bottom: 50px;
+    }
+
+    .gallery-title {
+        text-align: center;
+    font-size: 30px;
+        padding: 25px;
+    }
+
+    .gallery-blocks {
+        width: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+
+    }
+
+    .gallery-blocks img {
+        height: 200px;
+        margin: 5px;
+    }
+
+
+
+
+
+
+
+
+    .fullscreen-img-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .fullscreen-img-container {
+        position: relative;
+    }
+
+    .fullscreen-img-container img {
+        max-width: 600px;
+        /* Максимальная ширина изображения */
+        max-height: 400px;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+        font-size: 20px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        color: #999;
+    }
+
+    .gallery-type {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .gallery-blocks iframe {
+        margin: 5px;
+    }
+
+    /* ---------------------------- */
+
+    .contactsArea {
+        width: 100%;
+        background-color: var(--color4);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contactsTitle {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contactsMap {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .contactsMap iframe {
+        width: 720px;
+        height: 300px;
+        margin: 0 auto;
+        border: none;
+    }
+
+    /* ----------------------------------------- */
+
+
+    .contactsFormArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-bottom: 25px;
+    }
+
+    .offers-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contacts-Area {
+        margin: 0 auto;
+        width: 800px;
+        text-align: center;
+
+    }
+
+    .contacts-Area form input {
+        margin: 10px;
+        width: 172px;
+        height: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+        outline: none;
+    }
+
+    .contacts-Area form textarea {
+        width: 665px;
+        height: 300px;
+        padding: 25px;
+        resize: none;
+    }
+
+    .contacts-Area form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contacts-Area form button {
+       
+        height: 40px;
+        font-size: 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+        transform: translate(-300px, 0px);
+        text-align: center !important;
+        padding: 0;
+    }
+
+    .contacts-Area form button:hover {
+        background-color: var(--color1);
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .offersArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .offers-title {
+        font-size: 30px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formArea {
+
+        width: 800px;
+        text-align: center;
+    }
+
+    .offersArea form input {
+        margin: 10px;
+        width: 700px;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        outline: none;
+
+    }
+
+    .offersArea form textarea {
+        width: 700px;
+        height: 300px;
+        padding: 10px;
+        font-size: 15px;
+        resize: none;
+
+    }
+
+    .offersArea form button {
+        
+        height: 40px;
+        transform: translate(-306px, 0);
+        font-size: 20px;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+    }
+    /* ---------- */
+
+
+    .contactsArea {
+        width: 100%;
+        background-color: var(--color4);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contactsTitle {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contactsMap {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .contactsMap iframe {
+        width: 700px;
+        height: 300px;
+        margin: 0 auto;
+        border: none;
+    }
+
+    /* ----------------------------------------- */
+
+
+    .contactsFormArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+    }
+
+    .offers-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contacts-Area {
+        margin: 0 auto;
+        width: 750px;
+        text-align: center;
+
+    }
+
+    .contacts-Area form input {
+        margin: 10px;
+        width: 645px;
+        height: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+        outline: none;
+    }
+
+    .contacts-Area form textarea {
+        width: 645px;
+        height: 300px;
+        padding: 25px;
+        resize: none;
+    }
+
+    .contacts-Area form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contacts-Area form button {
+        
+        height: 40px;
+        font-size: 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+        transform: translate(-290px, 0px);
+        text-align: center !important;
+        padding: 0;
+    }
+
+    .contacts-Area form button:hover {
+        background-color: var(--color1);
+    }
+
+
+
+}
+
+@media screen and (max-width: 750px) {
+    .offersArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formArea {
+        width: 600px;
+        text-align: center;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .offersArea form input {
+        margin: 10px;
+        width: 500px;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        outline: none;
+
+    }
+
+    .offersArea form textarea {
+        width: 500px;
+        height: 300px;
+        padding: 10px;
+        font-size: 15px;
+        resize: none;
+
+
+    }
+
+    .offersArea form button {
+        
+        height: 40px;
+        transform: translate(-205px, 0);
+        font-size: 20px;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+    }
+
+
+    /* ---------- */
+
+
+
+    .contactsArea {
+        width: 100%;
+        background-color: var(--color4);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contactsTitle {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contactsMap {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .contactsMap iframe {
+        width: 530px;
+        height: 300px;
+        margin: 0 auto;
+        border: none;
+    }
+
+    /* ----------------------------------------- */
+
+
+    .contactsFormArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+    }
+
+    .offers-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contacts-Area {
+        margin: 0 auto;
+        width: 600px;
+        text-align: center;
+
+    }
+
+    .contacts-Area form input {
+        margin: 10px;
+        width: 475px;
+        height: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+        outline: none;
+    }
+
+    .contacts-Area form textarea {
+        width: 475px;
+        height: 300px;
+        padding: 25px;
+        resize: none;
+    }
+
+    .contacts-Area form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contacts-Area form button {
+       
+        height: 40px;
+        font-size: 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+        transform: translate(-205px, 0px);
+        text-align: center !important;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .fullscreen-img-container img {
+        max-width: 600px;
+        /* Максимальная ширина изображения */
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+
+    /* ------------------------------------- */
+
+
+    .offersArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formArea {
+        width: 400px;
+        text-align: center;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .offersArea form input {
+        margin: 10px;
+        width: 300px;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        outline: none;
+
+    }
+
+    .offersArea form textarea {
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        font-size: 15px;
+        resize: none;
+
+
+    }
+
+    .offersArea form button {
+       
+        height: 40px;
+        transform: translate(-105px, 0);
+        font-size: 20px;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+    }
+
+    
+
+    /* ---------- */
+
+
+    .fullscreen-img-container img {
+        max-width: 400px;
+        /* Максимальная ширина изображения */
+        max-height: 300px;
+    }
+
+    /* ------------------------------------- */
+
+    .contactsArea {
+        width: 100%;
+        background-color: var(--color4);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contactsTitle {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contactsMap {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .contactsMap iframe {
+        width: 325px;
+        height: 300px;
+        margin: 0 auto;
+        border: none;
+    }
+
+    /* ----------------------------------------- */
+
+
+    .contactsFormArea {
+        background-color: var(--color4);
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+    }
+
+    .offers-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .contacts-Area {
+        margin: 0 auto;
+        width: 338px;
+        text-align: center;
+
+    }
+
+    .contacts-Area form input {
+        margin: 10px;
+        width: 270px;
+        height: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+        outline: none;
+    }
+
+    .contacts-Area form textarea {
+        width: 270px;
+        height: 300px;
+        padding: 25px;
+        resize: none;
+    }
+
+    .contacts-Area form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contacts-Area form button {
+        
+        height: 40px;
+        font-size: 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        transition: background-color 0.4s;
+        transform: translate(-101px, 0px);
+        text-align: center !important;
+        padding: 0;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+
+
+    .currentProjects-area {
+        width: 100%;
+        background-color: white;
+        padding: 50px;
+        padding-bottom: 100px;
+        box-sizing: border-box;
+    }
+
+    .currentProjects-blocks {
+        width: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .currentProjects-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .currentProject {
+        width: 250px;
+        height: 400px;
+        margin: 25px;
+    }
+
+    .currentProjectImg {
+        width: 250px;
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .currentProjectImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .currentProject-title {
+        text-align: center;
+        font-size: 15px;
+
+    }
+
+    .currentProject-text {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--color3);
+        font-size: 14px;
+    }
+
+
+
+
+    /* -------------------- */
+
+    .worksPerformed-area {
+        width: 100%;
+        background-color: var(--color4);
+        padding: 50px;
+        padding-bottom: 100px;
+        box-sizing: border-box;
+    }
+
+    .worksPerformed-blocks {
+        width: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        box-sizing: border-box;
+
+    }
+
+    .worksPerformed-title {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .worksPerformed {
+        width: 250px;
+        height: 400px;
+
+        margin: 25px;
+    }
+
+    .worksPerformedImg {
+        width: 250px;
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .worksPerformedImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .workPerformed-title {
+        text-align: center;
+        font-size: 15px;
+
+    }
+
+    .worksPerformed-text {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--color3);
+        font-size: 14px;
+    }
+
+
+}
+
+@media screen and (max-width: 390px) {
+
+
+    .currentProjects-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .currentProject {
+        width: 220px;
+        height: 400px;
+        margin: 25px;
+    }
+
+    .currentProjectImg {
+        width: 220px;
+        height: 140px;
+       
+        
+    }
+
+    .currentProjectImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+       
+    }
+    .currentProject-title {
+        text-align: center;
+        font-size: 15px;
+
+    }
+    .currentProject-text {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--color3);
+        font-size: 14px;
+    }
+    /* -------------------- */
+    .worksPerformed {
+        width: 220px;
+        height: 400px;
+        
+    }
+    .worksPerformedImg {
+        width: 220px;
+        height: 140px;
+    }
+    .worksPerformedImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 375px) {
+
+
+    .currentProjects-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .currentProject {
+        width: 220px;
+        height: 400px;
+        margin: 25px;
+    }
+
+    .currentProjectImg {
+        width: 220px;
+        height: 140px;
+       
+        
+    }
+
+    .currentProjectImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+       
+    }
+    .currentProject-title {
+        text-align: center;
+        font-size: 15px;
+
+    }
+    .currentProject-text {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--color3);
+        font-size: 14px;
+    }
+    /* -------------------- */
+    .worksPerformed {
+        width: 220px;
+        height: 400px;
+        
+    }
+    .worksPerformedImg {
+        width: 220px;
+        height: 140px;
+    }
+    .worksPerformedImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+@media screen and (max-width: 360px) {
+
+
+    .currentProjects-title {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .currentProject {
+        width: 200px;
+        height: 400px;
+        margin: 25px;
+    }
+
+    .currentProjectImg {
+        width: 200px;
+        height: 140px;
+       
+        
+    }
+
+    .currentProjectImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+       
+    }
+    .currentProject-title {
+        text-align: center;
+        font-size: 15px;
+
+    }
+    .currentProject-text {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--color3);
+        font-size: 14px;
+    }
+    /* -------------------- */
+    .worksPerformed {
+        width: 200px;
+        height: 400px;
+        
+    }
+    .worksPerformedImg {
+        width: 200px;
+        height: 140px;
+    }
+    .worksPerformedImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .fullscreen-img-container img {
+        max-width: 360px;
+        max-height: 300px;
+    }
+    .gallery-blocks{
+        width: 360px;
+    }
+    .gallery-blocks img{
+        width: 349px;
+        
+    }
+}

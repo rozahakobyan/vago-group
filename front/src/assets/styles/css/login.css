@@ -1,0 +1,105 @@
+:root{
+  --color1: #0e5287;
+  --color2: #3b444b;
+  --color3: #999999;
+  --color4: #eeeeee;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login * {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.login form {
+  width: 420px;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.login form .error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login form h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login form .input-box {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.login form .input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 20px 45px 20px 20px;
+}
+
+.login form .input-box input::placeholder {
+  color: #ffffff;
+}
+
+
+.login form .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: 20px 0;
+}
+
+.login form .remember-forgot label input {
+  accent-color: #ffffff;
+  margin-right: 3px;
+}
+
+
+.login form .remember-forgot a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.login form .remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+
+.login form .btn {
+  width: 100%;
+  height: 45px;
+  background: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 45px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  margin-top: 30px ;
+}

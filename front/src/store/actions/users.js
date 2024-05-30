@@ -1,5 +1,5 @@
 import {createAction, createAsyncThunk} from '@reduxjs/toolkit';
-import Account from "../../helpers/Account";
+import {Account} from "../../helpers/Account";
 import {Api} from "../../Api";
 
 export const userRegisterRequired = createAsyncThunk('user/register', async (arg = {}, thunkAPI) => {
@@ -17,6 +17,16 @@ export const userLoginRequired = createAsyncThunk('user/login', async (arg = {},
         const {token, status, ...user} = data;
         Account.setToken(token)
         Account.setUser(user)
+        Account.setLanguage("en")
+        return data;
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data);
+    }
+});
+
+export const userActivateRequired = createAsyncThunk('user/userActivateRequired', async (arg = {}, thunkAPI) => {
+    try {
+        const {data} = await Api.activateUser(arg);
         return data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);
@@ -56,6 +66,17 @@ export const sendCodeForgotPasswordRequired = createAsyncThunk("user/sendCodeFor
 export const updateForgotPasswordRequired = createAsyncThunk("user/updateForgotPasswordRequired", async (arg = {}, thunkAPI) => {
     try{
         const { data } = await Api.updateForgotPassword(arg);
+        return data;
+    }catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data);
+    }
+})
+
+export const userSendMessageRequired = createAsyncThunk("user/userSendMessageRequired", async (arg = {}, thunkAPI) => {
+    try{
+        console.log(arg)
+
+        const { data } = await Api.userSendMessage(arg);
         return data;
     }catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);

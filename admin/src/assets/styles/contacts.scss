@@ -1,0 +1,397 @@
+@import "variables";
+
+.contacts {
+  padding: 15px;
+  min-height: 90vh;
+
+  .cont_cat {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .item {
+      min-width: calc(100% / 3 - 20px);
+      padding: 25px;
+      box-shadow: $shadowDark;
+      transition: $themeTime;
+      margin-bottom: 20px;
+      border-radius: 10px;
+
+      a{
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        font-weight: normal;
+        font-family: $robotoFont;
+        transition: $themeTime;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+      }
+
+      h3 {
+        //text-align: center;
+        margin-top: 10px;
+        color: $dark;
+        font-weight: normal;
+        font-family: $robotoFont;
+        transition: $themeTime;
+      }
+
+      .icon_row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15px;
+
+        li {
+          width: 40px;
+          height: 40px;
+          background: rgba(0, 0, 0, 0.45);
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 3px 0 3px;
+          list-style: none;
+          font-size: 22px;
+          cursor: pointer;
+          color: $light;
+          transition: $themeTime;
+        }
+
+        li:hover {
+          color: red;
+        }
+      }
+    }
+
+    .item.active{
+      box-shadow: $shadowRed;
+    }
+  }
+}
+
+.update_contact {
+
+  .modal {
+    background: #D9D9D9;
+    border-radius: 10px;
+    animation: slide-in-elliptic-top-fwd .7s cubic-bezier(.25, .46, .45, .94) both;
+    padding: 10px;
+    overflow-y: auto;
+    min-height: 580px;
+    max-height: 600px;
+    .close {
+      right: 5px;
+      top: 5px;
+      color: red;
+      cursor: pointer;
+      font-size: 21px;
+    }
+
+    form {
+      display: flex;
+      align-items: flex-start;
+
+      .cont {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .left_row {
+          padding: 10px;
+
+          .path_list{
+            width: 350px;
+            .path{
+              display: flex;
+              .input_item {
+                width: 200px;
+                height: 45px;
+                border-radius: 5px;
+                overflow: hidden;
+
+                input {
+                  width: 100%;
+                  height: 100%;
+                  border: none;
+                  outline: none;
+                  padding-left: 3px;
+                  color: black;
+                  font-size: 16px;
+                  font-weight: $robotoFont;
+                }
+              }
+              button{
+                height: 45px;
+                transform: translateX(5px);
+                padding-left: 15px;
+                padding-right: 15px;
+                border-radius: 5px;
+                border: none;
+                background: #23a6d5;
+                cursor: pointer;
+                color: $light;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+            .list{
+              display: flex;
+              flex-direction: column;
+              padding: 10px;
+              div{
+                display: flex;
+                flex-direction: row;
+                svg{
+                  width: 20px;
+                  height: 20px;
+                  cursor: pointer;
+                  padding-top: 5px;
+                }
+                p{
+                  margin-right: 10px;
+                  font-weight: $robotoFont;
+                }
+              }
+            }
+          }
+
+          .react-select-containers{
+            width: 350px;
+            height: 38px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #FFF;
+            color: #828282;
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+
+          .input_item {
+            width: 350px;
+            height: 45px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+
+            input {
+              width: 100%;
+              height: 100%;
+              border: none;
+              outline: none;
+              padding-left: 3px;
+              color: black;
+              font-size: 16px;
+              font-weight: $robotoFont;
+            }
+          }
+
+          .item_file_cat {
+            margin-top: 15px;
+          }
+
+          small {
+            color: red;
+            font-size: 14px;
+            font-family: $robotoFont;
+          }
+        }
+        .right_item {
+          width: 50%;
+          padding: 10px;
+
+          .open_input{
+            animation: growDown 300ms ease-in-out forwards;
+          }
+
+          h3{
+            color: #0e5287;
+            font-weight: 600;
+            font-family: $robotoFont;
+            cursor: pointer;
+          }
+
+          .input_item {
+            width: 300px;
+            height: 45px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            margin-right: 10px;
+
+            label{
+              input{
+                width: 15px;
+                height: 15px;
+                margin-left: 10px;
+              }
+            }
+
+            input {
+              width: 100%;
+              height: 100%;
+              border: none;
+              outline: none;
+              padding-left: 3px;
+              color: black;
+              font-size: 16px;
+              font-weight: $robotoFont;
+            }
+          }
+
+          small {
+            color: red;
+            font-size: 14px;
+            font-family: $robotoFont;
+          }
+
+          .input_item_right {
+            margin-top: 25px;
+
+            .input_item {
+              position: relative;
+              width: 150px;
+
+              input {
+                width: 100%;
+                height: 45px;
+                border: 1px solid $dark;
+                border-radius: 5px;
+                color: black;
+                padding-left: 10px;
+                outline: none;
+                padding-right: 25px;
+              }
+
+              .remove {
+                position: absolute;
+                font-size: 20px;
+                cursor: pointer;
+                right: 5px;
+                top: 13px;
+              }
+            }
+          }
+
+          .add_gallery {
+            padding: 15px 0 15px 0;
+            margin-top: 20px;
+
+            .file_gallery {
+              width: 156px;
+
+              #files_gallery {
+                display: none;
+              }
+            }
+
+            .gallery_list {
+              width: 100%;
+              padding: 18px 0 18px 0;
+              display: flex;
+              overflow-x: scroll;
+
+              li {
+                list-style: none;
+                margin-right: 10px;
+
+                figure {
+                  width: 120px;
+                  height: 120px;
+                  border-radius: 7px;
+                  overflow: hidden;
+                  cursor: pointer;
+                  position: relative;
+
+                  .delete {
+                    width: 25px;
+                    height: 25px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    color: $light;
+                    background: rgba(0, 0, 0, 0.45);
+                    cursor: pointer;
+                    font-size: 20px;
+                    border-radius: 5px 0 0 5px;
+                  }
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+                }
+              }
+
+            }
+          }
+
+          .desc_text {
+            padding-top: 20px;
+
+            textarea {
+              border-radius: 10px;
+              width: 90%;
+              height: 145px;
+              resize: none;
+              padding: 10px;
+              outline: none;
+              color: $dark;
+              font-family: $robotoFont;
+              font-size: 16px;
+            }
+          }
+        }
+
+        button {
+          padding: 12px 65px 12px 65px;
+          border: none;
+          border-radius: 5px;
+          background: #013EAC;
+          color: $light;
+          font-weight: 500;
+          cursor: pointer;
+          transition: $themeTime;
+        }
+
+        button:hover {
+          background: rgba(1, 62, 172, 0.59);
+        }
+      }
+    }
+  }
+
+  .isActive {
+    animation: slide-out-elliptic-top-bck .7s ease-in both;
+  }
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0)
+  }
+  80% {
+    transform: scaleY(1.1)
+  }
+  100% {
+    transform: scaleY(1)
+  }
+}

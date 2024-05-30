@@ -1,0 +1,240 @@
+@media screen and (max-width: 1100px) {
+    .service-area {
+        width: 900px;
+    }
+
+    .serviceName {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .service-area {
+        width: 900px;
+        
+    }
+
+    .serviceName {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 700px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 600px;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form .label-area {
+        float: left;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+
+    .calculator-form form input {
+        width: 200px;
+        height: 25px;
+        border-radius: 25px;
+
+    }
+    .service-area {
+        width: 700px;   
+    }
+    .serviceName {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 450px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 400px;
+        margin: 0 auto;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form .label-area {
+        float: left;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+
+    .calculator-form form input {
+        width: 150px;
+        height: 25px;
+        border-radius: 25px;
+
+    }
+    .service-area {
+        width: 450px;   
+    }
+    .serviceName {
+        width: 400px;
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 430px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 400px;
+    }
+
+    
+
+   
+    .service-area {
+        width: 400px;   
+    }
+    .serviceName {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 390px) {
+    /* ---------------------- */
+
+    .calculator-area {
+        width: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .calculator-form {
+        width: 390px;
+        margin: 0 auto;
+        background-color: var(--color4);
+        border-radius: 15px;
+        padding-bottom: 10px;
+
+    }
+
+    .calculator-form form {
+        width: 380px;
+    }
+
+    
+
+   
+    .service-area {
+        width: 380px;   
+    }
+    .serviceName {
+        width: 380px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .vacanciesTitle{
+        font-size: 25px;
+    }
+    .history-title{
+        font-size: 20px;
+    }
+
+    .history-text {
+        width: 360px;
+    }
+
+    .Prices-table {
+        width: 360px;
+        margin: 0 auto;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 360px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+    .priceList-area button{
+        width: 85px;
+        font-size: 11px;
+    }
+
+    .service-name {
+        width: 280px;
+        font-size: 17px;
+    }
+    .Prices-table thead th{
+        font-size: 12px;
+        
+    }
+    .service-area {
+        width: 350px;   
+    }
+    .serviceName {
+        width: 280px;
+    }
+}

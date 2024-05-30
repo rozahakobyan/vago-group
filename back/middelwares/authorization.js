@@ -6,14 +6,28 @@ const { JWT_SECRET } = process.env;
 const EXCLUDES = [
   'POST:/users/register',
   'POST:/users/login',
+  'POST:/users/admin-login',
   'POST:/users/activate',
-  'GET:/categories/list',
   'POST:/users/send-password-recovery-code',
   'POST:/users/validate-password-recovery-code',
-  'POST:/users/oauth',
   'POST:/users/password-update',
-  'GET:/destinations/list',
-  'GET:/toures/list'
+  'POST:/login-image/add',
+  'POST:/products/add',
+  'POST:/contacts/add',
+  'POST:/banner/add',
+  'GET:/works/list',
+  'GET:/works/get-by-id',
+  'GET:/contacts/list',
+  'GET:/partners/list',
+  'GET:/prices/list',
+  'GET:/packages/list',
+  'GET:/login-image/list',
+  'GET:/services/list',
+  'GET:/histories/list',
+  'GET:/projects/list',
+  'GET:/galleries/list',
+  'GET:/video-path/list',
+  'GET:/banner/list',
 ];
 
 export default function authorization(req, res, next) {
@@ -26,12 +40,12 @@ export default function authorization(req, res, next) {
       next();
       return;
     }
-    if (requestPath.includes('GET:/toures/get-tour/') || requestPath.includes('GET:/toures/tours-by-destination/') || requestPath.includes('GET:/toures/toures-by-category/') || requestPath.includes('GET:/destinations/get-by-id/')) {
-      next();
-      return;
-    }
 
     const { authorization } = req.headers;
+
+    if(!authorization){
+      throw HttpError(401, "Authorization header i missing")
+    }
 
     const { userId } = jwt.verify(authorization.replace('Bearer ', ''), JWT_SECRET)
     if (!userId) {

@@ -1,0 +1,65 @@
+:root {
+    --color1: #0e5287;
+    --color2: #3b444b;
+    --color3: #999999;
+    --color4: #eeeeee;
+    --color5: #8A99A4;
+}
+
+
+.vacancies-detales-area {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.vacancies-detales {
+    margin: 0 auto;
+    width: 1100px;
+    background-color: var(--color4);
+    border-radius: 15px;
+}
+
+.VD-text {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    color: var(--color3);
+    text-align: center;
+    min-height: 300px;
+}
+
+
+.VD-name {
+    text-align: center;
+    font-size: 30px;
+
+}
+
+@media screen and (max-width: 1100px) {
+
+    .vacancies-detales {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .vacancies-detales {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .vacancies-detales {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .vacancies-detales {
+        width: 450px;
+    }
+}

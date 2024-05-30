@@ -1,108 +1,175 @@
-:root{
-    --color1: #1cd5b5;
+:root {
+    --color1: #0e5287;
     --color2: #3b444b;
     --color3: #999999;
     --color4: #eeeeee;
-}
-
-@font-face {
-    font-family: 'ArchitectsDaughter-Regular';
-    src: url('../fonts/ArchitectsDaughter-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    --color5: #8A99A4;
 }
 
 
 
 
-a{
+
+
+a {
     text-decoration: none !important;
 }
 
-body{
-    margin:0;
+body {
+    margin: 0;
     padding: 0;
-    
+
 }
+
 body {
     background-color: white;
 }
 
-.logo-panel{
-    height: 100px;
+.header-blocks {
+    width: 100%;
+    margin: 10px auto;
+    overflow: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+.header-block-msg{
+    width: 30px;
+    text-align: center;
+    transform: translate(0,-7px);
+    
 }
 
-.logo, .mail, .phone{
-    width: 402px;
+.logo,
+.header-block {
+    width: 280px;
     text-align: center;
     
+    
+    
+
 }
-.logo{
-    font-size: 50px;
-    line-height: 100px;
-    color: var(--color2);
-    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+
+.header-block-msg .msg-box img{
+    width: 28px;
+}
+
+.logo img {
+    width: 280px;
     
 }
 
-.mail .mail-title{
+.header-block-msg svg{
+    fill: var(--color1);
+}
+
+.header-block .mail-title {
+    display: flex;
+    color: var(--color1);
+    font-size: 24px;
+    font-style: italic;
+    justify-content: center;
+    transform: translate(0, -20px);
+}
+
+.header-block .email {
+    display: flex;
+    color: var(--color2);
+    transition: color 0.5s;
+    transform: translate(0, -20px);
+    justify-content: center;
+    font-size: 20px;
+}
+
+
+
+.phone-title {
     display: flex;
     color: var(--color1);
     font-size: 25px;
     font-style: italic;
     justify-content: center;
-    transform: translate(0,-20px);
+    transform: translate(0, -20px);
 }
 
-.mail .email {
+.number {
     display: flex;
     color: var(--color2);
     transition: color 0.5s;
-    transform: translate(0,-20px);
+    transform: translate(0, -20px);
     justify-content: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 
-.mail .email:hover{
-    color: var(--color1);
-    cursor: pointer;
-}
 
-.phone-title{
+.header-block-login {
     display: flex;
-    color: var(--color1);
-    font-size: 25px;
-    font-style: italic;
     justify-content: center;
-    transform: translate(0,-20px);
 }
 
-.number{
+.header-block-buttonArea {
+    width: 100%;
+    margin: 10px auto;
+    overflow: auto;
     display: flex;
-    color: var(--color2);
-    transition: color 0.5s;
-    transform: translate(0,-20px);
+    flex-wrap: wrap;
     justify-content: center;
-    font-size: 25px;
+    align-items: center;
+    padding-bottom: 25px;
 }
 
-.number:hover{
-    color: var(--color1);
-    cursor: pointer;
+
+.log-out {
+    width: 150px;
+    height: 50px;
+    background-color: var(--color1);
+    text-align: center;
+    color: white;
+
+    margin: 5px 0 0 5px;
+    transition: background-color 0.5s;
 }
+
+.log-out:hover {
+    background-color: black;
+}
+
+.log-in {
+    width: 150px;
+    height: 50px;
+    background-color: var(--color1);
+    text-align: center;
+    color: white;
+
+    margin: 5px 0 0 5px;
+    transition: background-color 0.5s;
+}
+
+.log-in:hover {
+    background-color: black;
+}
+
+.header-block-language {
+    width: 150px;
+    text-align: center;
+    margin: 5px 0 0 5px;
+    z-index: 9999;
+}
+
+
 
 /* --------------------------------- */
-.buttons{
+.buttons {
     display: flex;
     height: 50px;
     justify-content: center;
     background-color: var(--color1);
-    
+
 }
 
-.button{
+.button {
     background-color: var(--color1);
     float: left;
     border-left: 1px solid white;
@@ -112,12 +179,14 @@ body {
     height: 50px;
     text-align: center;
     line-height: 50px;
-    transition: background-color 0.5s ;
+    transition: background-color 0.5s;
     font-size: 20px;
     box-sizing: border-box;
+
 }
-.button:hover{
-    
+
+.button:hover {
+
     background-color: black;
 }
 
@@ -126,7 +195,7 @@ body {
 /* banner panel */
 
 
-.banner-panel{
+.banner-panel {
     background-image: url("../../../../public/img/gortsiq.jpg");
     width: 100%;
     height: 600px;
@@ -135,19 +204,20 @@ body {
     background-size: cover;
     margin-top: -24px;
 }
-.shade{
+
+.shade {
     width: 100%;
     height: 100%;
-    background-color:rgba(89, 227, 121, 0.2)
+    background-color: rgba(14, 82, 135, 0.2)
 }
 
-.motto-title{
+.motto-title {
     color: black;
-    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+
 }
 
 
-.motto{
+.motto {
     width: 350px;
     color: white;
     transform: translate(20%, 50%);
@@ -156,80 +226,32 @@ body {
 
 /* ----------------------------------- */
 
-.welcome-title{
+.welcome-title {
     text-align: center;
     font-size: 30px;
-    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+
 }
-.welcome-text{
+
+.welcome-text {
     width: 1100px;
     margin: 0 auto;
 }
 
 /* -------------------<<<<>>>>--------------------- */
 
-.details-area{
-    width: 600px;
-    margin: 25px auto;
-    margin-top: 150px;
-    margin-bottom: 150px;
-    overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    
-   
-}
-
-
-.horizontal-line{
-    height: 2px;
-    width: 150px;
-    background-color: var(--color1);
-}
-
-
-
-.detales-number{
-    color: var(--color1);
-    font-size: 50px;
-    font-family: 'ArchitectsDaughter-Regular', sans-serif;
-}
-.details-info{
-    font-size: 25px;
-    font-family: 'ArchitectsDaughter-Regular', sans-serif;
-}
-
-.states{
-    
-    margin: 0 auto;
-    float: left;
-    margin: 25px;
+.service-title {
     text-align: center;
-}
-.detales-number, .details-info p{
-    text-align: center;
-}
-/* --------------------------------------- */
-
-.partners-area{
-   
-    background-color:var(--color4) ;
-}
-.partners-info{
-    margin: 0 auto;
-    width: 200px;
-}
-.partners-title{
     font-size: 30px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    font-family: 'ArchitectsDaughter-Regular', sans-serif;
-    text-align: center;
-}
-.partners-blocks{
 
+}
+
+.services {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.services-buttons {
     width: 100%;
     margin: 25px auto;
     overflow: auto;
@@ -237,89 +259,165 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
 }
-.partners-blocks .block{
+
+.services-button {
     width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    float: left;
+    height: 250px;
+    border-radius: 25px;
     margin: 25px;
-    text-align: center;
-}
-.partners-blocks .block img{
-    width: 300px;
-    height: 300px;
 }
 
+.services-button img {
+    width: 300px;
+    height: 250px;
+    border-radius: 25px;
+    transition: transform 0.1s ease;
+}
+
+.services-button img:hover {
+    transform: scale(1.1);
+}
 
 
 /* -------------------------------------- */
-footer{
+footer {
     width: 100%;
-    height: 340px;
     background-color: var(--color2);
+    overflow: auto;
+
+    box-sizing: border-box;
+}
+
+.footer {
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    align-items: flex-start;
 }
 
-.footer-address, 
-.footer-phone, 
-.footer-email{
+.footer-address,
+.footer-phone,
+.footer-email {
     float: left;
     margin-left: 10px;
     margin-right: 10px;
     width: 250px;
     text-align: center;
     list-style: none;
+    
 }
 
 
-.footer-info{
+.footer-info {
     width: 1200px;
     background-color: var(--color2);
     padding: 50px;
     padding-bottom: 100px;
     box-sizing: border-box;
-    
-    
-}
 
-.address-title{
-    color: var(--color1);
-    font-size: 40px;
-    font-family: "ArchitectsDaughter-Regular",sans-serif;
 
 }
-.address-text{
+
+.address-title {
+    color: var(--color5);
+    font-size: 35px;
+
+
+}
+
+.address-text {
     width: 200px;
     color: var(--color3);
     margin: 0 auto;
 }
 
-.footer-phone-title{
-    color: var(--color1);
-    font-size: 40px;
-    font-family: "ArchitectsDaughter-Regular",sans-serif;
+.footer-phone-title {
+    color: var(--color5);
+    font-size: 35px;
+
 }
-.footer-phone-text{
+
+.footer-phone-text {
     width: 200px;
     color: var(--color3);
     margin: 0 auto;
     
-    transform: translate(-20px,0);
+    transform: translate(-20px, 0);
 }
-.footer-email-title{
-    color: var(--color1);
-    font-size: 40px;
-    font-family: "ArchitectsDaughter-Regular",sans-serif;
+
+.footer-email-title {
+    color: var(--color5);
+    font-size: 35px;
+
 }
-.footer-email-text{
+
+.footer-email-text {
     width: 300px;
     color: var(--color3);
     margin: 0 auto;
+    transform: translate(-40px, 0);
 }
+
+
+
+
+/* --------whatsapp--------- */
+
+
+.fixed-button-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fixed-block {
+    width: 80px;
+    height: 80px;
+    background-image: url('../../../../public/img/icon/WhatsApp-Logo-fixed.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.fixed-block {
+    width: 80px;
+    height: 80px;
+    background-image: url('../../../../public/img/icon/WhatsApp-Logo-fixed.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.fixed-block-1 {
+    width: 80px;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 180px;
+    background: none;
+    border: none;
+    font-size: 50px;
+    color: white;
+}
+
+.fixed-block-1 path{
+    fill: var(--color1);
+}
+
+
+/* -------- Up Button --------- */

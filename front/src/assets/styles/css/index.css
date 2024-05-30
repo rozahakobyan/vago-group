@@ -1,14 +1,19 @@
-@import url("login.scss");
-@import url("forgotPassword.scss");
+@import url("login.css");
+@import url("forgotPassword.css");
+@import url("activate.css");
 @import url("wrapper.css");
 @import url("main.css");
 @import url("constructionMain.css");
 @import url("employment-agencyMain.css");
+@import url("logistic.css");
+@import url("vacancies-detales.css");
+@import url("adaptive/adapt-home.css");
+@import url("adaptive/adapt-construction.css");
+@import url("adaptive/adapt-employmentAgency.css");
+@import url("adaptive/adapt-logistic.css");
 
-* {
-  padding: 0;
-  box-sizing: border-box;
-}
+
+
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

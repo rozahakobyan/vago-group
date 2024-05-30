@@ -1,22 +1,17 @@
 :root {
-    --color1: #1cd5b5;
+    --color1: #0e5287;
     --color2: #3b444b;
     --color3: #999999;
     --color4: #eeeeee;
 }
 
-@font-face {
-    font-family: 'ArchitectsDaughter-Regular';
-    src: url('../fonts/ArchitectsDaughter-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 
 .bannerArea {
     width: 100%;
     height: 300px;
-    background-image: url('../../../../public/img/gortsiq.jpg');
+    background-image: url('../../../../public/img/construction.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -24,15 +19,12 @@
 
 
 
-.vacanciesArea {
-    width: 100%;
-    background-color: white;
-}
+
 
 .vacanciesTitle {
     text-align: center;
     font-size: 30px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+
 }
 
 .vacancies-blocks {
@@ -45,55 +37,69 @@
     align-items: center;
 }
 
-.vacancie {
-    width: 250px;
-    height: 500px;
-    margin: 25px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.vacancie-img {
-    width: 250px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background-color: var(--color1);
-}
-
-.vacancie-img img {
-    width: 100%;
-}
-
-.vacancie-name {
-    text-align: center;
-    font-size: 20px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
-}
-
-.vacancieText-area {
-    width: 100%;
-    height: 200px;
-    font-size: 20px;
-    text-align: center;
+.vacancie-join-area {
+    width: 200px;
+    margin:  auto;
 }
 
 .vacancie-join {
-    width: 150px;
+    min-width: 200px;
     height: 50px;
     border: none;
     background-color: var(--color1);
     font-size: 30px;
     color: white;
     transition: background-color 0.4s;
+    margin: 0 auto;
 }
 
 .vacancie-join:hover {
     background-color: black;
 }
 
+.vacancie {
+    width: 250px;
+    margin: 20px;
+    background-color: var(--color4);
+    padding-bottom: 25px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5);
 
+}
+
+.vacancieImgArea {
+    width: 250px;
+    background-color: var(--color1);
+    height: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.vacancieImgArea img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vacancie-text {
+    text-align: center;
+}
+
+.vacancie-title {
+    font-size: 30px;
+}
+
+.vacancie-price-hours {
+    font-size: 20px;
+}
+
+.vacancie-workSchedule {
+    font-size: 20px;
+}
+
+/* 
+
+
+/* ---------------------------------------------------- */
 
 
 .currentProjects-area {
@@ -118,13 +124,14 @@
 .currentProjects-title {
     text-align: center;
     font-size: 30px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+
 }
 
 .currentProject {
     width: 300px;
     height: 400px;
     margin: 25px;
+    text-align: center;
 }
 
 .currentProjectImg {
@@ -144,14 +151,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.currentProject-title{
+
+.currentProject-title {
     text-align: center;
     font-size: 15px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+
 }
-.currentProject-text{
+
+.currentProject-text {
     padding-left: 10px;
     padding-right: 10px;
     color: var(--color3);
@@ -171,7 +180,7 @@
     box-sizing: border-box;
 }
 
-.worksPerformed-blocks{
+.worksPerformed-blocks {
     width: 100%;
     margin: 0 auto;
     overflow: auto;
@@ -179,22 +188,19 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
+
     box-sizing: border-box;
-    
+
 }
 
 .worksPerformed-title {
     text-align: center;
     font-size: 30px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
 }
 
 .worksPerformed {
     width: 300px;
-    height: 400px;
-    
-    margin: 25px ;
+    margin: 25px;
 }
 
 .worksPerformedImg {
@@ -214,18 +220,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.workPerformed-title{
+
+.workPerformed-title {
     text-align: center;
     font-size: 15px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+
 }
-.worksPerformed-text{
+
+.worksPerformed-text {
     padding-left: 10px;
     padding-right: 10px;
     color: var(--color3);
     font-size: 14px;
+    text-align: center;
 }
 
 
@@ -233,74 +242,95 @@
 /* ----------------------- */
 
 
-.offersArea{
+.offersArea {
     background-color: var(--color4);
     width: 100%;
-    padding: 25px;
-}
-.offers-title{
-    text-align: center;
-    font-size: 30px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.formArea{
-    margin: 0 auto;
+.offers-title {
+    font-size: 30px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.formArea {
+
     width: 1000px;
     text-align: center;
+
 }
 
-.offersArea form input{
+.offersArea form input {
     margin: 10px;
     width: 285px;
     height: 40px;
     padding-left: 10px;
     padding-right: 10px;
     outline: none;
+
 }
 
-.offersArea form textarea{
+.offersArea form textarea {
     width: 945px;
     height: 300px;
-    padding:10px;
+    padding: 10px;
     font-size: 15px;
+    resize: none;
 }
 
-.offersArea form button{
-    width: 80px;
+.offersArea form button {
+    width: 113px;
+    transform: translate(-427px, 0); 
     height: 40px;
-    transform: translate(-436px,0);
     font-size: 20px;
     background-color: black;
     color: white;
     border: none;
     transition: background-color 0.4s;
 }
-.offersArea form button:hover{
+
+.offersArea form button {
+    min-width: 80px;
+}
+
+.offersArea form button.wide {
+    min-width: 113px;
+    transform: translate(-427px, 0); 
+}
+
+.offersArea form button:hover {
     background-color: var(--color1);
 }
 
 /* ---------- */
 
 
-.galleryArea{
-    background-color: white;
+.galleryArea {
+    background-color: var(--color4);
     width: 100%;
-    padding-left: 25px;
-    padding-right: 25px;
+
+    
     padding-bottom: 50px;
 }
 
-.gallery-title{
-    margin: 0 auto;
-    width: 500px;
-    font-size: 30px;
+.gallery-title {
     text-align: center;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
-    padding: 25px;
+    font-size: 30px;
+
 }
 
-.gallery-blocks{
+.gallery-blocks {
     width: 100%;
     margin: 0 auto;
     overflow: auto;
@@ -312,14 +342,10 @@
     
 }
 
-.gallery-blocks img{
-    height: 200px;
+.gallery-blocks img {
+    height: 150px;
     margin: 5px;
 }
-
-
-
-
 
 
 
@@ -330,7 +356,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Прозрачный черный фон */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Прозрачный черный фон */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -342,8 +369,9 @@
 }
 
 .fullscreen-img-container img {
-    max-width: 800px; /* Максимальная ширина изображения */
-    max-height: 600px; /* Максимальная высота изображения */
+    max-width: 800px;
+    /* Максимальная ширина изображения */
+    max-height: 600px;
 }
 
 .close-btn {
@@ -362,34 +390,43 @@
     color: #999;
 }
 
-.gallery-type{
+.gallery-type {
     text-align: center;
     font-size: 30px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+
 }
-.gallery-blocks iframe{
+
+.gallery-blocks iframe {
     margin: 5px;
 }
 
-.contactsArea{
+
+
+/* -------------------------------------------- */
+
+
+
+.contactsArea {
     width: 100%;
     background-color: var(--color4);
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.contactsTitle{
+
+.contactsTitle {
     text-align: center;
     font-size: 30px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+
 }
-.contactsMap{
+
+.contactsMap {
     width: 100%;
     text-align: center;
     margin: 0 auto;
 }
 
-.contactsMap iframe{
-    width: 1170px;
+.contactsMap iframe {
+    width: 965px;
     height: 300px;
     margin: 0 auto;
     border: none;
@@ -398,55 +435,271 @@
 
 /* --------------------- */
 
-.contactsFormArea{
+.contactsFormArea {
     background-color: var(--color4);
     width: 100%;
     padding-top: 25px;
     padding-bottom: 25px;
 }
-.offers-title{
+
+.offers-title {
     text-align: center;
     font-size: 30px;
-    font-family: "ArchitectsDaughter-Regular", sans-serif;
+
 }
 
-.contacts-Area{
+.contacts-Area {
     margin: 0 auto;
     width: 1200px;
     text-align: center;
+
 }
 
-.contacts-Area form input{
+.contacts-Area form input {
     margin: 10px;
-    width: 324px;
+    width: 255px;
     height: 40px;
     padding-left: 25px;
     padding-right: 25px;
     outline: none;
 }
 
-.contacts-Area form textarea{
-   width: 1122px;
-   height: 300px;
-   padding: 25px;
+.contacts-Area form textarea {
+    width: 915px;
+    height: 300px;
+    padding: 25px;
+    resize: none;
 }
-.contacts-Area form{
+
+.contacts-Area form {
     width: 100%;
     text-align: center;
 }
 
-.contacts-Area form button{
-    width: 80px;
+.contacts-Area form button {
+    min-width: 117px;
     height: 40px;
     font-size: 20px;
     background-color: black;
     color: white;
     border: none;
     transition: background-color 0.4s;
-    transform: translate(-547px,0px);
+    transform: translate(-425px, 0px);
     text-align: center !important;
     padding: 0;
 }
-.contacts-Area form button:hover{
+
+.contacts-Area form button:hover {
     background-color: var(--color1);
 }
+
+
+
+
+
+
+
+
+
+
+
+.galleries {
+    padding: 15px;
+    min-height: 90vh;
+    
+}
+
+.cont_cat {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.pages-list .pages-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pages-list .items a{
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+    border-radius: 50%;
+    
+    
+}
+
+.pages-list .disabled-page {
+    background: rgba(0, 0, 0, 1);
+    
+}
+
+.pages-list .pagination-page.active{
+    background-color: black;
+}
+
+.pages-list .active {
+    border: solid 1px white;
+    
+    color: white;
+}
+
+.pages-list .next {
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    width: 40px;
+    color: white;
+    border-radius: 50%;
+}
+
+.pages-list .pagination {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    position: relative;
+    color: white;
+}
+
+.pages-list .pagination-page {
+    font-weight: 700;
+    color: white;
+    border-radius: 50%;
+}
+
+
+
+
+.pages-list .previous {
+    font-size: 16px;
+    left: 0;
+    position: absolute;
+    width: 40px;
+    color: white;
+    border-radius: 50%;
+    
+}
+
+
+.pages-list .item {
+    min-width: calc(100% / 3 - 20px);
+    padding: 25px;
+    box-shadow: shadowDark;
+    transition: themeTime;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: white;
+    
+}
+
+.pages-list .item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    
+}
+
+
+
+.pages-list .icon_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    color: white;
+}
+
+.pages-list li {
+    width: 40px;
+    height: 40px;
+    background: var(--color1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px 0 3px;
+    list-style: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.5s;
+    
+    
+}
+
+.pages-list li:hover {
+    
+    background-color: black;
+
+}
+
+.pages-list .item.active {
+    box-shadow: shadowRed;
+
+}
+
+
+
+/* ------------------------- */
+
+
+
+.loader{
+    width: 40px;
+    aspect-ratio: 1;
+    --c:no-repeat linear-gradient(#000 0 0);
+    background: 
+      var(--c) 0    0,
+      var(--c) 0    100%, 
+      var(--c) 50%  0,  
+      var(--c) 50%  100%, 
+      var(--c) 100% 0, 
+      var(--c) 100% 100%;
+    background-size: 8px 50%;
+    animation: l7-0 1s infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  .loader:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000;
+    top: calc(50% - 4px);
+    left: -8px;
+    animation: inherit;
+    animation-name: l7-1;
+  }
+  
+  @keyframes l7-0 {
+   16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}
+   33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}
+   50%    {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}
+   66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}
+   83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 30%, 8px 30%}
+  }
+  
+  @keyframes l7-1 {
+   20%  {left:0px}
+   40%  {left:calc(50%  - 4px)}
+   60%  {left:calc(100% - 8px)}
+   80%,
+   100% {left:100%}
+  }

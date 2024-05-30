@@ -18,7 +18,7 @@ router.post('/login', validate(usersSchema.login), UsersController.login);
 
 router.post('/admin-login', validate(usersSchema.adminLogin), UsersController.adminLogin);
 
-router.post('/oauth', UsersController.oauth);
+router.get('/profile', UsersController.profile);
 
 router.post('/send-password-recovery-code', UsersController.sendPasswordRecoveryCode);
 
@@ -26,8 +26,18 @@ router.post('/validate-password-recovery-code', UsersController.validatePassword
 
 router.post('/password-update', validate(usersSchema.passwordUpdate), UsersController.passwordUpdate);
 
-router.put('/profile-update', uploader.image.single('photo'), validate(usersSchema.profileUpdate), UsersController.profileUpdate);
+router.put('/profile-update/:id', uploader.image.single('photo'), validate(usersSchema.profileUpdate), UsersController.profileUpdate);
 
 router.put('/update-password', UsersController.changeOldPassword)
+
+router.get('/get-users', UsersController.getUsers)
+
+router.delete('/delete/:id', UsersController.removeUser)
+
+router.put('/update/:id', UsersController.updateUser)
+
+router.get('/find-user-by-id/:id', UsersController.findUserById)
+
+router.post('/send-massage', UsersController.sendMassage)
 
 export default router;

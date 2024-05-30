@@ -1,0 +1,207 @@
+@media screen and (max-width: 700px){
+  .container{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .childrenWidth {
+    width: calc(100% - 300px);
+    position: relative;
+  }
+  .users {
+    .input{
+      margin-left: 0;
+      width: 300px;
+    }
+  }
+  .add-new-works{
+    .add_con{
+      .form{
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        .left_row, .right_item{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .add-new-contacts{
+    .add_con{
+      .form{
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        .left_row, .right_item{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .add-new-galleries{
+    .add_con{
+      .form{
+        width: 350px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .gallery_list{
+          margin: 0;
+        }
+      }
+    }
+  }
+  .add-new-banner{
+    .add_con{
+      .form{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  .add-new-login-image{
+    .add_con{
+      .form{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  .update_banner{
+    .modal{
+      width: 600px;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_login_image{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+      .cont{
+        .row_img{
+          .images{
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+  .update_history{
+    .modal{
+      width: 600px;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_gallery{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+      .cont{
+        .row_img{
+          .images{
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+  .update_video-path{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_massager{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_work{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_product{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_partner{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_contact{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_price{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_package{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_service{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_project{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+}

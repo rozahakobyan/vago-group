@@ -1,43 +1,76 @@
-import React from 'react';
-import States from "./States";
+import React, {useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { bannerListRequest } from "../../store/actions/banner";
+import {Account} from "../../helpers/Account";
+import {API_URL} from "../../Api";
+import loginImage from "../../assets/images/login.jpg";
+import translation from "../../assets/data/translation";
+
 
 function Main() {
+    const dispatch = useDispatch()
+
+    const bannersList = useSelector(state => state.banner.bannersList)
+    const language = Account.getLanguage();
+
+    useEffect(() => {
+        dispatch(bannerListRequest({ active: true }))
+    }, []);
+    
     return (
         <>
+            {bannersList && bannersList.map(b => (
+                <section key={b.id}>
+                    <div className="banner-panel" style={{
+                        backgroundImage: b?.homeImage ? `url(${API_URL}/${b.homeImage})` : `url(${loginImage})`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}>
+                        <div className="shade">
+                            <div className="motto">
+                                <h1 className="motto-title">{b.translation[language].title}</h1>
+                                <p className="motto-text">{b.translation[language].description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            ))
+            }
+            
             <section>
-                <div className="banner-panel">
-                    <div className="shade">
-                        <div className="motto">
-                            <h1 className="motto-title"> Lorem</h1>
-                            <p className="motto-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis minima
-                                ut atque </p>
+                <div className='services'>
+                    <div className='service-title'>{translation.ourServices[language]}</div>
+                    <div className='services-buttons'>
+                        <div className='bigBlock'>
+                            <p style={{textAlign: 'center'}}>{translation.construction[language]}</p>
+                            <NavLink to={'/construction'}>
+                                <div className='services-button'>
+                                    <img src={bannersList && bannersList[0]?.constructionImage ? `${API_URL}/${bannersList[0].constructionImage}` : './img/construction.jpg'} alt={""}/>
+                                </div>
+                            </NavLink>
+                        </div>
+
+                        <div className='bigBlock'>
+                            <p style={{textAlign: 'center'}}>{translation.employmentAgency[language]}</p>
+                            <NavLink to={'/employment-agency'}>
+                                <div className='services-button'>
+                                    <img src={bannersList && bannersList[0]?.employmentAgencyImage ? `${API_URL}/${bannersList[0].employmentAgencyImage}` : './img/recruitment.jpg'} alt={""} />
+                                </div>
+                            </NavLink>
+                        </div>
+
+                        <div className='bigBlock'>
+                            <p style={{ textAlign: 'center' }}>{translation.logistics[language]}</p>
+                            <NavLink to={'/logistic'}>
+                                <div className='services-button'>
+                                    <img src={bannersList && bannersList[0]?.logisticImage ? `${API_URL}/${bannersList[0].logisticImage}` : './img/logistic.jpg'} alt={""} />
+                                </div>
+                            </NavLink>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <div className="welcome-area">
-                    <div className="welcome-title">
-                        <h1><strong>Welcome</strong></h1>
-                    </div>
-                    <div className="welcome-text">
-                        <p style={{color:'#999999'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deserunt
-                            dolore beatae porro adipisci hic esse perferendis impedit incidunt exercitationem qui, similique
-                            commodi quidem aperiam odio? Dolorum dicta corrupti rerum? Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Dolorem hic cum facere obcaecati beatae fugiat iure magni. Deserunt voluptatem
-                            quisquam similique nostrum! Vero nesciunt harum optio aliquid repudiandae esse blanditiis? Lorem
-                            ipsum dolor sit amet consectetur, adipisicing elit. Molestiae quasi perferendis vel necessitatibus,
-                            expedita quaerat, sit, debitis repudiandae dolor ea accusantium dolore! Ipsam, obcaecati
-                            voluptatibus? Temporibus debitis aspernatur dolorem incidunt? Lorem ipsum dolor, sit amet
-                            consectetur adipisicing elit. Harum atque delectus necessitatibus pariatur reprehenderit veniam
-                            quibusdam voluptates, ducimus veritatis nisi id beatae, eveniet, consequatur ut reiciendis neque
-                            earum similique consectetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex
-                            commodi nisi ullam dignissimos consequatur odio, possimus autem distinctio voluptas atque quas
-                            soluta aut facilis cumque doloribus sequi inventore a!</p>
-                    </div>
-                </div>
-                <States/>
             </section>
         </>
     );

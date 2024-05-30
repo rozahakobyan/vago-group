@@ -1,36 +1,107 @@
-import React from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { worksListRequest } from "../../store/actions/works";
+import { API_URL } from "../../Api"
+import ReactPaginate from "react-paginate";
+import { Account } from "../../helpers/Account";
+import translation from "../../assets/data/translation";
+import { useNavigate } from "react-router-dom";
 
-function Vacancies(){
-    return(
-        <div className="employmentAgency-vacanciesArea">
-            <div className="employmentAgency-vacanciesTitle">
-                <h2>Vacancies</h2>
+
+function Vacancieces() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [page, setPage] = useState(1);
+    const [error, setError] = useState("");
+
+    const language = Account.getLanguage();
+
+    const token = useSelector(state => state.users.token)
+    const worksList = useSelector(state => state.works.worksList)
+    const loading = useSelector(state => state.works.loading)
+    const pages = useSelector(state => state.works.pages)
+
+    useEffect(() => {
+        dispatch(worksListRequest({ department: "Employment Agency", limit: 4, page }))
+    }, [page])
+
+    const handleNavigate = useCallback((e, id) => {
+        e.preventDefault();
+        if (token) {
+            navigate(`/vacancies-detales/${id}`)
+            setError("")
+            console.log(token)
+        } else {
+            setError("Login your account");
+        }
+    }, [token])
+
+    return (
+        <div className="vacanciesArea">
+            <div className="vacanciesTitle">
+                <h2>{worksList && translation.vacancies[language]}</h2>
             </div>
-            <div className="employmentAgency-vacancies-blocks">
-                <div className="employmentAgency-vacancie">
-                    <div className="employmentAgency-vacancie-img">
-                        <img src="./img/vacancie.png"/>
-                    </div>
-                    <div className="employmentAgency-vacancie-name">
-                        <h2>Vacancie</h2>
-                    </div>
-                    <div className="employmentAgency-vacancieText-area">
-                        <p>
-                            <strong>Price</strong> - ???$ <br/>
-                            <strong>Hours a Week</strong> - ??h
-                        </p>
-                        <h2 className="employmentAgency-vacancie-name">Work Schedule</h2>
-                        <p>
-                            ??:?? - ??:??<br/>
-                            ??:?? - ??:??
-                        </p>
-
-                        <button className="employmentAgency-vacancie-join"><strong>Join</strong></button>
-                    </div>
-                </div>
+            <div className="vacancies-blocks">
+                {worksList && !loading ? worksList.map(w => (
+                    <div key={w.id}>
+                        <table className="vacancie">
+                            <tbody>
+                                <tr className="vacancie-text">
+                                    <td>
+                                        <div className="vacancieImgArea">
+                                            <img src={`${API_URL}/${w.image}`} alt={""} />
+                                        </div>
+                                        <div className="vacancie-title">
+                                            <h3>{w.translation[language].name}</h3>
+                                        </div>
+                                        <div className="vacancie-price-hours">
+                                            <p><strong>{translation.vacanciesPrice[language]}</strong> - {w.price}<br />
+                                                <strong>{translation.vacanciesHAW[language]}</strong> - {w.hoursWeek}{translation.vacanciesHour[language]}</p>
+                                        </div>
+                                        <div className="vacancie-workSchedule">
+                                            <strong>{translation.vacanciesWorkSchedule[language]}</strong>
+                                        </div>
+                                        {w.schedules && w.schedules.map(ws => (
+                                            <p key={ws.id}>
+                                                {ws.date}
+                                            </p>
+                                        ))}
+                                        <div className="vacancie-join-area">
+                                            <div className="vacancie-join" onClick={(e) => handleNavigate(e, w.id)}>
+                                                <strong>{translation.vacanciesJoin[language]}</strong>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody> 
+                        </table>
+                    </div>)) : <div>
+                    <div className="loader"></div>
+                </div>}
+            </div>
+            {error && <p>{error}</p>}
+            <div className={"pages-list"}>
+                {pages && pages > 1 ? <ReactPaginate
+                    activeClassName={'items active '}
+                    breakClassName={'items break-me '}
+                    breakLabel={'...'}
+                    containerClassName={'pagination'}
+                    disabledClassName={'disabled-page'}
+                    marginPagesDisplayed={2}
+                    nextClassName={"items next "}
+                    nextLabel={">"}
+                    initialPage={page - 1}
+                    onPageChange={(ev) => setPage(ev.selected + 1)}
+                    pageCount={pages}
+                    pageClassName={'items pagination-page '}
+                    pageRangeDisplayed={2}
+                    previousClassName={"items previous"}
+                    previousLabel={"<"} /> : null}
             </div>
         </div>
     )
 }
 
-export default Vacancies
+
+export default Vacancieces

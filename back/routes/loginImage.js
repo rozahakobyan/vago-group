@@ -1,5 +1,5 @@
 import {Router} from "express";
-import loginImage from "../schema/loginImage.js";
+import loginImage from "../schema/loginImageSchema.js";
 import validate from "../middelwares/validate.js";
 import LoginImageController from "../controllers/LoginImageController.js";
 import uploader from "../middelwares/uploader.js";

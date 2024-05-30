@@ -3,11 +3,13 @@ import sharp from "sharp";
 import path from "path";
 import HttpError from "http-errors";
 import fs from "fs/promises";
-import sequelize from "../services/sequelize";
+import sequelize from "../services/sequelize.js";
+import {Op} from "sequelize";
 
 class LoginImageController {
     static async add (req, res, next){
         try{
+            const { active } = req.body;
             const { file } = req;
 
             if (!file) {
@@ -21,19 +23,19 @@ class LoginImageController {
             const root = path.resolve('public/loginImage')
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 40 })
+                .resize({width: 1024})
                 .toFile(path.join(root, file.filename));
 
             await sharp(file.path)
                 .rotate()
-                .resize({ width: 40 })
+                .resize({width: 1024})
                 .webp({
                     quality: 80,
                 })
                 .toFile(path.join(root, file.filename + '.webp'))
 
             const loginImage = await LoginImage.create({
-                image: file.filename
+                image: file.filename, active
             })
 
             res.json({
@@ -49,6 +51,7 @@ class LoginImageController {
     static async update (req, res, next){
         try{
             const {id} = req.params;
+            const {active} = req.body;
             const {file} = req;
             const loginImage = await LoginImage.findByPk(+id);
 
@@ -60,27 +63,31 @@ class LoginImageController {
                 })
             }
 
-            const root = path.resolve('public/loginImage');
+            if(file){
+                const root = path.resolve('public/loginImage');
 
-            if (loginImage.image) {
-                await fs.unlink(path.join(root, loginImage.image));
-                await fs.unlink(path.join(root, loginImage.image + '.webp'));
+                if (loginImage.image) {
+                    await fs.unlink(path.join(root, loginImage.image));
+                    await fs.unlink(path.join(root, loginImage.image + '.webp'));
+                }
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 1024 })
+                    .toFile(path.join(root, file.filename));
+
+                await sharp(file.path)
+                    .rotate()
+                    .resize({ width: 1024 })
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, file.filename + '.webp'))
+
+                await loginImage.update({image: file.filename, active})
+            }else{
+                await loginImage.update({active})
             }
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .toFile(path.join(root, file.filename));
-
-            await sharp(file.path)
-                .rotate()
-                .resize({ width: 40 })
-                .webp({
-                    quality: 80,
-                })
-                .toFile(path.join(root, file.filename + '.webp'))
-
-            await loginImage.update({ image: file.filename });
 
             res.json({
                 status: 'ok',
@@ -105,6 +112,7 @@ class LoginImageController {
                 })
             }
             const root = path.resolve('public/loginImage');
+
             if (loginImage.image) {
                 await fs.unlink(path.join(root, loginImage.image));
                 await fs.unlink(path.join(root, loginImage.image + '.webp'));
@@ -122,18 +130,21 @@ class LoginImageController {
 
     static async list (req, res, next){
         try{
-            const loginImage = await LoginImage.findAll({
-                attributes: [ 'id',
-                    [sequelize.literal(`CONCAT('loginImage/', image)`), 'image']
-                ]});
+            const {active} = req.query;
 
-            if (!loginImage) {
-                throw HttpError(422, {
-                    errors: {
-                        error: 'there are no images found'
-                    }
-                })
+            const where = {};
+
+            if(active){
+                where[Op.or] = [
+                    { active: { [Op.substring]: 1 } },
+                ];
             }
+
+            const loginImage = await LoginImage.findAll({
+                where,
+                attributes: [ 'id',
+                    [sequelize.literal(`CONCAT('loginImage/', image)`), 'image'], "active"
+                ]});
 
             res.json({
                 status:'ok',

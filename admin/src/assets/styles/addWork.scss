@@ -1,0 +1,362 @@
+@import "variables";
+
+.add-new-works {
+  padding: 40px;
+  margin-top: 40px;
+  h1 {
+    color: $dark;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: $robotoFont;
+    transition: $themeTime;
+  }
+
+  .add_con {
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 700px;
+      background: #D9D9D9;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .left_row {
+        padding: 10px;
+        width: 50%;
+        .open_input{
+          animation: growDown 300ms ease-in-out forwards;
+        }
+
+        h3{
+          color: #0e5287;
+          font-weight: 600;
+          font-family: $robotoFont;
+          cursor: pointer;
+        }
+
+        .react-select-containers{
+          width: 100%;
+          height: 38px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          border: none;
+          border-radius: 8px;
+          background: #FFF;
+          color: #828282;
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        .input_item {
+          width: 100%;
+          height: 45px;
+          border-radius: 5px;
+          overflow: hidden;
+          margin-bottom: 20px;
+
+          input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding-left: 3px;
+            color: black;
+            font-size: 16px;
+            font-weight: $robotoFont;
+          }
+        }
+
+        .item_file_cat {
+          margin-top: 15px;
+        }
+
+        small {
+          color: red;
+          font-size: 14px;
+          font-family: $robotoFont;
+        }
+      }
+      .right_item {
+        width: 50%;
+        padding: 10px;
+
+        .open_input{
+          animation: growDown 300ms ease-in-out forwards;
+        }
+
+        h3{
+          color: #0e5287;
+          font-weight: 600;
+          font-family: $robotoFont;
+          cursor: pointer;
+        }
+
+        small {
+          color: red;
+          font-size: 14px;
+          font-family: $robotoFont;
+        }
+
+        .work_schedule{
+          width: 100%;
+          .schedule{
+            display: flex;
+            .input_item {
+              width: 100%;
+              height: 45px;
+              border-radius: 5px;
+              overflow: hidden;
+
+              input {
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                padding-left: 3px;
+                color: black;
+                font-size: 16px;
+                font-weight: $robotoFont;
+              }
+            }
+            button{
+              height: 45px;
+              transform: translateX(5px);
+              padding-left: 15px;
+              padding-right: 15px;
+              border-radius: 5px;
+              border: none;
+              background: #23a6d5;
+              cursor: pointer;
+              color: $light;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+          .list{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+              div{
+                  display: flex;
+                  flex-direction: row;
+                  svg{
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    padding-top: 5px;
+                  }
+                  p{
+                    margin-right: 10px;
+                    font-weight: $robotoFont;
+                  }
+              }
+          }
+        }
+
+        .schedule_calendar {
+          .row {
+            display: flex;
+
+
+
+            .react-datepicker-wrapper {
+              width: 300px;
+
+              .react-datepicker__input-container {
+                input {
+                  width: 100%;
+                  height: 45px;
+                  border-radius: 5px;
+                  border: 0.5px solid $dark;
+                  padding-left: 10px;
+                  font-size: 16px;
+                  color: $dark;
+                  font-weight: $robotoFont;
+                }
+              }
+            }
+          }
+
+          .schedule_list {
+            padding: 5px 15px 5px 15px;
+            width: 250px;
+
+            li {
+              padding: 5px 0 5px 0;
+
+              div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .icon {
+                font-size: 20px;
+                color: $dark;
+                cursor: pointer;
+              }
+
+              p {
+                color: $dark;
+                font-family: $robotoFont;
+                font-size: 13px;
+
+              }
+            }
+          }
+        }
+
+        .input_item_right {
+          margin-top: 25px;
+
+          .price_row {
+            position: relative;
+            width: 150px;
+
+            input {
+              width: 100%;
+              height: 45px;
+              border: 1px solid $dark;
+              border-radius: 5px;
+              color: black;
+              padding-left: 10px;
+              outline: none;
+              padding-right: 25px;
+            }
+
+            .remove {
+              position: absolute;
+              font-size: 20px;
+              cursor: pointer;
+              right: 5px;
+              top: 13px;
+            }
+          }
+        }
+
+        .add_gallery {
+          padding: 15px 0 15px 0;
+          margin-top: 20px;
+
+          .file_gallery {
+            width: 156px;
+
+            #files_gallery {
+              display: none;
+            }
+          }
+
+          .gallery_list {
+            width: 100%;
+            padding: 18px 0 18px 0;
+            display: flex;
+            overflow-x: scroll;
+
+            li {
+              list-style: none;
+              margin-right: 10px;
+
+              figure {
+                width: 120px;
+                height: 120px;
+                border-radius: 7px;
+                overflow: hidden;
+                cursor: pointer;
+                position: relative;
+
+                .delete {
+                  width: 25px;
+                  height: 25px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                  color: $light;
+                  background: rgba(0, 0, 0, 0.45);
+                  cursor: pointer;
+                  font-size: 20px;
+                  border-radius: 5px 0 0 5px;
+                }
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+
+          }
+        }
+
+        .desc_text {
+          padding-top: 20px;
+          width: 100%;
+          textarea {
+            border-radius: 10px;
+            width: 90%;
+            height: 100px;
+            resize: none;
+            padding: 10px;
+            outline: none;
+            color: $dark;
+            font-family: $robotoFont;
+            font-size: 16px;
+          }
+        }
+      }
+
+      button {
+        padding: 12px 65px 12px 65px;
+        border: none;
+        border-radius: 5px;
+        background: #013EAC;
+        color: $light;
+        font-weight: 500;
+        cursor: pointer;
+        transition: $themeTime;
+      }
+
+      button:hover {
+        background: rgba(1, 62, 172, 0.59);
+      }
+    }
+
+    .icon_file_img {
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0)
+  }
+  80% {
+    transform: scaleY(1.1)
+  }
+  100% {
+    transform: scaleY(1)
+  }
+}

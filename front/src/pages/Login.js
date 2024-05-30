@@ -23,7 +23,7 @@ const Login = () => {
             setErrors(payload.errors)
         }
         if (payload.token) {
-            navigate('/home')
+            navigate('/homeInformation')
         }
     }, [formData]);
 
@@ -59,6 +59,9 @@ const Login = () => {
                         loading ? <IsLoading color={'blue'} size={16}/>
                             : "Login"
                     }</button>
+                    <div className=''>
+                        <p style={{textAlign:'center'}}>don't have an account? <Link to={'/registration'}>Create</Link></p>
+                    </div>
                 </form>
             </section>
         </LogoutWrapper>
