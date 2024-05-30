@@ -11,50 +11,6 @@ class Users extends Model {
 
   static async sync(options) {
     await super.sync(options);
-    await Users.findOrCreate({
-      where: {
-        id: 1
-      },
-      defaults: {
-        id: 1,
-        firstName: 'Vago',
-        lastName: 'Group',
-        email: 'vagogroup.arm@gmail.com',
-        password: '12345678',
-        role: 'super-admin',
-        status:'active'
-      }
-    })
-
-    await Users.findOrCreate({
-      where: {
-        id: 2
-      },
-      defaults: {
-        id: 2,
-        firstName: 'Roza',
-        lastName: 'Hakobyan',
-        email: 'rhakobyan751@gmail.com',
-        password: '12345678',
-        role: 'admin',
-        status:'active'
-      }
-    })
-
-    await Users.findOrCreate({
-      where: {
-        id: 3
-      },
-      defaults: {
-        id: 3,
-        firstName: 'Roza',
-        lastName: 'Hakobyan',
-        email: 'rhakobyan290@gmail.com',
-        password: '12345678',
-        role: 'user',
-        status:'active'
-      }
-    })
   }
 }
 
