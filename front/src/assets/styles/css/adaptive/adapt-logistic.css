@@ -123,6 +123,20 @@
     }
 }
 
+@media screen and (max-width: 449px) {
+    /* ---------------------- */
+
+
+
+    .service-area {
+        width: 400px;   
+    }
+    .serviceName {
+        width: 400px;
+    }
+}
+
+
 
 @media screen and (max-width: 430px) {
     /* ---------------------- */
@@ -146,9 +160,6 @@
         width: 400px;
     }
 
-    
-
-   
     .service-area {
         width: 400px;   
     }
@@ -156,6 +167,18 @@
         width: 400px;
     }
 }
+
+@media screen and (max-width: 400px) {
+    /* ---------------------- */
+   
+    .service-area {
+        width: 380px;   
+    }
+    .serviceName {
+        width: 380px;
+    }
+}
+
 @media screen and (max-width: 390px) {
     /* ---------------------- */
 
@@ -186,6 +209,16 @@
     }
     .serviceName {
         width: 380px;
+    }
+}
+@media screen and (max-width: 380px) {
+    /* ---------------------- */
+   
+    .service-area {
+        width: 360px;   
+    }
+    .serviceName {
+        width: 360px;
     }
 }
 
