@@ -19,6 +19,7 @@
     "prod": "NODE_ENV=production node --es-module-specifier-resolution=node -r dotenv/config  app.js dotenv_config_path=.env.prod"
   },
   "dependencies": {
+    "@vercel/edge-config": "^1.1.1",
     "axios": "^1.5.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
