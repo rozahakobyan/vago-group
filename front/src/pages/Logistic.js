@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import Price from "../component/logistic/Price";
 import Wrapper from "../component/Wrapper";
 import Logistic_banner from "../component/logistic/logistic-banner";
@@ -9,14 +9,16 @@ import Services from "../component/logistic/sevices";
 
 
 function Logistic(){
+    const ref = useRef(null);
+
     return(
         <Wrapper>
             <Logistic_banner/>
             <Calculator/>
-            <Price/>    
+            <Price refOrder={ref}/>
             <Services/>
             <Vacancieces/>
-            <Logistic_contacts/>        
+            <Logistic_contacts refOrder={ref}/>
         </Wrapper>
     )
 }

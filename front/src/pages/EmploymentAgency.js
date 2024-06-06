@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import Wrapper from "../component/Wrapper";
 import Vacancies from "../component/employment-agency/Vacancies";
 import Price from "../component/employment-agency/Price";
@@ -10,16 +10,18 @@ import History from "../component/employment-agency/History";
 import EA_banner from "../component/employment-agency/emplomentAgency-banner";
 
 function EmploymentAgency(){
+    const ref = useRef(null);
+
     return(
         <Wrapper helmetTitle={"employment-agency"}>
             <EA_banner/>
             <Vacancies/>
-            <Price />
+            <Price refOrder={ref}/>
             <Application/>
             <Gallery/>
             <Partners/>
             <History/>
-            <Contacts/>
+            <Contacts refOrder={ref}/>
         </Wrapper>
     )
 }
