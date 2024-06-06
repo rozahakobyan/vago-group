@@ -15,12 +15,16 @@ function VDContacts() {
     const messages = useSelector(state => state.users.message)
 
     const [message, setMessage] = useState({
-        name: "Roza",
-        phone: "+3749989898",
-        email: "rhakobyan290@gmail.com",
-        message: "hello",
-        vacancyName: "hgjbnj"
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+        vacancyName: ""
     })
+
+    useEffect(() => {
+        setMessage({...message, vacancyName: work.name})
+    }, [message, work])
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
@@ -29,6 +33,7 @@ function VDContacts() {
 
     const submit = useCallback((e) => {
         e.preventDefault()
+        console.log(message)
         dispatch(userSendMessageRequired(message))
     }, [message])
 
@@ -37,10 +42,14 @@ function VDContacts() {
             <div className="contactsFormArea">
                 <div className="contacts-Area">
                     <form onSubmit={submit}>
-                        <input type={translation.offerName[language]} placeholder={"Name"} />
-                        <input type={"email"} placeholder={"Email"} />
-                        <input type={"text"} placeholder={translation.offerPhone[language]} />
-                        <textarea placeholder={translation.offerMessage[language]} /><br/>
+                        <input type={translation.offerName[language]} placeholder={"Name"}
+                               onChange={(e) => handleChange(e, "name")}/>
+                        <input type={"email"} placeholder={"Email"}
+                               onChange={(e) => handleChange(e, "email")}/>
+                        <input type={"text"} placeholder={translation.offerPhone[language]}
+                               onChange={(e) => handleChange(e, "phone")}/>
+                        <textarea placeholder={translation.offerMessage[language]}
+                                  onChange={(e) => handleChange(e, "message")}/><br/>
                         {errors?.exsist && <p>{errors.exsist}</p>}
                         {messages && <p>{messages}</p>}
                         <button type={"submit"}>{translation.submit[language]}</button>

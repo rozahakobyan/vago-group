@@ -1,8 +1,11 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState, useEffect} from 'react';
 import { Account } from '../../helpers/Account';
 import translation from '../../assets/data/translation';
 import { Loader as GoogleMapsLoader } from '@googlemaps/js-api-loader';
 import axios from "axios";
+import Select from "react-select";
+import {useDispatch, useSelector} from "react-redux";
+import {productsListRequest} from "../../store/actions/products";
 
 const language = Account.getLanguage();
 
@@ -13,16 +16,106 @@ const options = {
 };
 
 const googleMapsLoader = new GoogleMapsLoader(options);
-// const Api_Key = "8t4cHcX9";
-const Api_Key = "SUyPXe9aW5rb81GXjyU8vg==nXgSXc4KU6J0PozK";
 
 function Calculator() {
+  const dispatch = useDispatch();
   const [city1, setCity1] = useState('');
   const [city2, setCity2] = useState('');
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
   const [cities1, setCities1] = useState([]);
   const [cities2, setCities2] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const [selectedCity1, setSelectedCity1] = useState(null);
+  const [selectedCity2, setSelectedCity2] = useState(null);
+
+  const products = useSelector(state => state.products.productsList);
+
+  useEffect(() => {
+    dispatch(productsListRequest())
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      if(city1 === ""){
+        try{
+          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+              {params: {search: "a"}})
+          setCities1(data.cities)
+        }catch (e) {
+          console.log(e)
+        }
+      }else{
+        try{
+          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+              {params: {search: city1}})
+          setCities1(data.cities)
+        }catch (e) {
+          console.log(e)
+        }
+      }
+      if(city2 === ""){
+        try{
+          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+              {params: {search: "a"}})
+          setCities2(data.cities)
+        }catch (e) {
+          console.log(e)
+        }
+      }else{
+        try{
+          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+              {params: {search: city2}})
+          setCities2(data.cities)
+        }catch (e) {
+          console.log(e)
+        }
+      }
+    })()
+  }, [city1, city2]);
+
+  const productsList = useMemo(() => {
+    return products.map(p => {
+      return {
+        value: p.name,
+        label: p.name,
+        price: p.price,
+        currency: p.currency
+      }
+    })
+  }, [products]);
+
+  const cities1List = useMemo(() => {
+    return cities1.map(c => {
+      return {
+        value: c.name,
+        label: c.name,
+      }
+    })
+  }, [cities1]);
+
+  const cities2List = useMemo(() => {
+    return cities2.map(c => {
+      return {
+        value: c.name,
+        label: c.name,
+      }
+    })
+  }, [cities2]);
+
+  const handleSelectChange = useCallback((selectedOption) => {
+    setSelected(selectedOption)
+  }, [])
+
+  const handleSelectChangeCity1 = useCallback((selectedOption, e) => {
+    setSelectedCity1(selectedOption)
+    setCity1(selectedOption.value)
+  }, [])
+
+  const handleSelectChangeCity2 = useCallback((selectedOption) => {
+    setSelectedCity2(selectedOption)
+    setCity2(selectedOption.value)
+  }, [])
 
   const calculateDistance = useCallback(async (e) => {
     try {
@@ -62,32 +155,6 @@ function Calculator() {
     }
   }, [city1, city2]);
 
-  const handleChange1 = useCallback( async (e) => {
-    try{
-      setCity1(e.target.value)
-      const {data} = await axios.get("https://api.api-ninjas.com/v1/city",
-          {params: {name: e.target.value}, headers: {"X-Api-Key": Api_Key}})
-      setCities1(data)
-      console.log(data)
-    }catch (e) {
-      console.log(e)
-      setCities1([])
-    }
-  }, [Api_Key])
-
-  const handleChange2 = useCallback( async (e) => {
-    try{
-      setCity2(e.target.value)
-      const {data} = await axios.get("https://api.api-ninjas.com/v1/city",
-          {params: {name: e.target.value}, headers: {"X-Api-Key": Api_Key}})
-      setCities2(data)
-      console.log(data)
-    }catch (e) {
-      console.log(e)
-      setCities2([])
-    }
-  }, [Api_Key])
-
   return (
     <div className="calculator-area">
       <div className="calculator-form">
@@ -96,23 +163,61 @@ function Calculator() {
           <div className="label-area">
             <label>{translation.fromWhatCity[language]}</label>
             <br />
-            <input type="text" value={city1} onChange={handleChange1} />
-            {cities1 && cities1.map(c => (
-                <p>{c.name}</p>
-            ))}
+            {cities1List && <Select value={selectedCity1}
+                                    options={cities1List}
+                                    onKeyDown={(e) => setCity1(e.target.value)}
+                                    onChange={(selectedOption, e) => handleSelectChangeCity1(selectedOption, e)}
+                                    placeholder={<div>City...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                    styles={{
+                                      menuPortal: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                      }),
+                                      menu: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                        bottom: 'auto',
+                                      })
+                                    }}
+            />}
           </div>
           <div className="label-area">
             <label>{translation.toWhichCity[language]}</label>
             <br />
-            <input type="text" value={city2} onChange={handleChange2} />
-            {cities2 && cities2.map(c => (
-                <p>{c.name}</p>
-            ))}
+            {cities2List && <Select value={selectedCity2}
+                                    options={cities2List}
+                                    onKeyDown={(e) => setCity2(e.target.value)}
+                                    onChange={(selectedOption, e) => handleSelectChangeCity2(selectedOption, e)}
+                                    placeholder={<div>City...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                    styles={{
+                                      menuPortal: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                      }),
+                                      menu: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                        bottom: 'auto',
+                                      })
+                                    }}
+            />}
           </div>
           <div className="label-area">
             <label>{translation.selectProduct[language]}</label>
             <br />
-            <input type="text" />
+            {productsList && <Select value={selected}
+                                     options={productsList}
+                                     onChange={handleSelectChange}
+                                     placeholder={<div>Products...</div>}
+                                     className="react-select-containers"
+                                     classNamePrefix="react-selects"
+            />}
             <br />
             <input type="submit" value={translation.result[language]} className="submit-button" />
           </div>
