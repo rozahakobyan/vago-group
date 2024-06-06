@@ -141,8 +141,9 @@ function Calculator() {
               if (!selected) {
                 setError("select the product")
               } else {
-                setResult(distance);
+                setResult("");
                 setError("")
+                
               }
 
             } else {
@@ -172,6 +173,7 @@ function Calculator() {
             <label>{translation.fromWhatCity[language]}</label>
             <br />
             {cities1List && <Select value={selectedCity1}
+
               options={cities1List}
               onKeyDown={(e) => setCity1(e.target.value)}
               onChange={(selectedOption, e) => handleSelectChangeCity1(selectedOption, e)}
@@ -196,6 +198,7 @@ function Calculator() {
             <label>{translation.toWhichCity[language]}</label>
             <br />
             {cities2List && <Select value={selectedCity2}
+
               options={cities2List}
               onKeyDown={(e) => setCity2(e.target.value)}
               onChange={(selectedOption, e) => handleSelectChangeCity2(selectedOption, e)}
@@ -220,11 +223,25 @@ function Calculator() {
             <label>{translation.selectProduct[language]}</label>
             <br />
             {productsList && <Select value={selected}
+
               options={productsList}
               onChange={handleSelectChange}
               placeholder={<div>Products...</div>}
               className="react-select-containers"
               classNamePrefix="react-selects"
+              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+              styles={{
+                menuPortal: (provided) => ({
+                  ...provided,
+                  zIndex: 9999,
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  zIndex: 9999,
+                  bottom: 'auto',
+                })
+              }}
+
             />}
             <br />
             <input onClick={calculateDistance} value={translation.result[language]} className="submit-button" disabled />
