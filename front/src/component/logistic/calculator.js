@@ -1,12 +1,12 @@
-import React, {useCallback, useMemo, useState, useEffect} from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { Account } from '../../helpers/Account';
 import translation from '../../assets/data/translation';
 import { Loader as GoogleMapsLoader } from '@googlemaps/js-api-loader';
 import axios from "axios";
 import Select from "react-select";
-import {useDispatch, useSelector} from "react-redux";
-import {productsListRequest} from "../../store/actions/products";
-import {minimalPricesListRequest} from "../../store/actions/minimalPrices";
+import { useDispatch, useSelector } from "react-redux";
+import { productsListRequest } from "../../store/actions/products";
+import { minimalPricesListRequest } from "../../store/actions/minimalPrices";
 
 const language = Account.getLanguage();
 
@@ -40,37 +40,37 @@ function Calculator() {
 
   useEffect(() => {
     (async () => {
-      if(city1 === ""){
-        try{
-          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
-              {params: {search: "a"}})
+      if (city1 === "") {
+        try {
+          const { data } = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+            { params: { search: "a" } })
           setCities1(data.cities)
-        }catch (e) {
+        } catch (e) {
           console.log(e)
         }
-      }else{
-        try{
-          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
-              {params: {search: city1}})
+      } else {
+        try {
+          const { data } = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+            { params: { search: city1 } })
           setCities1(data.cities)
-        }catch (e) {
+        } catch (e) {
           console.log(e)
         }
       }
-      if(city2 === ""){
-        try{
-          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
-              {params: {search: "a"}})
+      if (city2 === "") {
+        try {
+          const { data } = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+            { params: { search: "a" } })
           setCities2(data.cities)
-        }catch (e) {
+        } catch (e) {
           console.log(e)
         }
-      }else{
-        try{
-          const {data} = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
-              {params: {search: city2}})
+      } else {
+        try {
+          const { data } = await axios.get("https://api.thecompaniesapi.com/v1/locations/cities",
+            { params: { search: city2 } })
           setCities2(data.cities)
-        }catch (e) {
+        } catch (e) {
           console.log(e)
         }
       }
@@ -135,17 +135,22 @@ function Calculator() {
           avoidTolls: false,
         },
         (response, status) => {
-          try{
+          try {
             if (status === 'OK') {
-                const distance = response.rows[0].elements[0].distance.text;
+              const distance = response.rows[0].elements[0].distance.text;
+              if (!selected) {
+                setError("select the product")
+              } else {
                 setResult(distance);
                 setError("")
-              } else {  
-                setResult('');
-                console.error('Error calculating distance:', status);
               }
+
+            } else {
+              setResult('');
+              console.error('Error calculating distance:', status);
+            }
           }
-          catch(e){
+          catch (e) {
             console.log(e)
             setError("the city name is incorrect")
             setResult('')
@@ -156,79 +161,79 @@ function Calculator() {
       console.error('Error loading Google Maps API:', error);
       setResult('Ошибка загрузки API');
     }
-  }, [city1, city2]);
+  }, [city1, city2, selected]);
 
   return (
     <div className="calculator-area">
       <div className="calculator-form">
         <h4>{translation.calculator[language]}</h4>
-        <form onSubmit={calculateDistance}>
+        <form>
           <div className="label-area">
             <label>{translation.fromWhatCity[language]}</label>
             <br />
             {cities1List && <Select value={selectedCity1}
-                                    options={cities1List}
-                                    onKeyDown={(e) => setCity1(e.target.value)}
-                                    onChange={(selectedOption, e) => handleSelectChangeCity1(selectedOption, e)}
-                                    placeholder={<div>City...</div>}
-                                    className="react-select-containers"
-                                    classNamePrefix="react-selects"
-                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-                                    styles={{
-                                      menuPortal: (provided) => ({
-                                        ...provided,
-                                        zIndex: 9999,
-                                      }),
-                                      menu: (provided) => ({
-                                        ...provided,
-                                        zIndex: 9999,
-                                        bottom: 'auto',
-                                      })
-                                    }}
+              options={cities1List}
+              onKeyDown={(e) => setCity1(e.target.value)}
+              onChange={(selectedOption, e) => handleSelectChangeCity1(selectedOption, e)}
+              placeholder={<div>City...</div>}
+              className="react-select-containers"
+              classNamePrefix="react-selects"
+              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+              styles={{
+                menuPortal: (provided) => ({
+                  ...provided,
+                  zIndex: 9999,
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  zIndex: 9999,
+                  bottom: 'auto',
+                })
+              }}
             />}
           </div>
           <div className="label-area">
             <label>{translation.toWhichCity[language]}</label>
             <br />
             {cities2List && <Select value={selectedCity2}
-                                    options={cities2List}
-                                    onKeyDown={(e) => setCity2(e.target.value)}
-                                    onChange={(selectedOption, e) => handleSelectChangeCity2(selectedOption, e)}
-                                    placeholder={<div>City...</div>}
-                                    className="react-select-containers"
-                                    classNamePrefix="react-selects"
-                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-                                    styles={{
-                                      menuPortal: (provided) => ({
-                                        ...provided,
-                                        zIndex: 9999,
-                                      }),
-                                      menu: (provided) => ({
-                                        ...provided,
-                                        zIndex: 9999,
-                                        bottom: 'auto',
-                                      })
-                                    }}
+              options={cities2List}
+              onKeyDown={(e) => setCity2(e.target.value)}
+              onChange={(selectedOption, e) => handleSelectChangeCity2(selectedOption, e)}
+              placeholder={<div>City...</div>}
+              className="react-select-containers"
+              classNamePrefix="react-selects"
+              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+              styles={{
+                menuPortal: (provided) => ({
+                  ...provided,
+                  zIndex: 9999,
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  zIndex: 9999,
+                  bottom: 'auto',
+                })
+              }}
             />}
           </div>
           <div className="label-area">
             <label>{translation.selectProduct[language]}</label>
             <br />
             {productsList && <Select value={selected}
-                                     options={productsList}
-                                     onChange={handleSelectChange}
-                                     placeholder={<div>Products...</div>}
-                                     className="react-select-containers"
-                                     classNamePrefix="react-selects"
+              options={productsList}
+              onChange={handleSelectChange}
+              placeholder={<div>Products...</div>}
+              className="react-select-containers"
+              classNamePrefix="react-selects"
             />}
             <br />
-            <input type="submit" value={translation.result[language]} className="submit-button" />
+            <input onClick={calculateDistance} value={translation.result[language]} className="submit-button" disabled />
           </div>
         </form>
 
         <div className="logistic-price">
           <p>{result && translation.transportationWillCost[language]} {result}</p>
-          <p style={{color:"red"}}>{error && error}</p>
+          <p style={{ color: "red" }}>{error && error}</p>
         </div>
       </div>
     </div>
