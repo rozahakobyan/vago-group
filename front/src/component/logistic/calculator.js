@@ -168,7 +168,7 @@ function Calculator() {
             <br />
             {cities1List && <Select value={selectedCity1}
                                     options={cities1List}
-                                    onKeyDown={(e) => setCity1(e.target.value)}
+                                    onKeyDown={(e) => setSelectedCity1({value: e.target.value, label: e.target.value})}
                                     onChange={(selectedOption, e) => handleSelectChangeCity1(selectedOption, e)}
                                     placeholder={<div>City...</div>}
                                     className="react-select-containers"
@@ -192,7 +192,7 @@ function Calculator() {
             <br />
             {cities2List && <Select value={selectedCity2}
                                     options={cities2List}
-                                    onKeyDown={(e) => setCity2(e.target.value)}
+                                    onKeyDown={(e) => setSelectedCity2({value: e.target.value, label: e.target.value})}
                                     onChange={(selectedOption, e) => handleSelectChangeCity2(selectedOption, e)}
                                     placeholder={<div>City...</div>}
                                     className="react-select-containers"
@@ -216,10 +216,23 @@ function Calculator() {
             <br />
             {productsList && <Select value={selected}
                                      options={productsList}
+                                     onKeyDown={(e) => setSelected({value: e.target.value, label: e.target.value})}
                                      onChange={handleSelectChange}
                                      placeholder={<div>Products...</div>}
                                      className="react-select-containers"
                                      classNamePrefix="react-selects"
+                                     menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                     styles={{
+                                       menuPortal: (provided) => ({
+                                         ...provided,
+                                         zIndex: 9999,
+                                       }),
+                                       menu: (provided) => ({
+                                         ...provided,
+                                         zIndex: 9999,
+                                         bottom: 'auto',
+                                       })
+                                     }}
             />}
             <br />
             <input type="submit" value={translation.result[language]} className="submit-button" />
