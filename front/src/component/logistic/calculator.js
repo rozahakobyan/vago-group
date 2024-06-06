@@ -6,6 +6,7 @@ import axios from "axios";
 import Select from "react-select";
 import {useDispatch, useSelector} from "react-redux";
 import {productsListRequest} from "../../store/actions/products";
+import {minimalPricesListRequest} from "../../store/actions/minimalPrices";
 
 const language = Account.getLanguage();
 
@@ -30,9 +31,11 @@ function Calculator() {
   const [selectedCity2, setSelectedCity2] = useState(null);
 
   const products = useSelector(state => state.products.productsList);
+  const minimalPrices = useSelector(state => state.minimalPrices.pricesList);
 
   useEffect(() => {
     dispatch(productsListRequest())
+    dispatch(minimalPricesListRequest())
   }, []);
 
   useEffect(() => {
