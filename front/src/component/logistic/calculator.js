@@ -140,10 +140,20 @@ function Calculator() {
               const distance = response.rows[0].elements[0].distance.text;
               if (!selected) {
                 setError("select the product")
+
+
+
+
+
+
+
+
               } else {
-                setResult("");
+                const price = minimalPrices[0][selected.currency]
+                setResult(distance);
                 setError("")
-                
+                console.log(price);
+
               }
 
             } else {
@@ -162,8 +172,8 @@ function Calculator() {
       console.error('Error loading Google Maps API:', error);
       setResult('Ошибка загрузки API');
     }
-  }, [city1, city2, selected]);
-
+  }, [city1, city2, selected, minimalPrices]);
+  
   return (
     <div className="calculator-area">
       <div className="calculator-form">
@@ -175,7 +185,7 @@ function Calculator() {
             {cities1List && <Select value={selectedCity1}
 
               options={cities1List}
-              onKeyDown={(e) => setCity1(e.target.value)}
+              onKeyDown={(e) => setSelectedCity1({value:e.target.value,label:e.target.value})}
               onChange={(selectedOption, e) => handleSelectChangeCity1(selectedOption, e)}
               placeholder={<div>City...</div>}
               className="react-select-containers"
@@ -200,7 +210,7 @@ function Calculator() {
             {cities2List && <Select value={selectedCity2}
 
               options={cities2List}
-              onKeyDown={(e) => setCity2(e.target.value)}
+              onKeyDown={(e) => setSelectedCity2({value:e.target.value,label:e.target.value})}
               onChange={(selectedOption, e) => handleSelectChangeCity2(selectedOption, e)}
               placeholder={<div>City...</div>}
               className="react-select-containers"
