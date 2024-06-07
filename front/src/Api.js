@@ -113,7 +113,7 @@ export class Api {
         return api.get('/video-path/list', {params: data});
     }
 
-    static minimalPricesList() {
-        return api.get('/minimal-prices/list');
+    static minimalPricesList(data = {}) {
+        return api.get('/minimal-prices/list', {params: data});
     }
 }
