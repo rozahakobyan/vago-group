@@ -30,7 +30,7 @@ function VDContacts() {
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         setMessage({...message, [path]: text, vacancyName: work.name})
-    }, [message])
+    }, [message, work])
 
     const submit = useCallback((e) => {
         e.preventDefault()
