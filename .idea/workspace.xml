@@ -6,7 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/logistic/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/logistic/calculator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/UsersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/UsersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/helper/sendMassageToEmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/helper/sendMassageToEmail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/construction/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/construction/Contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/construction/Offer.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/construction/Offer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/construction/Vacancies.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/construction/Vacancies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Vacancies.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Vacancies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/logistic/logistic-vacancies.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/logistic/logistic-vacancies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/component/vdContacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/vdContacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/VacanciecDetales.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/VacanciecDetales.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/store/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/store/actions/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/store/reducers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/store/reducers/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +124,7 @@
       <workItem from="1713700672856" duration="2785000" />
       <workItem from="1713715721867" duration="141603000" />
       <workItem from="1716225517361" duration="18340000" />
-      <workItem from="1717669357674" duration="8099000" />
+      <workItem from="1717669357674" duration="11596000" />
     </task>
     <servers />
   </component>
@@ -130,5 +144,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/front/src/component/construction/Vacancies.js</url>
+          <line>56</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

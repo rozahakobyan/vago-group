@@ -29,6 +29,7 @@ function Calculator() {
   const [selected, setSelected] = useState(null);
   const [selectedCity1, setSelectedCity1] = useState(null);
   const [selectedCity2, setSelectedCity2] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const products = useSelector(state => state.products.productsList);
   const minimalPrices = useSelector(state => state.minimalPrices.pricesList);
@@ -123,7 +124,7 @@ function Calculator() {
   const calculateDistance = useCallback(async (e) => {
     try {
       e.preventDefault();
-      console.log({city1, city2})
+      setLoading(true);
       const google = await googleMapsLoader.load();
       const service = new google.maps.DistanceMatrixService();
       service.getDistanceMatrix(
@@ -138,6 +139,7 @@ function Calculator() {
         (response, status) => {
           try {
             if (status === 'OK') {
+              setLoading(false)
               if (!selected) {
                 setError("select the product")
 
@@ -172,12 +174,14 @@ function Calculator() {
             console.log(e)
             setError("the city name is incorrect")
             setResult('')
+            setLoading(false)
           }
         }
       );
     } catch (error) {
       console.error('Error loading Google Maps API:', error);
       setResult('Ошибка загрузки API');
+      setLoading(false)
     }
   }, [city1, city2, selected, minimalPrices]);
   
