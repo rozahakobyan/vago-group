@@ -27,16 +27,9 @@ function VDContacts() {
     })
     const [error, setError] = useState("");
 
-    useEffect(() => {
-        setMessage({...message, vacancyName: work.name})
-        if(token){
-            setMessage({...message, email: profile.email})
-        }
-    }, [message, work, token])
-
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
-        setMessage({...message, [path]: text})
+        setMessage({...message, [path]: text, vacancyName: work.name})
     }, [message])
 
     const submit = useCallback((e) => {

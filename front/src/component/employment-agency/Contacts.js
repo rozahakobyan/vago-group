@@ -29,12 +29,6 @@ function Contacts({refOrder}){
     })
     const [error, setError] = useState("");
 
-    useEffect(() => {
-        if(token){
-            setMessage({...message, email: profile.email})
-        }
-    }, [message, token])
-
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         setMessage({...message, [path]: text})

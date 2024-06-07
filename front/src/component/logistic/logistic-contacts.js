@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
 import {useDispatch, useSelector} from "react-redux";
@@ -26,12 +26,6 @@ function Logistic_contacts({refOrder}){
         contact: "Offer"
     })
     const [error, setError] = useState("");
-
-    useEffect(() => {
-        if(token){
-            setMessage({...message, email: profile.email})
-        }
-    }, [message, token])
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
