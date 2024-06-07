@@ -35,7 +35,7 @@ function Calculator() {
 
   useEffect(() => {
     dispatch(productsListRequest())
-    dispatch(minimalPricesListRequest())
+    dispatch(minimalPricesListRequest({active: true}))
   }, []);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ function Calculator() {
     setSelected(selectedOption)
   }, [])
 
-  const handleSelectChangeCity1 = useCallback((selectedOption, e) => {
+  const handleSelectChangeCity1 = useCallback((selectedOption) => {
     setSelectedCity1(selectedOption)
     setCity1(selectedOption.value)
   }, [])
@@ -123,6 +123,7 @@ function Calculator() {
   const calculateDistance = useCallback(async (e) => {
     try {
       e.preventDefault();
+      console.log({city1, city2})
       const google = await googleMapsLoader.load();
       const service = new google.maps.DistanceMatrixService();
       service.getDistanceMatrix(
@@ -137,7 +138,6 @@ function Calculator() {
         (response, status) => {
           try {
             if (status === 'OK') {
-              const distance = response.rows[0].elements[0].distance.text;
               if (!selected) {
                 setError("select the product")
 
@@ -149,11 +149,18 @@ function Calculator() {
 
 
               } else {
-                const price = minimalPrices[0][selected.currency]
-                setResult(distance);
-                setError("")
-                console.log(price);
+                const currency = selected.currency;
+                const distance = response.rows[0].elements[0].distance.text;
+                const price = minimalPrices[0][currency];
+                const productPrice = selected.price;
 
+                if(price){
+                  // stex hashvarky kgres verjumel stringov kqces price u currency
+                  setResult(distance);
+                  setError("")
+                }else{
+                  console.error("Not minimal price !!!")
+                }
               }
 
             } else {
@@ -183,77 +190,81 @@ function Calculator() {
             <label>{translation.fromWhatCity[language]}</label>
             <br />
             {cities1List && <Select value={selectedCity1}
-
-              options={cities1List}
-              onKeyDown={(e) => setSelectedCity1({value:e.target.value,label:e.target.value})}
-              onChange={(selectedOption, e) => handleSelectChangeCity1(selectedOption, e)}
-              placeholder={<div>City...</div>}
-              className="react-select-containers"
-              classNamePrefix="react-selects"
-              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-              styles={{
-                menuPortal: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                  bottom: 'auto',
-                })
-              }}
-            />}
+                                    options={cities1List}
+                                    onKeyDown={(e) => {
+                                      setSelectedCity1({value: e.target.value, label: e.target.value})
+                                      setCity1(e.target.value)
+                                    }}
+                                    onChange={handleSelectChangeCity1}
+                                    placeholder={<div>City...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                    styles={{
+                                      menuPortal: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                      }),
+                                      menu: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                        bottom: 'auto',
+                                      })
+                                    }}
+                          />}
           </div>
           <div className="label-area">
             <label>{translation.toWhichCity[language]}</label>
             <br />
             {cities2List && <Select value={selectedCity2}
-
-              options={cities2List}
-              onKeyDown={(e) => setSelectedCity2({value:e.target.value,label:e.target.value})}
-              onChange={(selectedOption, e) => handleSelectChangeCity2(selectedOption, e)}
-              placeholder={<div>City...</div>}
-              className="react-select-containers"
-              classNamePrefix="react-selects"
-              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-              styles={{
-                menuPortal: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                  bottom: 'auto',
-                })
-              }}
-            />}
+                                    options={cities2List}
+                                    onKeyDown={(e) => {
+                                      setSelectedCity2({value: e.target.value, label: e.target.value})
+                                      setCity2(e.target.value)
+                                    }}
+                                    onChange={handleSelectChangeCity2}
+                                    placeholder={<div>City...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                    styles={{
+                                      menuPortal: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                      }),
+                                      menu: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                        bottom: 'auto',
+                                      })
+                                    }}
+                            />}
           </div>
           <div className="label-area">
             <label>{translation.selectProduct[language]}</label>
             <br />
             {productsList && <Select value={selected}
+                                      options={productsList}
+                                      onChange={handleSelectChange}
+                                      placeholder={<div>Products...</div>}
+                                      className="react-select-containers"
+                                      classNamePrefix="react-selects"
+                                      menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                      styles={{
+                                        menuPortal: (provided) => ({
+                                          ...provided,
+                                          zIndex: 9999,
+                                        }),
+                                        menu: (provided) => ({
+                                          ...provided,
+                                          zIndex: 9999,
+                                          bottom: 'auto',
+                                        })
+                                      }}
 
-              options={productsList}
-              onChange={handleSelectChange}
-              placeholder={<div>Products...</div>}
-              className="react-select-containers"
-              classNamePrefix="react-selects"
-              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-              styles={{
-                menuPortal: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                  bottom: 'auto',
-                })
-              }}
-
-            />}
+                            />}
             <br />
+            <button onClick={calculateDistance} >Submit</button>
             <input onClick={calculateDistance} value={translation.result[language]} className="submit-button" disabled />
           </div>
         </form>
