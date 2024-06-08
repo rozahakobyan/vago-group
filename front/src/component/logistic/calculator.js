@@ -7,6 +7,7 @@ import Select from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { productsListRequest } from "../../store/actions/products";
 import { minimalPricesListRequest } from "../../store/actions/minimalPrices";
+import Button from '../Button';
 
 const language = Account.getLanguage();
 
@@ -156,7 +157,7 @@ function Calculator() {
 
                 if(price){
                   // stex hashvarky kgres verjumel stringov kqces price u currency
-                  setResult(distance);
+                  setResult(String(Number((distance.replace(" км", ""))*price) + productPrice)+` ${currency}`);
                   setError("")
                 }else{
                   console.error("Not minimal price !!!")
@@ -264,8 +265,8 @@ function Calculator() {
 
                             />}
             <br />
-            <button onClick={calculateDistance} >Submit</button>
-            <input onClick={calculateDistance} value={translation.result[language]} className="submit-button" disabled />
+            <button onClick={calculateDistance} className="submit-button">{translation.result[language]}</button>
+            <Button onClick={calculateDistance} loading={loading} className="submit-button" title={translation.result[language]} />
           </div>
         </form>
 

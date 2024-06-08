@@ -39,20 +39,14 @@ body {
     min-width: 30px;
     text-align: center;
     transform: translate(0,-7px);
-    display: flex;
-    flex-direction: column;
-    height: calc(100%/4-10px);
-    flex-wrap: wrap;
+    
+    
 }
 
 .logo,
 .header-block {
     width: 280px;
     text-align: center;
-    
-    
-    
-
 }
 
 .header-block-msg .msg-box img{
