@@ -70,7 +70,7 @@ function Offer() {
                     {error && <p>{error}</p>}
                     {messages && <p>{messages}</p>}
                     
-                    <Button title={translation.submit[language]} className='submit-button'/>
+                    <Button title={translation.submit[language]} loading={loading} className='submit-button'/>
                 </form>
             </div>
         </div>
