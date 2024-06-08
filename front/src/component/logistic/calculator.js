@@ -143,14 +143,6 @@ function Calculator() {
               setLoading(false)
               if (!selected) {
                 setError("select the product")
-
-
-
-
-
-
-
-
               } else {
                 const currency = selected.currency;
                 const distance = response.rows[0].elements[0].distance.text;
@@ -158,8 +150,7 @@ function Calculator() {
                 const productPrice = selected.price;
 
                 if(price){
-                  // stex hashvarky kgres verjumel stringov kqces price u currency
-                  setResult(String(Number((distance.replace(" км", ""))*price) + productPrice)+` ${currency}`);
+                  setResult(`${((parseInt(distance) * price) + productPrice) + currency}`);
                   setError("")
                 }else{
                   console.error("Not minimal price !!!")

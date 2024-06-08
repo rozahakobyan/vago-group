@@ -69,8 +69,8 @@ export const users = createReducer(initialState, (builder) => {
             state.loading = true;
         })
         .addCase(userSendMessageRequired.rejected, (state, action) => {
-            const {errors} = action.payload;
-            state.errors = errors
+            const error = action.payload?.errors || {};
+            state.errors = error
             state.loading = false;
             console.log(action.payload)
         })
@@ -83,8 +83,8 @@ export const users = createReducer(initialState, (builder) => {
             state.loading = true;
         })
         .addCase(userSendContactMessageRequired.rejected, (state, action) => {
-            const {errors} = action.payload;
-            state.errors = errors
+            const error = action.payload?.errors || {};
+            state.errors = error
             state.loading = false;
             console.log(action.payload)
         })

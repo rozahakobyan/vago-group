@@ -71,7 +71,7 @@ function Logistic_contacts({refOrder}){
                         {error && <p>{error}</p>}
                         {messages && <p>{messages}</p>}
                         
-                        <Button title={translation.submit[language]}/>
+                        <Button title={translation.submit[language]} loading={loading}/>
                     </form>
                 </div>
             </div>

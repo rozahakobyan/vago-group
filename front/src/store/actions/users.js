@@ -83,7 +83,7 @@ export const userSendMessageRequired = createAsyncThunk("user/userSendMessageReq
 
 export const userSendContactMessageRequired = createAsyncThunk("user/userSendContactMessageRequired", async (arg = {}, thunkAPI) => {
     try{
-        const { data } = await Api.userSendMessage(arg);
+        const { data } = await Api.userSendContactMessage(arg);
         return data;
     }catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);
