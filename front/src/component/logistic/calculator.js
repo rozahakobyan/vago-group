@@ -269,7 +269,7 @@ function Calculator() {
 
                             />}
             <br />
-            <button onClick={calculateDistance} className="submit-button">{translation.result[language]}</button>
+            
             <Button onClick={calculateDistance} loading={loading} className="submit-button" title={translation.result[language]} />
           </div>
         </form>

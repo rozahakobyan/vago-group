@@ -1019,6 +1019,13 @@
 
 }
 
+@media screen and (max-width: 450px){
+    .vacancies-detales-area .vacancies-detales{
+        width: 400px;
+    }
+
+}
+
 @media screen and (max-width: 400px) {
 
 
@@ -1076,6 +1083,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    .vacancies-detales-area .vacancies-detales{
+        width: 390px;
     }
 }
 
@@ -1137,6 +1147,9 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    .vacancies-detales-area .vacancies-detales{
+        width: 374px;
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -1196,6 +1209,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    .vacancies-detales-area .vacancies-detales{
+        width: 369px;
     }
 }
 
@@ -1268,6 +1284,9 @@
         width: 349px;
         
     }
+    .vacancies-detales-area .vacancies-detales{
+        width: 359px;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -1339,4 +1358,13 @@
         width: 349px;
         
     }
+
+
+    /* ---------- vacansies detales----------- */
+
+
+
+
+
+
 }

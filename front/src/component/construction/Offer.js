@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import translation from "../../assets/data/translation";
 import {Account} from "../../helpers/Account";
 import {userSendContactMessageRequired} from "../../store/actions/users";
+import Button from "../Button";
 
 function Offer() {
     const dispatch = useDispatch();
@@ -64,7 +65,8 @@ function Offer() {
                     {errors?.exsist && <p>{errors.exsist}</p>}
                     {error && <p>{error}</p>}
                     {messages && <p>{messages}</p>}
-                    <button type={"submit"}>{translation.submit[language]}</button>
+                    
+                    <Button title={translation.submit[language]} className='submit-button'/>
                 </form>
             </div>
         </div>

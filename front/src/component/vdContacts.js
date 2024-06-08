@@ -4,6 +4,7 @@ import translation from "../assets/data/translation";
 import {useDispatch, useSelector} from "react-redux";
 import {userSendMessageRequired} from "../store/actions/users";
 import {useNavigate} from "react-router-dom";
+import Button from "./Button";
 
 const language = Account.getLanguage();
 
@@ -62,7 +63,8 @@ function VDContacts() {
                         {errors?.exsist && <p>{errors.exsist}</p>}
                         {error && <p>{error}</p>}
                         {messages && <p>{messages}</p>}
-                        <button type={"submit"}>{translation.submit[language]}</button>
+                        
+                        <Button title={translation.submit[language]}/>
                     </form>
                 </div>
             </div>
