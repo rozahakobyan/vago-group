@@ -272,8 +272,13 @@ export default {
         ru: "Наши шуслуги",
         am: "Մեր Ծառայությունները",
         pl: "Nasze Usługi"
+    },
+    additional_expenses: {
+        en: "additional expenses",
+        ru: "дополнительные расходы",
+        am: "լրացուցիչ ծախսեր",
+        pl: "dodatkowe wydatki"
     }
-    
     
     
     
