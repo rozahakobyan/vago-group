@@ -5,19 +5,16 @@ import { API_URL } from "../../Api"
 import ReactPaginate from "react-paginate";
 import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
-import { useNavigate } from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
 
 function Vacancieces() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const [page, setPage] = useState(1);
-    const [error, setError] = useState("");
 
     const language = Account.getLanguage();
 
-    const token = useSelector(state => state.users.token)
     const worksList = useSelector(state => state.works.worksList)
     const loading = useSelector(state => state.works.loading)
     const pages = useSelector(state => state.works.pages)
@@ -25,17 +22,6 @@ function Vacancieces() {
     useEffect(() => {
         dispatch(worksListRequest({ department: "Employment Agency", limit: 4, page }))
     }, [page])
-
-    const handleNavigate = useCallback((e, id) => {
-        e.preventDefault();
-        if (token) {
-            navigate(`/vacancies-detales/${id}`)
-            setError("")
-            console.log(token)
-        } else {
-            setError("Login your account");
-        }
-    }, [token])
 
     return (
         <div className="vacanciesArea">
@@ -50,14 +36,15 @@ function Vacancieces() {
                                 <tr className="vacancie-text">
                                     <td>
                                         <div className="vacancieImgArea">
-                                            <img src={`${API_URL}/${w.image}`} alt={""} />
+                                            <img src={`${API_URL}/${w.image}`} alt={""}/>
                                         </div>
                                         <div className="vacancie-title">
                                             <h3>{w.translation[language].name}</h3>
                                         </div>
                                         <div className="vacancie-price-hours">
-                                            <p><strong>{translation.vacanciesPrice[language]}</strong> - {w.price}<br />
-                                                <strong>{translation.vacanciesHAW[language]}</strong> - {w.hoursWeek}{translation.vacanciesHour[language]}</p>
+                                            <p><strong>{translation.vacanciesPrice[language]}</strong> - {w.price}<br/>
+                                                <strong>{translation.vacanciesHAW[language]}</strong> - {w.hoursWeek}{translation.vacanciesHour[language]}
+                                            </p>
                                         </div>
                                         <div className="vacancie-workSchedule">
                                             <strong>{translation.vacanciesWorkSchedule[language]}</strong>
@@ -68,19 +55,20 @@ function Vacancieces() {
                                             </p>
                                         ))}
                                         <div className="vacancie-join-area">
-                                            <div className="vacancie-join" onClick={(e) => handleNavigate(e, w.id)}>
-                                                <strong>{translation.vacanciesJoin[language]}</strong>
-                                            </div>
+                                            <NavLink to={`/vacancies-detales/${w.id}`}>
+                                                <div className="vacancie-join">
+                                                    <strong>{translation.vacanciesJoin[language]}</strong>
+                                                </div>
+                                            </NavLink>
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody> 
+                            </tbody>
                         </table>
                     </div>)) : <div>
                     <div className="loader"></div>
                 </div>}
             </div>
-            {error && <p>{error}</p>}
             <div className={"pages-list"}>
                 {pages && pages > 1 ? <ReactPaginate
                     activeClassName={'items active '}

@@ -564,7 +564,36 @@ class UsersController {
                                  <p>Phone - ${phone}</p>
                                  <p>${message}</p>`;
 
-            await sendMassageToEmail(email, html)
+            await sendMassageToEmail(email, html, "Vacancies")
+
+            res.json({
+                status: "ok",
+                message: "Successfully massage"
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
+
+    static async sendContactMassage(req, res, next){
+        try{
+            const {email, phone, name, message, department, contact} = req.body;
+            console.log(req.body)
+
+            if(!email || !phone || !name || !message || !department || !contact){
+                throw HttpError(404, {
+                    errors: {
+                        exsist: 'Invalid send'
+                    }
+                });
+            }
+
+            const html = `<h4>${contact}</h4>
+                                 <p>Name - ${name}</p>
+                                 <p>Phone - ${phone}</p>
+                                 <p>${message}</p>`;
+
+            await sendMassageToEmail(email, html, department)
 
             res.json({
                 status: "ok",

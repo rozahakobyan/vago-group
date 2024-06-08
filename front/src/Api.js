@@ -49,6 +49,10 @@ export class Api {
         return api.post('/users/send-message', data);
     }
 
+    static userSendContactMessage(data = {}) {
+        return api.post('/users/send-contact-message', data);
+    }
+
     static activateUser(params) {
         return api.post('/users/activate', params);
     }
