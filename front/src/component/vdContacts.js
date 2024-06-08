@@ -23,6 +23,7 @@ function VDContacts() {
         name: "",
         phone: "",
         email: "",
+        secondEmail: "",
         message: "",
         vacancyName: ""
     })
@@ -31,7 +32,10 @@ function VDContacts() {
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         setMessage({...message, [path]: text, vacancyName: work.name})
-    }, [message, work])
+        if(token){
+            setMessage({...message, email: profile.email})
+        }
+    }, [message, work, profile, token])
 
     const submit = useCallback((e) => {
         e.preventDefault()
@@ -55,7 +59,7 @@ function VDContacts() {
                         <input type={translation.offerName[language]} placeholder={"Name"}
                                onChange={(e) => handleChange(e, "name")}/>
                         <input type={"email"} placeholder={"Email"}
-                               onChange={(e) => handleChange(e, "email")}/>
+                               onChange={(e) => handleChange(e, "secondEmail")}/>
                         <input type={"text"} placeholder={translation.offerPhone[language]}
                                onChange={(e) => handleChange(e, "phone")}/>
                         <textarea placeholder={translation.offerMessage[language]}

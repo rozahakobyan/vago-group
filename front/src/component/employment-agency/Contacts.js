@@ -23,6 +23,7 @@ function Contacts({refOrder}){
         name: "",
         phone: "",
         email: "",
+        secondEmail: "",
         message: "",
         department: "Employment Agency",
         contact: "Contacts"
@@ -32,7 +33,10 @@ function Contacts({refOrder}){
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         setMessage({...message, [path]: text})
-    }, [message])
+        if(token){
+            setMessage({...message, email: profile.email})
+        }
+    }, [message, profile, token])
 
     const submit = useCallback((e) => {
         e.preventDefault()

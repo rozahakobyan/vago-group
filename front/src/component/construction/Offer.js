@@ -22,6 +22,7 @@ function Offer() {
         name: "",
         phone: "",
         email: "",
+        secondEmail: "",
         message: "",
         department: "Construction",
         contact: "Offer"
@@ -31,7 +32,10 @@ function Offer() {
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         setMessage({...message, [path]: text})
-    }, [message])
+        if(token){
+            setMessage({...message, email: profile.email})
+        }
+    }, [message, profile, token])
 
     const submit = useCallback((e) => {
         e.preventDefault()
@@ -57,7 +61,7 @@ function Offer() {
                     <input type={translation.offerName[language]} placeholder={"Name"}
                            onChange={(e) => handleChange(e, "name")}/>
                     <input type={"email"} placeholder={"Email"}
-                           onChange={(e) => handleChange(e, "email")}/>
+                           onChange={(e) => handleChange(e, "secondEmail")}/>
                     <input type={"text"} placeholder={translation.offerPhone[language]}
                            onChange={(e) => handleChange(e, "phone")}/>
                     <textarea placeholder={translation.offerMessage[language]}
