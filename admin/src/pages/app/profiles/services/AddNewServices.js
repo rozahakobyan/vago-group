@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
-import { servicesAddRequest, isLoading } from '../../../../store/actions/services';
+import { servicesAddRequest } from '../../../../store/actions/services';
 
 const AddNewServices = () => {
     const navigate = useNavigate();
@@ -38,6 +38,7 @@ const AddNewServices = () => {
         e.preventDefault()
         const {payload} = await dispatch(servicesAddRequest(service));
         if (payload?.status === 'ok') {
+            window.location.reload(false)
             navigate('/services')
             Account.setNavbarUrlPathSub('services')
         }

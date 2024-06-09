@@ -18,6 +18,9 @@ const initialState = {
 export const services = createReducer(initialState, (builder) => {
     builder
         .addCase(isLoading, (state, action) => {
+            if(!action.payload){
+                action.payload = {};
+            }
             state.service.isLoading = action.payload.arg
         })
         .addCase(servicesAddRequest.fulfilled, (state, action) => {
