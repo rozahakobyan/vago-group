@@ -94,16 +94,16 @@ export default [
     },
     {
         id: 4,
-        name: 'Works',
-        path: 'works',
+        name: 'Jobs',
+        path: 'jobs',
         Icon: BiBuilding,
         openIcon: true,
         renderItem: true,
         subMenu: [
             {
                 id: 4_1,
-                title: "Add New Works",
-                path: "add-new-works",
+                title: "Add New Jobs",
+                path: "add-new-jobs",
             },
         ]
     },

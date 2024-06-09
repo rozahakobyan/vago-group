@@ -38,8 +38,8 @@ const AddNewServices = () => {
         e.preventDefault()
         const {payload} = await dispatch(servicesAddRequest(service));
         if (payload?.status === 'ok') {
-            window.location.reload(false)
             navigate('/services')
+            window.location.reload(false)
             Account.setNavbarUrlPathSub('services')
         }
     }, [service]);

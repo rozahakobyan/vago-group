@@ -53,8 +53,8 @@ const ProfileNavigate = () => {
                 <Route path={'/information/add-new-video-path'} element={<AddNewVideoPath/>}/>
                 <Route path={'/massagers'} element={<Massagers/>}/>
                 <Route path={'/massagers/add-new-massagers'} element={<AddNewMassagers/>}/>
-                <Route path={'/works'} element={<Works/>}/>
-                <Route path={'/works/add-new-works'} element={<AddNewWork/>}/>
+                <Route path={'/jobs'} element={<Works/>}/>
+                <Route path={'/jobs/add-new-jobs'} element={<AddNewWork/>}/>
                 <Route path={'/products'} element={<Products/>}/>
                 <Route path={'/products/add-new-products'} element={<AddNewProducts/>}/>
                 <Route path={'/partners'} element={<Partners/>}/>
