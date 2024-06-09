@@ -150,7 +150,7 @@ function Calculator() {
                 const productPrice = selected.price;
 
                 if(price){
-                  setResult(`${((parseInt(distance) * price) + productPrice) + currency}`);
+                  setResult(`${((parseInt(distance) * price) + productPrice) + ' ' + currency} + ${translation.additional_expenses[language]}`);
                   setError("")
                 }else{
                   console.error("Not minimal price !!!")
