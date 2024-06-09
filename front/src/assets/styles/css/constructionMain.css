@@ -106,7 +106,7 @@
     width: 100%;
     background-color: white;
     padding: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 0px;
     box-sizing: border-box;
 }
 
@@ -176,7 +176,7 @@
     width: 100%;
     background-color: var(--color4);
     padding: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     box-sizing: border-box;
 }
 
@@ -200,7 +200,10 @@
 
 .worksPerformed {
     width: 300px;
-    margin: 25px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 0px;
 }
 
 .worksPerformedImg {
@@ -492,13 +495,6 @@
 .contacts-Area form Button:hover {
     background-color: var(--color1);
 }
-
-
-
-
-
-
-
 
 
 

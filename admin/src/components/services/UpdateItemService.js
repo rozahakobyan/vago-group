@@ -4,7 +4,6 @@ import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
 import {MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from "react-icons/md";
 import classNames from "classnames";
-import {API_URL} from "../../Api";
 import { isLoading, servicesUpdateRequest } from '../../store/actions/services';
 
 function UpdateItemService({updateItem, setUpdateItem}) {
@@ -26,11 +25,6 @@ function UpdateItemService({updateItem, setUpdateItem}) {
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         setUpdateItem({...updateItem, [path]: text});
-    }, [updateItem]);
-
-    const handleChangeFile = useCallback((e) => {
-        const file = e.target.files[0]
-        setUpdateItem({...updateItem, image: file})
     }, [updateItem]);
 
     const handleSave = useCallback(async (e) => {
