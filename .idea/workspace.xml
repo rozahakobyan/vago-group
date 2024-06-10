@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/services/AddNewServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/services/AddNewServices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/store/reducers/services.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/store/reducers/services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/assets/styles/works.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/assets/styles/works.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/AddNewWork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/Works.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/pages/app/profiles/works/Works.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +112,7 @@
       <workItem from="1713700672856" duration="2785000" />
       <workItem from="1713715721867" duration="141603000" />
       <workItem from="1716225517361" duration="18340000" />
-      <workItem from="1717669357674" duration="18586000" />
+      <workItem from="1717669357674" duration="19872000" />
     </task>
     <servers />
   </component>

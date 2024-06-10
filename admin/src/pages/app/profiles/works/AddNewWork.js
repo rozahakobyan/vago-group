@@ -82,8 +82,8 @@ function AddNewWork() {
         e.preventDefault()
         const {payload} = await dispatch(worksAddRequest(work));
         if (payload?.status === 'ok') {
-            navigate('/works')
-            Account.setNavbarUrlPathSub('works')
+            navigate('/jobs')
+            Account.setNavbarUrlPathSub('jobs')
         }
     }, [work]);
 
