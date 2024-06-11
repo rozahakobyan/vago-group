@@ -25,7 +25,8 @@
       justify-content: space-between;
       align-items: flex-start;
 
-      .left_row {
+      .left_row, .right_item {
+        width: 50%;
         padding: 10px;
 
         .open_input{
@@ -40,7 +41,7 @@
         }
 
         .input_item {
-          width: 350px;
+          width: 330px;
           height: 45px;
           border-radius: 5px;
           overflow: hidden;

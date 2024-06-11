@@ -18,6 +18,11 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
         setUpdateItem({...updateItem, [path]: text});
     }, [updateItem]);
 
+    const handleChangeMin = useCallback((e, path) => {
+        const text = e.target.value;
+        setUpdateItem({...updateItem, min: {...updateItem.min, [path]: text}});
+    }, [updateItem]);
+
     const handleChangeActive = useCallback((e, path) => {
         const text = e.target.checked
         setUpdateItem({...updateItem, [path]: text});
@@ -82,6 +87,40 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                                 </label>
                             </div>
                             <Button title={'Save'} onClick={handleSave}/>
+                        </div>
+                        <div className={'cont'}>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e, "eur")}
+                                    value={updateItem.min.eur}
+                                    placeholder={"eur min price..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e, "usd")}
+                                    value={updateItem.min.usd}
+                                    placeholder={"usd min price..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e, "rub")}
+                                    value={updateItem.min.rub}
+                                    placeholder={"rub min price..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e,"amd")}
+                                    value={updateItem.min.amd}
+                                    placeholder={"amd min price..."}
+                                    type="number"
+                                />
+                            </div>
                         </div>
                     </form>
                 </div>

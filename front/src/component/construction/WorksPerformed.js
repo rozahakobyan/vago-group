@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { projectsListRequest } from "../../store/actions/projects";
 import { API_URL } from "../../Api"
@@ -9,6 +9,9 @@ import translation from "../../assets/data/translation";
 function CurrentProjects() {
     const dispatch = useDispatch();
 
+    const [page, setPage] = useState(1);
+
+    const pages = useSelector(state => state.projects.pages);
     const list = useSelector(state => state.projects.projectsList);
 
     const language = Account.getLanguage();
@@ -22,10 +25,8 @@ function CurrentProjects() {
     }, [list])
 
     useEffect(() => {
-        dispatch(projectsListRequest())
-    }, []);
-
-    
+        dispatch(projectsListRequest({page, limit: 6}))
+    }, [page]);
 
     return (
         <div className="currentProjects-area">
