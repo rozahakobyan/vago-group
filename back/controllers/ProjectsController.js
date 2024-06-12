@@ -236,6 +236,82 @@ class ProjectsController {
             next(e)
         }
     }
+
+    static async listToEnded (req, res, next){
+        try{
+            const {page = 1, limit = 9} = req.query;
+            const offset = (page - 1) * limit;
+
+            const projects = await Project.findAll({
+                where: {
+                    status: "ended"
+                },
+                limit: Number(limit),
+                offset,
+                attributes: [ 'id', 'name', 'description', 'status',
+                    [sequelize.literal(`CONCAT('projects/', image)`), 'image']
+                ],
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            });
+
+            const total = await Project.findAll({
+                where: {
+                    status: "ended"
+                }
+            });
+
+            res.json({
+                status:'ok',
+                projects,
+                page,
+                total,
+                pages: Math.ceil(total.length / limit)
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
+
+    static async listToPending (req, res, next){
+        try{
+            const {page = 1, limit = 9} = req.query;
+            const offset = (page - 1) * limit;
+
+            const projects = await Project.findAll({
+                where: {
+                    status: "pending"
+                },
+                limit: Number(limit),
+                offset,
+                attributes: [ 'id', 'name', 'description', 'status',
+                    [sequelize.literal(`CONCAT('projects/', image)`), 'image']
+                ],
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            });
+
+            const total = await Project.findAll({
+                where: {
+                    status: "pending"
+                }
+            });
+
+            res.json({
+                status:'ok',
+                projects,
+                page,
+                total,
+                pages: Math.ceil(total.length / limit)
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
 }
 
 export default ProjectsController;

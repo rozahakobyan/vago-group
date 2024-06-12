@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { projectsListRequest } from "../../store/actions/projects";
+import {projectsListToEndedRequest} from "../../store/actions/projects";
 import { API_URL } from "../../Api"
 import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
@@ -11,21 +11,13 @@ function CurrentProjects() {
 
     const [page, setPage] = useState(1);
 
-    const pages = useSelector(state => state.projects.pages);
-    const list = useSelector(state => state.projects.projectsList);
+    const pages = useSelector(state => state.projects.pagesToEnded);
+    const projectsList = useSelector(state => state.projects.projectsListToEnded);
 
     const language = Account.getLanguage();
 
-    const projectsList = useMemo(() => {
-        return list.filter(l => {
-            if (l.status === "ended") {
-                return l;
-            }
-        })
-    }, [list])
-
     useEffect(() => {
-        dispatch(projectsListRequest({ page, limit: 4 }))
+        dispatch(projectsListToEndedRequest({ page, limit: 4 }))
     }, [page]);
 
     return (
