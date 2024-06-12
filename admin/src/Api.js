@@ -1,7 +1,7 @@
 import axios from "axios";
 import {Account} from "./helpers/account";
 
-export const API_URL = 'https://vago-group-back.vercel.app'
+export const API_URL = 'http://localhost:4001'
 const api = axios.create({
     baseURL: API_URL,
 })
