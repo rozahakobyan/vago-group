@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { projectsListRequest } from "../../store/actions/projects";
+import {projectsListToPendingRequest} from "../../store/actions/projects";
 import { API_URL } from "../../Api"
 import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
@@ -11,22 +11,16 @@ function CurrentProjects() {
 
     const [page, setPage] = useState(1);
 
-    const pages = useSelector(state => state.projects.pages);
-    const list = useSelector(state => state.projects.projectsList);
+    const pages = useSelector(state => state.projects.pagesToPending);
+    const projectsList = useSelector(state => state.projects.projectsListToPending);
 
     const language = Account.getLanguage();
 
-    const projectsList = useMemo(() => {
-        return list.filter(l => {
-            if (l.status === "pending") {
-                return l;
-            }
-        })
-    }, [list])
-
     useEffect(() => {
-        dispatch(projectsListRequest({ page, limit: 4 }))
+        dispatch(projectsListToPendingRequest({ page, limit: 4 }))
     }, [page]);
+
+    console.log(pages)
 
     return (
         <div className="currentProjects-area">
