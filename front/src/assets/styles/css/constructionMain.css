@@ -106,7 +106,7 @@
     width: 100%;
     background-color: white;
     padding: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 0px;
     box-sizing: border-box;
 }
 
@@ -176,7 +176,7 @@
     width: 100%;
     background-color: var(--color4);
     padding: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     box-sizing: border-box;
 }
 
@@ -200,7 +200,10 @@
 
 .worksPerformed {
     width: 300px;
-    margin: 25px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 0px;
 }
 
 .worksPerformedImg {
@@ -289,7 +292,7 @@
     resize: none;
 }
 
-.offersArea form button {
+.offersArea form Button {
     width: 113px;
     transform: translate(-427px, 0); 
     height: 40px;
@@ -300,16 +303,16 @@
     transition: background-color 0.4s;
 }
 
-.offersArea form button {
+.offersArea form Button {
     min-width: 80px;
 }
 
-.offersArea form button.wide {
+.offersArea form Button.wide {
     min-width: 113px;
     transform: translate(-427px, 0); 
 }
 
-.offersArea form button:hover {
+.offersArea form Button:hover {
     background-color: var(--color1);
 }
 
@@ -476,7 +479,7 @@
     text-align: center;
 }
 
-.contacts-Area form button {
+.contacts-Area form Button {
     min-width: 117px;
     height: 40px;
     font-size: 20px;
@@ -489,16 +492,9 @@
     padding: 0;
 }
 
-.contacts-Area form button:hover {
+.contacts-Area form Button:hover {
     background-color: var(--color1);
 }
-
-
-
-
-
-
-
 
 
 

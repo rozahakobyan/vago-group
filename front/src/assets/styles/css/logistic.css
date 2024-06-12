@@ -168,6 +168,21 @@
     padding-right: 15px;
 
 }
+
+
+.calculator-form form .label-area .react-select-containers{
+    width: 270px;
+    height: 50px;
+    border-radius: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.react-select-containers{
+    width: 150px;
+    
+}
+
+
 .calculator-form form .submit-button{
     width: 150px;
     height: 30px;
@@ -191,7 +206,9 @@
     margin-right: 10px;
     
 }
-
+.submit-button{
+    text-align: center;
+}
 
 
 .calculator-form h4{

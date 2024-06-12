@@ -18,6 +18,11 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
         setUpdateItem({...updateItem, [path]: text});
     }, [updateItem]);
 
+    const handleChangeMin = useCallback((e, path) => {
+        const text = e.target.value;
+        setUpdateItem({...updateItem, min: {...updateItem.min, [path]: text}});
+    }, [updateItem]);
+
     const handleChangeActive = useCallback((e, path) => {
         const text = e.target.checked
         setUpdateItem({...updateItem, [path]: text});
@@ -39,7 +44,7 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                     isActive: updateItem.isActive
                 })}>
                     <FaWindowClose onClick={handleClose} className={'close'}/>
-                    <form>
+                    <form className={"form"}>
                         <div className={'cont'}>
                             <div className={'input_item'}>
                                 <input
@@ -70,6 +75,49 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                                     onChange={(e) => handleChange(e, "amd")}
                                     value={updateItem.amd}
                                     placeholder={"amd price..."}
+                                    type="number"
+                                />
+                            </div>
+
+                        </div>
+                        <div className={'cont'}>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e, "eur")}
+                                    value={updateItem.min.eur}
+                                    placeholder={"eur min price..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChange(e, "minKm")}
+                                    value={updateItem.minKm}
+                                    placeholder={"min km..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e, "usd")}
+                                    value={updateItem.min.usd}
+                                    placeholder={"usd min price..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e, "rub")}
+                                    value={updateItem.min.rub}
+                                    placeholder={"rub min price..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
+                                    onChange={(e) => handleChangeMin(e, "amd")}
+                                    value={updateItem.min.amd}
+                                    placeholder={"amd min price..."}
                                     type="number"
                                 />
                             </div>

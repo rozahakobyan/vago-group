@@ -1,7 +1,12 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {
-    activeNavbarToggle, createUserData,
-    userLoginRequired, userProfileRequired, userRegisterRequired, userSendMessageRequired,
+    activeNavbarToggle,
+    createUserData,
+    userLoginRequired,
+    userProfileRequired,
+    userRegisterRequired,
+    userSendContactMessageRequired,
+    userSendMessageRequired,
 } from '../actions/users';
 import {Account} from "../../helpers/Account";
 
@@ -64,8 +69,22 @@ export const users = createReducer(initialState, (builder) => {
             state.loading = true;
         })
         .addCase(userSendMessageRequired.rejected, (state, action) => {
-            // const {errors} = action.payload;
-            // state.errors = errors
+            const error = action.payload?.errors || {};
+            state.errors = error
+            state.loading = false;
+            console.log(action.payload)
+        })
+        .addCase(userSendContactMessageRequired.fulfilled, (state, action) => {
+            const {message} = action.payload;
+            state.message = message;
+            state.loading = false;
+        })
+        .addCase(userSendContactMessageRequired.pending, (state, action) => {
+            state.loading = true;
+        })
+        .addCase(userSendContactMessageRequired.rejected, (state, action) => {
+            const error = action.payload?.errors || {};
+            state.errors = error
             state.loading = false;
             console.log(action.payload)
         })

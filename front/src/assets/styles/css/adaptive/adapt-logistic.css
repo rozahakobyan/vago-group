@@ -123,6 +123,20 @@
     }
 }
 
+@media screen and (max-width: 449px) {
+    /* ---------------------- */
+
+
+
+    .service-area {
+        width: 400px;   
+    }
+    .serviceName {
+        width: 400px;
+    }
+}
+
+
 
 @media screen and (max-width: 430px) {
     /* ---------------------- */
@@ -141,14 +155,15 @@
         padding-bottom: 10px;
 
     }
+    .logistic-price{
+        text-align: center;
+        width: 425px;
+    }
 
     .calculator-form form {
         width: 400px;
     }
 
-    
-
-   
     .service-area {
         width: 400px;   
     }
@@ -156,6 +171,22 @@
         width: 400px;
     }
 }
+
+@media screen and (max-width: 400px) {
+    /* ---------------------- */
+   
+    .service-area {
+        width: 380px;   
+    }
+    .serviceName {
+        width: 380px;
+    }
+    .logistic-price{
+        text-align: center;
+        width: 380px;
+    }
+}
+
 @media screen and (max-width: 390px) {
     /* ---------------------- */
 
@@ -177,7 +208,10 @@
     .calculator-form form {
         width: 380px;
     }
-
+    .logistic-price{
+        text-align: center;
+        width: 360px;
+    }
     
 
    
@@ -186,6 +220,16 @@
     }
     .serviceName {
         width: 380px;
+    }
+}
+@media screen and (max-width: 380px) {
+    /* ---------------------- */
+   
+    .service-area {
+        width: 360px;   
+    }
+    .serviceName {
+        width: 360px;
     }
 }
 
@@ -211,6 +255,10 @@
         margin-bottom: 50px;
     }
 
+    .logistic-price{
+        text-align: center;
+        width: 350px;
+    }
     .priceList-area {
        
         width: 360px;

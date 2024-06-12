@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 const { INFO_EMAIL, SMTP_HOST, SMTP_USER, SMTP_PASS } = process.env;
 
-async function sendMassageToEmail(from, html) {
+async function sendMassageToEmail(from, html, subject) {
     try {
         let  transporter = nodemailer.createTransport({
             direct: true,
@@ -20,7 +20,7 @@ async function sendMassageToEmail(from, html) {
         let mailOptions = {
             from: from,
             to: INFO_EMAIL,
-            subject: 'Vacancies',
+            subject: subject,
             text: html
         };
 

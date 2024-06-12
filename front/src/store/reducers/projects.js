@@ -3,7 +3,7 @@ import {
     isLoading,
     projectsAddRequest,
     projectsDeleteRequest,
-    projectsListRequest,
+    projectsListRequest, projectsListToEndedRequest, projectsListToPendingRequest,
     projectsUpdateRequest
 } from "../actions/projects";
 
@@ -12,7 +12,12 @@ const initialState = {
     errors: {},
     loading: false,
     projectsList: [],
+    projectsListToEnded: [],
+    projectsListToPending: [],
     status: "",
+    pages: 1,
+    pagesToEnded: 1,
+    pagesToPending: 1,
 };
 
 export const projects = createReducer(initialState, (builder) => {
@@ -21,7 +26,18 @@ export const projects = createReducer(initialState, (builder) => {
             state.project.isLoading = action.payload.arg
         })
         .addCase(projectsListRequest.fulfilled, (state, action) => {
-            const {projects} = action.payload;
+            const {projects, pages} = action.payload;
             state.projectsList = projects;
+            state.pages = pages
+        })
+        .addCase(projectsListToEndedRequest.fulfilled, (state, action) => {
+            const {projects, pages} = action.payload;
+            state.projectsListToEnded = projects;
+            state.pagesToEnded = pages
+        })
+        .addCase(projectsListToPendingRequest.fulfilled, (state, action) => {
+            const {projects, pages} = action.payload;
+            state.projectsListToPending = projects;
+            state.pagesToPending = pages
         })
 });

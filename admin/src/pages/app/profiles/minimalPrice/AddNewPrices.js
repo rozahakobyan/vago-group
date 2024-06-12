@@ -16,6 +16,13 @@ const AddNewPrices = () => {
         usd: null,
         rub: null,
         amd: null,
+        minKm: null,
+        min: {
+            eur: null,
+            usd: null,
+            rub: null,
+            amd: null,
+        },
         active: false
     });
     
@@ -25,6 +32,11 @@ const AddNewPrices = () => {
     const handleChange = useCallback((e, path) => {
         const text = e.target.value
         setPrice({...price, [path]: text});
+    }, [price]);
+
+    const handleChangeMin = useCallback((e, path, val) => {
+        const text = e.target.value
+        setPrice({...price, [path]: {...price[path], [val]: text}});
     }, [price]);
 
     const handleChangeActive = useCallback((e, path) => {
@@ -47,7 +59,7 @@ const AddNewPrices = () => {
                 <title>add new minimal prices</title>
             </Helmet>
             <div className="add_con">
-                <form onSubmit={handleSubmitSave}>
+                <form onSubmit={handleSubmitSave} className={"form"}>
                     <div className="left_row">
                         <div className={'input_item'}>
                             <input
@@ -84,6 +96,53 @@ const AddNewPrices = () => {
                                 type="number"/>
                         </div>
                         {errors?.amd ? <small>{errors?.amd}</small> : null}
+
+                    </div>
+                    <div className="right_item">
+                        <div className={'input_item'}>
+                            <input
+                                value={price.minKm}
+                                onChange={(e) => handleChange(e, "minKm")}
+                                placeholder={'min km...'}
+                                type="number"/>
+                        </div>
+                        {errors?.minKm ? <small>{errors.minKm}</small> : null}
+
+                        <div className={'input_item'}>
+                            <input
+                                value={price.min.eur}
+                                onChange={(e) => handleChangeMin(e, "min", "eur")}
+                                placeholder={'eur min price...'}
+                                type="number"/>
+                        </div>
+                        {errors?.min?.eur ? <small>{errors.min.eur}</small> : null}
+
+                        <div className={'input_item'}>
+                            <input
+                                value={price.min.usd}
+                                onChange={(e) => handleChangeMin(e, "min", "usd")}
+                                placeholder={'usd min price...'}
+                                type="number"/>
+                        </div>
+                        {errors?.min?.usd ? <small>{errors.min.usd}</small> : null}
+
+                        <div className={'input_item'}>
+                            <input
+                                value={price.min.rub}
+                                onChange={(e) => handleChangeMin(e, "min", "rub")}
+                                placeholder={'rub min price...'}
+                                type="number"/>
+                        </div>
+                        {errors?.min?.rub ? <small>{errors.min.rub}</small> : null}
+
+                        <div className={'input_item'}>
+                            <input
+                                value={price.min.amd}
+                                onChange={(e) => handleChangeMin(e, "min", "amd")}
+                                placeholder={'amd min price...'}
+                                type="number"/>
+                        </div>
+                        {errors?.min?.amd ? <small>{errors.min.amd}</small> : null}
 
                         <div className={'input_item'}>
                             <label> Active Price

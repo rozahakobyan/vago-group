@@ -548,10 +548,10 @@ class UsersController {
 
     static async sendMassage(req, res, next){
         try{
-            const {email, phone, name, message, vacancyName} = req.body;
+            const {email, secondEmail, phone, name, message, vacancyName} = req.body;
             console.log(req.body)
 
-            if(!email || !phone || !name || !message || !vacancyName){
+            if(!email || !secondEmail || !phone || !name || !message || !vacancyName){
                 throw HttpError(404, {
                     errors: {
                         exsist: 'Invalid send'
@@ -561,10 +561,41 @@ class UsersController {
 
             const html = `<h4>Vacancy Name - ${vacancyName}</h4>
                                  <p>Name - ${name}</p>
+                                 <p>Second Email - ${secondEmail}</p>
                                  <p>Phone - ${phone}</p>
                                  <p>${message}</p>`;
 
-            await sendMassageToEmail(email, html)
+            await sendMassageToEmail(email, html, "Vacancies")
+
+            res.json({
+                status: "ok",
+                message: "Successfully massage"
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
+
+    static async sendContactMassage(req, res, next){
+        try{
+            const {email, secondEmail, phone, name, message, department, contact} = req.body;
+            console.log(req.body)
+
+            if(!email || !secondEmail || !phone || !name || !message || !department || !contact){
+                throw HttpError(404, {
+                    errors: {
+                        exsist: 'Invalid send'
+                    }
+                });
+            }
+
+            const html = `<h4>${contact}</h4>
+                                 <p>Name - ${name}</p>
+                                 <p>Second Email - ${secondEmail}</p>
+                                 <p>Phone - ${phone}</p>
+                                 <p>${message}</p>`;
+
+            await sendMassageToEmail(email, html, department)
 
             res.json({
                 status: "ok",

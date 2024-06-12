@@ -125,6 +125,10 @@
     .modal{
       width: 410px;
       height: 100%;
+      .form{
+        display: flex;
+        flex-direction: column;
+      }
       .close{
         margin-left: 340px;
       }

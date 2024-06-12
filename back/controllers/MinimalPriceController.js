@@ -5,9 +5,9 @@ import MinimalPrice from "../models/MinimalPrice.js";
 class MinimalPriceController {
     static async add (req, res, next){
         try{
-            const {eur, usd, rub, amd, active} = req.body;
+            const {eur, usd, rub, amd, minKm, min, active} = req.body;
 
-            if(!eur || !usd || !rub || !amd){
+            if(!eur || !usd || !rub || !amd || !min || !minKm){
                 throw HttpError(404, {
                     errors: {
                         exists: "Not found"
@@ -15,7 +15,7 @@ class MinimalPriceController {
                 })
             }
 
-            const price = await MinimalPrice.create({eur, usd, rub, amd, active})
+            const price = await MinimalPrice.create({eur, usd, rub, amd, minKm, min, active})
 
             res.json({
                 status: "ok",
@@ -28,7 +28,7 @@ class MinimalPriceController {
 
     static async update (req, res, next){
         try{
-            const {eur, usd, rub, amd, active} = req.body;
+            const {eur, usd, rub, amd, minKm, min, active} = req.body;
             const { id } = req.params;
 
             const price = await MinimalPrice.findOne({
@@ -43,7 +43,7 @@ class MinimalPriceController {
                 })
             }
 
-            await price.update({eur, usd, rub, amd, active})
+            await price.update({eur, usd, rub, amd, minKm, min, active})
 
             res.json({
                 status: "ok",

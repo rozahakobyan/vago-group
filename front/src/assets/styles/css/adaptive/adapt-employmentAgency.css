@@ -125,6 +125,45 @@
     }
 }
 
+@media screen and (max-width: 450px) {
+    .history-title{
+        font-size: 20px;
+    }
+
+    .history-text {
+        width: 390px;
+    }
+
+    .Prices-table {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .Prices-table th{
+        font-size: 13px;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 410px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}
+
+
+
 @media screen and (max-width: 414px) {
     .history-title{
         font-size: 20px;
@@ -151,6 +190,37 @@
     .priceList-area {
        
         width: 410px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    
+
+    .Prices-table {
+        width: 390px;
+        margin: 0 auto;
+    }
+
+    .Prices-table th{
+        font-size: 13px;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 390px;
         margin: 0 auto;
         padding-bottom: 25px;
         border-radius: 10px;
@@ -199,6 +269,37 @@
     }
 }
 
+@media screen and (max-width: 390px) {
+    
+
+    .Prices-table {
+        width: 375px;
+        margin: 0 auto;
+    }
+
+    .Prices-table th{
+        font-size: 13px;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 375px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}
+
 @media screen and (max-width: 375px) {
     .history-title{
         font-size: 20px;
@@ -231,6 +332,38 @@
         font-size: 17px;
     }
 }
+
+@media screen and (max-width: 370px) {
+    
+
+    .Prices-table {
+        width: 365px;
+        margin: 0 auto;
+    }
+
+    .Prices-table th{
+        font-size: 13px;
+    }
+
+    .priceList {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .priceList-area {
+       
+        width: 365px;
+        margin: 0 auto;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    .service-name {
+        width: 400px;
+        font-size: 17px;
+    }
+}
+
 @media screen and (max-width: 360px) {
     .vacanciesTitle{
         font-size: 25px;

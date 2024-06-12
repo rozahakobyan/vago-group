@@ -46,20 +46,20 @@ function Works() {
                 }
                 <div className={"pages-list"}>
                     {pages && pages > 1 ? <ReactPaginate
-                        activeClassName={'item active '}
-                        breakClassName={'item break-me '}
+                        activeClassName={'items active '}
+                        breakClassName={'items break-me '}
                         breakLabel={'...'}
                         containerClassName={'pagination'}
                         disabledClassName={'disabled-page'}
                         marginPagesDisplayed={2}
-                        nextClassName={"item next "}
+                        nextClassName={"items next "}
                         nextLabel={">"}
                         initialPage={page - 1}
                         onPageChange={(ev) => setPage(ev.selected + 1)}
                         pageCount={pages}
-                        pageClassName={'item pagination-page '}
+                        pageClassName={'items pagination-page '}
                         pageRangeDisplayed={2}
-                        previousClassName={"item previous"}
+                        previousClassName={"items previous"}
                         previousLabel={"<"}/> : null}
                 </div>
             </div>

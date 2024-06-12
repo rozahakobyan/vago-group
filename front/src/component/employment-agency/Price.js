@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import axios from 'axios'
 import { useDispatch, useSelector } from "react-redux";
 import { pricesListRequest } from "../../store/actions/prices";
@@ -6,18 +6,23 @@ import { packagesListRequest } from "../../store/actions/packages";
 import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
 
-function Prices() {
+function Prices({refOrder}) {
     const dispatch = useDispatch();
 
     const pricesList = useSelector(state => state.prices.pricesList);
     const packagesList = useSelector(state => state.packages.packagesList);
-    const language = Account.getLanguage();
 
+    const language = Account.getLanguage();
 
     useEffect(() => {
         dispatch(pricesListRequest({ active: true, activePage: "Employment Agency" }))
         dispatch(packagesListRequest({ activePage: "Employment Agency" }))
     }, []);
+
+    const focusRef = useCallback(() => {
+        refOrder?.current.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }, [refOrder])
+
     return (
         <div className="priceList">
             <div className="priceList-area">
@@ -51,9 +56,9 @@ function Prices() {
 
                             <tr className="order-button">
                                 <td className="service-name"></td>
-                                <td><button>{translation.order[language]}</button></td>
-                                <td><button>{translation.order[language]}</button></td>
-                                <td><button>{translation.order[language]}</button></td>
+                                <td><button onClick={focusRef}>{translation.order[language]}</button></td>
+                                <td><button onClick={focusRef}>{translation.order[language]}</button></td>
+                                <td><button onClick={focusRef}>{translation.order[language]}</button></td>
                             </tr>
                         </tbody>
                     </table>

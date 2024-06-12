@@ -28,6 +28,14 @@ MinimalPrice.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     },
+    minKm: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    min: {
+        type: DataTypes.JSON,
+        allowNull: false,
+    },
     active: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

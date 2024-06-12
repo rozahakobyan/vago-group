@@ -49,6 +49,10 @@ export class Api {
         return api.post('/users/send-message', data);
     }
 
+    static userSendContactMessage(data = {}) {
+        return api.post('/users/send-contact-message', data);
+    }
+
     static activateUser(params) {
         return api.post('/users/activate', params);
     }
@@ -105,11 +109,23 @@ export class Api {
         return api.get('/projects/list', {params: data});
     }
 
+    static projectsListToEnded(data = {}) {
+        return api.get('/projects/list-to-ended', {params: data});
+    }
+
+    static projectsListToPending(data = {}) {
+        return api.get('/projects/list-to-pending', {params: data});
+    }
+
     static galleriesList(data = {}) {
         return api.get('/galleries/list', {params: data});
     }
 
     static videoPathsList(data = {}) {
         return api.get('/video-path/list', {params: data});
+    }
+
+    static minimalPricesList(data = {}) {
+        return api.get('/minimal-prices/list', {params: data});
     }
 }

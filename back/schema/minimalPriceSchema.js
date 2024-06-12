@@ -6,6 +6,8 @@ export default {
         usd: Joi.number().required(),
         rub: Joi.number().required(),
         amd: Joi.number().required(),
+        minKm: Joi.number().required(),
+        min: Joi.object().required(),
         active: Joi.boolean().required()
     }),
     update: Joi.object({
@@ -13,6 +15,8 @@ export default {
         usd: Joi.number(),
         rub: Joi.number(),
         amd: Joi.number(),
+        minKm: Joi.number(),
+        min: Joi.object(),
         active: Joi.boolean()
     })
 }

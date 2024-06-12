@@ -19,5 +19,7 @@ router.put('/update/:id',
 router.delete('/delete/:id', ProjectsController.delete);
 
 router.get('/list', ProjectsController.list)
+router.get('/list-to-ended', ProjectsController.listToEnded)
+router.get('/list-to-pending', ProjectsController.listToPending)
 
 export default router;
