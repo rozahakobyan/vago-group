@@ -44,7 +44,7 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                     isActive: updateItem.isActive
                 })}>
                     <FaWindowClose onClick={handleClose} className={'close'}/>
-                    <form>
+                    <form className={"form"}>
                         <div className={'cont'}>
                             <div className={'input_item'}>
                                 <input
@@ -78,15 +78,7 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                                     type="number"
                                 />
                             </div>
-                            <div className={'input_item'}>
-                                <label> Active Price
-                                    <input
-                                        checked={updateItem.active}
-                                        onChange={(e) => handleChangeActive(e, "active")}
-                                        type="checkbox"/>
-                                </label>
-                            </div>
-                            <Button title={'Save'} onClick={handleSave}/>
+
                         </div>
                         <div className={'cont'}>
                             <div className={'input_item'}>
@@ -123,12 +115,21 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                             </div>
                             <div className={'input_item'}>
                                 <input
-                                    onChange={(e) => handleChangeMin(e,"amd")}
+                                    onChange={(e) => handleChangeMin(e, "amd")}
                                     value={updateItem.min.amd}
                                     placeholder={"amd min price..."}
                                     type="number"
                                 />
                             </div>
+                            <div className={'input_item'}>
+                                <label> Active Price
+                                    <input
+                                        checked={updateItem.active}
+                                        onChange={(e) => handleChangeActive(e, "active")}
+                                        type="checkbox"/>
+                                </label>
+                            </div>
+                            <Button title={'Save'} onClick={handleSave}/>
                         </div>
                     </form>
                 </div>

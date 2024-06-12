@@ -20,8 +20,6 @@ function CurrentProjects() {
         dispatch(projectsListToPendingRequest({ page, limit: 3 }))
     }, [page]);
 
-    console.log(pages)
-
     return (
         <div className="currentProjects-area">
             <div className="currentProjects-title">

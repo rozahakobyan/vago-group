@@ -42,6 +42,18 @@
       }
     }
   }
+  .add-new-prices{
+    .add_con{
+      .form{
+        display: flex;
+        flex-direction: column;
+        .left_row, .right_item{
+          width: 100%;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
   .add-new-login-image{
     .add_con{
       .form{

@@ -21,6 +21,7 @@ const googleMapsLoader = new GoogleMapsLoader(options);
 
 function Calculator() {
   const dispatch = useDispatch();
+
   const [city1, setCity1] = useState('');
   const [city2, setCity2] = useState('');
   const [result, setResult] = useState('');
@@ -112,16 +113,6 @@ function Calculator() {
     setSelected(selectedOption)
   }, [])
 
-  const handleSelectChangeCity1 = useCallback((selectedOption) => {
-    setSelectedCity1(selectedOption)
-    setCity1(selectedOption.value)
-  }, [])
-
-  const handleSelectChangeCity2 = useCallback((selectedOption) => {
-    setSelectedCity2(selectedOption)
-    setCity2(selectedOption.value)
-  }, [])
-
   const calculateDistance = useCallback(async (e) => {
     try {
       e.preventDefault();
@@ -130,8 +121,8 @@ function Calculator() {
       const service = new google.maps.DistanceMatrixService();
       service.getDistanceMatrix(
         {
-          origins: [city1],
-          destinations: [city2],
+          origins: [selectedCity1.value],
+          destinations: [selectedCity2.value],
           travelMode: google.maps.TravelMode.DRIVING,
           unitSystem: google.maps.UnitSystem.METRIC,
           avoidHighways: false,
@@ -158,7 +149,6 @@ function Calculator() {
                     setResult(`${((parseInt(distance) * price) + productPrice) + ' ' + currency} + ${translation.additional_expenses[language]}`);
                     setError("")
                   }
-                  console.log(distance);
                   
                 } else {
                   console.error("Not minimal price !!!")
@@ -183,7 +173,7 @@ function Calculator() {
       setResult('Ошибка загрузки API');
       setLoading(false)
     }
-  }, [city1, city2, selected, minimalPrices]);
+  }, [selectedCity1, selectedCity2, selected, minimalPrices]);
 
   return (
     <div className="calculator-area">
@@ -194,79 +184,89 @@ function Calculator() {
             <label>{translation.fromWhatCity[language]}</label>
             <br />
             {cities1List && <Select value={selectedCity1}
-              options={cities1List}
-              onKeyDown={(e) => {
-                setSelectedCity1({ value: e.target.value, label: e.target.value })
-                setCity1(e.target.value)
-              }}
-              onChange={handleSelectChangeCity1}
-              placeholder={<div>City...</div>}
-              className="react-select-containers"
-              classNamePrefix="react-selects"
-              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-              styles={{
-                menuPortal: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                  bottom: 'auto',
-                })
-              }}
-            />}
+                                    options={cities1List}
+                                    onInputChange={(value) => {
+                                      setCity1(value)
+                                    }}
+                                    onChange={(selectedOption) => {
+                                      setSelectedCity1(selectedOption)
+                                      setCity1(selectedOption.value)
+                                    }}
+                                    onBlur={() => {
+                                      setSelectedCity1({value: city1, label: city1})
+                                    }}
+                                    placeholder={<div>City...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                    styles={{
+                                      menuPortal: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                      }),
+                                      menu: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                        bottom: 'auto',
+                                      })
+                                    }}
+                                  />}
           </div>
           <div className="label-area">
             <label>{translation.toWhichCity[language]}</label>
             <br />
             {cities2List && <Select value={selectedCity2}
-              options={cities2List}
-              onKeyDown={(e) => {
-                setSelectedCity2({ value: e.target.value, label: e.target.value })
-                setCity2(e.target.value)
-              }}
-              onChange={handleSelectChangeCity2}
-              placeholder={<div>City...</div>}
-              className="react-select-containers"
-              classNamePrefix="react-selects"
-              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-              styles={{
-                menuPortal: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                  bottom: 'auto',
-                })
-              }}
-            />}
+                                    options={cities2List}
+                                    onInputChange={(value) => {
+                                      setCity2(value)
+                                    }}
+                                    onChange={(selectedOption) => {
+                                      setSelectedCity2(selectedOption)
+                                      setCity2(selectedOption.value)
+                                    }}
+                                    onBlur={() => {
+                                      setSelectedCity2({value: city2, label: city2})
+                                    }}
+                                    placeholder={<div>City...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                                    menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                    styles={{
+                                      menuPortal: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                      }),
+                                      menu: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                        bottom: 'auto',
+                                      })
+                                    }}
+                                  />}
           </div>
           <div className="label-area">
             <label>{translation.selectProduct[language]}</label>
             <br />
             {productsList && <Select value={selected}
-              options={productsList}
-              onChange={handleSelectChange}
-              placeholder={<div>Products...</div>}
-              className="react-select-containers"
-              classNamePrefix="react-selects"
-              menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-              styles={{
-                menuPortal: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  zIndex: 9999,
-                  bottom: 'auto',
-                })
-              }}
+                                     options={productsList}
+                                     onChange={handleSelectChange}
+                                     placeholder={<div>Products...</div>}
+                                     className="react-select-containers"
+                                     classNamePrefix="react-selects"
+                                     menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                     styles={{
+                                       menuPortal: (provided) => ({
+                                         ...provided,
+                                         zIndex: 9999,
+                                       }),
+                                       menu: (provided) => ({
+                                         ...provided,
+                                         zIndex: 9999,
+                                         bottom: 'auto',
+                                       })
+                                     }}
 
-            />}
+                            />}
             <br />
 
             <Button onClick={calculateDistance} loading={loading} className="submit-button" title={translation.result[language]} />

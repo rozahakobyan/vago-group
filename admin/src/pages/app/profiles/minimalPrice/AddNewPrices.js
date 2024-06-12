@@ -59,7 +59,7 @@ const AddNewPrices = () => {
                 <title>add new minimal prices</title>
             </Helmet>
             <div className="add_con">
-                <form onSubmit={handleSubmitSave}>
+                <form onSubmit={handleSubmitSave} className={"form"}>
                     <div className="left_row">
                         <div className={'input_item'}>
                             <input
@@ -97,16 +97,6 @@ const AddNewPrices = () => {
                         </div>
                         {errors?.amd ? <small>{errors?.amd}</small> : null}
 
-                        <div className={'input_item'}>
-                            <label> Active Price
-                                <input
-                                    checked={price.active}
-                                    onChange={(e) => handleChangeActive(e, "active")}
-                                    type="checkbox"/>
-                            </label>
-                        </div>
-
-                        <Button title={'Save'} loading={loading}/>
                     </div>
                     <div className="right_item">
                         <div className={'input_item'}>
@@ -121,7 +111,7 @@ const AddNewPrices = () => {
                         <div className={'input_item'}>
                             <input
                                 value={price.min.eur}
-                                onChange={(e) => handleChangeMin(e, "min","eur")}
+                                onChange={(e) => handleChangeMin(e, "min", "eur")}
                                 placeholder={'eur min price...'}
                                 type="number"/>
                         </div>
@@ -130,7 +120,7 @@ const AddNewPrices = () => {
                         <div className={'input_item'}>
                             <input
                                 value={price.min.usd}
-                                onChange={(e) => handleChangeMin(e, "min","usd")}
+                                onChange={(e) => handleChangeMin(e, "min", "usd")}
                                 placeholder={'usd min price...'}
                                 type="number"/>
                         </div>
@@ -139,7 +129,7 @@ const AddNewPrices = () => {
                         <div className={'input_item'}>
                             <input
                                 value={price.min.rub}
-                                onChange={(e) => handleChangeMin(e, "min","rub")}
+                                onChange={(e) => handleChangeMin(e, "min", "rub")}
                                 placeholder={'rub min price...'}
                                 type="number"/>
                         </div>
@@ -153,6 +143,17 @@ const AddNewPrices = () => {
                                 type="number"/>
                         </div>
                         {errors?.min?.amd ? <small>{errors.min.amd}</small> : null}
+
+                        <div className={'input_item'}>
+                            <label> Active Price
+                                <input
+                                    checked={price.active}
+                                    onChange={(e) => handleChangeActive(e, "active")}
+                                    type="checkbox"/>
+                            </label>
+                        </div>
+
+                        <Button title={'Save'} loading={loading}/>
                     </div>
                 </form>
             </div>
