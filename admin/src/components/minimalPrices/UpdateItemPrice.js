@@ -99,6 +99,14 @@ function UpdateItemPrice({updateItem, setUpdateItem}) {
                             </div>
                             <div className={'input_item'}>
                                 <input
+                                    onChange={(e) => handleChange(e, "minKm")}
+                                    value={updateItem.minKm}
+                                    placeholder={"min km..."}
+                                    type="number"
+                                />
+                            </div>
+                            <div className={'input_item'}>
+                                <input
                                     onChange={(e) => handleChangeMin(e, "usd")}
                                     value={updateItem.min.usd}
                                     placeholder={"usd min price..."}
