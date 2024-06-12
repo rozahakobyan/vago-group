@@ -16,6 +16,7 @@ const AddNewPrices = () => {
         usd: null,
         rub: null,
         amd: null,
+        minKm: null,
         min: {
             eur: null,
             usd: null,
@@ -108,6 +109,15 @@ const AddNewPrices = () => {
                         <Button title={'Save'} loading={loading}/>
                     </div>
                     <div className="right_item">
+                        <div className={'input_item'}>
+                            <input
+                                value={price.minKm}
+                                onChange={(e) => handleChange(e, "minKm")}
+                                placeholder={'min km...'}
+                                type="number"/>
+                        </div>
+                        {errors?.minKm ? <small>{errors.minKm}</small> : null}
+
                         <div className={'input_item'}>
                             <input
                                 value={price.min.eur}
