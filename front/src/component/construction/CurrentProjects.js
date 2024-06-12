@@ -17,7 +17,7 @@ function CurrentProjects() {
     const language = Account.getLanguage();
 
     useEffect(() => {
-        dispatch(projectsListToPendingRequest({ page, limit: 4 }))
+        dispatch(projectsListToPendingRequest({ page, limit: 3 }))
     }, [page]);
 
     console.log(pages)
