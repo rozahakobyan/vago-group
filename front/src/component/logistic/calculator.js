@@ -152,6 +152,7 @@ function Calculator() {
                 if(price){
                   setResult(`${((parseInt(distance) * price) + productPrice) + ' ' + currency} + ${translation.additional_expenses[language]}`);
                   setError("")
+                  console.log(minimalPrices);
                 }else{
                   console.error("Not minimal price !!!")
                 }
