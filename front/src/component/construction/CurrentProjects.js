@@ -1,9 +1,10 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { projectsListRequest } from "../../store/actions/projects";
 import { API_URL } from "../../Api"
-import {Account} from "../../helpers/Account";
+import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
+import ReactPaginate from "react-paginate";
 
 function CurrentProjects() {
     const dispatch = useDispatch();
@@ -17,14 +18,14 @@ function CurrentProjects() {
 
     const projectsList = useMemo(() => {
         return list.filter(l => {
-            if(l.status === "pending"){
+            if (l.status === "pending") {
                 return l;
             }
         })
     }, [list])
 
     useEffect(() => {
-        dispatch(projectsListRequest({page, limit: 6}))
+        dispatch(projectsListRequest({ page, limit: 4 }))
     }, [page]);
 
     return (
@@ -46,8 +47,25 @@ function CurrentProjects() {
                         </div>
                     </div>
                 ))}
-
             </div>
+            <div className={"pages-list"}>
+                    {pages && pages > 1 ? <ReactPaginate
+                        activeClassName={'items active '}
+                        breakClassName={'items break-me '}
+                        breakLabel={'...'}
+                        containerClassName={'pagination'}
+                        disabledClassName={'disabled-page'}
+                        marginPagesDisplayed={2}
+                        nextClassName={"items next "}
+                        nextLabel={">"}
+                        initialPage={page - 1}
+                        onPageChange={(ev) => setPage(ev.selected + 1)}
+                        pageCount={pages}
+                        pageClassName={'items pagination-page '}
+                        pageRangeDisplayed={2}
+                        previousClassName={"items previous"}
+                        previousLabel={"<"} /> : null}
+                </div>
         </div>
     )
 }

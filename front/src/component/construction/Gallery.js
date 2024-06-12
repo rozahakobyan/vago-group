@@ -12,7 +12,6 @@ function Gallery() {
 
     const [fullscreenImg, setFullscreenImg] = useState("");
     const [page, setPage] = useState(1);
-
     const pages = useSelector(state => state.galleries.pages);
     const galleriesList = useSelector(state => state.galleries.galleriesList);
     const videoPathsList = useSelector(state => state.videoPath.videoPathsList);
