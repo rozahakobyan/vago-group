@@ -61,6 +61,7 @@ const AddNewProjects = () => {
         const {payload} = await dispatch(projectsAddRequest(project));
         if (payload?.status === 'ok') {
             navigate('/projects')
+            window.location.reload(false)
             Account.setNavbarUrlPathSub('projects')
         }
     }, [project]);

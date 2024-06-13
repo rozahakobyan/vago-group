@@ -2,28 +2,13 @@ import {MdConstruction} from "react-icons/md";
 import {FaFacebookMessenger, FaRegRegistered, FaUsers} from "react-icons/fa";
 import {BiBuilding, BiPackage} from "react-icons/bi";
 import {AiOutlineTeam} from "react-icons/ai";
-import {IoIosContacts, IoIosSettings} from "react-icons/io";
+import {IoIosContacts} from "react-icons/io";
 import {GiPriceTag} from "react-icons/gi";
 import {GrProjects, GrServices} from "react-icons/gr";
 
 export default [
     {
         id: 1,
-        name: 'Minimal Prices',
-        Icon: GiPriceTag,
-        openIcon: true,
-        renderItem: true,
-        path: 'minimal-prices',
-        subMenu: [
-            {
-                id: 1_1,
-                title: "Add New Minimal Price",
-                path: "add-new-minimal-price",
-            }
-        ]
-    },
-    {
-        id: 2,
         name: 'Information',
         Icon: FaRegRegistered,
         openIcon: true,
@@ -31,50 +16,65 @@ export default [
         path: 'information',
         subMenu: [
             {
-                id: 2_1,
+                id: 1_1,
                 title: "Add New Information",
                 path: "add-new-information",
             },
             {
-                id: 2_2,
+                id: 1_2,
                 title: "Add New Login Image",
                 path: "add-new-login-image",
             },
             {
-                id: 2_3,
+                id: 1_3,
                 title: "Login Image",
                 path: "login-image",
             },
             {
-                id: 2_4,
+                id: 1_4,
                 title: "Add New History",
                 path: "add-new-history",
             },
             {
-                id: 2_5,
+                id: 1_5,
                 title: "Histories",
                 path: "histories",
             },
             {
-                id: 2_6,
+                id: 1_6,
                 title: "Add New Gallery",
                 path: "add-new-gallery",
             },
             {
-                id: 2_7,
+                id: 1_7,
                 title: "Galleries",
                 path: "galleries",
             },
             {
-                id: 2_8,
+                id: 1_8,
                 title: "Add New Video Path",
                 path: "add-new-video-path",
             },
             {
-                id: 2_9,
+                id: 1_9,
                 title: "Video Paths",
                 path: "video-paths",
             },
+        ]
+    },
+    {
+        id: 2,
+        name: 'Minimal Prices',
+        Icon: GiPriceTag,
+        openIcon: true,
+        renderItem: true,
+        path: 'minimal-prices',
+        subMenu: [
+            {
+                id: 2_1,
+                title: "Add New Minimal Price",
+                path: "add-new-minimal-price",
+            }
         ]
     },
     {
