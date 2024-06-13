@@ -1,5 +1,7 @@
 import express from "express";
-import path from "path";
+import path from "node:path";
+import fs from "node:fs"
+import https from "node:https";
 import indexRouter from "./routes/index.js";
 import HttpError from "http-errors";
 import authorization from "./middelwares/authorization.js";
@@ -14,7 +16,6 @@ app.use(express.json());
 app.use(express.static(path.resolve('public')));
 
 app.use(authorization)
-
 app.use(indexRouter)
 app.use((req, res, next) => {
     next(HttpError(404))
@@ -22,6 +23,11 @@ app.use((req, res, next) => {
 
 app.use(errorHandler)
 
-app.listen(4001, () => {
+const sslServer = https.createServer({
+    key: fs.readFileSync(path.join("cert", "key.pem")),
+    cert: fs.readFileSync(path.join("cert", "cert.pem"))
+}, app)
+
+sslServer.listen(4001, () => {
     console.log('Server started...');
 })
