@@ -25,6 +25,8 @@ const EXCLUDES = [
   'GET:/services/list',
   'GET:/histories/list',
   'GET:/projects/list',
+  'GET:/projects/list-to-ended',
+  'GET:/projects/list-to-pending',
   'GET:/galleries/list',
   'GET:/video-path/list',
   'GET:/banner/list',
