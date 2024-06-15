@@ -33,9 +33,10 @@ function Application() {
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
-        setMessage({...message, [path]: text})
         if(token){
-            setMessage({...message, email: profile.email})
+            setMessage({...message, email: profile.user.email, [path]: text})
+        }else{
+            setMessage({...message, [path]: text})
         }
     }, [message, profile, token])
 

@@ -1,9 +1,9 @@
 const ALLOW_ORIGINS = [
   'http://localhost:3000',
   'http://localhost:3001',
-  'https://localhost:3001',
   'http://localhost:3002',
-  "https://vago-group-admin.vercel.app"
+  "https://vago-group-admin.vercel.app",
+  "https://vago-group.vercel.app"
 ];
 
 export default function cors(req, res, next) {
