@@ -285,7 +285,18 @@ export default {
         am: "լրացուցիչ ծախսեր",
         pl: "dodatkowe wydatki"
     },
-    /* taxi */
+
+                                                /* taxi */
     
+
+    /* taxi cars title */
+    selectACar:{
+        en: "Select a car",
+        ru: "Выберите Машину",
+        am: "Ընտրել մեքենա",
+        pl: "Wybierz samochód"
+    },
+
+
 
 }

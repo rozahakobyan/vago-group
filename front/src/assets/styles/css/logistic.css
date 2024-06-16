@@ -22,12 +22,7 @@
     background-position: center;
 }
 
-@font-face {
-    font-family: 'ArchitectsDaughter-Regular';
-    src: url('../fonts/ArchitectsDaughter-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 .logistic-priceList{
     width: 900px;
@@ -40,11 +35,23 @@
 }
 
 .logistic-priceList-title{
-    font-family: 'ArchitectsDaughter-Regular', sans-serif;
+    
     text-align: center;
-    font-size: 30px;
+    font-size: 55px;
 }
-
+.priceList-area h2,
+.vacanciesTitle h2, 
+.calculator-area .calculator-form h4,
+.contactsTitle h2,
+.contactsTitle h2,
+.gallery-title h2,
+.history-title h1,
+.EmploymentAgency-partners-title h1,
+.currentProjects-title h2,
+.offers-title h2,
+.service-area h2{
+    font-size: 55px;
+}
 
 
 /* ------------------------ */

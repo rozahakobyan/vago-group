@@ -1,0 +1,79 @@
+:root {
+    --color1: #0e5287;
+    --color2: #3b444b;
+    --color3: #999999;
+    --color4: #eeeeee;
+}
+
+.carsArea{
+    width: 1200;  
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 1px;
+    padding-bottom: 25px;
+}
+
+.carsArea h3 {
+    text-align: center;
+    font-size: 55px;
+}
+.carsArea .carsBlocks {
+    margin: 0 auto;
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.carsArea .carsBlocks .carBlock{
+    width: 350px;
+    height: 400px;
+    background-color: var(--color4);
+    border-radius: 10px;
+}
+.canName{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 17px;
+}
+.carImg{
+    text-align: center;
+}
+
+.carImg img{
+    width: 300px;
+    height: 100%;
+}
+.carCharacteristics img{
+    width: 25px;
+}
+.carCharacteristicsTable{
+    margin: 0 auto;
+    
+}
+.carCharacteristics table tbody tr td{
+    text-align: center;
+    align-items: center;
+    width: 50%;
+}
+.taxiButtonArea{
+    width: 100%;
+    text-align: center;
+}
+.becomeADriver{
+    width: 300px;
+    height: 50px;
+    background-color: var(--color1);
+    margin: 0 auto;
+    border: none;
+    transition: background-color 0.5s;
+    color: white;
+    line-height: 50px;
+    font-size: 20px;
+}
+.becomeADriver:hover{
+    background-color: black;
+}
+
+
