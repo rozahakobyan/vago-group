@@ -39,11 +39,22 @@ function Contacts({refOrder}){
         }
     }, [message, profile, token])
 
-    const submit = useCallback((e) => {
+    const submit = useCallback(async (e) => {
         e.preventDefault()
         console.log(message)
         if(token){
-            dispatch(userSendContactMessageRequired(message))
+            const {payload} = await dispatch(userSendContactMessageRequired(message))
+            if(payload?.status === "ok"){
+                setMessage({
+                    name: "",
+                    phone: "",
+                    email: "",
+                    secondEmail: "",
+                    message: "",
+                    department: "Employment Agency",
+                    contact: "Contacts"
+                })
+            }
             setError("")
         }else{
             setError("Login your account")

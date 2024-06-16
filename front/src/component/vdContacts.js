@@ -25,24 +25,38 @@ function VDContacts() {
         email: "",
         secondEmail: "",
         message: "",
-        vacancyName: ""
+        vacancyName: "",
+        vacancyPage: ""
     })
     const [error, setError] = useState("");
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
-        setMessage({...message, [path]: text, vacancyName: work.name})
         if(token){
-            setMessage({...message, email: profile.email})
+            setMessage({...message, email: profile.email, [path]: text, vacancyName: work.name, vacancyPage: work.vacancyPage})
+        }else{
+            setMessage({...message, [path]: text, vacancyName: work.name, vacancyPage: work.vacancyPage})
         }
     }, [message, work, profile, token])
 
-    const submit = useCallback((e) => {
+    const submit = useCallback(async (e) => {
         e.preventDefault()
         console.log(message)
         if(token){
-            dispatch(userSendMessageRequired(message))
+            const {payload} = await dispatch(userSendMessageRequired(message))
+            if(payload?.status === "ok"){
+                setMessage({
+                    name: "",
+                    phone: "",
+                    email: "",
+                    secondEmail: "",
+                    message: "",
+                    vacancyName: "",
+                    vacancyPage: ""
+                })
+            }
             setError("")
+
         }else{
             setError("Login your account")
             setTimeout(() => {
