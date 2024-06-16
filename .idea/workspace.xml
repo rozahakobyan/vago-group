@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_06_2024_18_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_06_2024_18_05__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_06_2024_18_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_06_2024_18_08__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/middelwares/cors.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/middelwares/cors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/construction/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/construction/Contacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/construction/Offer.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/construction/Offer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/employment-agency/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/employment-agency/Contacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/component/logistic/logistic-contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/component/logistic/logistic-contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/front/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,26 +46,31 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group/admin/src/assets/styles/media&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group/front/src&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;D:/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Roza\Desktop\vago-group\front\src" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\assets\styles\media" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\reducers" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\actions" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\pages\app\profiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Roza\Desktop\vago-group\front\src\cert" />
       <recent name="C:\Users\Roza\Desktop\vago-group" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\massagers" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\pages\app\profiles\massagers" />
@@ -119,7 +119,7 @@
       <workItem from="1713715721867" duration="141603000" />
       <workItem from="1716225517361" duration="18340000" />
       <workItem from="1717669357674" duration="33886000" />
-      <workItem from="1718352206180" duration="5316000" />
+      <workItem from="1718352206180" duration="18469000" />
     </task>
     <servers />
   </component>
