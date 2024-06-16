@@ -23,6 +23,12 @@ export default {
         am: "Լոգիստիկա",
         pl: "Logistyka"
     },
+    taxi:{
+        en: "Taxi",
+        ru: "Такси",
+        am: "Տաքսի",
+        pl: "Taxi"
+    },
     phone: {
         en: "Phone",
         ru: "Телефон",
@@ -278,8 +284,8 @@ export default {
         ru: "дополнительные расходы",
         am: "լրացուցիչ ծախսեր",
         pl: "dodatkowe wydatki"
-    }
+    },
+    /* taxi */
     
-    
-    
+
 }

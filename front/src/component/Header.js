@@ -136,6 +136,9 @@ function Header() {
                 <NavLink to={'/logistic'}>
                     <div className="button"><strong>{translation.logistics[language]}</strong></div>
                 </NavLink>
+                <NavLink to={'/taxi'}>
+                    <div className="button"><strong>{translation.taxi[language]}</strong></div>
+                </NavLink>
             </div>
         </header>
     );
