@@ -1,17 +1,18 @@
-import React, {useCallback, useEffect, useMemo, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import { Account } from "../../helpers/Account";
 import translation from "../../assets/data/translation";
 import {useDispatch, useSelector} from "react-redux";
+import {userSendMessageRequired} from "../../store/actions/users";
 import {useNavigate} from "react-router-dom";
-import {userSendContactMessageRequired} from "../../store/actions/users";
 import Button from "../Button";
 
-function Logistic_contacts({refOrder}){
+const language = Account.getLanguage();
+
+function TDContacts() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const language = Account.getLanguage();
-
+    const work = useSelector(state => state.works.work)
     const errors = useSelector(state => state.users.errors)
     const loading = useSelector(state => state.users.loading)
     const messages = useSelector(state => state.users.message)
@@ -24,24 +25,23 @@ function Logistic_contacts({refOrder}){
         email: "",
         secondEmail: "",
         message: "",
-        department: "Construction",
-        contact: "Offer"
+        vacancyName: ""
     })
     const [error, setError] = useState("");
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
-        setMessage({...message, [path]: text})
+        setMessage({...message, [path]: text, vacancyName: work.name})
         if(token){
             setMessage({...message, email: profile.email})
         }
-    }, [message, profile, token])
+    }, [message, work, profile, token])
 
     const submit = useCallback((e) => {
         e.preventDefault()
         console.log(message)
         if(token){
-            dispatch(userSendContactMessageRequired(message))
+            dispatch(userSendMessageRequired(message))
             setError("")
         }else{
             setError("Login your account")
@@ -51,19 +51,12 @@ function Logistic_contacts({refOrder}){
         }
     }, [message, token])
 
-    return(
+    return (
         <div className="contactsArea">
-            <div className="contactsTitle">
-                <h2>{translation.contacts[language]}</h2>
-            </div>
-            <div className="contactsMap">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d378.5530309927235!2d43.97141182851843!3d40.62052497993605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sam!4v1708019536063!5m2!1sru!2sam" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div className="contactsFormArea" ref={refOrder}>
+            <div className="contactsFormArea">
                 <div className="contacts-Area">
                     <form onSubmit={submit}>
-                        <input type={'taxt'} placeholder={translation.offerName[language]}
+                        <input type={'text'} placeholder={translation.offerName[language]}
                                onChange={(e) => handleChange(e, "name")}/>
                         <input type={"email"} placeholder={"Email"}
                                onChange={(e) => handleChange(e, "secondEmail")}/>
@@ -75,7 +68,7 @@ function Logistic_contacts({refOrder}){
                         {error && <p>{error}</p>}
                         {messages && <p>{messages}</p>}
                         
-                        <Button title={translation.submit[language]} loading={loading}/>
+                        <Button title={translation.submit[language]}/>
                     </form>
                 </div>
             </div>
@@ -83,4 +76,4 @@ function Logistic_contacts({refOrder}){
     )
 }
 
-export default Logistic_contacts
+export default TDContacts

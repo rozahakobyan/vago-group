@@ -4,6 +4,7 @@ import { Account } from "../../helpers/Account";
 import lambImage from '../../assets/images/lamb.png';
 import oil from "../../assets/images/oil.png"
 import transmission from "../../assets/images/transmission.png"
+import { NavLink } from "react-router-dom";
 
 
 function TaxiCars() {
@@ -40,11 +41,14 @@ function TaxiCars() {
                             </tbody>
                         </table>
                         <div className="taxiButtonArea">
-                            <div className="becomeADriver"><strong>BECOME A DRIVER</strong></div>
+                            <NavLink to={"/taxi-car-detales"}>
+                                <div className="becomeADriver"><strong>BECOME A DRIVER</strong></div>
+                            </NavLink>
                         </div>
 
                     </div>
                 </div>
+
             </div>
         </div>
     )

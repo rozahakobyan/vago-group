@@ -31,6 +31,7 @@
     height: 400px;
     background-color: var(--color4);
     border-radius: 10px;
+    margin: 5px;
 }
 .canName{
     margin: 0 auto;

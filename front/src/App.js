@@ -10,6 +10,7 @@ import ActivateUser from "./pages/ActivateUser";
 import Logistic from './pages/Logistic';
 import VacanciesDetales from './pages/VacanciecDetales';
 import Taxi from './pages/Taxi';
+import TaxiCarDetales from './pages/TaxiCarDetales';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path={'/logistic'} element={<Logistic/>}/>
       <Route path={'/vacancies-detales/:id'} element={<VacanciesDetales/>}/>
       <Route path={'/taxi'} element={<Taxi/>}/>
+      <Route path={'/taxi-car-detales'} element={<TaxiCarDetales/>}/>
     </Routes>
   )
 }
