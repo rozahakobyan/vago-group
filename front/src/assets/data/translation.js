@@ -297,6 +297,59 @@ export default {
         pl: "Wybierz samochód"
     },
 
-
+    requiredDocuments: {
+        en: "Required documents",
+        ru: "Необходимые документы",
+        am: "Անհրաժեշտ փաստաթղթեր ",
+        pl: "Wymagane dokumenty"
+    },
+    taxiBonusSystem: {
+        en: "Bonus System",
+        ru: "Бонусная Система",
+        am: "Բոնուսային համակարգ",
+        pl: "System bonusowy"
+    },
+    taxiRules:{
+        en: "Rules",
+        ru: "Правила",
+        am: "Կանոններ",
+        pl: "Zasady"
+    },
+    responsibilities:{
+        en: "Responsibilities",
+        ru: "Обязанности",
+        am: "Պարտականություններ",
+        pl: "Obowiązki"
+    },
+    carInfo:{
+        en: "Information",
+        ru: "Инфо8мация",
+        am: "Տեղեկատվություն",
+        pl: "Informacja"
+    },
+    transmission:{
+        en: "Transmission",
+        ru: "Коробка передач",
+        am: "Փոխանցման Տուփ",
+        pl: "Przenoszenie"
+    },
+    fuel:{
+        en: "Fuel",
+        ru: "Топливо",
+        am: "վառելիք",
+        pl: "Paliwo"
+    },
+    bac:{
+        en: "Bac",
+        ru: "Бак",
+        am: "Բաք",
+        pl: "Czołg"
+    },
+    advantagesc:{
+        en: "Our Advantages",
+        ru: "Наши Преимущества",
+        am: "Մեր Առավելությունները",
+        pl: "Nasze Atuty"
+    },
 
 }

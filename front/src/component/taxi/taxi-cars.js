@@ -18,7 +18,7 @@ function TaxiCars() {
 
             <div className="carsBlocks">
                 <div className="carBlock">
-                    <div className="canName">
+                    <div className="carName">
                         <p><strong>Lamborgini Aventador 2023</strong></p>
                     </div>
                     <div className="carImg">
@@ -40,6 +40,11 @@ function TaxiCars() {
 
                             </tbody>
                         </table>
+
+                        <div className="carPrice">
+                            <p>50$/weak</p>
+                        </div>
+                        
                         <div className="taxiButtonArea">
                             <NavLink to={"/taxi-car-detales"}>
                                 <div className="becomeADriver"><strong>BECOME A DRIVER</strong></div>

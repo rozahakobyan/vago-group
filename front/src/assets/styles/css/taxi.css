@@ -5,8 +5,8 @@
     --color4: #eeeeee;
 }
 
-.carsArea{
-    width: 1200;  
+.carsArea {
+    width: 1200;
     margin-top: 50px;
     margin-bottom: 50px;
     padding-top: 1px;
@@ -17,6 +17,7 @@
     text-align: center;
     font-size: 55px;
 }
+
 .carsArea .carsBlocks {
     margin: 0 auto;
     width: 100%;
@@ -26,43 +27,56 @@
     justify-content: center;
     align-items: center;
 }
-.carsArea .carsBlocks .carBlock{
+
+.carsArea .carsBlocks .carBlock {
     width: 350px;
-    height: 400px;
+    height: 450px;
     background-color: var(--color4);
-    border-radius: 10px;
+    border-radius: 15px;
     margin: 5px;
 }
-.canName{
+
+.carName {
     margin: 0 auto;
     text-align: center;
     font-size: 17px;
 }
-.carImg{
+
+.carImg {
     text-align: center;
 }
 
-.carImg img{
+.carImg img {
     width: 300px;
     height: 100%;
 }
-.carCharacteristics img{
+
+.carCharacteristics img {
     width: 25px;
 }
-.carCharacteristicsTable{
+
+.carCharacteristicsTable {
     margin: 0 auto;
-    
+
 }
-.carCharacteristics table tbody tr td{
+
+.carCharacteristics table tbody tr td {
     text-align: center;
     align-items: center;
     width: 50%;
 }
-.taxiButtonArea{
+
+.carPrice {
+    text-align: center;
+    margin-top: -10px;
+}
+
+.taxiButtonArea {
     width: 100%;
     text-align: center;
 }
-.becomeADriver{
+
+.becomeADriver {
     width: 300px;
     height: 50px;
     background-color: var(--color1);
@@ -73,8 +87,71 @@
     line-height: 50px;
     font-size: 20px;
 }
-.becomeADriver:hover{
+
+.becomeADriver:hover {
     background-color: black;
 }
 
+.DocumentsListArea {
 
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.DocumentsListArea .DocumentsListBlock {
+    width: 350px;
+    padding: 5px;
+    margin: 25px;
+    border-radius: 10px;
+    background-color: var(--color4);
+    text-align: center;
+}
+
+.taxiInfoArea {
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.advantagesArea {
+    width: 100%;
+    background-color: var(--color4);
+    padding-bottom: 50px;
+
+}
+
+.advantagesArea h2 {
+    text-align: center;
+    font-size: 55px;
+}
+
+.advantagesBlocks {
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.advantagesBlock {
+    text-align: center;
+    font-size: 30px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 25px;
+    margin: 15px;
+}
