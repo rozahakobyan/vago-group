@@ -1,35 +1,30 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import {Account} from "../../helpers/Account";
 import translation from "../../assets/data/translation";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {userSendContactMessageRequired} from "../../store/actions/users";
 import Button from '../Button';
-
-const language = Account.getLanguage();
+import axios from "axios";
 
 function Application() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const language = Account.getLanguage();
 
-    const errors = useSelector(state => state.users.errors)
-    const loading = useSelector(state => state.users.loading)
-    const messages = useSelector(state => state.users.message)
     const profile = useSelector(state => state.users.profile)
     const token = useSelector(state => state.users.token)
 
     const [message, setMessage] = useState({
+        department: "Employment Agency",
+        contact: "Application",
         name: "",
         phone: "",
         email: "",
         secondEmail: "",
         message: "",
-        department: "Employment Agency",
-        contact: "Application"
     })
     const [error, setError] = useState("");
+    const [messages, setMessages] = useState("");
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
@@ -43,18 +38,24 @@ function Application() {
     const submit = useCallback(async (e) => {
         e.preventDefault()
         console.log(message)
+        const formID = 'xleqqvoy';
+        const formURL = `https://formspree.io/f/${formID}`;
         if(token){
-            const {payload} = await dispatch(userSendContactMessageRequired(message))
-            if(payload?.status === "ok"){
+            const response = await axios.post(formURL, message);
+            console.log(response)
+            if(response?.status === 200){
                 setMessage({
+                    department: "Employment Agency",
+                    contact: "Application",
                     name: "",
                     phone: "",
                     email: "",
                     secondEmail: "",
                     message: "",
-                    department: "Employment Agency",
-                    contact: "Application"
                 })
+                setMessages("Successfully massage")
+            }else{
+                setMessages("")
             }
             setError("")
         }else{
@@ -81,10 +82,9 @@ function Application() {
                                onChange={(e) => handleChange(e, "phone")}/>
                         <textarea placeholder={translation.offerMessage[language]}
                                   onChange={(e) => handleChange(e, "message")}/><br/>
-                        {errors?.exsist && <p>{errors.exsist}</p>}
                         {error && <p>{error}</p>}
                         {messages && <p>{messages}</p>}
-                        <Button title={translation.submit[language]}loading={loading}/>
+                        <Button title={translation.submit[language]}/>
                     </form>
                 </div>
             </div>

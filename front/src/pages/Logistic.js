@@ -7,7 +7,6 @@ import Calculator from "../component/logistic/calculator";
 import Vacancieces from "../component/logistic/logistic-vacancies";
 import Services from "../component/logistic/sevices";
 
-
 function Logistic(){
     const ref = useRef(null);
 
