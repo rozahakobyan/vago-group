@@ -16,12 +16,12 @@ function VDContacts() {
     const token = useSelector(state => state.users.token)
 
     const [message, setMessage] = useState({
-        vacancyName: "",
-        vacancyPage: "",
+        "department": "",
+        "vacancy name": "",
         name: "",
         phone: "",
         email: "",
-        secondEmail: "",
+        "second email": "",
         message: "",
     })
     const [error, setError] = useState("");
@@ -30,9 +30,9 @@ function VDContacts() {
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
         if(token){
-            setMessage({...message, email: profile.email, [path]: text, vacancyName: work.name, vacancyPage: work.vacancyPage})
+            setMessage({...message, email: profile.email, [path]: text, "vacancy name": work.name, "department": work.vacancyPage})
         }else{
-            setMessage({...message, [path]: text, vacancyName: work.name, vacancyPage: work.vacancyPage})
+            setMessage({...message, [path]: text, "vacancy name": work.name, "department": work.vacancyPage})
         }
     }, [message, work, profile, token])
 
@@ -46,12 +46,12 @@ function VDContacts() {
             console.log(response)
             if(response?.status === 200){
                 setMessage({
-                    vacancyName: "",
-                    vacancyPage: "",
+                    "department": "",
+                    "vacancy name": "",
                     name: "",
                     phone: "",
                     email: "",
-                    secondEmail: "",
+                    "second email": "",
                     message: "",
                 })
                 setMessages("Successfully massage")
@@ -76,7 +76,7 @@ function VDContacts() {
                         <input type={'text'} placeholder={translation.offerName[language]}
                                onChange={(e) => handleChange(e, "name")}/>
                         <input type={"email"} placeholder={"Email"}
-                               onChange={(e) => handleChange(e, "secondEmail")}/>
+                               onChange={(e) => handleChange(e, "second email")}/>
                         <input type={"text"} placeholder={translation.offerPhone[language]}
                                onChange={(e) => handleChange(e, "phone")}/>
                         <textarea placeholder={translation.offerMessage[language]}

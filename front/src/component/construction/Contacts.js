@@ -20,7 +20,7 @@ function Contacts() {
         name: "",
         phone: "",
         email: "",
-        secondEmail: "",
+        "second email": "",
         message: "",
     })
     const [error, setError] = useState("");
@@ -48,7 +48,7 @@ function Contacts() {
                     name: "",
                     phone: "",
                     email: "",
-                    secondEmail: "",
+                    "second email": "",
                     message: "",
                     department: "Construction",
                     contact: "Contacts"
@@ -81,7 +81,7 @@ function Contacts() {
                         <input type={'text'} placeholder={translation.offerName[language]}
                                onChange={(e) => handleChange(e, "name")}/>
                         <input type={"email"} placeholder={"Email"}
-                               onChange={(e) => handleChange(e, "secondEmail")}/>
+                               onChange={(e) => handleChange(e, "second email")}/>
                         <input type={"text"} placeholder={translation.offerPhone[language]}
                                onChange={(e) => handleChange(e, "phone")}/>
                         <textarea placeholder={translation.offerMessage[language]}

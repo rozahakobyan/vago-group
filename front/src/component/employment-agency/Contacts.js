@@ -20,7 +20,7 @@ function Contacts({refOrder}){
         name: "",
         phone: "",
         email: "",
-        secondEmail: "",
+        "second email": "",
         message: "",
     })
     const [error, setError] = useState("");
@@ -50,7 +50,7 @@ function Contacts({refOrder}){
                     name: "",
                     phone: "",
                     email: "",
-                    secondEmail: "",
+                    "second email": "",
                     message: "",
                 })
                 setMessages("Successfully massage")
@@ -81,7 +81,7 @@ function Contacts({refOrder}){
                         <input type={'text'} placeholder={translation.offerName[language]}
                                onChange={(e) => handleChange(e, "name")}/>
                         <input type={"email"} placeholder={"Email"}
-                               onChange={(e) => handleChange(e, "email")}/>
+                               onChange={(e) => handleChange(e, "second email")}/>
                         <input type={"text"} placeholder={translation.offerPhone[language]}
                                onChange={(e) => handleChange(e, "phone")}/>
                         <textarea placeholder={translation.offerMessage[language]}
