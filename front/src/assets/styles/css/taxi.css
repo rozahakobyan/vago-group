@@ -155,3 +155,15 @@
     border-radius: 25px;
     margin: 15px;
 }
+
+
+.becomeTaxiDriver{
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--color4);
+}
