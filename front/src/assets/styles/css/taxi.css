@@ -167,3 +167,60 @@
     width: 100%;
     background-color: var(--color4);
 }
+.becomeTaxiDriver .imageBoxArea {
+    text-align: center;
+    justify-content: center;
+    font-size: 55px;   
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+    align-items: center;
+}
+.becomeTaxiDriver{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.FormBoxArea input{ 
+    width: 275px;
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.FormBoxArea button{
+    transform: translate(-99px,0);
+    width: 110px;
+    height: 30px;
+    color: white;
+    border: none;
+    background-color: black;
+    transition: background-color 0.5s;
+}
+.FormBoxArea button:hover{
+    background-color: #0e5287;
+}
+
+
+.FormBoxArea{
+    width: 320px;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.becomeTaxiDriverBox{
+    width: 100%;
+    text-align: center;
+    justify-content: center;  
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+    align-items: center;
+    
+}
