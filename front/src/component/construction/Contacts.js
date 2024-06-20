@@ -45,13 +45,13 @@ function Contacts() {
             console.log(response)
             if(response?.status === 200){
                 setMessage({
+                    department: "Construction",
+                    contact: "Contacts",
                     name: "",
                     phone: "",
                     email: "",
                     "second email": "",
                     message: "",
-                    department: "Construction",
-                    contact: "Contacts"
                 })
                 setMessages("Successfully massage")
             }else{

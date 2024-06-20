@@ -78,11 +78,7 @@ function Logistic_contacts({refOrder}){
             <div className="contactsFormArea" ref={refOrder}>
                 <div className="contacts-Area">
                     <form onSubmit={submit}>
-<<<<<<< HEAD
-                        <input type={'taxt'} placeholder={translation.offerName[language]}
-=======
                         <input type={'text'} placeholder={translation.offerName[language]}
->>>>>>> main
                                onChange={(e) => handleChange(e, "name")}/>
                         <input type={"email"} placeholder={"Email"}
                                onChange={(e) => handleChange(e, "second email")}/>
