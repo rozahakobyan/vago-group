@@ -19,11 +19,12 @@ const Login = () => {
     const handleSubmit = useCallback(async (ev) => {
         ev.preventDefault();
         const {payload} = await dispatch(userLoginRequired(formData));
+        console.log(payload)
         if (payload.errors) {
             setErrors(payload.errors)
         }
         if (payload.token) {
-            navigate('/homeInformation')
+            navigate('/home')
         }
     }, [formData]);
 

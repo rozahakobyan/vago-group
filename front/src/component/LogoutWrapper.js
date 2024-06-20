@@ -22,7 +22,7 @@ const LogoutWrapper = ({children,helmetTitle}) => {
 
     return (
         <div className={'logout-wrapper'} style={{
-            backgroundImage: loginImageList[0] ? `url(${API_URL}/${loginImageList[0].image})` : `url(${loginImage})`,
+            backgroundImage: loginImageList && loginImageList[0] ? `url(${API_URL}/${loginImageList[0].image})` : `url(${loginImage})`,
             backgroundRepeat: "no-repeat",
             height: "100vh"
         }}>

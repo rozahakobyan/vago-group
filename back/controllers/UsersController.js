@@ -548,10 +548,10 @@ class UsersController {
 
     static async sendMassage(req, res, next){
         try{
-            const {email, secondEmail, phone, name, message, vacancyName} = req.body;
+            const {email, secondEmail, phone, name, message, vacancyName, vacancyPage} = req.body;
             console.log(req.body)
 
-            if(!email || !secondEmail || !phone || !name || !message || !vacancyName){
+            if(!email || !secondEmail || !phone || !name || !message || !vacancyName || !vacancyPage){
                 throw HttpError(404, {
                     errors: {
                         exsist: 'Invalid send'
@@ -565,7 +565,7 @@ class UsersController {
                                  <p>Phone - ${phone}</p>
                                  <p>${message}</p>`;
 
-            await sendMassageToEmail(email, html, "Vacancies")
+            await sendMassageToEmail(email, html, `Vacancies to ${vacancyPage}`)
 
             res.json({
                 status: "ok",
