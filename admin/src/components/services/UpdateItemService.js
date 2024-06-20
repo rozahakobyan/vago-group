@@ -2,9 +2,11 @@ import React, {useCallback, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {FaWindowClose} from "react-icons/fa";
 import CustomsPortal from "../CustomsPortal";
-import {MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from "react-icons/md";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp} from "react-icons/md";
 import classNames from "classnames";
 import { isLoading, servicesUpdateRequest } from '../../store/actions/services';
+import Select from "react-select";
+import servicesPage from "../../assets/data/servicesPage";
 
 function UpdateItemService({updateItem, setUpdateItem}) {
     const dispatch = useDispatch();
@@ -21,6 +23,10 @@ function UpdateItemService({updateItem, setUpdateItem}) {
         setUpdateItem({...updateItem, translation: {...updateItem.translation,
                 [path]: {...updateItem.translation[path], [val]: text}}});
     }, [updateItem]);
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setUpdateItem({...updateItem, activePage: selectedOption.label})
+    }, [updateItem])
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
@@ -87,6 +93,15 @@ function UpdateItemService({updateItem, setUpdateItem}) {
                                     type="text"
                                 />
                             </div>
+
+                            <Select defaultValue={{value: updateItem.activePage, label: updateItem.activePage}}
+                                    options={servicesPage}
+                                    onChange={handleSelectChange}
+                                    placeholder={<div>Page...</div>}
+                                    className="react-select-containers"
+                                    classNamePrefix="react-selects"
+                            />
+
                             <button onClick={handleSave}>
                                 Save
                             </button>

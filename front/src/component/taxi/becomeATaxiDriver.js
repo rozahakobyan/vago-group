@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import translation from "../../assets/data/translation";
 import { Account } from "../../helpers/Account";
 import Button from "../Button";
@@ -8,6 +8,10 @@ import Image from "../../assets/images/taxi.jpg"
 function TaxiDriver() {
     const language = Account.getLanguage();
     const loading = useSelector(state => state.users.loading)
+
+    const submit = useCallback(() => {
+
+    }, [])
 
     return (
         <div className="becomeTaxiDriver">
@@ -27,7 +31,7 @@ function TaxiDriver() {
                     <strong>Becom A Taxi Driver</strong>
                 </div>
                 <div className="FormBoxArea">
-                    <form onSubmit={''}>
+                    <form onSubmit={submit}>
                         <label><strong>напишите ваше име и номер и мыпазвоним вам в течении 30 минут</strong></label>
                         <input type={'text'} placeholder={translation.offerName[language]} />
                         <input type={"text"} placeholder={translation.offerPhone[language]} />

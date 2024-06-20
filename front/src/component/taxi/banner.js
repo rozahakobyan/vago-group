@@ -20,7 +20,7 @@ function Taxi_banner() {
                 <div key={b.id} className="bannerArea" style={{
                     width: "100%",
                     height: "300px",
-                    backgroundImage: b?.homeImage ? `url(${API_URL}/${b.taxiImage})` : `url(${loginImage})`,
+                    backgroundImage: b?.taxiImage ? `url(${API_URL}/${b.taxiImage})` : `url(${loginImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}></div >

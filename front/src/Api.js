@@ -97,8 +97,8 @@ export class Api {
         return api.get('/packages/list', {params: data});
     }
 
-    static servicesList() {
-        return api.get('/services/list');
+    static servicesList(data = {}) {
+        return api.get('/services/list', {params: data});
     }
 
     static historiesList(data = {}) {

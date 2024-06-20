@@ -194,6 +194,22 @@ function UpdateItemBanner({updateItem, setUpdateItem}) {
                                             id="file-upload4"
                                             type="file"/>
                                     </div>
+                                    <p>Taxi Image</p>
+                                    <div className={'item_file_cat'}>
+                                        <label
+                                            htmlFor="file-upload5"
+                                            className="custom-file">
+                                            <MdOutlineDriveFolderUpload
+                                                className={'icon'}/>
+                                            Choose file
+                                        </label>
+                                        <input
+                                            onChange={(e) => handleChangeFile(e, "taxiImage")}
+                                            name={'files'}
+                                            accept="image/*"
+                                            id="file-upload5"
+                                            type="file"/>
+                                    </div>
                                     <button onClick={handleSave}>
                                         Save
                                     </button>
@@ -225,6 +241,13 @@ function UpdateItemBanner({updateItem, setUpdateItem}) {
                                             updateItem?.logisticImage?.name
                                                 ? URL.createObjectURL(updateItem.logisticImage)
                                                 : `${API_URL}/${updateItem.logisticImage}`}
+                                             alt={""}/>
+                                    </div>
+                                    <div className={'images'}>
+                                        <img src={
+                                            updateItem?.taxiImage?.name
+                                                ? URL.createObjectURL(updateItem.taxiImage)
+                                                : `${API_URL}/${updateItem.taxiImage}`}
                                              alt={""}/>
                                     </div>
                                 </div>

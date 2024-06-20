@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
-import ReactPaginate from 'react-paginate';
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { servicesListRequest } from "../../store/actions/services";
 import { Account } from "../../helpers/Account";
@@ -16,7 +14,7 @@ function Services() {
 
 
     useEffect(() => {
-        dispatch(servicesListRequest())
+        dispatch(servicesListRequest({activePage: "Taxi"}))
     }, []);
 
 

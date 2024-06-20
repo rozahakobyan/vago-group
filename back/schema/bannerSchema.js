@@ -8,6 +8,7 @@ export default {
         constructionImage: Joi.string(),
         employmentAgencyImage: Joi.string(),
         logisticImage: Joi.string(),
+        taxiImage: Joi.string(),
         active: Joi.boolean().required(),
     }),
     update: Joi.object({
@@ -17,6 +18,7 @@ export default {
         constructionImage: Joi.string().allow(null, '').default(null),
         employmentAgencyImage: Joi.string().allow(null, '').default(null),
         logisticImage: Joi.string().allow(null, '').default(null),
+        taxiImage: Joi.string().allow(null, '').default(null),
         translation: Joi.object(),
         active: Joi.boolean(),
     })

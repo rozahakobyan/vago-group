@@ -16,7 +16,7 @@ function Services() {
 
 
     useEffect(() => {
-        dispatch(servicesListRequest())
+        dispatch(servicesListRequest({activePage: "Logistic"}))
     }, []);
 
 

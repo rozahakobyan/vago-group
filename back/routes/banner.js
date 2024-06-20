@@ -11,7 +11,8 @@ router.post('/add',
         {name: "homeImage", maxCount: 1},
         {name: "constructionImage", maxCount: 1},
         {name: "employmentAgencyImage", maxCount: 1},
-        {name: "logisticImage", maxCount: 1}
+        {name: "logisticImage", maxCount: 1},
+        {name: "taxiImage", maxCount: 1},
     ]),
     validate(banner.add),
     BannerController.add);
@@ -21,7 +22,8 @@ router.put('/update/:id',
         {name: "homeImage", maxCount: 1},
         {name: "constructionImage", maxCount: 1},
         {name: "employmentAgencyImage", maxCount: 1},
-        {name: "logisticImage", maxCount: 1}
+        {name: "logisticImage", maxCount: 1},
+        {name: "taxiImage", maxCount: 1},
     ]),
     validate(banner.update),
     BannerController.update);

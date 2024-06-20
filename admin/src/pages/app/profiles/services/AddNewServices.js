@@ -1,11 +1,13 @@
 import React, {useCallback, useState} from 'react';
 import {Helmet} from "react-helmet";
-import {MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineDriveFolderUpload} from "react-icons/md";
+import {MdKeyboardArrowDown, MdKeyboardArrowUp} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Account} from "../../../../helpers/account";
 import Button from "../../../../components/Button";
 import { servicesAddRequest } from '../../../../store/actions/services';
+import Select from "react-select";
+import servicesPage from "../../../../assets/data/servicesPage";
 
 const AddNewServices = () => {
     const navigate = useNavigate();
@@ -18,8 +20,11 @@ const AddNewServices = () => {
             am: "",
             pl: ""
         },
-        number: ""});
+        number: "",
+        activePage: "",
+    });
     const [nameOpen, setNameOpen] = useState(false);
+    const [selected, setSelected] = useState(null);
 
     const errors = useSelector(state => state.services.errors);
     const loading = useSelector(state => state.services.loading);
@@ -28,6 +33,11 @@ const AddNewServices = () => {
         const text = e.target.value
         setService({...service, [path]: {...service[path], [val]: text}});
     }, [service]);
+
+    const handleSelectChange = useCallback((selectedOption) => {
+        setSelected(selectedOption)
+        setService({...service, activePage: selectedOption.label})
+    }, [service])
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value
@@ -100,6 +110,13 @@ const AddNewServices = () => {
                         </div>
                         {errors?.number ? <small>{errors?.number}</small> : null}
 
+                        <Select value={selected}
+                                options={servicesPage}
+                                onChange={handleSelectChange}
+                                placeholder={<div>Page...</div>}
+                                className="react-select-containers"
+                                classNamePrefix="react-selects"
+                        />
                         <Button title={'Save'} loading={loading}/>
                     </div>
                 </form>
