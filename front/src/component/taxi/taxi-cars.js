@@ -1,15 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import translation from "../../assets/data/translation";
 import { Account } from "../../helpers/Account";
 import lambImage from '../../assets/images/lamb.png';
 import oil from "../../assets/images/oil.png"
 import transmission from "../../assets/images/transmission.png"
 import { NavLink } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {carsListRequest} from "../../store/actions/cars";
 
 
 function TaxiCars() {
+    const dispatch = useDispatch();
+
     const language = Account.getLanguage();
 
+    const carsList = useSelector(state => state.cars.carsList)
+
+    useEffect(() => {
+        dispatch(carsListRequest())
+    }, []);
+
+    console.log(carsList)
 
     return (
         <div className="carsArea">

@@ -128,4 +128,8 @@ export class Api {
     static minimalPricesList(data = {}) {
         return api.get('/minimal-prices/list', {params: data});
     }
+
+    static carsList(data = {}) {
+        return api.get('/cars/list', {params: data});
+    }
 }

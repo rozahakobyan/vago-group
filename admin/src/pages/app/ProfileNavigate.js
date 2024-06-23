@@ -35,6 +35,8 @@ import Galleries from "./profiles/galleries/Galleries";
 import AddNewGallery from "./profiles/galleries/AddNewGallery";
 import AddNewVideoPath from "./profiles/videoPath/AddNewVideoPath";
 import VideoPaths from "./profiles/videoPath/VideoPaths";
+import Cars from "./profiles/cars/Cars";
+import AddNewCars from "./profiles/cars/AddNewCars";
 
 const ProfileNavigate = () => {
     return (
@@ -71,6 +73,8 @@ const ProfileNavigate = () => {
                 <Route path={'/services/add-new-services'} element={<AddNewServices/>}/>
                 <Route path={'/projects'} element={<Projects/>}/>
                 <Route path={'/projects/add-new-projects'} element={<AddNewProjects/>}/>
+                <Route path={'/cars'} element={<Cars/>}/>
+                <Route path={'/cars/add-new-cars'} element={<AddNewCars/>}/>
                 <Route path={'/users/:page'} element={<Users/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Route>

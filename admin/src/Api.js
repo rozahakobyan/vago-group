@@ -412,6 +412,32 @@ export class Api {
 
         return api.put(`/minimal-prices/update/${id}`, data);
     }
+
+    static carsAdd(data = {}) {
+        return api.post('/cars/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static carsList(data = {}) {
+        return api.get('/cars/list', {params: data});
+    }
+
+    static carsDelete(id) {
+        return api.delete(`/cars/delete/${id}`);
+    }
+
+    static carsUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/cars/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
 }
 
 

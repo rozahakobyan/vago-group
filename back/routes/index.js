@@ -15,6 +15,7 @@ import projects from "./projects.js";
 import galleries from "./galleries.js";
 import videoPath from "./videoPath.js";
 import minimalPrice from "./minimalPrice.js";
+import cars from "./cars.js";
 
 const router = Router();
 
@@ -34,5 +35,6 @@ router.use('/projects', projects);
 router.use('/galleries', galleries);
 router.use('/video-path', videoPath);
 router.use('/minimal-prices', minimalPrice);
+router.use('/cars', cars);
 
 export default router;

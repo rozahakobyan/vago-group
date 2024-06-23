@@ -1,0 +1,150 @@
+@import "variables";
+
+.add-new-cars {
+  padding: 25px;
+
+  h1 {
+    color: $dark;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: $robotoFont;
+    transition: $themeTime;
+  }
+
+  .add_con {
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 700px;
+      background: #D9D9D9;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .left_row, .right_item {
+        padding: 10px;
+        width: 50%;
+        .open_input{
+          animation: growDown 300ms ease-in-out forwards;
+        }
+
+        h3{
+          color: #0e5287;
+          font-weight: 600;
+          font-family: $robotoFont;
+          cursor: pointer;
+        }
+
+        .react-select-containers{
+          width: 100%;
+          height: 38px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          border: none;
+          border-radius: 8px;
+          background: #FFF;
+          color: #828282;
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        .input_item {
+          width: 100%;
+          height: 45px;
+          border-radius: 5px;
+          overflow: hidden;
+          margin-bottom: 10px;
+          
+          input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding-left: 3px;
+            color: black;
+            font-size: 16px;
+            font-weight: $robotoFont;
+          }
+        }
+
+        .desc_text {
+          padding-top: 20px;
+          width: 100%;
+          textarea {
+            border-radius: 10px;
+            width: 90%;
+            height: 145px;
+            resize: none;
+            padding: 10px;
+            outline: none;
+            color: $dark;
+            font-family: $robotoFont;
+            font-size: 16px;
+          }
+        }
+
+        .item_file_cat {
+          margin-top: 15px;
+        }
+
+        small {
+          color: red;
+          font-size: 14px;
+          font-family: $robotoFont;
+        }
+      }
+
+
+
+      button {
+        padding: 12px 65px 12px 65px;
+        border: none;
+        border-radius: 5px;
+        background: #013EAC;
+        color: $light;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: $themeTime;
+      }
+
+      button:hover {
+        background: rgba(1, 62, 172, 0.59);
+      }
+    }
+
+    .icon_file_img {
+      width: 200px;
+      height: 150px;
+      padding: 10px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0)
+  }
+  80% {
+    transform: scaleY(1.1)
+  }
+  100% {
+    transform: scaleY(1)
+  }
+}

@@ -1,10 +1,10 @@
 import {MdConstruction} from "react-icons/md";
 import {FaFacebookMessenger, FaRegRegistered, FaUsers} from "react-icons/fa";
-import {BiBuilding, BiPackage} from "react-icons/bi";
+import {BiBuilding, BiCar, BiPackage} from "react-icons/bi";
 import {AiOutlineTeam} from "react-icons/ai";
 import {IoIosContacts} from "react-icons/io";
 import {GiPriceTag} from "react-icons/gi";
-import {GrProjects, GrServices} from "react-icons/gr";
+import {GrCar, GrProjects, GrServices} from "react-icons/gr";
 
 export default [
     {
@@ -209,6 +209,21 @@ export default [
                 id: 11_1,
                 title: "Add New Projects",
                 path: "add-new-projects",
+            },
+        ]
+    },
+    {
+        id: 12,
+        name: 'Cars',
+        path: 'cars',
+        Icon: BiCar,
+        openIcon: true,
+        renderItem: true,
+        subMenu: [
+            {
+                id: 12_1,
+                title: "Add New Cars",
+                path: "add-new-cars",
             },
         ]
     },

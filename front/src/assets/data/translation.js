@@ -98,7 +98,7 @@ export default {
         pl: "Więcej"
     },
     currentProjects: {
-        en: "Current Projects",
+        en: "Current Cars",
         ru: "Текущие проекты",
         am: "Ընթացիկ նախագծեր",
         pl: "Obecne projekty"
