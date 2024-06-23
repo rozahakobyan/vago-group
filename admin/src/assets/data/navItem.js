@@ -117,7 +117,7 @@ export default [
         subMenu: [
             {
                 id: 5_1,
-                title: "Add New Products",
+                title: "Add New OurAdvantages",
                 path: "add-new-products",
             },
         ]
@@ -224,6 +224,26 @@ export default [
                 id: 12_1,
                 title: "Add New Cars",
                 path: "add-new-cars",
+            },
+            {
+                id: 12_2,
+                title: "Our Advantages",
+                path: "our-advantages",
+            },
+            {
+                id: 12_3,
+                title: "Add New Advantages",
+                path: "add-new-advantages",
+            },
+            {
+                id: 12_4,
+                title: "Our Advantages Taxi",
+                path: "our-advantages-taxi",
+            },
+            {
+                id: 12_5,
+                title: "Add New Advantages Taxi",
+                path: "add-new-advantages-taxi",
             },
         ]
     },

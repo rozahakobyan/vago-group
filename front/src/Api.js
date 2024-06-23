@@ -132,4 +132,12 @@ export class Api {
     static carsList(data = {}) {
         return api.get('/cars/list', {params: data});
     }
+
+    static ourAdvantagesList(data = {}) {
+        return api.get('/our-advantages/list', {params: data});
+    }
+
+    static ourAdvantagesTaxiList(data = {}) {
+        return api.get('/our-advantages-taxi/list', {params: data});
+    }
 }

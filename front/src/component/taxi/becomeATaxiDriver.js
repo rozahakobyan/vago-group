@@ -1,13 +1,25 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 import translation from "../../assets/data/translation";
 import { Account } from "../../helpers/Account";
 import Button from "../Button";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "../../assets/images/taxi.jpg"
+import {ourAdvantagesListRequest} from "../../store/actions/ourAdvantages";
+import {ourAdvantagesTaxiListRequest} from "../../store/actions/ourAdvantagesTaxi";
 
 function TaxiDriver() {
+    const dispatch = useDispatch();
+
     const language = Account.getLanguage();
+
+    const ourAdvantagesTaxiList = useSelector(state => state.ourAdvantagesTaxi.ourAdvantagesTaxiList)
     const loading = useSelector(state => state.users.loading)
+
+    useEffect(() => {
+        dispatch(ourAdvantagesTaxiListRequest({active: true}))
+    }, []);
+
+    console.log(ourAdvantagesTaxiList)
 
     const submit = useCallback(() => {
 

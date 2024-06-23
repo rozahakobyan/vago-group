@@ -16,6 +16,8 @@ import galleries from "./galleries.js";
 import videoPath from "./videoPath.js";
 import minimalPrice from "./minimalPrice.js";
 import cars from "./cars.js";
+import ourAdvantagesTaxi from "./ourAdvantagesTaxi.js";
+import ourAdvantages from "./ourAdvantages.js";
 
 const router = Router();
 
@@ -36,5 +38,7 @@ router.use('/galleries', galleries);
 router.use('/video-path', videoPath);
 router.use('/minimal-prices', minimalPrice);
 router.use('/cars', cars);
+router.use('/our-advantages', ourAdvantages);
+router.use('/our-advantages-taxi', ourAdvantagesTaxi);
 
 export default router;

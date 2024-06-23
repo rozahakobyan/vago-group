@@ -438,6 +438,58 @@ export class Api {
             },
         });
     }
+
+    static ourAdvantagesAdd(data = {}) {
+        return api.post('/our-advantages/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static ourAdvantagesList(data = {}) {
+        return api.get('/our-advantages/list', {params: data});
+    }
+
+    static ourAdvantagesDelete(id) {
+        return api.delete(`/our-advantages/delete/${id}`);
+    }
+
+    static ourAdvantagesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/our-advantages/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static ourAdvantagesTaxiAdd(data = {}) {
+        return api.post('/our-advantages-taxi/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static ourAdvantagesTaxiList(data = {}) {
+        return api.get('/our-advantages-taxi/list', {params: data});
+    }
+
+    static ourAdvantagesTaxiDelete(id) {
+        return api.delete(`/our-advantages-taxi/delete/${id}`);
+    }
+
+    static ourAdvantagesTaxiUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/our-advantages-taxi/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
 }
 
 

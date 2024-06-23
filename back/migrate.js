@@ -20,6 +20,8 @@ import {
     Translation,
     MinimalPrice,
     Cars,
+    OurAdvantages,
+    OurAdvantagesTaxi,
 } from "./models/index.js";
 
 async function main(){
@@ -44,6 +46,8 @@ async function main(){
     await VideoPath.sync({alter:true, logging:true});
     await MinimalPrice.sync({alter:true, logging:true});
     await Cars.sync({alter:true, logging:true});
+    await OurAdvantages.sync({alter:true, logging:true});
+    await OurAdvantagesTaxi.sync({alter:true, logging:true});
 
     process.exit(0);
 }

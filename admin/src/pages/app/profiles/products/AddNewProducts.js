@@ -55,7 +55,7 @@ const AddNewProducts = () => {
     return (
         <div className={'add-new-products childrenWidth'}>
             <Helmet>
-                <name>add new products</name>
+                <title>add new products</title>
             </Helmet>
             <div className="add_con">
                 <form onSubmit={handleSubmitSave}>

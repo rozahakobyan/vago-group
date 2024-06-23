@@ -146,7 +146,6 @@ const AddNewProjects = () => {
                         
                         {error ? <small>{error}</small> : null}
 
-
                         <div className={'item_file_cat'}>
                             <label
                                 htmlFor="file-upload"
@@ -163,7 +162,6 @@ const AddNewProjects = () => {
                                 type="file"/>
 
                             {errors?.file ? <small>{errors?.file}</small> : null}
-
                         </div>
 
                         <Select value={selected}
