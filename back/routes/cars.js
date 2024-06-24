@@ -3,6 +3,7 @@ import cars from "../schema/carsSchema.js";
 import validate from "../middelwares/validate.js";
 import CarsController from "../controllers/CarsController.js";
 import uploader from "../middelwares/uploader.js";
+import WorksController from "../controllers/WorksController.js";
 
 const router = Router()
 
@@ -19,5 +20,6 @@ router.put('/update/:id',
 router.delete('/delete/:id', CarsController.delete);
 
 router.get('/list', CarsController.list)
+router.get('/get-by-id/:id', CarsController.getById)
 
 export default router;

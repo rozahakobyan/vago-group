@@ -5,6 +5,8 @@ import fs from "fs/promises";
 import sequelize from "../services/sequelize.js";
 import Cars from "../models/Cars.js";
 import Translation from "../models/Translation.js";
+import Works from "../models/Works.js";
+import WorksSchedules from "../models/WorksSchedules.js";
 
 class CarsController {
     static async add (req, res, next){
@@ -245,6 +247,41 @@ class CarsController {
             res.json({
                 status:'ok',
                 cars,
+            })
+        }catch (e) {
+            next(e)
+        }
+    }
+
+    static async getById (req, res, next){
+        try{
+            const {id} = req.params;
+
+            const car = await Cars.findOne({
+                where: {
+                    id
+                },
+                attributes: [ 'id',
+                    [sequelize.literal(`CONCAT('cars/', image)`), 'image'], "name", "price",
+                    "fuel", "transmission", "bac", "documents", "bonusSystem", "rules"
+                ],
+                include: {
+                    model: Translation,
+                    required: false,
+                }
+            })
+
+            if (!car) {
+                throw HttpError(404, {
+                    errors: {
+                        exists: 'Not Found'
+                    }
+                })
+            }
+
+            res.json({
+                status:'ok',
+                car,
             })
         }catch (e) {
             next(e)

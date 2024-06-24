@@ -10,6 +10,15 @@ export const carsListRequest = createAsyncThunk('cars/carsListRequest', async (a
     }
 });
 
+export const carGetByIdRequest = createAsyncThunk('cars/carGetByIdRequest', async (arg = {}, thunkAPI) => {
+    try {
+        const {data} = await Api.carGetById(arg);
+        return data;
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data);
+    }
+});
+
 export const isLoading = createAction('is/loading', (arg = '') => {
     return {
         payload: {

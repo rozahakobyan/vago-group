@@ -27,6 +27,7 @@ const EXCLUDES = [
   'GET:/video-path/list',
   'GET:/banner/list',
   'GET:/cars/list',
+  'GET:/cars/get-by-id',
   'GET:/our-advantages/list',
   'GET:/our-advantages-taxi/list',
 ];
