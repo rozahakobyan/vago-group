@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import translation from "../../assets/data/translation";
 import {Account} from "../../helpers/Account";
-
+import {carsListRequest} from "../../store/actions/cars"
+import {useDispatch, useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
 
 function DocumentsList () {
     const language = Account.getLanguage();
+    const dispatch = useDispatch();
+    const {id} = useParams();
+    const cars = useSelector(state => state.cars.car)
 
+    useEffect(() => {
+        dispatch(carsListRequest(id))
+    }, [id]);
 
     return(
         <div className="taxiInfoArea">

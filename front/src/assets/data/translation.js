@@ -351,5 +351,16 @@ export default {
         am: "Մեր Առավելությունները",
         pl: "Nasze Atuty"
     },
-
+    ourCars:{
+        en: "Most of our cars are from 2020 and newer. Forget about old Skoda, Prius 2 and others.",
+        ru: "Большинство наших автомобилей от 2020 выпуска и новее. Забудьте о стареньких Skoda, Prius 2 и других.",
+        am: "Մեր մեքենաների մեծ մասը 2020 թվականից և ավելի նոր են: Մոռացեք հին Skoda-ի, Prius 2-ի և մյուսների մասին:",
+        pl: "Większość naszych samochodów jest z roku 2020 i nowszych. Zapomnij o starej Skodzie, Priusie 2 i innych."
+    },
+    bAD:{
+        en: "Rent",
+        ru: "Арендовать",
+        am: "Վարձակալել",
+        pl: "Wynajem"
+    },
 }

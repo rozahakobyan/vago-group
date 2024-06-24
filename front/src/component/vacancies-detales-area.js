@@ -20,6 +20,7 @@ function VacanciesDetalesArea(){
     return(
         <div className="vacancies-detales-area">
             <div className="vacancies-detales">
+                
                 <div className="VD-name">
                     <h2>{work.translation && work.translation[language].name}</h2>
                 </div>
