@@ -363,4 +363,17 @@ export default {
         am: "Վարձակալել",
         pl: "Wynajem"
     },
+    bacL:{
+        en: "l",
+        ru: "л",
+        am: "լ",
+        pl: "l"
+    },
+    BecomATaxiDriverInfo:{
+        en: "write your name and number and we will call you within 30 minutes",
+        ru: "напишите ваше име и номер и мыпазвоним вам в течении 30 минут",
+        am: "գրեք ձեր անունը և համարը և մենք կզանգահարենք ձեզ 30 րոպեի ընթացքում",
+        pl: "wpisz swoje imię i nazwisko oraz numer, a my oddzwonimy do Ciebie w ciągu 30 minut"
+    }
+
 }

@@ -1,5 +1,5 @@
 import {createReducer} from "@reduxjs/toolkit";
-import {isLoading, carsListRequest} from "../actions/cars";
+import {isLoading, carsListRequest, carGetByIdRequest} from "../actions/cars";
 
 const initialState = {
     car: {},
@@ -19,5 +19,15 @@ export const cars = createReducer(initialState, (builder) => {
             const {cars, pages} = action.payload;
             state.carsList = cars;
             state.pages = pages;
+        })
+        .addCase(carGetByIdRequest.fulfilled, (state, action) => {
+            const {car} = action.payload;
+            state.car = car;
+            state.loading = false;
+        })
+        .addCase(carGetByIdRequest.rejected, (state, action) => {
+            const {errors} = action.payload;
+            state.errors = errors;
+            state.loading = false;
         })
 });

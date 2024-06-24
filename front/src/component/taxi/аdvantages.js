@@ -4,6 +4,8 @@ import {Account} from "../../helpers/Account";
 import Icon from "../../assets/icon/icon.jpg"
 import {useDispatch, useSelector} from "react-redux";
 import {ourAdvantagesListRequest} from "../../store/actions/ourAdvantages";
+import { API_URL } from "../../Api";
+
 
 function Advantages() {
     const dispatch = useDispatch();
@@ -16,20 +18,24 @@ function Advantages() {
         dispatch(ourAdvantagesListRequest())
     }, []);
 
-    console.log(ourAdvantagesList)
+   
 
     return (
         <div className='advantagesArea'>
             <h2><strong>{translation.advantagesc[language]}</strong></h2>
             <div className='advantagesBlocks'>
-                <div className='advantagesBlock' style={{
-                    backgroundImage: `url(${Icon})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                }}>
-                    <p>inch vor aravelutyun voy chunen mnacatsy</p>
-                </div>          
+                {ourAdvantagesList && ourAdvantagesList.map(oa =>(
+                    <div key={oa.id} className='advantagesBlock' style={{
+                        backgroundImage: `url(${API_URL}/${oa.image})`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        color:`${oa.color}`,
+                    }}>
+                        <p><strong>{oa.text}</strong></p>
+                    </div>          
+                ))}
+                
                     
             </div>
             

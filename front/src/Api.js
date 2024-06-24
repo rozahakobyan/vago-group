@@ -133,6 +133,10 @@ export class Api {
         return api.get('/cars/list', {params: data});
     }
 
+    static carGetById(id) {
+        return api.get(`/cars/get-by-id/${id}`);
+    }
+
     static ourAdvantagesList(data = {}) {
         return api.get('/our-advantages/list', {params: data});
     }

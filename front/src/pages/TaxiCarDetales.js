@@ -9,7 +9,7 @@ import Wrapper from "../component/Wrapper";
 
 function TaxiCarDetales(){
     return(
-        <Wrapper>
+        <Wrapper helmetTitle={'Taxi'}>
             <DocumentsList/>
             <TDContacts/>
         </Wrapper>

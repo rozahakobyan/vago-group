@@ -21,7 +21,7 @@ function TaxiCars() {
         dispatch(carsListRequest())
     }, []);
 
-    console.log(carsList)
+    
 
     return (
         <div className="carsArea">

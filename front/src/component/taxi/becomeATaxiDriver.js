@@ -1,11 +1,14 @@
-import React, {useCallback, useEffect} from "react";
+import React, { useCallback, useEffect } from "react";
 import translation from "../../assets/data/translation";
 import { Account } from "../../helpers/Account";
 import Button from "../Button";
 import { useDispatch, useSelector } from "react-redux";
-import Image from "../../assets/images/taxi.jpg"
-import {ourAdvantagesListRequest} from "../../store/actions/ourAdvantages";
-import {ourAdvantagesTaxiListRequest} from "../../store/actions/ourAdvantagesTaxi";
+
+import { ourAdvantagesListRequest } from "../../store/actions/ourAdvantages";
+import { ourAdvantagesTaxiListRequest } from "../../store/actions/ourAdvantagesTaxi";
+import { API_URL } from "../../Api";
+
+
 
 function TaxiDriver() {
     const dispatch = useDispatch();
@@ -16,43 +19,48 @@ function TaxiDriver() {
     const loading = useSelector(state => state.users.loading)
 
     useEffect(() => {
-        dispatch(ourAdvantagesTaxiListRequest({active: true}))
+        dispatch(ourAdvantagesTaxiListRequest({ active: true }))
     }, []);
 
-    console.log(ourAdvantagesTaxiList)
+    
 
     const submit = useCallback(() => {
 
     }, [])
 
     return (
-        <div className="becomeTaxiDriver">
-            <div className="becomeTaxiDriverBox">
-                <div className="imageBoxArea" style={{
-                    width: "320px",
-                    backgroundImage: `url(${Image})`,
-                    backgroundRepeat: "none",
-                    backgroundPosition: "center",
-                    margin: "25px",
-                    backgroundSize: "cover",
-                    textAlign: "center",
-                    height: "400px",
-                    color: "red",
+        <>
+            {ourAdvantagesTaxiList && ourAdvantagesTaxiList.map(tb => (
+                <div className="becomeTaxiDriver" >
+                    <div className="becomeTaxiDriverBox" key={tb.id}>
+                        <div className="imageBoxArea" style={{
+                            width: "320px",
+                            backgroundImage: `url(${API_URL}/${tb.image})`,
+                            backgroundRepeat: "none",
+                            backgroundPosition: "center",
+                            margin: "25px",
+                            backgroundSize: "cover",
+                            textAlign: "center",
+                            height: "400px",
+                            color: `${tb.color}`,
+                        }}>
+                            <strong>{tb.translation[language].text}</strong>
+                        </div>
+                        <div className="FormBoxArea">
+                            <form onSubmit={submit}>
+                                <label><strong>{translation.BecomATaxiDriverInfo[language]}</strong></label>
+                                <input type={'text'} placeholder={translation.offerName[language]} />
+                                <input type={"text"} placeholder={translation.offerPhone[language]} />
+                                <Button title={translation.submit[language]} loading={loading} />
+                            </form>
+                        </div>
 
-                }}>
-                    <strong>Becom A Taxi Driver</strong>
+                    </div>
                 </div>
-                <div className="FormBoxArea">
-                    <form onSubmit={submit}>
-                        <label><strong>напишите ваше име и номер и мыпазвоним вам в течении 30 минут</strong></label>
-                        <input type={'text'} placeholder={translation.offerName[language]} />
-                        <input type={"text"} placeholder={translation.offerPhone[language]} />
-                        <Button title={translation.submit[language]} loading={loading} />
-                    </form>
-                </div>
+            ))}
+        </>
 
-            </div>
-        </div>
+
     )
 }
 
