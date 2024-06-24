@@ -168,7 +168,15 @@ class CarsController {
                 })
                 await translations.update(translation)
             }else{
-                await car.update({name, price, fuel, transmission, bac, documents, bonusSystem, rules})
+                await car.update({
+                    name: translation.en.name,
+                    price,
+                    fuel: translation.en.fuel,
+                    transmission: translation.en.transmission,
+                    bac,
+                    documents: translation.en.documents,
+                    bonusSystem: translation.en.bonusSystem,
+                    rules: translation.en.rules})
                 await translations.update(translation)
             }
 
