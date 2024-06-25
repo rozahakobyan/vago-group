@@ -31,8 +31,8 @@ function TaxiDriver() {
     return (
         <>
             {ourAdvantagesTaxiList && ourAdvantagesTaxiList.map(tb => (
-                <div className="becomeTaxiDriver" >
-                    <div className="becomeTaxiDriverBox" key={tb.id}>
+                <div className="becomeTaxiDriver" key={tb.id}>
+                    <div className="becomeTaxiDriverBox" >
                         <div className="imageBoxArea" style={{
                             width: "320px",
                             backgroundImage: `url(${API_URL}/${tb.image})`,
