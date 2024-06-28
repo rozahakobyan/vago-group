@@ -13,7 +13,7 @@ function DocumentsList () {
     const language = Account.getLanguage();
    
 
-    console.log(car);
+    
     useEffect(() => {
         dispatch(carGetByIdRequest(id))
     }, [id]);

@@ -237,12 +237,12 @@ export default [
             },
             {
                 id: 12_4,
-                title: "Our Advantages Taxi",
+                title: "Become Taxi Driver",
                 path: "our-advantages-taxi",
             },
             {
                 id: 12_5,
-                title: "Add New Advantages Taxi",
+                title: "Add Become Taxi Driveri",
                 path: "add-new-advantages-taxi",
             },
         ]

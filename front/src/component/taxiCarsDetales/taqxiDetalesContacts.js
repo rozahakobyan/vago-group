@@ -5,44 +5,63 @@ import {useDispatch, useSelector} from "react-redux";
 import {userSendMessageRequired} from "../../store/actions/users";
 import {useNavigate} from "react-router-dom";
 import Button from "../Button";
+import axios from "axios";
 
 const language = Account.getLanguage();
 
 function TDContacts() {
-    const dispatch = useDispatch();
+
     const navigate = useNavigate();
 
-    const work = useSelector(state => state.works.work)
-    const errors = useSelector(state => state.users.errors)
-    const loading = useSelector(state => state.users.loading)
-    const messages = useSelector(state => state.users.message)
+    const car = useSelector(state => state.cars.car)
     const profile = useSelector(state => state.users.profile)
     const token = useSelector(state => state.users.token)
 
     const [message, setMessage] = useState({
+        "department": "",
+        "car's name": "",
         name: "",
         phone: "",
         email: "",
-        secondEmail: "",
+        "second email": "",
         message: "",
-        vacancyName: ""
     })
     const [error, setError] = useState("");
+    const [messages, setMessages] = useState("");
 
     const handleChange = useCallback((e, path) => {
         const text = e.target.value;
-        setMessage({...message, [path]: text, vacancyName: work.name})
         if(token){
-            setMessage({...message, email: profile.email})
+            setMessage({...message, email: profile.email, [path]: text, "car's name": car.name,})
+        }else{
+            setMessage({...message, [path]: text, "car's name": car.name,})
         }
-    }, [message, work, profile, token])
+    }, [message, car, profile, token])
 
-    const submit = useCallback((e) => {
+    const submit = useCallback(async (e) => {
         e.preventDefault()
         console.log(message)
+        const formID = 'xleqqvoy';
+        const formURL = `https://formspree.io/f/${formID}`;
         if(token){
-            dispatch(userSendMessageRequired(message))
+            const response = await axios.post(formURL, message);
+            console.log(response)
+            if(response?.status === 200){
+                setMessage({
+                    "department": "",
+                    "car's name": "",
+                    name: "",
+                    phone: "",
+                    email: "",
+                    "second email": "",
+                    message: "",
+                })
+                setMessages("Successfully massage")
+            }else{
+                setMessages("")
+            }
             setError("")
+
         }else{
             setError("Login your account")
             setTimeout(() => {
@@ -64,7 +83,6 @@ function TDContacts() {
                                onChange={(e) => handleChange(e, "phone")}/>
                         <textarea placeholder={translation.offerMessage[language]}
                                   onChange={(e) => handleChange(e, "message")}/><br/>
-                        {errors?.exsist && <p>{errors.exsist}</p>}
                         {error && <p>{error}</p>}
                         {messages && <p>{messages}</p>}
                         
