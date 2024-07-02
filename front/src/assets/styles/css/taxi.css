@@ -1,0 +1,226 @@
+:root {
+    --color1: #0e5287;
+    --color2: #3b444b;
+    --color3: #999999;
+    --color4: #eeeeee;
+}
+
+.carsArea {
+    width: 1200;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 1px;
+    padding-bottom: 25px;
+}
+
+.carsArea h3 {
+    text-align: center;
+    font-size: 55px;
+}
+
+.carsArea .carsBlocks {
+    margin: 0 auto;
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.carsArea .carsBlocks .carBlock {
+    width: 350px;
+    height: 450px;
+    background-color: var(--color4);
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.carName {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 17px;
+}
+
+.carImg {
+    text-align: center;
+}
+
+.carImg img {
+    width: 300px;
+    height: 100%;
+}
+
+.carCharacteristics img {
+    width: 25px;
+}
+
+.carCharacteristicsTable {
+    margin: 0 auto;
+
+}
+
+.carCharacteristics table tbody tr td {
+    text-align: center;
+    align-items: center;
+    width: 50%;
+}
+
+.carPrice {
+    text-align: center;
+    margin-top: -10px;
+}
+
+.taxiButtonArea {
+    width: 100%;
+    text-align: center;
+}
+
+.becomeADriver {
+    width: 300px;
+    height: 50px;
+    background-color: var(--color1);
+    margin: 0 auto;
+    border: none;
+    transition: background-color 0.5s;
+    color: white;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.becomeADriver:hover {
+    background-color: black;
+}
+
+.DocumentsListArea {
+
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.DocumentsListArea .DocumentsListBlock {
+    width: 350px;
+    padding: 5px;
+    margin: 25px;
+    border-radius: 10px;
+    background-color: var(--color4);
+    text-align: center;
+}
+
+.taxiInfoArea {
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.advantagesArea {
+    width: 100%;
+    background-color: var(--color4);
+    padding-bottom: 50px;
+
+}
+
+.advantagesArea h2 {
+    text-align: center;
+    font-size: 55px;
+}
+
+.advantagesBlocks {
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.advantagesBlock {
+    text-align: center;
+    font-size: 30px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 25px;
+    margin: 15px;
+}
+
+
+.becomeTaxiDriver{
+    position: relative;
+    align-items: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--color4);
+}
+.becomeTaxiDriver .imageBoxArea {
+    text-align: center;
+    justify-content: center;
+    font-size: 55px;   
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+    align-items: center;
+}
+.becomeTaxiDriver{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.FormBoxArea input{ 
+    width: 275px;
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.FormBoxArea button{
+    transform: translate(-99px,0);
+    width: 110px;
+    height: 30px;
+    color: white;
+    border: none;
+    background-color: black;
+    transition: background-color 0.5s;
+}
+.FormBoxArea button:hover{
+    background-color: #0e5287;
+}
+
+
+.FormBoxArea{
+    width: 320px;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.becomeTaxiDriverBox{
+    width: 100%;
+    text-align: center;
+    justify-content: center;  
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+    align-items: center;
+    
+}

@@ -16,14 +16,14 @@ function Services() {
 
 
     useEffect(() => {
-        dispatch(servicesListRequest())
+        dispatch(servicesListRequest({activePage: "Logistic"}))
     }, []);
 
 
     return (
         <div className="serviceList">
             <div className="service-area">
-                <h2 className="serviceList-title">{translation.services[language]}</h2>
+                <h2  className="serviceList-title">{translation.services[language]}</h2>
                 <div className="serviceList-area">
                     <table className="service-table">
                         <thead>

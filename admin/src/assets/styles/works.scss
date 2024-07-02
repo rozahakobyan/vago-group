@@ -265,7 +265,20 @@
             outline: none;
           }
         }
+        button {
+          padding: 12px 62px 12px 62px;
+          margin-top: 15px;
+          background: #013EAC;
+          color: #ffffff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: $themeTime;
+        }
 
+        button:hover {
+          background: #23a6d5;
+        }
         .row_img {
           display: flex;
           padding-top: 15px;

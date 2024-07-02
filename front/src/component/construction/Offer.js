@@ -15,13 +15,13 @@ function Offer() {
     const token = useSelector(state => state.users.token)
 
     const [message, setMessage] = useState({
+        department: "Construction",
+        contact: "Offer",
         name: "",
         phone: "",
         email: "",
         "second email": "",
         message: "",
-        department: "Construction",
-        contact: "Offer"
     })
     const [error, setError] = useState("");
     const [messages, setMessages] = useState("");

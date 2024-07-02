@@ -25,6 +25,30 @@
       }
     }
   }
+  .add-new-cars{
+    .add_con{
+      .form{
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        .left_row, .right_item{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .add-new-advantages{
+    .add_con{
+      .form{
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        .left_row, .right_item{
+          width: 100%;
+        }
+      }
+    }
+  }
   .add-new-contacts{
     .add_con{
       .form{
@@ -67,6 +91,14 @@
     }
   }
   .update_banner{
+    .modal{
+      width: 600px;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_advantage{
     .modal{
       width: 600px;
       .close{
@@ -169,6 +201,15 @@
     }
   }
   .update_price{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_car{
     .modal{
       width: 600px;
       height: 100%;

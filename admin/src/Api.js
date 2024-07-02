@@ -412,6 +412,84 @@ export class Api {
 
         return api.put(`/minimal-prices/update/${id}`, data);
     }
+
+    static carsAdd(data = {}) {
+        return api.post('/cars/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static carsList(data = {}) {
+        return api.get('/cars/list', {params: data});
+    }
+
+    static carsDelete(id) {
+        return api.delete(`/cars/delete/${id}`);
+    }
+
+    static carsUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/cars/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static ourAdvantagesAdd(data = {}) {
+        return api.post('/our-advantages/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static ourAdvantagesList(data = {}) {
+        return api.get('/our-advantages/list', {params: data});
+    }
+
+    static ourAdvantagesDelete(id) {
+        return api.delete(`/our-advantages/delete/${id}`);
+    }
+
+    static ourAdvantagesUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/our-advantages/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static ourAdvantagesTaxiAdd(data = {}) {
+        return api.post('/our-advantages-taxi/add', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
+
+    static ourAdvantagesTaxiList(data = {}) {
+        return api.get('/our-advantages-taxi/list', {params: data});
+    }
+
+    static ourAdvantagesTaxiDelete(id) {
+        return api.delete(`/our-advantages-taxi/delete/${id}`);
+    }
+
+    static ourAdvantagesTaxiUpdate(arg) {
+        const {id, isActive, createdAt, updatedAt, ...data} = arg;
+
+        return api.put(`/our-advantages-taxi/update/${id}`, data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    }
 }
 
 

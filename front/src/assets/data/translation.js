@@ -23,6 +23,12 @@ export default {
         am: "Լոգիստիկա",
         pl: "Logistyka"
     },
+    taxi:{
+        en: "Taxi",
+        ru: "Такси",
+        am: "Տաքսի",
+        pl: "Taxi"
+    },
     phone: {
         en: "Phone",
         ru: "Телефон",
@@ -92,7 +98,7 @@ export default {
         pl: "Więcej"
     },
     currentProjects: {
-        en: "Current Projects",
+        en: "Current Cars",
         ru: "Текущие проекты",
         am: "Ընթացիկ նախագծեր",
         pl: "Obecne projekty"
@@ -278,8 +284,96 @@ export default {
         ru: "дополнительные расходы",
         am: "լրացուցիչ ծախսեր",
         pl: "dodatkowe wydatki"
+    },
+
+                                                /* taxi */
+    
+
+    /* taxi cars title */
+    selectACar:{
+        en: "Select a car",
+        ru: "Выберите Машину",
+        am: "Ընտրել մեքենա",
+        pl: "Wybierz samochód"
+    },
+
+    requiredDocuments: {
+        en: "Required documents",
+        ru: "Необходимые документы",
+        am: "Անհրաժեշտ փաստաթղթեր ",
+        pl: "Wymagane dokumenty"
+    },
+    taxiBonusSystem: {
+        en: "Bonus System",
+        ru: "Бонусная Система",
+        am: "Բոնուսային համակարգ",
+        pl: "System bonusowy"
+    },
+    taxiRules:{
+        en: "Rules",
+        ru: "Правила",
+        am: "Կանոններ",
+        pl: "Zasady"
+    },
+    responsibilities:{
+        en: "Responsibilities",
+        ru: "Обязанности",
+        am: "Պարտականություններ",
+        pl: "Obowiązki"
+    },
+    carInfo:{
+        en: "Information",
+        ru: "Инфо8мация",
+        am: "Տեղեկատվություն",
+        pl: "Informacja"
+    },
+    transmission:{
+        en: "Transmission",
+        ru: "Коробка передач",
+        am: "Փոխանցման Տուփ",
+        pl: "Przenoszenie"
+    },
+    fuel:{
+        en: "Fuel",
+        ru: "Топливо",
+        am: "վառելիք",
+        pl: "Paliwo"
+    },
+    bac:{
+        en: "Bac",
+        ru: "Бак",
+        am: "Բաք",
+        pl: "Czołg"
+    },
+    advantagesc:{
+        en: "Our Advantages",
+        ru: "Наши Преимущества",
+        am: "Մեր Առավելությունները",
+        pl: "Nasze Atuty"
+    },
+    ourCars:{
+        en: "Most of our cars are from 2020 and newer. Forget about old Skoda, Prius 2 and others.",
+        ru: "Большинство наших автомобилей от 2020 выпуска и новее. Забудьте о стареньких Skoda, Prius 2 и других.",
+        am: "Մեր մեքենաների մեծ մասը 2020 թվականից և ավելի նոր են: Մոռացեք հին Skoda-ի, Prius 2-ի և մյուսների մասին:",
+        pl: "Większość naszych samochodów jest z roku 2020 i nowszych. Zapomnij o starej Skodzie, Priusie 2 i innych."
+    },
+    bAD:{
+        en: "Rent",
+        ru: "Арендовать",
+        am: "Վարձակալել",
+        pl: "Wynajem"
+    },
+    bacL:{
+        en: "l",
+        ru: "л",
+        am: "լ",
+        pl: "l"
+    },
+    BecomATaxiDriverInfo:{
+        en: "write your name and number and we will call you within 30 minutes",
+        ru: "напишите ваше име и номер и мыпазвоним вам в течении 30 минут",
+        am: "գրեք ձեր անունը և համարը և մենք կզանգահարենք ձեզ 30 րոպեի ընթացքում",
+        pl: "wpisz swoje imię i nazwisko oraz numer, a my oddzwonimy do Ciebie w ciągu 30 minut"
     }
-    
-    
-    
+
 }

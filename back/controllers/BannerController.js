@@ -15,6 +15,7 @@ class BannerController {
             const constructionImage = req.files.constructionImage[0];
             const employmentAgencyImage = req.files.employmentAgencyImage[0];
             const logisticImage = req.files.logisticImage[0];
+            const taxiImage = req.files.taxiImage[0];
 
             if(!title || !description){
                 throw HttpError(404, {
@@ -24,7 +25,7 @@ class BannerController {
                 })
             }
 
-            if(!constructionImage || !employmentAgencyImage || !logisticImage || !homeImage){
+            if(!constructionImage || !employmentAgencyImage || !logisticImage || !homeImage || !taxiImage){
                 throw HttpError(422, {
                     errors: {
                         image: 'Invalid file'
@@ -78,6 +79,17 @@ class BannerController {
                 })
                 .toFile(path.join(root, logisticImage.filename + '.webp'))
 
+            await sharp(taxiImage.path)
+                .rotate()
+                .toFile(path.join(root, taxiImage.filename));
+
+            await sharp(taxiImage.path)
+                .rotate()
+                .webp({
+                    quality: 80,
+                })
+                .toFile(path.join(root, taxiImage.filename + '.webp'))
+
             const translation = await Translation.create({
                 en: {
                     title: title.en,
@@ -102,6 +114,7 @@ class BannerController {
                 constructionImage: constructionImage.filename,
                 employmentAgencyImage: employmentAgencyImage.filename,
                 logisticImage: logisticImage.filename,
+                taxiImage: taxiImage.filename,
                 translationId: translation.id
             })
 
@@ -128,7 +141,7 @@ class BannerController {
         try{
             const {title, description, translation, active} = req.body;
             const { id } = req.params;
-            const {homeImage, constructionImage, employmentAgencyImage, logisticImage} = req.files;
+            const {homeImage, constructionImage, employmentAgencyImage, logisticImage, taxiImage} = req.files;
 
             const banner = await Banner.findByPk(+id);
             const translations = await Translation.findByPk(banner.translationId);
@@ -229,6 +242,28 @@ class BannerController {
                 await banner.update({logisticImage: logisticImage[0].filename})
             }
 
+            if(taxiImage){
+                const root = path.resolve('public/banner');
+
+                if (banner.taxiImage) {
+                    await fs.unlink(path.join(root, banner.taxiImage));
+                    await fs.unlink(path.join(root, banner.taxiImage + '.webp'));
+                }
+
+                await sharp(taxiImage[0].path)
+                    .rotate()
+                    .toFile(path.join(root, taxiImage[0].filename));
+
+                await sharp(taxiImage[0].path)
+                    .rotate()
+                    .webp({
+                        quality: 80,
+                    })
+                    .toFile(path.join(root, taxiImage[0].filename + '.webp'))
+
+                await banner.update({taxiImage: taxiImage[0].filename})
+            }
+
             await banner.update({title: translation.en.title, description: translation.en.description, active})
             await translations.update(translation)
 
@@ -288,6 +323,11 @@ class BannerController {
                 await fs.unlink(path.join(root, banner.logisticImage + '.webp'));
             }
 
+            if (banner.taxiImage) {
+                await fs.unlink(path.join(root, banner.taxiImage));
+                await fs.unlink(path.join(root, banner.taxiImage + '.webp'));
+            }
+
             await translation.destroy()
             await banner.destroy()
 
@@ -318,6 +358,7 @@ class BannerController {
                     [sequelize.literal(`CONCAT('banner/', constructionImage)`), 'constructionImage'],
                     [sequelize.literal(`CONCAT('banner/', employmentAgencyImage)`), 'employmentAgencyImage'],
                     [sequelize.literal(`CONCAT('banner/', logisticImage)`), 'logisticImage'],
+                    [sequelize.literal(`CONCAT('banner/', taxiImage)`), 'taxiImage'],
                 ],
                 include: {
                     model: Translation,

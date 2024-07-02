@@ -70,6 +70,14 @@
       }
     }
   }
+  .update_advantage{
+    .modal{
+      width: 600px;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
   .update_login_image{
     .modal{
       width: 600px;
@@ -120,6 +128,15 @@
     }
   }
   .update_massager{
+    .modal{
+      width: 600px;
+      height: 100%;
+      .close{
+        margin-left: 530px;
+      }
+    }
+  }
+  .update_car{
     .modal{
       width: 600px;
       height: 100%;

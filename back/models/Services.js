@@ -20,7 +20,11 @@ Services.init({
     number: {
         type: DataTypes.STRING(255),
         allowNull: false,
-    }
+    },
+    activePage: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+    },
 }, {
     sequelize,
     tableName: 'services',

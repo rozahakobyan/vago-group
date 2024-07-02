@@ -1,10 +1,10 @@
 import {MdConstruction} from "react-icons/md";
 import {FaFacebookMessenger, FaRegRegistered, FaUsers} from "react-icons/fa";
-import {BiBuilding, BiPackage} from "react-icons/bi";
+import {BiBuilding, BiCar, BiPackage} from "react-icons/bi";
 import {AiOutlineTeam} from "react-icons/ai";
 import {IoIosContacts} from "react-icons/io";
 import {GiPriceTag} from "react-icons/gi";
-import {GrProjects, GrServices} from "react-icons/gr";
+import {GrCar, GrProjects, GrServices} from "react-icons/gr";
 
 export default [
     {
@@ -117,7 +117,7 @@ export default [
         subMenu: [
             {
                 id: 5_1,
-                title: "Add New Products",
+                title: "Add New OurAdvantages",
                 path: "add-new-products",
             },
         ]
@@ -209,6 +209,41 @@ export default [
                 id: 11_1,
                 title: "Add New Projects",
                 path: "add-new-projects",
+            },
+        ]
+    },
+    {
+        id: 12,
+        name: 'Cars',
+        path: 'cars',
+        Icon: BiCar,
+        openIcon: true,
+        renderItem: true,
+        subMenu: [
+            {
+                id: 12_1,
+                title: "Add New Cars",
+                path: "add-new-cars",
+            },
+            {
+                id: 12_2,
+                title: "Our Advantages",
+                path: "our-advantages",
+            },
+            {
+                id: 12_3,
+                title: "Add New Advantages",
+                path: "add-new-advantages",
+            },
+            {
+                id: 12_4,
+                title: "Become Taxi Driver",
+                path: "our-advantages-taxi",
+            },
+            {
+                id: 12_5,
+                title: "Add Become Taxi Driveri",
+                path: "add-new-advantages-taxi",
             },
         ]
     },

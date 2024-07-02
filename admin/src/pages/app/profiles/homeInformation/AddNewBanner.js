@@ -28,6 +28,7 @@ function AddNewBanner() {
         constructionImage: null,
         employmentAgencyImage: null,
         logisticImage: null,
+        taxiImage: null,
         active: false
     });
     const [titleOpen, setTitleOpen] = useState(false);
@@ -208,6 +209,23 @@ function AddNewBanner() {
                                 type="file"/>
                             {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
+                        <p>Taxi Image</p>
+                        <div className={'item_file_cat'}>
+                            <label
+                                htmlFor="file-upload5"
+                                className="custom-file">
+                                <MdOutlineDriveFolderUpload
+                                    className={'icon'}/>
+                                Choose file
+                            </label>
+                            <input
+                                onChange={(e) => handleChangeFile(e, "taxiImage")}
+                                name={'files'}
+                                accept="image/*"
+                                id="file-upload5"
+                                type="file"/>
+                            {errors?.file ? <small>{errors?.file}</small> : null}
+                        </div>
 
                         <div className={'input_item'}>
                             <label> Active Banner
@@ -246,6 +264,13 @@ function AddNewBanner() {
                            banner.logisticImage ?
                                <figure className={'icon_file_img'}>
                                    <img src={URL.createObjectURL(banner?.logisticImage)} alt={""}/>
+                               </figure>
+                               : null
+                       }
+                       {
+                           banner.taxiImage ?
+                               <figure className={'icon_file_img'}>
+                                   <img src={URL.createObjectURL(banner?.taxiImage)} alt={""}/>
                                </figure>
                                : null
                        }

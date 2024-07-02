@@ -11,10 +11,6 @@ const EXCLUDES = [
   'POST:/users/send-password-recovery-code',
   'POST:/users/validate-password-recovery-code',
   'POST:/users/password-update',
-  'POST:/login-image/add',
-  'POST:/products/add',
-  'POST:/contacts/add',
-  'POST:/banner/add',
   'GET:/works/list',
   'GET:/works/get-by-id',
   'GET:/contacts/list',
@@ -30,6 +26,10 @@ const EXCLUDES = [
   'GET:/galleries/list',
   'GET:/video-path/list',
   'GET:/banner/list',
+  'GET:/cars/list',
+  'GET:/cars/get-by-id',
+  'GET:/our-advantages/list',
+  'GET:/our-advantages-taxi/list',
 ];
 
 export default function authorization(req, res, next) {

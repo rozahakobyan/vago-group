@@ -49,7 +49,7 @@ const AddNewMassagers = () => {
                                 placeholder={'name...'}
                                 type="text"/>
                         </div>
-                        {errors.name ? <small>{errors.name}</small> : null}
+                        {errors?.name ? <small>{errors?.name}</small> : null}
                         <p>Header Icon</p>
                         <div className={'item_file_cat'}>
                             <label
@@ -65,7 +65,7 @@ const AddNewMassagers = () => {
                                 accept="image/*"
                                 id="file-upload"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
                         <p>Footer Icon</p>
                         <div className={'item_file_cat'}>
@@ -82,7 +82,7 @@ const AddNewMassagers = () => {
                                 accept="image/*"
                                 id="file-upload2"
                                 type="file"/>
-                            {errors.file ? <small>{errors.file}</small> : null}
+                            {errors?.file ? <small>{errors?.file}</small> : null}
                         </div>
                         <Button title={'Save'} loading={loading}/>
                     </div>

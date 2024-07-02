@@ -22,6 +22,7 @@ function Vacancieces() {
     useEffect(() => {
         dispatch(worksListRequest({ department: "Logistic", limit: 4, page }))
     }, [page])
+    
 
     return (
         <div className="vacanciesArea">

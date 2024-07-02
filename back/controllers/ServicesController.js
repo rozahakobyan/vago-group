@@ -2,16 +2,17 @@ import HttpError from "http-errors";
 import Services from "../models/Services.js";
 import Translation from "../models/Translation.js";
 import Banner from "../models/Banner.js";
+import {Op} from "sequelize";
 
 class ServicesController {
     static async add (req, res, next){
         try{
-            const {name, number} = req.body;
+            const {name, number, activePage} = req.body;
 
-            if(!name || !number){
+            if(!name || !number || !activePage){
                 throw HttpError(404, {
                     errors: {
-                        exists: "Name or Number Not found"
+                        exists: "Not found"
                     }
                 })
             }
@@ -31,7 +32,7 @@ class ServicesController {
                 },
             })
 
-            const serviceCreate = await Services.create({name: name.en, number, translationId: translation.id})
+            const serviceCreate = await Services.create({name: name.en, number, activePage, translationId: translation.id})
 
             const service = await Banner.findOne({
                 where: {
@@ -54,7 +55,7 @@ class ServicesController {
 
     static async update (req, res, next){
         try{
-            const {name, number, translation} = req.body;
+            const {name, number, activePage, translation} = req.body;
             const { id } = req.params;
 
             const service = await Services.findOne({
@@ -71,7 +72,7 @@ class ServicesController {
                 })
             }
 
-            await service.update({name: translation.en.name, number})
+            await service.update({name: translation.en.name, number, activePage})
             await translations.update(translation)
 
             res.json({
@@ -119,7 +120,18 @@ class ServicesController {
 
     static async list (req, res, next){
         try{
+            const {activePage} = req.query;
+
+            const where = {};
+
+            if(activePage){
+                where[Op.or] = [
+                    { activePage: { [Op.substring]: activePage} }
+                ];
+            }
+
             const services = await Services.findAll({
+                where,
                 include: {
                     model: Translation,
                     required: false,

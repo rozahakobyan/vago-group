@@ -22,6 +22,7 @@ function Service({service, updateItem, setUpdateItem}) {
         <div className={'item'}>
             <h3>Name - {service.translation.en.name}</h3>
             <h3>Price - {service.number}</h3>
+            <h3>Page - {service.activePage}</h3>
             <ul className="icon_row">
                 <li
                     onClick={handleUpdate(service)}

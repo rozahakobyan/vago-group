@@ -97,8 +97,8 @@ export class Api {
         return api.get('/packages/list', {params: data});
     }
 
-    static servicesList() {
-        return api.get('/services/list');
+    static servicesList(data = {}) {
+        return api.get('/services/list', {params: data});
     }
 
     static historiesList(data = {}) {
@@ -127,5 +127,21 @@ export class Api {
 
     static minimalPricesList(data = {}) {
         return api.get('/minimal-prices/list', {params: data});
+    }
+
+    static carsList(data = {}) {
+        return api.get('/cars/list', {params: data});
+    }
+
+    static carGetById(id) {
+        return api.get(`/cars/get-by-id/${id}`);
+    }
+
+    static ourAdvantagesList(data = {}) {
+        return api.get('/our-advantages/list', {params: data});
+    }
+
+    static ourAdvantagesTaxiList(data = {}) {
+        return api.get('/our-advantages-taxi/list', {params: data});
     }
 }
