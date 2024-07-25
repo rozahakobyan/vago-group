@@ -43,7 +43,7 @@ const Registration = () => {
                 background: "url(../assets/images/login.jpg)"
             }}>
                 <form onSubmit={handleSubmit}>
-                    <h1>Registration</h1>
+
                     {errors.exsist && <p className={"error"}>{errors.exsist}</p>}
 
                     <div className={"input-box"}>

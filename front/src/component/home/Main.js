@@ -69,9 +69,21 @@ function Main() {
                                 </div>
                             </NavLink>
                         </div>
+
+                        <div className='bigBlock'>
+                            <p style={{ textAlign: 'center' }}>{translation.taxi[language]}</p>
+                            <NavLink to={'/taxi'}>
+                                <div className='services-button'>
+                                    <img src={bannersList && bannersList[0]?.taxiImage ? `${API_URL}/${bannersList[0].taxiImage}` : './img/taxi.jpg'} alt={""} />
+                                </div>
+                            </NavLink>
+                        </div>
                     </div>
+                    
                 </div>
             </section>
+
+            
         </>
     );
 }

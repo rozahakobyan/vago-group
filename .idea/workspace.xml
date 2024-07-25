@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53cb40a3-a369-43bf-9f1d-11ff27e139fb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_06_2024_18_05__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_06_2024_18_08__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -41,10 +50,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group/front/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roza/Desktop/vago-group/back&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -59,13 +68,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Roza\Desktop\vago-group\front\src" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\assets\styles\media" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\reducers" />
-      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\store\actions" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\back" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\front\src\store\reducers" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\front\src\store\actions" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\cars" />
+      <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\pages\app\profiles\cars" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Roza\Desktop\vago-group\back\routes" />
       <recent name="C:\Users\Roza\Desktop\vago-group\front\src\cert" />
       <recent name="C:\Users\Roza\Desktop\vago-group" />
       <recent name="C:\Users\Roza\Desktop\vago-group\admin\src\components\massagers" />
@@ -116,6 +126,9 @@
       <workItem from="1716225517361" duration="18340000" />
       <workItem from="1717669357674" duration="33886000" />
       <workItem from="1718352206180" duration="20346000" />
+      <workItem from="1720272444624" duration="1333000" />
+      <workItem from="1721465986842" duration="366000" />
+      <workItem from="1721911382215" duration="2038000" />
     </task>
     <servers />
   </component>
