@@ -11,7 +11,7 @@ function Logistic(){
     const ref = useRef(null);
 
     return(
-        <Wrapper>
+        <Wrapper helmetTitle={"Logistic"}>
             <Logistic_banner/>
             <Calculator/>
             <Price refOrder={ref}/>

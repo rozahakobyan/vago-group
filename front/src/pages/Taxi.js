@@ -11,7 +11,7 @@ function Taxi() {
 
 
     return (
-        <Wrapper helmetTitle={"construction"}>
+        <Wrapper helmetTitle={"Taxi"}>
             <Taxi_banner />
             <Services />
             <TaxiCars />

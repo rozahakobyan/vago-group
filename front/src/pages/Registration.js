@@ -38,7 +38,7 @@ const Registration = () => {
     }, [formData]);
 
     return (
-        <LogoutWrapper helmetTitle={"Login"}>
+        <LogoutWrapper helmetTitle={"Registration"}>
             <section className={"login"} style={{
                 background: "url(../assets/images/login.jpg)"
             }}>
