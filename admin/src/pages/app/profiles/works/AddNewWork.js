@@ -144,7 +144,7 @@ function AddNewWork() {
                             <input
                                 value={work.hoursWeek}
                                 onChange={(e) => handleChange(e.target.value, "hoursWeek")}
-                                placeholder={'hoursWeek...'}
+                                placeholder={'hours week...'}
                                 type="number"/>
                         </div>
                         {errors?.hoursWeek ? <small className={'errors_message'}>{errors.hoursWeek}</small> : null}

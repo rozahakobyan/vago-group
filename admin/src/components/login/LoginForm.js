@@ -87,7 +87,7 @@ const LoginForm = () => {
                             <input
                                 value={values.email}
                                 onChange={handleChange('email')}
-                                placeholder={'experience@gmail.come'}
+                                placeholder={'experience@gmail.com'}
                                 type="text"/>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ import {BiBuilding, BiCar, BiPackage} from "react-icons/bi";
 import {AiOutlineTeam} from "react-icons/ai";
 import {IoIosContacts} from "react-icons/io";
 import {GiPriceTag} from "react-icons/gi";
-import {GrCar, GrProjects, GrServices} from "react-icons/gr";
+import {GrProjects, GrServices} from "react-icons/gr";
 
 export default [
     {
@@ -17,8 +17,8 @@ export default [
         subMenu: [
             {
                 id: 1_1,
-                title: "Add New Information",
-                path: "add-new-information",
+                title: "Add New Banner",
+                path: "add-new-banner",
             },
             {
                 id: 1_2,
@@ -79,16 +79,16 @@ export default [
     },
     {
         id: 3,
-        name: 'Massagers',
+        name: 'Messengers',
         Icon: FaFacebookMessenger,
         openIcon: true,
         renderItem: true,
-        path: 'massagers',
+        path: 'messengers',
         subMenu: [
             {
                 id: 3_1,
-                title: "Add New Massagers",
-                path: "add-new-massagers",
+                title: "Add New Messengers",
+                path: "add-new-messengers",
             }
         ]
     },
@@ -242,7 +242,7 @@ export default [
             },
             {
                 id: 12_5,
-                title: "Add Become Taxi Driveri",
+                title: "Add New Become Taxi Driver",
                 path: "add-new-advantages-taxi",
             },
         ]

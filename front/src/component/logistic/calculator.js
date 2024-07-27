@@ -142,7 +142,7 @@ function Calculator() {
                 const priceMin = minimalPrices[0].min[currency];
 
                 if (price) {
-                  if (parseInt(distance) < Number(minimalPrices[0].minKm)) {
+                  if (parseInt(distance) <= Number(minimalPrices[0].minKm)) {
                     setResult(`${(Number(priceMin) + productPrice) + ' ' + currency} + ${translation.additional_expenses[language]}`);
                     setError("")
                   } else {

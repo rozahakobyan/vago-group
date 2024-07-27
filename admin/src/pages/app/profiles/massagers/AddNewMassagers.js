@@ -29,8 +29,8 @@ const AddNewMassagers = () => {
         console.log(massager)
         const {payload} = await dispatch(massagerAddRequest(massager));
         if (payload?.status === 'ok') {
-            navigate('/massagers')
-            Account.setNavbarUrlPathSub('massagers')
+            navigate('/messengers')
+            Account.setNavbarUrlPathSub('messengers')
         }
     }, [massager]);
 

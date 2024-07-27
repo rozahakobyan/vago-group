@@ -24,7 +24,7 @@ class Users extends Model {
         role: 'super-admin',
         status:'active',
         verification: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhZ29ncm91cC5hcm1AZ21haWwuY29tIiwiaWF0IjoxNzEzODg0MDEwfQ.5UvfsXliQavjm35JKpfBToOwqZarSviZpg3rfuIdYes",
-        photo: "user_1/avatar.png"
+        photo: "avatar.png"
       }
     })
   }

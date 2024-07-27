@@ -41,8 +41,8 @@ export default {
         am: "Հասցե",
         pl: "Adres"
     },
-    messager: {
-        en: "Messager",
+    messenger: {
+        en: "Messenger",
         ru: "Мессенджер",
         am: "Մեսենջեռ",
         pl: "Komunikator"

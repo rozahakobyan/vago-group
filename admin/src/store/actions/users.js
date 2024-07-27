@@ -16,9 +16,11 @@ export const scrollStatus = createAction('scroll/status', (payload = null) => {
 export const userLoginRequest = createAsyncThunk('user/auth', async (payload = {}, thunkAPI) => {
     try {
         const {data} = await Api.login(payload)
-        const {token, user} = data
-        Account.sendProfileStrong(user)
+        const {token, status, user} = data;
+        const role = user.role;
         Account.sendTokenStrong(token)
+        Account.sendProfileStrong(user)
+        Account.sendRole(role)
         return data
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)

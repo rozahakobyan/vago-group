@@ -60,67 +60,73 @@ function Header() {
     return (
         <header>
             <div id='verev'>
-                {list && list.map(l => (
-                    <div className="header-blocks" key={l.id}>
-                        <NavLink to={"/homeInformation"}>
-                            <div className="logo"><img src={'../img/logo.png'} alt={""} /></div>
-                        </NavLink>
-                        <div className="header-block">
-                            <p className="mail-title">Email:</p>
-
+                <div className="header-blocks">
+                    <NavLink to={"/home"}>
+                        <div className="logo"><img src={'../img/logo.png'} alt={""}/></div>
+                    </NavLink>
+                    <div className="header-block">
+                        <p className="mail-title">Email:</p>
+                        {list && list.map(l => (<React.Fragment key={l.id}>
                             <div className="email">{l.email}</div>
-
-                        </div>
-                        <div className="header-block">
-                            <p className="phone-title">{translation.phone[language]}:</p>
+                        </React.Fragment>))}
+                    </div>
+                    <div className="header-block">
+                        <p className="phone-title">{translation.phone[language]}:</p>
+                        {list && list.map(l => (<React.Fragment key={l.id}>
                             <div className="number">{l.phone}</div>
-                        </div>
-                        <div className={'header-block'}>
-                            <div className={'header-block-buttonArea'}>
+                        </React.Fragment>))}
+                    </div>
 
-                                <div className={'header-block-login'}>
-                                    {token ? <div className={"log-out"} onClick={handleLogOut}>
-                                        <p>{translation.logOut[language]}</p>
-                                    </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
-                                        <p>{translation.logIn[language]}</p>
-                                    </div>}
-                                </div>
+                    <div className={'header-block'}>
+                        <div className={'header-block-buttonArea'}>
 
-                                <div className={'header-block-language'}>
+                            <div className={'header-block-login'}>
+                                {token ? <div className={"log-out"} onClick={handleLogOut}>
+                                    <p>{translation.logOut[language]}</p>
+                                </div> : <div className={"log-in"} onClick={() => navigate('/login')}>
+                                    <p>{translation.logIn[language]}</p>
+                                </div>}
+                            </div>
 
-                                    <Select defaultValue={() => findSelectValue(language)}
-                                            menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-                                            styles={{
-                                                menuPortal: (provided) => ({
-                                                    ...provided,
-                                                    zIndex: 9999,
-                                                }),
-                                                menu: (provided) => ({
-                                                    ...provided,
-                                                    zIndex: 9999,
-                                                    bottom: 'auto',
-                                                })
-                                            }}
-                                            formatOptionLabel={formatOptionLabel}
-                                            options={languages}
-                                            onChange={handleSelectChange}
-                                            placeholder={<div>Language...</div>}
-                                            isSearchable={false}
-                                            className="react-select-containers"
-                                            classNamePrefix="react-selects"/>
+                            <div className={'header-block-language'}>
 
-                                </div>
+                                <Select defaultValue={() => findSelectValue(language)}
+                                        menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                        styles={{
+                                            menuPortal: (provided) => ({
+                                                ...provided,
+                                                zIndex: 9999,
+                                            }),
+                                            menu: (provided) => ({
+                                                ...provided,
+                                                zIndex: 9999,
+                                                bottom: 'auto',
+                                            })
+                                        }}
+                                        formatOptionLabel={formatOptionLabel}
+                                        options={languages}
+                                        onChange={handleSelectChange}
+                                        placeholder={<div>Language...</div>}
+                                        isSearchable={false}
+                                        className="react-select-containers"
+                                        classNamePrefix="react-selects"/>
+
                             </div>
                         </div>
-
-                        <div className={'header-block-msg'} >
-                            {l.massagersList && l.massagersList.map(lm => (
-                                <NavLink to={lm.path} key={lm.id}><div className='msg-box'><img src={`${API_URL}/${lm.massager.headerIcon}`} alt={""} /></div></NavLink>
-                            ))}
-
-                        </div>
                     </div>
-                ))}
+
+                    <div className={'header-block-msg'}>
+                        {list && list.map(l => (<React.Fragment key={l.id}>
+                            {l.massagersList && l.massagersList.map(lm => (
+                                <NavLink to={lm.path} key={lm.id}>
+                                    <div className='msg-box'><img src={`${API_URL}/${lm.massager.headerIcon}`}
+                                                                  alt={""}/>
+                                    </div>
+                                </NavLink>
+                            ))}
+                        </React.Fragment>))}
+                    </div>
+                </div>
             </div>
             {/* ----------------------------- */}
             <div className="buttons">
@@ -128,7 +134,7 @@ function Header() {
                     <div className="button"><strong>{translation.home[language]}</strong></div>
                 </NavLink>
                 <NavLink to={"/construction"}>
-                    <div className="button"><strong>{translation.construction[language]}</strong> </div>
+                    <div className="button"><strong>{translation.construction[language]}</strong></div>
                 </NavLink>
                 <NavLink to={'/employment-agency'}>
                     <div className="button"><strong>{translation.employmentAgency[language]}</strong></div>
