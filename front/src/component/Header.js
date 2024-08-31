@@ -9,10 +9,10 @@ import Select from "react-select";
 import languages from "../assets/data/language";
 import translation from "../assets/data/translation";
 
-const formatOptionLabel = ({label, icon}) => (
-    <div style={{display: "flex"}}>
-        <div style={{marginRight: "10px", color: "#ccc"}}>
-            <img src={icon} alt={label} width={20} height={15}/>
+const formatOptionLabel = ({ label, icon }) => (
+    <div style={{ display: "flex" }}>
+        <div style={{ marginRight: "10px", color: "#ccc" }}>
+            <img src={icon} alt={label} width={20} height={15} />
         </div>
         <div>{label}</div>
     </div>
@@ -34,7 +34,7 @@ function Header() {
 
     const findSelectValue = useCallback((value) => {
         return languages.find(l => {
-            if(l.value === value){
+            if (l.value === value) {
                 return l
             }
         })
@@ -89,25 +89,25 @@ function Header() {
                                 <div className={'header-block-language'}>
 
                                     <Select defaultValue={() => findSelectValue(language)}
-                                            menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
-                                            styles={{
-                                                menuPortal: (provided) => ({
-                                                    ...provided,
-                                                    zIndex: 9999,
-                                                }),
-                                                menu: (provided) => ({
-                                                    ...provided,
-                                                    zIndex: 9999,
-                                                    bottom: 'auto',
-                                                })
-                                            }}
-                                            formatOptionLabel={formatOptionLabel}
-                                            options={languages}
-                                            onChange={handleSelectChange}
-                                            placeholder={<div>Language...</div>}
-                                            isSearchable={false}
-                                            className="react-select-containers"
-                                            classNamePrefix="react-selects"/>
+                                        menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
+                                        styles={{
+                                            menuPortal: (provided) => ({
+                                                ...provided,
+                                                zIndex: 9999,
+                                            }),
+                                            menu: (provided) => ({
+                                                ...provided,
+                                                zIndex: 9999,
+                                                bottom: 'auto',
+                                            })
+                                        }}
+                                        formatOptionLabel={formatOptionLabel}
+                                        options={languages}
+                                        onChange={handleSelectChange}
+                                        placeholder={<div>Language...</div>}
+                                        isSearchable={false}
+                                        className="react-select-containers"
+                                        classNamePrefix="react-selects" />
 
                                 </div>
                             </div>
