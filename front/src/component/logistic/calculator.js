@@ -142,7 +142,7 @@ function Calculator() {
                 const priceMin = minimalPrices[0].min[currency];
 
                 if (price) {
-                  if (parseInt(distance) < Number(minimalPrices[0].minKm)) {
+                  if (parseInt(distance) <= Number(minimalPrices[0].minKm)) {
                     setResult(`${(Number(priceMin) + productPrice) + ' ' + currency} + ${translation.additional_expenses[language]}`);
                     setError("")
                   } else {
@@ -186,14 +186,18 @@ function Calculator() {
             {cities1List && <Select value={selectedCity1}
                                     options={cities1List}
                                     onInputChange={(value) => {
-                                      setCity1(value)
+                                      if(value){
+                                        setCity1(value)
+                                      }
                                     }}
                                     onChange={(selectedOption) => {
                                       setSelectedCity1(selectedOption)
                                       setCity1(selectedOption.value)
                                     }}
                                     onBlur={() => {
-                                      setSelectedCity1({value: city1, label: city1})
+                                      if(selectedCity1 || city1){
+                                        setSelectedCity1({value: city1, label: city1})
+                                      }
                                     }}
                                     placeholder={<div>City...</div>}
                                     className="react-select-containers"
@@ -208,7 +212,7 @@ function Calculator() {
                                         ...provided,
                                         zIndex: 9999,
                                         bottom: 'auto',
-                                      })
+                                      }),
                                     }}
                                   />}
           </div>
@@ -218,14 +222,18 @@ function Calculator() {
             {cities2List && <Select value={selectedCity2}
                                     options={cities2List}
                                     onInputChange={(value) => {
-                                      setCity2(value)
+                                      if(value){
+                                        setCity2(value)
+                                      }
                                     }}
                                     onChange={(selectedOption) => {
                                       setSelectedCity2(selectedOption)
                                       setCity2(selectedOption.value)
                                     }}
                                     onBlur={() => {
-                                      setSelectedCity2({value: city2, label: city2})
+                                      if(selectedCity2 || city2){
+                                        setSelectedCity2({value: city2, label: city2})
+                                      }
                                     }}
                                     placeholder={<div>City...</div>}
                                     className="react-select-containers"

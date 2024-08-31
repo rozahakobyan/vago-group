@@ -1,6 +1,19 @@
 export class Account {
     static sendProfileStrong(profile) {
         localStorage.setItem('profile', JSON.stringify(profile))
+        Account.setNavbarUrlPath('information')
+    }
+
+    static sendRole(role) {
+        localStorage.setItem('role', JSON.stringify(role))
+    }
+    static getRole() {
+        try {
+            const role = localStorage.getItem('role');
+            return JSON.parse(role)
+        } catch (e) {
+            return null;
+        }
     }
 
     static sendTokenStrong(token) {
@@ -27,6 +40,9 @@ export class Account {
     static removeStrong() {
         localStorage.removeItem('profile')
         localStorage.removeItem('token')
+        localStorage.removeItem('role')
+        localStorage.removeItem('nav_url_path_name');
+        localStorage.removeItem('nav_sub_menu_url_path_name');
     }
 
     static getNavbarUrlPath() {

@@ -68,7 +68,7 @@ const ProfileEmail = () => {
                             className={'input-forget'}
                             onChange={handleChange('email')}
                             value={values.email}
-                            placeholder={'experience@gmail.come'}
+                            placeholder={'experience@gmail.com'}
                             type="text"/>
                     </div>
                 </div>

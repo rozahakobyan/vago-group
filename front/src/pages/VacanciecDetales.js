@@ -5,7 +5,7 @@ import VDContacts from '../component/vdContacts'
 
 function VacanciesDetales(){
     return(
-        <Wrapper helmetTitle={"vacancies-detales"}>
+        <Wrapper helmetTitle={"Vacancies"}>
             <VacanciesDetalesArea/>
             <VDContacts/>
         </Wrapper>

@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 import {API_URL} from "../../Api";
 import {BiEdit} from "react-icons/bi";
 import {RiDeleteBin6Line} from "react-icons/ri";
@@ -8,13 +8,26 @@ import {useParams} from "react-router-dom";
 import usersRole from "../../assets/data/usersRole";
 import Select from "react-select";
 import usersStatus from "../../assets/data/usersStatus";
+import _ from "lodash"
 
 const AboutItem = ({item, updateItem, setUpdateItem}) => {
     const dispatch = useDispatch();
 
     const { page } = useParams();
 
-    const profile = useSelector(state => state.users.profile);
+    const role = useSelector(state => state.users.role);
+
+    const roles = useMemo(() => {
+        if(role === "admin"){
+            return usersRole.filter(u => {
+                if(u.value !== "super-admin"){
+                    return u;
+                }
+            })
+        } else{
+            return usersRole;
+        }
+    }, [role, usersRole])
 
     const handleSelectChange = useCallback((selectedOption) => {
         setUpdateItem({...updateItem, role: selectedOption.value, id: item.id, page})
@@ -44,17 +57,27 @@ const AboutItem = ({item, updateItem, setUpdateItem}) => {
                 <p>Users first name: <span>{item.firstName}</span></p>
                 <p>Users last name: <span>{item.lastName}</span></p>
                 <div className={"select"}><p className={"p"}>Users role: <span>{item.role}</span>
-                </p>{profile?.role !== "admin" && item?.role !== "super-admin" ? <>
-                    <Select options={usersRole}
+                </p>{role === "admin" && item?.role === "user"? <>
+                    <Select options={roles}
                             defaultValue={{value: item.role, label: item.role}}
                             onChange={handleSelectChange}
                             placeholder={<div>Users Role...</div>}
                             className="react-select-containers"
                             classNamePrefix="react-selects"
                     />
-                </> : null}</div>
+                </> : null}
+                    {role === "super-admin" && item?.role !== "super-admin" ? <>
+                    <Select options={roles}
+                            defaultValue={{value: item.role, label: item.role}}
+                            onChange={handleSelectChange}
+                            placeholder={<div>Users Role...</div>}
+                            className="react-select-containers"
+                            classNamePrefix="react-selects"
+                    />
+                </> : null}
+                </div>
                 <div className={"select"}><p className={"p"}>Users status: <span>{item.status}</span>
-                </p>{profile?.role !== "admin" && item?.role !== "super-admin" ? <>
+                </p>{role === "admin" && item?.role === "user" ? <>
                     <Select options={usersStatus}
                             defaultValue={{value: item.status, label: item.status}}
                             onChange={handleSelectChangeStatus}
@@ -62,22 +85,38 @@ const AboutItem = ({item, updateItem, setUpdateItem}) => {
                             className="react-select-containers"
                             classNamePrefix="react-selects"
                     />
-                </> : null}</div>
+                </> : null}
+                    {role === "super-admin" && item?.role !== "super-admin" ? <>
+                    <Select options={usersStatus}
+                            defaultValue={{value: item.status, label: item.status}}
+                            onChange={handleSelectChangeStatus}
+                            placeholder={<div>Users Status...</div>}
+                            className="react-select-containers"
+                            classNamePrefix="react-selects"
+                    />
+                </> : null}
+                </div>
             </figcaption>
             <ul className="icon_row">
-                {profile?.role !== "admin" && item?.role !== "super-admin" ? <li
+                {role === "admin" && item?.role === "user" ? <li
                     onClick={handleSave}
                     className={'icon'}>
                     <BiEdit/>
                 </li> : null}
 
-                {profile?.role !== "admin" && item?.role !== "super-admin" ? <li
+                {role === "super-admin" && item?.role !== "super-admin" ? <li
+                    onClick={handleSave}
+                    className={'icon'}>
+                    <BiEdit/>
+                </li> : null}
+
+                {role === "admin" && item?.role === "user" ? <li
                     onClick={handleDeleteGetId(item.id)}
                     className={'icon'}>
                     <RiDeleteBin6Line/>
                 </li> : null}
 
-                {profile?.role === "admin" && item?.role === "user" ? <li
+                {role === "super-admin" && item?.role !== "super-admin" ? <li
                     onClick={handleDeleteGetId(item.id)}
                     className={'icon'}>
                     <RiDeleteBin6Line/>

@@ -48,7 +48,7 @@ const ProfileNavigate = () => {
             <Route path={'/'} element={<Account/>}>
                 <Route path={'/'} element={<Navigate to={"/information"}/>}/>
                 <Route path={'/information'} element={<Information/>}/>
-                <Route path={'/information/add-new-information'} element={<AddNewHomeInfo/>}/>
+                <Route path={'/information/add-new-banner'} element={<AddNewHomeInfo/>}/>
                 <Route path={'/information/login-image'} element={<LoginImage/>}/>
                 <Route path={'/information/add-new-login-image'} element={<AddNewLoginImage/>}/>
                 <Route path={'/information/histories'} element={<Histories/>}/>
@@ -57,8 +57,8 @@ const ProfileNavigate = () => {
                 <Route path={'/information/add-new-gallery'} element={<AddNewGallery/>}/>
                 <Route path={'/information/video-paths'} element={<VideoPaths/>}/>
                 <Route path={'/information/add-new-video-path'} element={<AddNewVideoPath/>}/>
-                <Route path={'/massagers'} element={<Massagers/>}/>
-                <Route path={'/massagers/add-new-massagers'} element={<AddNewMassagers/>}/>
+                <Route path={'/messengers'} element={<Massagers/>}/>
+                <Route path={'/messengers/add-new-messengers'} element={<AddNewMassagers/>}/>
                 <Route path={'/jobs'} element={<Works/>}/>
                 <Route path={'/jobs/add-new-jobs'} element={<AddNewWork/>}/>
                 <Route path={'/products'} element={<Products/>}/>

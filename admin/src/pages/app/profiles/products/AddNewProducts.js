@@ -114,6 +114,17 @@ const AddNewProducts = () => {
                                 placeholder={<div>Currency...</div>}
                                 className="react-select-containers"
                                 classNamePrefix="react-selects"
+                                styles={{
+                                    menuPortal: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                    }),
+                                    menu: (provided) => ({
+                                        ...provided,
+                                        zIndex: 9999,
+                                        bottom: 'auto',
+                                    }),
+                                }}
                         />
 
                         <Button title={'Save'} loading={loading}/>

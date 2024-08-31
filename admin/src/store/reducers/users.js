@@ -11,6 +11,7 @@ import {Account} from "../../helpers/account";
 
 const initialState = {
     profile: Account.getProfileStrong(),
+    role: Account.getRole(),
     token: Account.getTokenStrong(),
     loading: false,
     messages: {},

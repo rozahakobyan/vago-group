@@ -11,6 +11,22 @@ class Users extends Model {
 
   static async sync(options) {
     await super.sync(options);
+    await Users.findOrCreate({
+      where: {
+        id: 1
+      },
+      defaults: {
+        id: 1,
+        firstName: 'Roza',
+        lastName: 'Hakobyan',
+        email: 'vagogroup.arm@gmail.com',
+        password: '12345678',
+        role: 'super-admin',
+        status:'active',
+        verification: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhZ29ncm91cC5hcm1AZ21haWwuY29tIiwiaWF0IjoxNzEzODg0MDEwfQ.5UvfsXliQavjm35JKpfBToOwqZarSviZpg3rfuIdYes",
+        photo: "avatar.png"
+      }
+    })
   }
 }
 

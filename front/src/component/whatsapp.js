@@ -11,7 +11,7 @@ function Whatsapp() {
                 </ScrollToTop>
             </div>
             <div className="fixed-button-area">
-                <a href="https://wa.me/+37477571551"><div className="fixed-block"></div></a>
+                <a href="https://wa.me/+48515028686"><div className="fixed-block"></div></a>
             </div>
         </div>
     )
