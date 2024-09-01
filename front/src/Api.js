@@ -1,9 +1,9 @@
 import axios from 'axios';
 import {Account} from "./helpers/Account";
 
-export const API_URL = 'https://localhost:4001/'
+export const API_URL = 'http://localhost:4001/'
 const api = axios.create({
-    baseURL: 'https://127.0.0.1:4001'
+    baseURL: 'http://127.0.0.1:4001'
 })
 api.interceptors.request.use((config) => {
     const token = Account.getTokenStrong()

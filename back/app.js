@@ -23,11 +23,11 @@ app.use((req, res, next) => {
 
 app.use(errorHandler)
 
-const sslServer = https.createServer({
-    key: fs.readFileSync(path.join("cert", "key.pem")),
-    cert: fs.readFileSync(path.join("cert", "cert.pem"))
-}, app)
+// const sslServer = https.createServer({
+//     key: fs.readFileSync(path.join("cert", "key.pem")),
+//     cert: fs.readFileSync(path.join("cert", "cert.pem"))
+// }, app)
 
-sslServer.listen(4001, () => {
+app.listen(4001, "127.0.0.1", () => {
     console.log('Server started...');
 })
