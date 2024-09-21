@@ -17,6 +17,9 @@ const AboutItem = ({item, updateItem, setUpdateItem}) => {
 
     const role = useSelector(state => state.users.role);
 
+    console.log(role, item);
+    
+
     const roles = useMemo(() => {
         if(role === "admin"){
             return usersRole.filter(u => {

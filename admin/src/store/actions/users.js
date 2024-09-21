@@ -18,6 +18,7 @@ export const userLoginRequest = createAsyncThunk('user/auth', async (payload = {
         const {data} = await Api.login(payload)
         const {token, status, user} = data;
         const role = user.role;
+        console.log(data)
         Account.sendTokenStrong(token)
         Account.sendProfileStrong(user)
         Account.sendRole(role)

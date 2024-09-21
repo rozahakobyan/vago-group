@@ -1,7 +1,7 @@
 import axios from "axios";
 import {Account} from "./helpers/account";
 
-export const API_URL = 'https://localhost:4001'
+export const API_URL = 'https://api.vagobud.com'
 const api = axios.create({
     baseURL: API_URL,
 })

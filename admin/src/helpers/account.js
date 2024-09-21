@@ -17,7 +17,7 @@ export class Account {
     }
 
     static sendTokenStrong(token) {
-        localStorage.setItem('token', token)
+        localStorage.setItem('token', JSON.stringify(token))
     }
 
     static getProfileStrong() {
@@ -64,10 +64,10 @@ export class Account {
     }
 
     static setNavbarUrlPath(path) {
-        localStorage.setItem('nav_url_path_name', path)
+        localStorage.setItem('nav_url_path_name', JSON.stringify(path))
     }
 
     static setNavbarUrlPathSub(path) {
-        localStorage.setItem('nav_sub_menu_url_path_name', path)
+        localStorage.setItem('nav_sub_menu_url_path_name', JSON.stringify(path))
     }
 }

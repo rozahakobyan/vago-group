@@ -1,9 +1,9 @@
 import axios from 'axios';
 import {Account} from "./helpers/Account";
 
-export const API_URL = 'http://localhost:4001/'
+export const API_URL = 'https://api.vagobud.com/'
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:4001'
+    baseURL: 'https://api.vagobud.com'
 })
 api.interceptors.request.use((config) => {
     const token = Account.getTokenStrong()
