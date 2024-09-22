@@ -47,7 +47,7 @@ const Header = ({open, setOpen, path}) => {
                 <Logo open={open} setOpen={setOpen}/>
 
                 <h3>{path?.subMenuPath ? path.subMenuPath.toUpperCase().replaceAll("-", " ").replaceAll('"', "")
-                    : path.navPath === "/users/1" ? "USERS" : path.navPath.toUpperCase().replaceAll("-", " ").replaceAll('"', "")}</h3>
+                    : path.navPath === '"/users/1"' ? "USERS" : path.navPath.toUpperCase().replaceAll("-", " ").replaceAll('"', "")}</h3>
 
                 <Profile
                     setSettingModal={setSettingModal}

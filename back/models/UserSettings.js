@@ -28,7 +28,7 @@ UserSettings.init({
         allowNull: false,
     },
     recoveryCode: {
-        type: DataTypes.INTEGER(6),
+        type: DataTypes.STRING(8),
         allowNull: false
     }
 },

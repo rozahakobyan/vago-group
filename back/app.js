@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve('public')));
 
-app.use(authorization)
+//app.use(authorization)
 app.use(indexRouter)
 app.use((req, res, next) => {
     next(HttpError(404))

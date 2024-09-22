@@ -8,11 +8,16 @@ import fss from "fs"
 import fs from "fs/promises";
 import usersSchema from "../schema/usersSchema.js";
 import _ from "lodash";
+import { v4 as uuidv4 } from "uuid";
 import {Op} from "sequelize";
 import sendMassageToEmail from "../helper/sendMassageToEmail.js";
-const { JWT_SECRET, FRONT_URL } = process.env;
+const { JWT_SECRET = "ghjhgfdfghnjmjmyhbgvfcd", FRONT_URL = "https://admin.vagobud.com" } = process.env;
 
 class UsersController {
+    static generateUUIDs = (count) => {
+        return uuidv4().slice(0, count);
+    };
+
     static async register(req, res, next) {
         try {
 
@@ -31,7 +36,7 @@ class UsersController {
             }
 
             const verification = JWT.sign({ email: email }, JWT_SECRET);
-            const code = Math.floor(100000 + Math.random() * 900000)
+            const code = UsersController.generateUUIDs(8)
 
             const newUser = await Users.create({
                 firstName, lastName, email, password, verification: verification
@@ -273,7 +278,7 @@ class UsersController {
         try {
 
             const { email } = req.body;
-            console.log(email)
+
             const user = await Users.findOne({
                 where: { email },
                 attributes: { exclude: ['verification', 'createdAt', 'updatedAt'] }
@@ -293,11 +298,11 @@ class UsersController {
                 })
             }
 
-            const recoveryCode = Math.floor(100000 + Math.random() * 900000)
+            const recoveryCode = UsersController.generateUUIDs(8)
 
             await UserSettings.create({ recoveryCode, userId: user.id });
 
-            const html = `<h3>Dear ${user.firstName} ${user.lastName},</h3><p>We got a password recovery request. Your Verification Code is <strong>${recoveryCode}</strong>.If you didnt do that you can ignore this message</p>`;
+            const html = `<h3>Dear ${user.firstName} ${user.lastName},</h3><p>We got a password recovery request. Your Verification Code is <strong>${recoveryCode}</strong> .If you didnt do that you can ignore this message</p>`;
 
             await sendRegistrationEmail(user.email, html);
 
@@ -385,10 +390,8 @@ class UsersController {
 
         try {
 
-            const {password, ...data} = req.body;
-
-            const userId = req.userId;
-
+            const {password, userId, ...data} = req.body;
+            
             const user = await Users.findOne({
                where:{
                     id:userId,

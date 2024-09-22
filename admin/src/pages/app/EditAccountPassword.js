@@ -19,11 +19,15 @@ const EditAccountPassword = () => {
     const errors = useSelector(state => state.users.errors);
     const loading = useSelector(state => state.users.loading);
     const messages = useSelector(state => state.users.messages);
+    const profile = useSelector(state => state.users.profile);
+
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const handleSavePassword = useCallback(async (e) => {
         e.preventDefault()
-        const {payload} = await dispatch(userUpdateProfilePasswordRequest(values))
+        // handleChange({...values, userId: profile.id})
+        
+        const {payload} = await dispatch(userUpdateProfilePasswordRequest({...values, userId: profile.id}))
         if (payload.errors?.oldPassword) {
             return setOldPasswordStatus(true)
         } else {
@@ -35,7 +39,7 @@ const EditAccountPassword = () => {
             }, 1000)
         }
 
-    }, [values])
+    }, [values, profile])
 
     return (
         <div className={'effect'}>
